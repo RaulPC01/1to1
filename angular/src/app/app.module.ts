@@ -13,8 +13,9 @@ import { LoginComponent } from './login/login.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { HomeComponent } from './home/home.component';
 import { RegistroComponent } from './registro/registro.component';
-import { ServicesComponent } from './services/services.component';
 import { ServicioComponent } from './servicio/servicio.component';
+
+/* import { ServicesComponent } from './services/services.component'; */
 
 @NgModule({
   declarations: [
@@ -29,7 +30,6 @@ import { ServicioComponent } from './servicio/servicio.component';
     PerfilComponent,
     HomeComponent,
     RegistroComponent,
-    ServicesComponent,
     ServicioComponent
   ],
   imports: [
