@@ -25,6 +25,7 @@ export class LoginComponent {
     });
   }
 
+
   onSubmit(): void {
     const { dni, password } = this.loginForm.value;
 
@@ -36,10 +37,10 @@ export class LoginComponent {
           // Redirigir a la página principal después del inicio de sesión exitoso
           this.router.navigate(['/principal']);
         },
+
         error: error => {
           this.errorMessage = 'Hubo un problema al iniciar sesión. Por favor, inténtelo de nuevo.';
         }
-    });
-  
+      }); 
   }
 }
