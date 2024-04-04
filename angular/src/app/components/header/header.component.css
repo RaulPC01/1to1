@@ -1,0 +1,47 @@
+.logo {
+    width: 8%;
+    height: auto;
+    cursor: pointer;
+}
+
+header {
+    background-color: #FF4A4A;
+    border-radius: 0px 0px 20px 20px;
+    padding: 20px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.Menu {
+    float: right;
+    padding: 10px;
+    display: flex;
+}
+
+.Menu a {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 5px 10px;
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.Menu a::after {
+    content: "";
+    display: block;
+    height: 1px;
+    transform: scale(0, 1);
+    transform-origin: center;
+    transition: transform .25s;
+    background-color: #ffffff;
+
+}
+
+.Menu a:hover::after {
+    transform: scale(1, 1);
+    background-color: #ffffff;
+}
