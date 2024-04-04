@@ -1,0 +1,8 @@
+.main {
+    min-height: calc(100vh - 149px);
+    margin-top: 80px;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 28px;
+    padding-right: 28px;
+}

@@ -1,12 +1,25 @@
-<header>
+<div class="navbar">
+    <div class="flex">
+        <a routerLink="home" class="logo">
+            <div class="flex">
+                <div class="img">
+                    <img src="../../../assets/logo.png" height="32px">
+                </div>
+                <div class="name">1to1</div>
+            </div>
+        </a>
 
-    <a routerLink="/home"><img src="../../assets/imatges/LogoBlanc.png" alt="logo" class="logo"></a>
-
-    <div class="Menu">
-        <a>INICIO</a>
-        <a>CONTACTO</a>
-        <a>MIS SERVICIOS</a>
-        <a>HASBULLAH</a>
+        <div class="links" style="margin-left: -8px;">
+            <a routerLink="" class="link link-left">Ofrecer Servicios</a>
+        </div>
     </div>
 
-</header>
+    <div class="flex">
+        <div class="links" style="margin-right: 24px;">
+            <a routerLink="contacto" class="link link-right">Contacto</a>
+        </div>
+
+        <button routerLink="login" class="login">Iniciar sesión</button>
+        <button routerLink="register" class="signup">Regístrate</button>
+    </div>
+</div>

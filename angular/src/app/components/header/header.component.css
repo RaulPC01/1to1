@@ -1,47 +1,95 @@
+.navbar {
+    height: 80px;
+    width: 100%;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 8px -8px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
 .logo {
-    width: 8%;
-    height: auto;
-    cursor: pointer;
+    height: 35px;
+    margin-left: 12px;
+    margin-right: 12px;
 }
 
-header {
-    background-color: #FF4A4A;
-    border-radius: 0px 0px 20px 20px;
-    padding: 20px 20px;
-    flex-direction: column;
-    align-items: flex-start;
+.img {
+    height: 32px;
+    width: 32px;
+    /* background: skyblue; */
 }
 
-.Menu {
-    float: right;
-    padding: 10px;
+.name {
+    margin-left: 4px;
+    color: #cc0000;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+.links {
     display: flex;
 }
 
-.Menu a {
-    background: none;
-    border: none;
-    color: #ffffff;
+.link {
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 8px;
     font-size: 16px;
-    font-weight: 700;
-    padding: 5px 10px;
-    display: block;
-    width: fit-content;
-    margin: 0 auto;
+    font-weight: 600;
+    border-radius: 8px;
 }
 
-.Menu a::after {
-    content: "";
-    display: block;
-    height: 1px;
-    transform: scale(0, 1);
-    transform-origin: center;
-    transition: transform .25s;
-    background-color: #ffffff;
-
+.link-left:hover {
+    background: #e9e8eA;
 }
 
-.Menu a:hover::after {
-    transform: scale(1, 1);
-    background-color: #ffffff;
+.link-right:hover {
+    text-decoration: underline;
+}
+
+button {
+    border: 0;
+    border-radius: 24px;
+    min-height: 40px;
+    min-width: 60px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.login {
+    background: #e60024;
+    color: #fff;
+    margin-right: 8px;
+}
+
+.login:hover {
+    background: #b40301;
+    color: #fff;
+}
+
+.signup {
+    background: #e9e9e9;
+}
+
+.signup:hover {
+    background: #e2e2e2;
 }
