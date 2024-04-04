@@ -3,43 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ContactoComponent } from './contacto/contacto.component';
-import { CreacionServicioComponent } from './creacion-servicio/creacion-servicio.component';
-import { ErrorComponent } from './error/error.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
-import { HeaderHomeComponent } from './header-home/header-home.component';
-import { LoginComponent } from './login/login.component';
-import { PerfilComponent } from './perfil/perfil.component';
-import { HomeComponent } from './home/home.component';
-import { RegistroComponent } from './registro/registro.component';
-import { ServicioComponent } from './servicio/servicio.component';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-/* import { ServicesComponent } from './services/services.component'; */
+import { ContactoComponent } from './components/contacto/contacto.component';
+import { ErrorComponent } from './components/error/error.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { RegisterComponent } from './components/auth/register/register.component';
+import { HomeComponent } from './components/home/home.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactoComponent,
-    CreacionServicioComponent,
     ErrorComponent,
     FooterComponent,
     HeaderComponent,
-    HeaderHomeComponent,
     LoginComponent,
-    PerfilComponent,
+    RegisterComponent,
     HomeComponent,
-    RegistroComponent,
-    ServicioComponent
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
