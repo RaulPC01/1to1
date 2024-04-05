@@ -17,7 +17,7 @@ import { PerfilComponent } from './components/logged/perfil/perfil.component';
 import { MainProveedorComponent } from './components/logged/proveedor/main-proveedor/main-proveedor.component';
 import { MainCompradorComponent } from './components/logged/comprador/main-comprador/main-comprador.component';
 import { ServicioComponent } from './components/logged/comprador/servicio/servicio.component';
-import { ServiciosComponent } from './components/logged/comprador/servicios/servicios.component';
+
 import { HeaderLoggedComponent } from './components/header-logged/header-logged.component';
 
 @NgModule({
@@ -34,7 +34,6 @@ import { HeaderLoggedComponent } from './components/header-logged/header-logged.
     MainProveedorComponent,
     MainCompradorComponent,
     ServicioComponent,
-    ServiciosComponent,
     HeaderLoggedComponent
   ],
   imports: [

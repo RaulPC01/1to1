@@ -36,7 +36,7 @@ export class LoginComponent {
           console.log(dni);
           //this.authService.iniciarSesion(response.dni); // Aquí se pasa el DNI al servicio
           // Redirigir a la página principal después del inicio de sesión exitoso
-          this.router.navigate(['/principal']);
+          this.router.navigate(['/home-comprador']);
         },
         error: error => {
           this.errorMessage = 'Hubo un problema al iniciar sesión. Por favor, inténtelo de nuevo.';

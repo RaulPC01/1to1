@@ -7,7 +7,7 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { HomeComponent } from './components/home/home.component';
 import { MainCompradorComponent } from './components/logged/comprador/main-comprador/main-comprador.component';
 import { ServicioComponent } from './components/logged/comprador/servicio/servicio.component';
-import { ServiciosComponent } from './components/logged/comprador/servicios/servicios.component';
+
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
@@ -16,8 +16,8 @@ const routes: Routes = [
   { path: 'contacto', component: ContactoComponent},
 
   { path: 'home-comprador', component: MainCompradorComponent},
-  { path: 'servicio', component: ServicioComponent},
-  { path: 'servicios', component: ServiciosComponent},
+  { path: 'servicios/:id_servicios', component: ServicioComponent },
+  
 
   // =====================================================
   {
