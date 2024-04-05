@@ -1,12 +1,14 @@
 .navbar {
-    height: 80px;
+    height: 70px;
     width: 100%;
     background: #fff;
     position: fixed;
     top: 0;
-    padding: 16px;
+    left: 0;
+    padding: 0px 60px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 8px -8px;
 }
 
@@ -21,32 +23,36 @@ a {
 }
 
 .logo {
-    height: 35px;
-    margin-left: 12px;
-    margin-right: 12px;
+    height: 70px;
+    width: 70px;
+    margin: 0 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 .img {
-    height: 32px;
-    width: 32px;
-    /* background: skyblue; */
-}
-
-.name {
-    margin-left: 4px;
-    color: #cc0000;
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: -1px;
+    height: 80px;
+    width: 80px;
+    display: block;
+    margin-top: 30px;
 }
 
 .links {
     display: flex;
+    align-items: center;
+    margin: 0 -50px;
+}
+
+.links-center{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
 }
 
 .link {
-    margin-left: 8px;
-    margin-right: 8px;
+    margin: 0 8px;
     padding: 8px;
     font-size: 16px;
     font-weight: 600;

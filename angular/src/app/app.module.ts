@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +18,7 @@ import { MainProveedorComponent } from './components/logged/proveedor/main-prove
 import { MainCompradorComponent } from './components/logged/comprador/main-comprador/main-comprador.component';
 import { ServicioComponent } from './components/logged/comprador/servicio/servicio.component';
 import { ServiciosComponent } from './components/logged/comprador/servicios/servicios.component';
+import { HeaderLoggedComponent } from './components/header-logged/header-logged.component';
 
 @NgModule({
   declarations: [
@@ -30,11 +34,15 @@ import { ServiciosComponent } from './components/logged/comprador/servicios/serv
     MainProveedorComponent,
     MainCompradorComponent,
     ServicioComponent,
-    ServiciosComponent
+    ServiciosComponent,
+    HeaderLoggedComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

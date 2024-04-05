@@ -1,1 +1,17 @@
-<p>login works!</p>
+<p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+
+<div class="popup" *ngIf="showPopup">
+    <div class="tarjetaLogin">
+        <span class="cerrar" (click)="togglePopup()">&times;</span>
+
+        <h1 class="titulo">Inicia sesión</h1>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <input class="Inputs" type="string" placeholder="E-Mail" formControlName="dni" required>
+            <input class="Inputs" type="password" placeholder="Contraseña" formControlName="password" required>
+            <button type="submit">Iniciar sesión</button>
+        </form>
+    
+        <p>¿No tienes cuenta?</p>
+        <a routerLink="/register">Regístrate</a>
+    </div>
+</div>

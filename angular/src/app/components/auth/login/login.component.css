@@ -1,0 +1,99 @@
+.logo { width: 8%;}
+
+.tarjetaLogin {
+    width: 475px;
+    max-height: 500px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px 0px 30px 0px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.cerrar{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 27px;
+}
+
+.cerrar:hover{
+    color: #717070;
+}
+
+.titulo {
+    font-size: 30px;
+    font-weight: bolder;
+    color: #e60024;
+    padding-top: 10px;
+}
+
+.Inputs{
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #555555;
+    margin-top: 15px;
+    padding-left: 10px;
+    background-color: white;
+    text-align: center;
+}
+
+.Inputs:hover{border-color: #e60024;}
+
+button {
+    width:64%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: #e60024;
+    color: white;
+    font-weight: bold;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: "Roboto Mono", monospace;
+}
+
+button:hover {
+    background-color: #e22a45;
+    cursor: pointer;
+    transform: scale(1.01);
+}
+
+p {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #695E5E;
+
+}
+
+a {
+    display: table;
+    text-decoration: none;
+    color: #e60024;
+    font-weight: bold;
+    margin-top: -20px;
+    margin-inline: auto;
+}
+
+a::after {
+    content: "";
+    display: block;
+    height: 1px;
+    background-color: #e60024;
+    transform: scale(0,1);
+    transform-origin: center;
+    transition: transform .25s;
+    
+  }
+
+  a:hover::after {
+    transform: scale(1,1);
+    background-color: #e60024;
+  }

@@ -1,0 +1,41 @@
+.cuerpo{
+    height: 42em;
+    display: flex;
+    padding: 3% 4%;
+}
+
+h1 { font-size: 30px; }
+h2 { font-size: 26px; }
+#texto { font-size: 16px; font-weight: 400; width: 90%; }
+
+#BIzquierda{width: 70%; padding: 30px; display: block;}
+#Linea{width: 95%; float: left;}
+
+#Formulario{display: block; font-size: 20px; font-weight: bold;}
+
+.col-md-11{
+    max-width: 86%;
+    margin-left: -12px;
+
+}
+
+label{
+    font-size: 18px;
+}
+
+#BEnviar{
+    background-color: #b40301;
+    border-radius: 5px; 
+    width: 100px;
+    font-size: 18px; 
+    color: white;
+    font-weight: bolder;
+    border: none;
+    padding: 10px;
+    transition: box-shadow 0.3s;
+}
+
+#BEnviar:hover{transform: scale(1.02);}
+
+#BDerecha{width: 23%; padding: 30px; display: block; margin-top: 7px;}
+#Linea2{width: 100%; float: left;}
