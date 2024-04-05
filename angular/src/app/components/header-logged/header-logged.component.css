@@ -81,3 +81,14 @@ button {
     font-weight: 600;
 }
 
+.bPerfil{
+    align-items: center;
+    text-align: center;
+    display: flex;
+    height: 70px;
+}
+
+.bPerfil a{
+    display: flex;
+    align-items: center;
+}
