@@ -13,6 +13,7 @@ import { TokenService } from 'src/app/token.service';
 export class LoginComponent {
   loginForm: FormGroup;
   errorMessage: string | null = null;
+  showPopup = false;
 
   constructor(
     private fb: FormBuilder, 
@@ -43,9 +44,4 @@ export class LoginComponent {
     });
   }
 
-  showPopup = false;
-
-  togglePopup() {
-    this.showPopup = !this.showPopup;
-  }
 }

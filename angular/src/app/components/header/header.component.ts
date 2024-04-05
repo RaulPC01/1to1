@@ -6,9 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  showLoginPopup = false;
+  
+  constructor() {}
 
-  toggleLoginPopup() {
-    this.showLoginPopup = !this.showLoginPopup;
-  }
 }

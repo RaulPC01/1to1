@@ -1,1 +1,22 @@
-<p>register works!</p>
+<img src="../../assets/imatges/logo1to1.png" alt="logo" class="logo">
+
+<div class="tarjetaRegistro">
+  <h1 class="titulo">Regístrate</h1>
+  <form [formGroup]="RegisterForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+      <input class="Inputs" type="text" placeholder="DNI" formControlName="dni" required>
+      <input class="Inputs" type="text" placeholder="Nombre Completo" formControlName="name" required>
+      <input class="Inputs" type="date" placeholder="Fecha Nacimiento" formControlName="dateOfBirth" required>
+      <input class="Inputs" type="email" placeholder="E-Mail" formControlName="email" required>
+      <input class="Inputs" type="tel" placeholder="Teléfono" formControlName="phone" required>
+      <input class="Inputs" type="password" placeholder="Contraseña" formControlName="password" required>
+      <input class="Inputs" type="password" placeholder="Repite la contraseña" formControlName="password_confirmation" required>
+
+      <!-- Agrega el campo de carga de imagen -->
+      <input type="file" name="image" required class="Inputs" formControlName="image">
+
+      <button type="submit">Registrarse</button>
+  </form>
+
+  <p>¿Ya tienes una cuenta?</p>
+  <a href="/login">Inicia sesión</a>
+</div>
