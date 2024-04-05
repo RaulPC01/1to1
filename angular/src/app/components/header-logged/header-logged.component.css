@@ -45,12 +45,6 @@ a {
     margin: 0 -50px;
 }
 
-.links-center{
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-}
-
 .link {
     margin: 0 8px;
     padding: 8px;
@@ -60,7 +54,7 @@ a {
 }
 
 .link-left:hover {
-    background: #e9e8eA;
+    color: #e60024;
 }
 
 .link-right:hover {
