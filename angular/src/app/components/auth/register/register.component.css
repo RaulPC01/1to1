@@ -2,9 +2,9 @@
 .logo { width: 8%;}
 
 .tarjetaRegistro {
-    width: 500px;
+    width: 475px;
     min-height: 500px;
-    border-radius: 20px;
+    border-radius: 10px;
     text-align: center;
     background-color: rgb(255, 255, 255);
     position: absolute;
@@ -18,7 +18,7 @@
 .titulo {
     font-size: 30px;
     font-weight: bolder;
-    color: #FF4A4A;
+    color: #e60024;
     padding-top: 10px;
 }
 
@@ -33,14 +33,14 @@
     text-align: center;
 }
 
-.Inputs:hover{border-color: #FF4A4A;}
+.Inputs:hover{border-color: #e60024;}
 
 button {
-    width: 320px;
+    width: 300px;
     height: 40px;
     border-radius: 10px;
-    border: 1px solid #FF4A4A;
-    background-color: #FF4A4A;
+    border: none;
+    background-color: #e60024;
     color: white;
     font-weight: bold;
     margin-top: 15px;
@@ -52,7 +52,7 @@ button {
 button:hover {
     background-color: #CC3E3E;
     cursor: pointer;
-    transform: scale(1.03);
+    transform: scale(1.01);
 }
 
 p {
@@ -65,9 +65,9 @@ p {
 a {
     display: table;
     text-decoration: none;
-    color: #FF4A4A;
+    color: #e60024;
     font-weight: bold;
-    margin-top: -10px;
+    margin-top: -20px;
     margin-inline: auto;
 }
 
@@ -75,7 +75,7 @@ a::after {
     content: "";
     display: block;
     height: 1px;
-    background-color: #FF4A4A;
+    background-color: #e60024;
     transform: scale(0,1);
     transform-origin: center;
     transition: transform .25s;
@@ -84,5 +84,5 @@ a::after {
 
   a:hover::after {
     transform: scale(1,1);
-    background-color: #CC3E3E;
+    background-color: #e60024;
   }
