@@ -5,6 +5,7 @@ import { ContactoComponent } from './components/contacto/contacto.component';
 import { ErrorComponent } from './components/error/error.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { HomeComponent } from './components/home/home.component';
+import { CrearServicioComponent } from './components/logged/proveedor/crear-servicio/crear-servicio.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
@@ -20,6 +21,10 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'crearServicio',
+    component: CrearServicioComponent
   },
   // =====================================================
   {
