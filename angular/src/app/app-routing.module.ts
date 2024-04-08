@@ -26,8 +26,7 @@ const routes: Routes = [
 
   { path: 'servicio', component: ServicioComponent},
 
-  { path: 'contratar-servicio', component: ContratarServicioComponent},
-
+  { path: 'contratar/:id', component: ContratarServicioComponent },
 
   // =====================================================
   {

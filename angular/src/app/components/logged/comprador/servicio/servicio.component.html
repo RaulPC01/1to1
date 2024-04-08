@@ -1,1 +1,55 @@
-<p>servicio works!</p>
+
+<div class="paneles">
+  <div class="infoServicio">
+    <h1 class="tituloServicio">{{ servicio.tipo_servicio }}</h1>
+    <p class="descripcionServicio">{{servicio.descripcion}}
+    </p>
+
+    <div class="etiqueta">
+      <div class="etiquetas">
+        <p class="etiqueta">Etiqueta1</p>
+        <p class="etiqueta">Etiqueta2</p>
+        <p class="etiqueta">Etiqueta3</p>
+        <p class="etiqueta">Etiqueta4</p>
+        <p class="etiqueta">Etiqueta5</p>
+      </div>
+    </div>
+    <hr>
+    <p class="nombreUsu">Sobre Usuario</p>
+    <p class="descripcionUsu">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Ipsa pariatur dolor aliquam consequuntur quidem, reprehenderit dolore facilis sapiente
+      acere quis a distinctio ab error mollitia? Fugiat dignissimos magni velit earum!</p>
+
+  </div>
+
+  <div class="panelDerecha">
+
+    <div class="tarjeta">
+      <div class="fotoPerfil" [ngClass]="{ 'fotoCompleta': mostrarCompleta }" (click)="toggleImagenCompleta()">
+        <img src="../assets/imatges/Raul.jpeg" alt="Foto de perfil">
+      </div>
+      <div class="datos">
+
+        <p class="nombre">{{servicio.user.name}}</p>
+        <img src="../assets/imatges/grupopEstrellas.png" class="estrellas">
+        <p class="edad"></p>
+        <p class="ciudad">{{edadUsuario}} años 
+        <p>
+
+      </div>
+    </div>
+    <div class="tarjeta1">
+
+      <!-- el uppercase es para que sea cual sea la ciudad este siempre en mayuscula -->
+      <h1 class="ciudad2">{{ servicio.poblacion.nombre_poblacion | uppercase }}<p>(<span class="Sitio">Presencial</span>)</p> </h1> 
+      <p class="distancia">40 KM/redonda</p>
+      <p class="precio">{{servicio.tarifa}} €</p>
+      <button class="contratar"  [routerLink]="['/contratar', servicio.id_servicios]">CONTRATAR</button>
+    </div>
+
+  </div>
+
+
+<div>
+
+    
