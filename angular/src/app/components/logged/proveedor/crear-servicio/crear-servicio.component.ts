@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,6 +9,21 @@ import { Component } from '@angular/core';
 export class CrearServicioComponent {
   precio!: number;
   mensajeError: string = '';
+  provincias: any[] = [];
+  provinciaSeleccionada: string | undefined;
+  ciudadesPorProvincia: { [key: string]: any[] } = {};
+  ciudadSeleccionada: string | undefined;
+
+  constructor(private http: HttpClient) { }
+
+  ngOnInit(): void {
+    this.http.get<any[]>('/assets/ciudadesEspana.json').subscribe(data => {
+      this.provincias = data;
+      this.provincias.forEach(provincia => {
+        this.ciudadesPorProvincia[provincia.code] = provincia.towns;
+      });
+    });
+  }
 
   validarPrecio() {
     if (this.precio < 0) {
@@ -16,4 +32,6 @@ export class CrearServicioComponent {
       this.mensajeError = ''; 
     }
   }
+
+  
 }
