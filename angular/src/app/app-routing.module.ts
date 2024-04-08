@@ -8,6 +8,8 @@ import { HomeComponent } from './components/home/home.component';
 import { MainCompradorComponent } from './components/logged/comprador/main-comprador/main-comprador.component';
 import { ServicioComponent } from './components/logged/comprador/servicio/servicio.component';
 
+import { ServiciosComponent } from './components/logged/comprador/servicios/servicios.component';
+import { ContratarServicioComponent } from './components/logged/comprador/contratar-servicio/contratar-servicio.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
@@ -18,6 +20,10 @@ const routes: Routes = [
   { path: 'home-comprador', component: MainCompradorComponent},
   { path: 'servicios/:id_servicios', component: ServicioComponent },
   
+  { path: 'servicio', component: ServicioComponent},
+  { path: 'servicios', component: ServiciosComponent},
+  { path: 'contratar-servicio', component: ContratarServicioComponent},
+
 
   // =====================================================
   {

@@ -19,6 +19,7 @@ import { MainCompradorComponent } from './components/logged/comprador/main-compr
 import { ServicioComponent } from './components/logged/comprador/servicio/servicio.component';
 
 import { HeaderLoggedComponent } from './components/header-logged/header-logged.component';
+import { ContratarServicioComponent } from './components/logged/comprador/contratar-servicio/contratar-servicio.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,9 @@ import { HeaderLoggedComponent } from './components/header-logged/header-logged.
     MainCompradorComponent,
     ServicioComponent,
     HeaderLoggedComponent
+    ServiciosComponent,
+    HeaderLoggedComponent,
+    ContratarServicioComponent
   ],
   imports: [
     BrowserModule,
