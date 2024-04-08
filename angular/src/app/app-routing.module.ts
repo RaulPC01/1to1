@@ -5,13 +5,20 @@ import { ContactoComponent } from './components/contacto/contacto.component';
 import { ErrorComponent } from './components/error/error.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { HomeComponent } from './components/home/home.component';
-import { CrearServicioComponent } from './components/logged/proveedor/crear-servicio/crear-servicio.component';
+import { MainCompradorComponent } from './components/logged/comprador/main-comprador/main-comprador.component';
+import { ServicioComponent } from './components/logged/comprador/servicio/servicio.component';
+import { ServiciosComponent } from './components/logged/comprador/servicios/servicios.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   
   { path: 'contacto', component: ContactoComponent},
+
+  { path: 'home-comprador', component: MainCompradorComponent},
+  { path: 'servicio', component: ServicioComponent},
+  { path: 'servicios', component: ServiciosComponent},
+
   // =====================================================
   {
     path: 'home',
@@ -21,10 +28,6 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  },
-  {
-    path: 'crearServicio',
-    component: CrearServicioComponent
   },
   // =====================================================
   {

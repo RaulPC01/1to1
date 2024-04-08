@@ -1,0 +1,88 @@
+.navbar {
+    height: 70px;
+    width: 100%;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 8px -8px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 70px;
+    width: 70px;
+    margin: 0 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.img {
+    height: 80px;
+    width: 80px;
+    display: block;
+    margin-top: 30px;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    margin: 0 -50px;
+}
+
+.link {
+    margin: 0 8px;
+    padding: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.link-left:hover {
+    color: #e60024;
+}
+
+.link-right:hover {
+    background: #e9e8eA;
+}
+
+button {
+    border: 0;
+    border-radius: 24px;
+    min-height: 40px;
+    min-width: 60px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.bPerfil{
+    align-items: center;
+    text-align: center;
+    display: flex;
+    height: 70px;
+}
+
+.bPerfil a{
+    display: flex;
+    align-items: center;
+}

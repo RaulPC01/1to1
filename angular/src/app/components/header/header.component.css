@@ -45,11 +45,6 @@ a {
     margin: 0 -50px;
 }
 
-.links-center{
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-}
 
 .link {
     margin: 0 8px;
@@ -59,7 +54,7 @@ a {
     border-radius: 8px;
 }
 
-.link-left:hover {
+.link-center:hover {
     background: #e9e8eA;
 }
 
