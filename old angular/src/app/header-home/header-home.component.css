@@ -1,0 +1,204 @@
+.logo {
+  width: 8%;
+  height: auto;
+  cursor: pointer;
+}
+
+header {
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #FF4A4A;
+  border-radius: 0px 0px 20px 20px;
+  padding: 20px 20px;
+}
+
+/*----------------------------MENU-----------------------------*/
+.Menu {
+  float: right;
+  padding: 10px;
+  display: flex;
+  top: 80%;
+  margin-left: auto;
+}
+
+.Menu a {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bolder;
+  padding: 5px 5px;
+  display: block;
+  margin: auto auto;
+  width: fit-content;
+  height: 100%;
+  margin: 0 10px;
+  justify-content: flex-end;
+  text-decoration: none;
+}
+
+.Menu a::after {
+  content: "";
+  display: block;
+  height: 1px;
+  transform: scale(0, 1);
+  transform-origin: center;
+  transition: transform .25s;
+  background-color: #ffffff;
+
+}
+
+.Menu a:hover::after {
+  transform: scale(1, 2);
+  background-color: #ffffff;
+}
+
+.Menu a span.material-symbols-outlined {
+  font-size: 25px; /* El tamaño que desees */
+} 
+
+
+/*-----------------------PIPE-------------------*/
+.pipe{
+  color: #ffffff;
+  margin: 0 5px;
+  justify-content: center;
+  text-align: center;
+  display: inline-block;
+  content: "";
+  display: inline-block;
+  height: 2em;
+  width: 1.5px;
+  background-color: #ffffff;
+  margin: 0 5px;
+  vertical-align: middle;
+}
+
+.pipe-medium {
+  color: #ffffff;
+  margin: 0 5px;
+  justify-content: center;
+  text-align: center;
+  display: inline-block;
+  content: "";
+  display: inline-block;
+  height: 2em;
+  width: 1.5px; /* Ancho del pipe */
+  background-color: #ffffff;
+  margin: 0 5px;
+  vertical-align: middle; /* Alinea verticalmente con el texto */
+}
+
+.pipe-right{
+  color: #ffffff;
+  margin: 0 5px;
+  justify-content: center;
+  text-align: center;
+  display: inline-block;
+  content: "";
+  display: inline-block;
+  height: 2em;
+  width: 1.5px; /* Ancho del pipe */
+  background-color: #ffffff;
+  margin: 0 5px;
+  vertical-align: middle; /* Alinea verticalmente con el texto */
+}
+
+
+
+.botones{
+  border-radius: 20px;
+  /*
+  background-color: #E9E9E9;
+  color: #FF4A4A;
+  */
+  background-color: #f4a2a2;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  margin-left: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.botones[value="botonAcceder"]{
+  background-color: white;
+  color: #FF4A4A;
+}
+
+.botones:hover {
+  transform: scale(1.02);
+}
+
+
+.BarraBusqueda {
+  position: absolute;
+  left: 50%; /* Centrar horizontalmente */
+  transform: translateX(-50%); /* Centrar horizontalmente */
+  border-radius: 25px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 41%;
+  margin-top: -70px;
+  margin-inline: auto;
+  padding: 10px;
+}
+
+.BarraBusqueda input[type="text"] {
+  border: none;
+  border-radius: 25px 0px 0px 25px;
+  padding: 13px;
+  width: 150%;
+  height: 41%;
+}
+
+.botonBusqueda {
+  border: none;
+  background-color: #fff;
+  color: #FF4A4A;
+  padding: 9px 16px;
+  border-radius: 0 25px 25px 0;
+  cursor: pointer;
+  height: 80%;
+}
+
+
+.MenuCategorias {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 700px;
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 10px 20px;
+  margin-top: 1%;
+}
+
+.Categorias {
+  background: none;
+  border: none;
+  color: #4A4747;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.Categorias::after {
+  content: "";
+  display: block;
+  height: 1px;
+  transform: scale(0, 1);
+  transform-origin: center;
+  transition: transform .25s;
+  background-color: #FF4A4A;
+}
+
+.Categorias:hover::after {
+  transform: scale(1, 1);
+  background-color: #FF4A4A;
+}

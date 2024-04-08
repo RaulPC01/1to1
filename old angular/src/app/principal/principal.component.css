@@ -1,0 +1,121 @@
+.centered-pagination {
+  display: flex;
+  justify-content: center;
+}
+
+
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  width: 95%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+ 
+}
+
+.fotoPerfil {
+  width: 200px;
+  border-radius: 50%;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+.tarjeta {
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+  margin-left: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 0px #e0e0e0, 0px 2px 6px rgba(0.1, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.tarjeta:hover {
+  box-shadow: 0px 0px 10px 0px #e0e0e0, 0px 4px 8px rgba(0, 0, 0, 0.2);
+  scale: 1.05;
+}
+
+.fotoProducto {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.nombreProducto {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.precio {
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  background-color: #FF4A4A;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  width: fit-content;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.nombreCategoria {
+  font-size: 14px;
+  color: #666666;
+  margin-bottom: 20px;
+}
+
+.precio:hover {
+  background-color: #d13d3d;
+  scale: 1.05;
+}
+
+.frase {
+  font-size: 25px;
+  color: #4A4747;
+  text-align: center;
+  margin: 1%;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .tarjetas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tarjeta {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .tarjetas {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .tarjeta {
+    width: 100%;
+  }
+}
+
+.sitio{
+
+  font-size: smaller;
+}

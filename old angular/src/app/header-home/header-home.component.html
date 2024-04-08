@@ -1,0 +1,34 @@
+<header>
+
+  <a routerLink="/principal"><img src="../../assets/imatges/LogoBlanc.png" alt="logo" class="logo"></a>
+  <div class="Menu">
+    <a routerLink="/principal">INICIO</a>
+    <span class="pipe"></span>
+    <a routerLink="">MIS SERVICIOS</a>
+    <span class="pipe pipe-medium"></span>
+    <a routerLink="/contacto">CONTACTO</a>
+    <span class="pipe pipe-right"></span>
+    <a routerLink="/perfil">PERFIL</a>
+    <a>
+      <span id="logout" class="material-symbols-outlined"> logout </span>
+    </a>
+  </div>
+
+
+  <div class="BarraBusqueda">
+    <input type="text" placeholder="Busca a tu Professional..">
+    <button class="botonBusqueda"><span class="material-symbols-outlined"> search </span></button>
+  </div>
+
+
+  <div class="MenuCategorias">
+    <button class="Categorias" (click)="filtrarServicios('CARPINTERIA')">CARPINTERIA</button>
+    <button class="Categorias" (click)="filtrarServicios('MECANICO')">MECANICO</button>
+    <button class="Categorias" (click)="filtrarServicios('PROFESSOR')">PROFESSOR</button>
+    <button class="Categorias" (click)="filtrarServicios('ENTRENADOR')">ENTRENADOR</button>
+    <button class="Categorias" (click)="filtrarServicios('ALBAÑIL')">ALBAÑIL</button>
+    <button class="Categorias" (click)="filtrarServicios('MODISTA')">MODISTA</button>
+    <button class="Categorias" (click)="filtrarServicios('COCINERO')">COCINERO</button>
+  </div>
+  
+</header>

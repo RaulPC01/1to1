@@ -1,0 +1,29 @@
+<app-header-home></app-header-home>
+
+<div class="body">
+  <p class="frase">Los profesionales con más puntuaciones por la comunidad <img src="../assets/imatges/grupopEstrellas.png" alt="estrellas"></p>
+
+  <div class="tarjetas">
+    <div class="tarjeta" *ngFor="let service of topRatedServices | paginate: { itemsPerPage: 12, currentPage: page } ">
+      <a [routerLink]="['/servicios', service.id_servicios]">
+        <div class="enlinea">
+          <!-- <img class="fotoPerfil src="{{service.user.image}}" class="imagen"> -->
+          <img class="fotoPerfil" src="../assets/imatges/Raul.jpeg" height="200px">
+          <div class="nombreEstre">
+            <p class="nombre">{{ service.user.name }}</p>
+            <img *ngFor="let estrella of nEstrellas(service.puntuacion_valoracion)" src="../assets/imatges/1_estrella.png" alt="estrella" height="20px">
+          </div>
+        </div>
+        <div class="ciudad">{{ service.poblacion.nombre_poblacion }}</div>
+        <div class="precio">{{ service.tarifa }}€</div>
+        <div class="nombreCategoria">{{ service.categories.nombre_cateogira }}</div>
+      </a>
+    </div>
+
+   
+</div>
+
+<pagination-controls [class.pageChange]="true" (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+
+
+<app-footer></app-footer>
