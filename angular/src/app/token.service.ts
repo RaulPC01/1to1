@@ -44,7 +44,7 @@ export class TokenService {
   cerrarSesion(): void {
     this.usuarioAutenticado = false;
     this.Idtoken = '';
-    localStorage.removeItem('dniUsuario');
+    localStorage.removeItem('Idtoken'); // Elimina el token almacenado
   }
 
   estaAutenticado(): boolean {

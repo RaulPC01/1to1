@@ -1,4 +1,12 @@
-<app-header></app-header>
+<div></div>
+
+<ng-container *ngIf="isLoggedIn; else loggedOutHeader">
+  <app-header-logged></app-header-logged>
+</ng-container>
+<ng-template #loggedOutHeader>
+  <app-header></app-header>
+</ng-template>
+
 <div class="main">
   <router-outlet></router-outlet>
 </div>

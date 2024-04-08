@@ -5,7 +5,7 @@
 
         <h1 class="titulo">Inicia sesión</h1>
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-            <input class="Inputs" type="string" placeholder="E-Mail" formControlName="dni" required>
+            <input class="Inputs" type="string" placeholder="DNI" formControlName="dni" required>
             <input class="Inputs" type="password" placeholder="Contraseña" formControlName="password" required>
             <button type="submit">Iniciar sesión</button>
         </form>
