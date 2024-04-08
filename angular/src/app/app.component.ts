@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TokenService } from './token.service';
 
 @Component({
@@ -6,10 +6,14 @@ import { TokenService } from './token.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  isLoggedIn: boolean;
+export class AppComponent implements OnInit {
+  isLoggedIn = false; // Asegúrate de que isLoggedIn sea inicializado aquí
 
-  constructor(private tokenService: TokenService) {
-    this.isLoggedIn = this.tokenService.estaAutenticado(); // Método que verifica si el usuario está autenticado
+  constructor(private tokenService: TokenService) { }
+
+  ngOnInit(): void {
+    this.tokenService.usuarioAutenticado$.subscribe(auth => {
+      this.isLoggedIn = auth;
+    });
   }
 }

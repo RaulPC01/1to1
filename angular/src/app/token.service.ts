@@ -1,31 +1,32 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TokenService {
+  private usuarioAutenticadoSubject = new BehaviorSubject<boolean>(false);
+  usuarioAutenticado$ = this.usuarioAutenticadoSubject.asObservable();
 
-  private usuarioAutenticado: boolean = false;
   private Idtoken: string = '';
 
-  constructor(
-    private http: HttpClient
-  ) {
+  constructor(private http: HttpClient, private router: Router) {
     this.cargarUsuarioAutenticado();
   }
 
   private cargarUsuarioAutenticado(): void {
     const idTokenAlmacenado = localStorage.getItem('Idtoken');
     if (idTokenAlmacenado) {
-      this.usuarioAutenticado = true;
+      this.usuarioAutenticadoSubject.next(true);
       this.Idtoken = idTokenAlmacenado;
     }
   }
 
   iniciarSesion(token: string): void {
-    this.usuarioAutenticado = true;
+    this.usuarioAutenticadoSubject.next(true);
     this.Idtoken = token;
     localStorage.setItem('Idtoken', token);
   }
@@ -33,8 +34,8 @@ export class TokenService {
   login(dni: string, password: string): Observable<string> {
     return this.http.post<string>('http://localhost:8000/api/login', { dni, password }).pipe(
       map((result: any) => {
-        localStorage.setItem('Idtoken',  result.authToken);
-        this.usuarioAutenticado = true;
+        localStorage.setItem('Idtoken', result.authToken);
+        this.usuarioAutenticadoSubject.next(true);
         this.Idtoken = result.token;
         return result.token;
       })
@@ -42,13 +43,14 @@ export class TokenService {
   }
 
   cerrarSesion(): void {
-    this.usuarioAutenticado = false;
+    this.usuarioAutenticadoSubject.next(false);
     this.Idtoken = '';
-    localStorage.removeItem('Idtoken'); // Elimina el token almacenado
+    localStorage.removeItem('Idtoken');
+    this.router.navigate(['/']); // Redirige al usuario a la ruta raíz
   }
 
   estaAutenticado(): boolean {
-    return this.usuarioAutenticado;
+    return this.usuarioAutenticadoSubject.value;
   }
 
   obtenerTokenUsuario(): string | null {

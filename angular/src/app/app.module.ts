@@ -35,9 +35,8 @@ import { ContratarServicioComponent } from './components/logged/comprador/contra
     MainProveedorComponent,
     MainCompradorComponent,
     ServicioComponent,
-    HeaderLoggedComponent
-    ServiciosComponent,
     HeaderLoggedComponent,
+    
     ContratarServicioComponent
   ],
   imports: [
