@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/auth/login/login.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MainCompradorComponent } from './components/logged/comprador/main-comprador/main-comprador.component';
 import { ServicioComponent } from './components/logged/comprador/servicio/servicio.component';
 import { ServiciosComponent } from './components/logged/comprador/servicios/servicios.component';
+import { CrearServicioComponent } from './components/logged/proveedor/crear-servicio/crear-servicio.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   
   { path: 'contacto', component: ContactoComponent},
 
+  {path: 'home-comprador', component: CrearServicioComponent},
   { path: 'home-comprador', component: MainCompradorComponent},
   { path: 'servicio', component: ServicioComponent},
   { path: 'servicios', component: ServiciosComponent},
