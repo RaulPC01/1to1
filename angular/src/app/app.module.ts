@@ -37,7 +37,8 @@ import { CrearServicioComponent } from './components/logged/proveedor/crear-serv
     ServicioComponent,
     ServiciosComponent,
     HeaderLoggedComponent,
-    CrearServicioComponent
+    CrearServicioComponent,
+    
   ],
   imports: [
     BrowserModule,

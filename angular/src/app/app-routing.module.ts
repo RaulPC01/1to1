@@ -16,6 +16,7 @@ const routes: Routes = [
   
   { path: 'contacto', component: ContactoComponent},
 
+  {path: 'tarjeta-servicio', component: ServicioComponent},
   {path: 'crear-servicio', component: CrearServicioComponent},
   { path: 'home-comprador', component: MainCompradorComponent},
   { path: 'servicio', component: ServicioComponent},
