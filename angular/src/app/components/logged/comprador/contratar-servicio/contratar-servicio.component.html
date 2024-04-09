@@ -1,18 +1,22 @@
 <form>
     <h1>Un útlimo paso...</h1>
     
-    <div>
+    <div class="contingut">
         <div>
-            <p>Categoría</p>
-            <p>Nom de la categoria</p>
+            <p class="servicio">Servicio</p>
         </div>
 
-        <div>
-            <p>Descripció del servei:</p>
-            <input type="text" name="descripcio" placeholder="Afegeix" required>
+        <div class="divDescripcio">
+            <p class="descripcion">Descripción del servicio: *</p>
+            <textarea class="tDescripcion" rows="4" cols="50" placeholder="Describe el servicio que quieres recibir" required></textarea>
         </div>  
+
+        <div class="divPrecio">
+            <p>Precio: </p>
+            <p class="precio"> 18€</p>
+        </div>
 
     </div>
 
-    <button type="submit">Crear servicio</button>
+    <button type="submit">Contratar</button>
 </form>
