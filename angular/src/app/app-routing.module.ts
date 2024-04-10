@@ -9,6 +9,7 @@ import { MainCompradorComponent } from './components/logged/comprador/main-compr
 import { ServicioComponent } from './components/logged/comprador/servicio/servicio.component';
 import { ServiciosComponent } from './components/logged/comprador/servicios/servicios.component';
 import { CrearServicioComponent } from './components/logged/proveedor/crear-servicio/crear-servicio.component';
+import { ContratarServicioComponent } from './components/logged/comprador/contratar-servicio/contratar-servicio.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
@@ -21,6 +22,9 @@ const routes: Routes = [
   { path: 'home-comprador', component: MainCompradorComponent},
   { path: 'servicio', component: ServicioComponent},
   { path: 'servicios', component: ServiciosComponent},
+  { path: 'servicios', component: ServiciosComponent },
+  { path: 'contratar-servicio', component: ContratarServicioComponent},
+
 
   // =====================================================
   {
