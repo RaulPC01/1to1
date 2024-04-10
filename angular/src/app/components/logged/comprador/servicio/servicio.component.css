@@ -92,3 +92,26 @@ section h2 {
     background-color: transparent;
     border: 1px solid black;
 }
+
+span{
+    display: flex;
+    justify-content: center;
+   gap: 2px;
+}
+span p{
+    font-size: 20px;
+    padding: 2px;
+}
+
+.material-symbols-outlined{
+    position: end;
+}
+
+.infoS{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+.titulo{
+    font-size: larger;
+}
