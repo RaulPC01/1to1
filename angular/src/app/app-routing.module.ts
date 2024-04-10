@@ -10,13 +10,14 @@ import { ServicioComponent } from './components/logged/comprador/servicio/servic
 import { ServiciosComponent } from './components/logged/comprador/servicios/servicios.component';
 import { CrearServicioComponent } from './components/logged/proveedor/crear-servicio/crear-servicio.component';
 import { ContratarServicioComponent } from './components/logged/comprador/contratar-servicio/contratar-servicio.component';
+import { PerfilComponent } from './components/logged/perfil/perfil.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   
   { path: 'contacto', component: ContactoComponent},
-
+  { path: 'perfil', component: PerfilComponent},
   {path: 'tarjeta-servicio', component: ServicioComponent},
   {path: 'crear-servicio', component: CrearServicioComponent},
   { path: 'home-comprador', component: MainCompradorComponent},
