@@ -8,11 +8,8 @@ section {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    padding: 10px 0;
-    
-
+    padding: 30px ;
 }
-
 
 section h2 {
     width: 100%;
@@ -23,22 +20,22 @@ section h2 {
 .card {
     width: fit-content;
     margin-top: 100px;
-    
 }
 
-
+.card.estilo-b{
+    width: 17%;
+}
 
 .estilo-b {
     font-family: sans-serif;
     text-align: center;
-    width: 20%;
-    height: fit-content;
+    width: 2    0%;
+    height: auto;
 }
 
 .estilo-b .img-container {
     overflow: hidden;
     position: relative;
-
 }
 
 .estilo-b .img-container img {
@@ -66,7 +63,7 @@ section h2 {
 }
 
 .estilo-b .img-container .favorite svg {
-    transform: translatey(14px);
+    transform: translateY(14px);
 }
 
 .estilo-b .img-container .favorite:hover {
@@ -93,25 +90,33 @@ section h2 {
     border: 1px solid black;
 }
 
-span{
+span {
     display: flex;
     justify-content: center;
-   gap: 2px;
+    gap: 2px;
 }
-span p{
+
+span p {
     font-size: 20px;
     padding: 2px;
 }
 
-.material-symbols-outlined{
+.material-symbols-outlined {
     position: end;
 }
 
-.infoS{
+.infoS {
     display: flex;
     justify-content: space-between;
     padding: 10px;
 }
-.titulo{
+
+.titulo {
     font-size: larger;
+}
+
+@media (min-width: 768px) { 
+    .estilo-b {
+        width: 45%; 
+    }
 }
