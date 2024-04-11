@@ -30,7 +30,7 @@ Route::post('/api/services/top-valorated', [ServiceController::class, 'getTopRat
 Route::get('services/{id_servicios}', [ServiceController::class, 'getServiceWithRelations']);
 
 Route::middleware('auth:sanctum')->get('/perfil', [ProfileController::class, 'show'] );
-Route::get('/api/categories', [categoriesController::class, 'index']);
+Route::get('/categories', [categoriesController::class, 'index']);
 
 Route::post('/api/crear-servicio', [ServiceController::class, 'createService']);
 
