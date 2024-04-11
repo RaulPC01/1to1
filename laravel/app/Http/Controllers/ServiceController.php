@@ -11,17 +11,28 @@ class ServiceController extends Controller
 {
     public function createService(Request $request)
     {
-        $datos = $request->validate([
-            'id_servicio',
-            'Dni_usuario',
-            'id_categoria',
-            'nombre_poblacion',
-            'tarifa',
-            'descripcion',
-            'valoracion_servicio'
+        $validatedData = $request->validate([
+            'nombre' => 'required|string',
+            'precio' => 'required|numeric',
+            'categoria' => 'required|integer',
+            'poblacion' => 'required|string',
+            'descripcion' => 'required|string',
         ]);
 
-        // Aquí deberías guardar los datos recibidos en la base de datos
+        // Obtener el ID del usuario proveedor desde el token de autenticación
+        $idUsuarioProveedor = auth()->user()->dni;
+
+        $service = services::create([
+            'id_usuario_proveedor' => $idUsuarioProveedor,
+            'id_categoria' => $validatedData['categoria'],
+            'nombre_poblacion' => $validatedData['poblacion'],
+            'tarifa' => $validatedData['precio'],
+            'descripcion' => $validatedData['descripcion'],
+            'tipo_servicio' => $validatedData['nombre'],
+            'puntuacion_valoracion' => 0, 
+        ]);
+
+        return response()->json($service, 201);
     }
     public function user()
     {
@@ -46,6 +57,5 @@ class ServiceController extends Controller
     }
 
     
-
-    
+       
 }

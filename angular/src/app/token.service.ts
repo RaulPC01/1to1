@@ -13,6 +13,8 @@ export class TokenService {
 
   private Idtoken: string = '';
 
+  private DNIuser : string = '';
+
   constructor(private http: HttpClient, private router: Router) {
     this.cargarUsuarioAutenticado();
   }
@@ -37,7 +39,9 @@ export class TokenService {
         localStorage.setItem('Idtoken', result.authToken);
         this.usuarioAutenticadoSubject.next(true);
         this.Idtoken = result.token;
+        this.DNIuser=dni;
         return result.token;
+
       })
     );
   }

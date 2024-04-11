@@ -26,7 +26,7 @@ export class RegisterComponent {
       phone: ['', Validators.required],
       password: ['', Validators.required],
       password_confirmation: ['', Validators.required],
-      image: [''] // Eliminamos Validators.required aquí para permitir que el usuario seleccione la imagen opcionalmente
+    
     });
   }
 
@@ -41,7 +41,7 @@ export class RegisterComponent {
       formData.append('phone', this.RegisterForm.value.phone);
       formData.append('password', this.RegisterForm.value.password);
       formData.append('password_confirmation', this.RegisterForm.value.password_confirmation);
-      formData.append('image', this.RegisterForm.value.image);
+
       
 
       this.http.post<any>('http://localhost:8000/api/register', formData)

@@ -18,19 +18,10 @@ class AuthController extends Controller
             'email' => 'required|email|unique:users',
             'phone' => 'required|string',
             'password' => 'required|string',
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Añade validaciones para la imagen
+         
         ]);
     
-        // Guardar la imagen en un directorio
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = time() . '_' . $image->getClientOriginalName();
-            $image->move(public_path('uploads'), $imageName);
-            $imagePath = '/uploads/' . $imageName;
-        } else {
-            $imagePath = null;
-        }
-    
+       
         // Crear un nuevo objeto User con los datos del formulario
         $user = new User();
         $user->dni = $request->dni;
@@ -39,7 +30,6 @@ class AuthController extends Controller
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->password = Hash::make($request->password);
-        $user->image = $imagePath;
         $user->created_at = now();
     
         // Guardar el nuevo usuario en la base de datos
