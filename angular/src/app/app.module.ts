@@ -20,6 +20,7 @@ import { ServicioComponent } from './components/logged/comprador/servicio/servic
 
 import { HeaderLoggedComponent } from './components/header-logged/header-logged.component';
 import { ContratarServicioComponent } from './components/logged/comprador/contratar-servicio/contratar-servicio.component';
+import { CrearServicioComponent } from './components/logged/proveedor/crear-servicio/crear-servicio.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ContratarServicioComponent } from './components/logged/comprador/contra
     ServicioComponent,
     HeaderLoggedComponent,
     
-    ContratarServicioComponent
+    ContratarServicioComponent,
+          CrearServicioComponent
   ],
   imports: [
     BrowserModule,

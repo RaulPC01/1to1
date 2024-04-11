@@ -1,0 +1,54 @@
+.cuerpo{
+    display: flex;
+}
+
+/* Estilos para el contenedor del formulario */
+.derecha {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Estilos para los campos de entrada */
+  input[type="text"],
+  input[type="date"],
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Incluye el relleno y el borde en el ancho total */
+  }
+  
+  /* Estilos para los botones */
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Estilos para los botones secundarios */
+  button[type="button"] {
+    background-color: #6c757d;
+  }
+  
+  /* Estilos para el botón de enviar */
+  button[type="submit"] {
+    background-color: #28a745;
+  }
+  
+  /* Estilos para los títulos */
+  h2, h3 {
+    margin-bottom: 15px;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
