@@ -6,14 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./crear-servicio.component.css']
 })
 export class CrearServicioComponent {
-  mostrarDatosPersonales: boolean = true;
-  mostrarDireccion: boolean = false;
-  mostrarContacto: boolean = false;
-  mostrarColegiado: boolean = false;
-  mostrarTitulacion: boolean = false;
-  mostrarExperiencia: boolean = false;
-  mostrarPagosDevoluciones: boolean = false;
-  mostrarOpciones: boolean = false;
+  mostrarCategoria: boolean = true;
+  mostrarNombre: boolean = false;
+  mostrarDescripcion: boolean = false;
+  mostrarTarifa: boolean = false;
+  mostrarPoblacion: boolean = false;
+  mostrarImagen: boolean = false;
 
   registro: any = {};
 
@@ -23,73 +21,59 @@ export class CrearServicioComponent {
     // Aquí iría la lógica para enviar el formulario
   }
 
-  verDireccion() {
-    this.mostrarDatosPersonales = false;
-    this.mostrarDireccion = true;
+  volverCategoria(){
+    this.mostrarNombre = false;
+    this.mostrarCategoria = true;
   }
 
-  verContacto() {
-    this.mostrarDireccion = false;
-    this.mostrarContacto = true;
+  //----------NOMBRE SERVICIO------------\\
+  verNombreServicio() {
+    this.mostrarCategoria = false;
+    this.mostrarNombre = true;
   }
 
-  verColegiado() {
-    this.mostrarContacto = false;
-    this.mostrarColegiado = true;
+  volverNombreServicio(){
+    this.mostrarDescripcion = false;
+    this.mostrarNombre = true;
   }
 
-  verTitulacion() {
-    this.mostrarColegiado = false;
-    this.mostrarTitulacion = true;
+  //----------DESCRIPCION------------\\
+  verDescripcion() {
+    this.mostrarNombre = false;
+    this.mostrarDescripcion = true;
   }
 
-  verExperiencia() {
-    this.mostrarTitulacion = false;
-    this.mostrarExperiencia = true;
+  volverDescripcion(){
+    this.mostrarTarifa = false;
+    this.mostrarDescripcion = true;
   }
 
-  verPagosDevoluciones() {
-    this.mostrarExperiencia = false;
-    this.mostrarPagosDevoluciones = true;
+  //----------TARIFA------------\\
+  verTarifa() {
+    this.mostrarDescripcion = false;
+    this.mostrarTarifa = true;
   }
 
-  verOpciones() {
-    this.mostrarPagosDevoluciones = false;
-    this.mostrarOpciones = true;
+  volverTarifa(){
+    this.mostrarPoblacion = false;
+    this.mostrarTarifa = true;
   }
 
-  verAnteriorDatosPersonales() {
-    this.mostrarDireccion = false;
-    this.mostrarDatosPersonales = true;
+  //----------DESCRIPCION------------\\
+  verPoblacion() {
+    this.mostrarTarifa = false;
+    this.mostrarPoblacion = true;
   }
 
-  verAnteriorDireccion() {
-    this.mostrarContacto = false;
-    this.mostrarDireccion = true;
+  volverPoblacion(){
+    this.mostrarImagen = false;
+    this.mostrarPoblacion = true;
   }
 
-  verAnteriorContacto() {
-    this.mostrarColegiado = false;
-    this.mostrarContacto = true;
+  //----------Imagen------------\\
+  verImagen() {
+    this.mostrarPoblacion = false;
+    this.mostrarImagen = true;
   }
 
-  verAnteriorColegiado() {
-    this.mostrarTitulacion = false;
-    this.mostrarColegiado = true;
-  }
-
-  verAnteriorTitulacion() {
-    this.mostrarExperiencia = false;
-    this.mostrarTitulacion = true;
-  }
-
-  verAnteriorExperiencia() {
-    this.mostrarPagosDevoluciones = false;
-    this.mostrarExperiencia = true;
-  }
-
-  verAnteriorPagosDevoluciones() {
-    this.mostrarOpciones = false;
-    this.mostrarPagosDevoluciones = true;
-  }
 }
