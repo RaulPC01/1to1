@@ -1,25 +1,38 @@
-.cuerpo{
-    display: flex;
-}
+.cuerpo{}
 
 .izquierda{
     background-color: #b40301;
-    width: 30%;
-    height: 300px;
+    width: 26%;
     border: none;
-    border-radius: 20px;
-}
-.izquierda2{
-    background:#28a745;
+    border-radius: 30px;
+    margin-top: 150px;
+    padding: 40px;
+    color: white;
+    font-weight: 600;
+    position: relative; /* Añade esta línea */
+    left: 18%; /* Ajusta según tu preferencia */
+    top: 60%; /* Ajusta según tu preferencia */
+    z-index: 1; /* Ajusta si es necesario */
 }
 
+.tituloIzquierda{ font-weight: 700; }
+.titulo2{ font-size: 16px;}
+.titulo2 #iconoL{ font-size: 16px; margin-right: 5px;}
+
+
 /* Estilos para el contenedor del formulario */
+
 .derecha {
     max-width: 600px;
-    margin: 0 auto;
+    margin: 100px auto;
     padding: 20px;
-    border: 1px solid #f1f0f0;
     border-radius: 5px;
+    position: fixed; /* Añade esta línea */
+    right: 50px; /* Ajusta según tu preferencia */
+    top: 35%; /* Ajusta según tu preferencia */
+    right: 18%;
+    transform: translateY(-50%); /* Centra verticalmente */
+    z-index: 1; /* Ajusta si es necesario */
   }
 
   .titulo{
@@ -27,16 +40,28 @@
     font-weight: 700;
   }
   
-  /* Estilos para los campos de entrada */
+  
   input[type="text"],
   input[type="date"],
   select {
+    background-color: rgb(242, 242, 242);
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box; /* Incluye el relleno y el borde en el ancho total */
+    border: none;
+    border-radius: 15px;
+    box-sizing: border-box;
+  }
+
+  .inputDescripcion{
+    background-color: rgb(242, 242, 242);
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 15px;
+    box-sizing: border-box;
   }
   
   /* Estilos para los botones */
@@ -45,7 +70,7 @@
     background-color: #6c757d;
     color: #fff;
     border: none;
-    border-radius: 8px;
+    border-radius: 15px;
     cursor: pointer;
   }
  
@@ -55,20 +80,28 @@
   }
   
   /* Estilos para los títulos */
-  h2, h3 {
-    margin-bottom: 15px;
-  }
-  
-  .hidden {
-    display: none;
-  }
+  h2, h3 { margin-bottom: 15px;}
+
+  .hidden { display: none; }
+
+ .contenedor-botones{
+  display: flex;
+  justify-content: center ;
+ }
+
+ .contenedor-botones button{ margin: 0 10px; }
+
+
 
   .bSiguiente{
     padding: 10px 20px;
     background-color: #b40301;
     color: #fff;
     border: none;
-    border-radius: 8px;
+    border-radius: 15px;
     cursor: pointer;
   }
-  
+
+  .bSiguiente:hover{
+    transform: scale(1.01);
+  }

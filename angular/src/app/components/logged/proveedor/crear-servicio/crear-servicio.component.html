@@ -1,6 +1,25 @@
 <div class="cuerpo">
+  
     <div class="izquierda" >
-    
+      <h3 class="tituloIzquierda"><span class="material-symbols-outlined">family_star</span> A Saber</h3>
+      <div [ngClass]="{ 'hidden': !mostrarCategoria }">
+        <p>Debes de elegir una categoria. Elige la categoria que más adecuada para tu servicio.</p>
+      </div>
+
+      <div [ngClass]="{ 'hidden': !mostrarNombre }">
+        <p>¡El titulo es un elemento clave! Este debe ser único y representar con creces el servicio que quieres ofrecer.</p><br>
+        <h4 class="titulo2"><span id="iconoL" class="material-symbols-outlined"> thumb_up</span>   SE RECOMIENDA</h4>
+      </div>
+
+      <div [ngClass]="{ 'hidden': !mostrarDescripcion }">
+        <p>Explica detalladamente el servicio que quieres ofrecer, tambien puedes explicar tu manera de trabajar y tu conocimiento sobre el sector.</p>
+      </div>
+
+      <div [ngClass]="{ 'hidden': !mostrarTarifa }"></div>
+
+      <div [ngClass]="{ 'hidden': !mostrarPoblacion }"></div>
+
+      <div [ngClass]="{ 'hidden': !mostrarPoblacion }"></div>
     </div>
     
     
@@ -9,83 +28,95 @@
     
     <div class="derecha">
         <form (ngSubmit)="submitForm()" #registroForm="ngForm">
-          
-            <div [ngClass]="{ 'hidden': !mostrarCategoria }" class="mb-4">
-                <div class="mb-3">
-                    <h3 class="titulo" for="categoria">Escoje una <span style="color: #b40301"> Categoria</span></h3>
-                    <select id="categoria" required>
-                        <option value=null></option>
-                        <option value="carpinteria">Carpinteria</option>
-                        <option value="profesor">Profesor</option>
-                        <option value="mecanico">Mecanico</option>
-                        <option value="electricista">Electricista</option>
-                        <option value="plomero">Plomero</option>
-                        <option value="pintor">Pintor</option>
-                        <option value="jardinero">Jardinero</option>
-                        <option value="cuidadorMascotas">Cuidador de mascotas</option>
-                        <option value="cuidadorPersonasMayores">Cuidador de personas mayores</option>
-                        <option value="limpieza">Limpieza</option>
-                        <option value="cocinero">Cocinero</option>
-                        <option value="reparaciones">Reparaciones</option>
-                        <option value="otros">Otros</option>
-                    </select>
-                </div>
+              <!----------------------------CATEGORIA------------------------------------->
+              <div [ngClass]="{ 'hidden': !mostrarCategoria }" class="mb-4">
+                  <div class="mb-3">
+                      <h3 class="titulo" for="categoria">Escoje una <span style="color: #b40301"> Categoria</span></h3>
+                      <select id="categoria" required>
+                          <option value=null></option>
+                          <option value="carpinteria">Carpinteria</option>
+                          <option value="profesor">Profesor</option>
+                          <option value="mecanico">Mecanico</option>
+                          <option value="electricista">Electricista</option>
+                          <option value="plomero">Plomero</option>
+                          <option value="pintor">Pintor</option>
+                          <option value="jardinero">Jardinero</option>
+                          <option value="cuidadorMascotas">Cuidador de mascotas</option>
+                          <option value="cuidadorPersonasMayores">Cuidador de personas mayores</option>
+                          <option value="limpieza">Limpieza</option>
+                          <option value="cocinero">Cocinero</option>
+                          <option value="reparaciones">Reparaciones</option>
+                          <option value="otros">Otros</option>
+                      </select>
+                  </div>
             
-                <button type="button" class="bSiguiente" (click)="verNombreServicio()">Siguiente</button>
+                  <div class="contenedor-botones">
+                    <button type="button" class="bSiguiente" (click)="verNombreServicio()">Siguiente</button>
+                  </div>
             </div>
 
-
+            <!----------------------------NOMBRE DEL SERVICIO------------------------------------->
             <div [ngClass]="{ 'hidden': !mostrarNombre }" class="mb-4">
                 <div class="mb-3">
-                    <h3 class="titulo" for="categoria"><span style="color: #b40301"> Título</span> de tu servicio</h3>
-                    <input type="text" name="calle" [(ngModel)]="registro.calle" required>
+                    <h3 class="titulo"><span style="color: #b40301"> Título</span> de tu servicio</h3>
+                    <input type="text" placeholder="Ej: Cambio de aceite" required>
                 </div>
         
-                <button type="button" (click)="volverCategoria()">Anterior</button>
-                <button type="button" class="bSiguiente" (click)="verDescripcion()">Siguiente</button>
+                <div class="contenedor-botones">
+                  <button type="button" (click)="volverCategoria()">Anterior</button>
+                  <button type="button" class="bSiguiente" (click)="verDescripcion()">Siguiente</button>
+                </div>
             </div>
           
-    
-          <div [ngClass]="{ 'hidden': !mostrarDescripcion }" class="mb-4">
-            <h3 class="mb-3">Descripcion</h3>
-            <div class="mb-3">
-              <label>Teléfono:</label>
-              <input type="text" name="telefono" [(ngModel)]="registro.telefono">
+            
+            <!----------------------------DESCRIPCION DEL SERVICIO------------------------------------->
+            <div [ngClass]="{ 'hidden': !mostrarDescripcion }" class="mb-4">
+              <div class="mb-3">
+                <h3 class="titulo"> Acerca de<span style="color: #b40301"> tu Servicio</span></h3>
+                <input type="text" class="inputDescripcion" placeholder="Explica detalladamente el servicio que quieres ofrecer" required>
             </div>
-            <button type="button" (click)="volverNombreServicio()">Anterior</button>
-            <button type="button" class="bSiguiente" (click)="verTarifa()">Siguiente</button>
+            
+            <div class="contenedor-botones">
+              <button type="button" (click)="volverNombreServicio()">Anterior</button>
+              <button type="button" class="bSiguiente" (click)="verTarifa()">Siguiente</button>
+            </div>
           </div>
-    
+
+
+          <!-------------------------------------TARIFA-------------------------------------------->
           <div [ngClass]="{ 'hidden': !mostrarTarifa }" class="mb-4">
             <h3 class="mb-3">Tarifa</h3>
             <div class="mb-3">
               <label>Número de Colegiado:</label>
-              <input type="text" name="numeroColegiado" [(ngModel)]="registro.numeroColegiado" required>
+              <input type="text" [(ngModel)]="registro.numeroColegiado" required>
             </div>
 
-            <button type="button" (click)="volverDescripcion()">Anterior</button>
-            <button type="button" class="bSiguiente" (click)="verPoblacion()">Siguiente</button>
+            <div class="contenedor-botones">
+              <button type="button" (click)="volverDescripcion()">Anterior</button>
+              <button type="button" class="bSiguiente" (click)="verPoblacion()">Siguiente</button>
+            </div>
           </div>
-    
 
+    
+          <!-----------------------------------POBLACIÓN-------------------------------------------->
           <div [ngClass]="{ 'hidden': !mostrarPoblacion }" class="mb-4">
-            <h3 class="mb-3">Titulación</h3>
-            <div class="mb-3">
-              <label class="form-check-label">Título de Enfermería:</label>
-              <input type="checkbox" name="tituloEnfermeria" [(ngModel)]="registro.tituloEnfermeria">
-            </div>
-            <div class="mb-3">
-              <label>Fecha de Titulación:</label>
-              <input type="date" name="fechaTitulacion" [(ngModel)]="registro.fechaTitulacion">
-            </div>
-            <div class="mb-3">
-              <label>Escuela de Enfermería:</label>
-              <input type="text" name="escuelaEnfermeria" [(ngModel)]="registro.escuelaEnfermeria">
+
+            <select id="categoria" required>
+              <option value=null></option>
+              <option value="carpinteria">Solsona</option>
+              <option value="profesor">Andorra</option>
+              <option value="mecanico">Juneda</option>
+            </select>
+
+            <div>
+
             </div>
             <button type="button" (click)="volverTarifa()">Anterior</button>
             <button type="button" class="bSiguiente" (click)="verImagen()">Siguiente</button>
           </div>
     
+
+          <!-------------------------------------IMAGEN-------------------------------------------->
           <div [ngClass]="{ 'hidden': !mostrarImagen }" class="mb-4">
             <h3 class="mb-3">Experiencia</h3>
             <div class="mb-3">
