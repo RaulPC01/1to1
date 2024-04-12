@@ -1,75 +1,73 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background: #f4f7f6;
-    margin: 0;
-    padding: 20px;
-}
-
 .profile-card {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 600px;
-    margin: 20px auto;
-    overflow: hidden;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
+    background-color: #f9f9f9;
 }
 
 .card-header {
-    background: #eee;
-    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 20px;
 }
 
-.card-header h2 {
-    margin: 0;
+.card-content div, .card-footer {
+    margin-top: 15px;
 }
 
-.edit-button {
-    background: #5cb85c;
-    color: white;
+.edit-button, .save-button {
+    padding: 10px 15px;
     border: none;
-    padding: 10px 20px;
-    cursor: pointer;
     border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
 }
 
-.card-content {
-    padding: 20px;
-}
-
-.field {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+.edit-button:hover, .save-button:hover {
+    background-color: #0056b3;
 }
 
 .field label {
     font-weight: bold;
+    display: block;
 }
 
-.value {
-    text-align: right;
-}
-
-.value.verified {
-    color: #5cb85c;
-}
-
-.value.verified span {
-    font-weight: normal;
-    font-size: 0.8em;
-}
-
-.card-footer {
-    background: #fffde7;
-    padding: 20px;
-    text-align: center;
-    border-top: 1px solid #eee;
+.verified span {
+    color: green;
+    font-weight: bold;
 }
 
 .attention-message {
-    margin: 0;
-    color: #d9534f;
+    color: red;
+    font-weight: bold;
+}
+
+.edit-form .form-group {
+    margin-bottom: 20px;
+}
+
+.edit-form label {
+    margin-bottom: 5px;
+    display: block;
+    font-size: 14px;
+    color: #333;
+}
+
+.edit-form input[type="text"],
+.edit-form input[type="email"],
+.edit-form input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.save-button {
+    display: block;
+    width: 100%;
 }

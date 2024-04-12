@@ -1,42 +1,53 @@
-
 <div class="profile-card">
     <header class="card-header">
-        <h2>Profile Details</h2>
-        <button class="edit-button">Edit Profile</button>
+        <h2>Detalles de Perfil</h2>
+        <button class="edit-button" (click)="toggleEdit()">{{ isEditing ? 'Cancelar' : 'Editar' }}</button>
     </header>
     
-    <div class="card-content">
-        <div class="field">
-            <label>Full Name</label>
-            <div class="value">Max Smith</div>
-        </div>
-        <div class="field">
-            <label>Company</label>
-            <div class="value">Keenthemes</div>
-        </div>
-        <div class="field">
-            <label>Contact Phone</label>
-            <div class="value verified">044 3276 454 935 <span>Verified</span></div>
-        </div>
-        <div class="field">
-            <label>Company Site</label>
-            <div class="value">keenthemes.com</div>
-        </div>
-        <div class="field">
-            <label>Country</label>
-            <div class="value">Germany</div>
-        </div>
-        <div class="field">
-            <label>Communication</label>
-            <div class="value">Email, Phone</div>
-        </div>
-        <div class="field">
-            <label>Allow Changes</label>
-            <div class="value">Yes</div>
+    <div *ngIf="!isEditing">
+        <div class="card-content">
+            <div class="field">
+                <label>Nombre Completo</label>
+                <div class="value">{{ userProfile.fullName }}</div>
+            </div>
+            <div class="field">
+                <label>E-mail</label>
+                <div class="value">{{ userProfile.email }}</div>
+            </div>
+            <div class="field">
+                <label>Numero de contacto</label>
+                <div class="value verified">{{ userProfile.contactNumber }} <span>Verified</span></div>
+            </div>
+            <div class="field">
+                <label>Ciudad</label>
+                <div class="value">{{ userProfile.city }}</div>
+            </div>
         </div>
     </div>
     
-    <div class="card-footer">
-        <p class="attention-message">We need your attention! Your payment was declined. To start using tools, please Add Payment Method.</p>
-    </div>
+    <form *ngIf="isEditing" (ngSubmit)="saveProfile()" class="edit-form">
+        <div class="form-group">
+            <label>Nombre Completo:</label>
+            <input type="text" [(ngModel)]="userProfile.fullName" name="fullName" required>
+        </div>
+        <div class="form-group">
+            <label>E-mail:</label>
+            <input type="email" [(ngModel)]="userProfile.email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label>Número de Contacto:</label>
+            <input type="text" [(ngModel)]="userProfile.contactNumber" name="contactNumber" required>
+        </div>
+        <div class="form-group">
+            <label>Ciudad:</label>
+            <input type="text" [(ngModel)]="userProfile.city" name="city" required>
+        </div>
+        <div class="form-group">
+            <label>Cambiar Foto de Perfil:</label>
+            <input type="file" (change)="onFileSelected($event)">
+        </div>
+        <button type="submit" class="save-button">Guardar Cambios</button>
+    </form>
+    
+
 </div>
