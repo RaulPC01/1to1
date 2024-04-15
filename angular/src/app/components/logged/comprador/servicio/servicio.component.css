@@ -1,225 +1,122 @@
-.infoServicio{
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px 0px #e0e0e0;
-    width: 60%;
-    margin: 2% ;
+* {
+    box-sizing: border-box;
 }
 
-.tituloServicio{
-    font-size: 40px;
-    color: #4A4747;
-    text-align: center;
-    margin: 5%;
-}
-
-.descripcionServicio{
-    font-size: 20px;
-    color: #4A4747;
-    text-align:justify;
-    margin: 1%;
-}
-
-.etiquetas{
-    display: flex;
-    justify-content: space-around;
+section {
     width: 100%;
-    height:fit-content;
-    background-color:#EFCFCF ; 
-    border-radius: 30px;
-    box-shadow: 0px 0px 5px 0px #e0e0e0, 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.etiqueta{
+    gap: 5px;
     display: flex;
-    justify-content: center;
-    margin: 2%;
-    color: black;
-    cursor: default;
-}
-@media (max-width: 1200px) {
-    .etiquetas {
-        flex-direction: column;
-        align-items: center;
-        width: 80%;
-        height: fit-content;
-    }
-    .etiqueta{
-        margin: 3%;
-        text-size-adjust: auto;
-    }
-}
-@media (max-width: 768px) {
-    .infoServicio{
-        width: 80%;
-    }
-    .etiquetas {
-        width: 80%;
-    }
-    
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 30px ;
 }
 
-.nombreUsu{
-    font-size: 200%;
-    color: #4A4747;
-    text-align: left;
-    margin: 1%;
+section h2 {
+    width: 100%;
+    color: #999;
+    font-family: monospace;
 }
 
-.descripcionUsu{
-    font-size: 20px;
-    color: #4A4747;
-    text-align:justify;
-    margin: 1%;
+.card {
+    width: fit-content;
+    margin-top: 100px;
 }
 
-.paneles{
-    display: flex;
-    justify-content: space-around;
-    margin: 20px;
-    padding: 20px;
+.card.estilo-b{
+    width: 17%;
 }
 
-.panelDerecha{
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px 0px #e0e0e0;
-    width: 40%;
-    margin: 2% ;
-}
-
-.tarjeta {
-    padding: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 20px;
-    background-color: #f5f5f5;
-    -webkit-box-shadow: 0px 13px 13px -8px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 13px 13px -8px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 13px 13px -8px rgba(0, 0, 0, 0.75);
-    width: 90%;
-    margin: 2%;
-    display: flex;
-    margin: 0 auto;
-    margin-top: 80px;
-}
-
-.tarjeta1 {
-    padding: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 20px;
-    background-color: #f5f5f5;
-    -webkit-box-shadow: 0px 13px 13px -8px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 13px 13px -8px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 13px 13px -8px rgba(0, 0, 0, 0.75);
-    width: 90%;
-    margin: 1%;
-    display: flex;
-    flex-direction: column; /* Agregado para que los textos estén uno debajo del otro */
-    align-items: center; /* Agregado para centrar los textos verticalmente */
-    margin-top: 5%; 
-}
-
-.ciudad2{
-    color: #4A4747;
-    margin: 0 auto; 
-    font-size: 45px;
-}
-
-.distancia, .precio{
-    color: #4A4747;
-    margin: 5px;
-}
-
-.distancia{
-font-size: 20px;
-}
-
-button{
-    background-color: #eb7878;
-    border: none;
-    color: white;
-    font-size: 20px;
-    padding: 15px 32px;
+.estilo-b {
+    font-family: sans-serif;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 10px 1px;
-    width: 90%;
-    cursor: pointer;
-    border-radius: 30px;
-    box-shadow: 0px 0px 5px 0px #e0e0e0;
-    letter-spacing: 20px;
-    transition: transform 0.3s ease;
+    width: 2    0%;
+    height: auto;
 }
 
-button:hover {
-    transform: scale(1.1);
+.estilo-b .img-container {
+    overflow: hidden;
+    position: relative;
 }
 
-.nombre{
-    font-size: 200%;
-    color: #4A4747;
-    text-align: left;
-    margin: 1%;
+.estilo-b .img-container img {
+    width: 100%;
 }
 
-.fotoPerfil {
-    width: 50px;
+.estilo-b .img-container .price {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-size: 20px;
+    background: white;
+    padding: 15px;
+}
+
+.estilo-b .img-container .favorite {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: white;
+    border-radius: 50%;
     height: 50px;
-    border-radius: 50%;
-    margin-right: 100px;
+    width: 50px;
     cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-
-.fotoPerfil img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-right: 100px; 
-    margin-left: 25%;
-    object-fit: cover;
 }
 
-.fotoCompleta {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(61, 61, 61, 0.658);
-  border-radius: 0%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.estilo-b .img-container .favorite svg {
+    transform: translateY(14px);
 }
 
-.fotoCompleta img {
- width: 50%;
- height: auto;
- border-radius: 0%;
- margin: 0 auto;
+.estilo-b .img-container .favorite:hover {
+    background: red;
 }
 
+.estilo-b .img-container .favorite:hover svg {
+    fill: white;
+}
 
+.estilo-b a {
+    display: inline-block;
+    margin-top: 2px;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 15px;
+    border: 1px solid black;
+}
 
+.estilo-b a:hover {
+    color: black;
+    background-color: transparent;
+    border: 1px solid black;
+}
 
-.estrellas{
+span {
     display: flex;
     justify-content: center;
-    margin: 0px;
-    width: 40%;
+    gap: 2px;
 }
 
-.datos{
-    margin-left: 30px;
-    margin-top: 10px;
-    height: 135px;
+span p {
+    font-size: 20px;
+    padding: 2px;
 }
 
-.edad{
-   margin: 0px;
+.material-symbols-outlined {
+    position: end;
 }
-.ciudad{
-    margin: 0px;
-} 
+
+.infoS {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.titulo {
+    font-size: larger;
+}
+
+@media (min-width: 768px) { 
+    .estilo-b {
+        width: 45%; 
+    }
+}
