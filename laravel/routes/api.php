@@ -23,6 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/register', [AuthController::class, 'register'])->name('register');
+
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 Route::post('/api/services/top-valorated', [ServiceController::class, 'getTopRated'])->name('topRated');
@@ -30,10 +31,10 @@ Route::post('/api/services/top-valorated', [ServiceController::class, 'getTopRat
 Route::get('services/{id_servicios}', [ServiceController::class, 'getServiceWithRelations']);
 
 Route::middleware('auth:sanctum')->get('/perfil', [ProfileController::class, 'show'] );
-Route::get('/api/categories', [categoriesController::class, 'index']);
 
-Route::post('/api/crear-servicio', [ServiceController::class, 'createService']);
+Route::get('/categories', [categoriesController::class, 'index']);
 
+Route::post('/crear-servicio', [ServiceController::class, 'createService']);
 
 
 //Route::middleware('auth:api')->get('/obtener-datos-usuario-perfil/{dni}', 'UsuarioController@obenerDatosUsuarioYPerfil');
