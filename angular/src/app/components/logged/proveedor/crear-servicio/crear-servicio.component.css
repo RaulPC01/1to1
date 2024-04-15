@@ -9,10 +9,10 @@
     padding: 40px;
     color: white;
     font-weight: 600;
-    position: relative; /* Añade esta línea */
-    left: 18%; /* Ajusta según tu preferencia */
-    top: 60%; /* Ajusta según tu preferencia */
-    z-index: 1; /* Ajusta si es necesario */
+    position: relative;
+    left: 18%;
+    top: 60%; 
+    z-index: 1; 
 }
 
 .tituloIzquierda{ font-weight: 700; }
@@ -21,25 +21,25 @@
 
 
 /* Estilos para el contenedor del formulario */
-
 .derecha {
-    max-width: 600px;
-    margin: 100px auto;
-    padding: 20px;
-    border-radius: 5px;
-    position: fixed; /* Añade esta línea */
-    right: 50px; /* Ajusta según tu preferencia */
-    top: 35%; /* Ajusta según tu preferencia */
-    right: 18%;
-    transform: translateY(-50%); /* Centra verticalmente */
-    z-index: 1; /* Ajusta si es necesario */
+  min-width: 400px;
+  max-width: 600px;
+  min-height: 400px;
+  max-height: 600px;
+  margin-top: 100px;
+  margin-inline: auto;
+  padding: 20px;
+  border-radius: 5px;
+  position: fixed;
+  right: 50px;
+  top: 34%;
+  right: 18%;
+  transform: translateY(-50%);
+  z-index: 1;
   }
 
-  .titulo{
-    font-size: 40px;
-    font-weight: 700;
-  }
-  
+
+  .titulo{ font-size: 40px; font-weight: 700; margin-top: 100px;}
   
   input[type="text"],
   input[type="date"],
@@ -53,15 +53,18 @@
     box-sizing: border-box;
   }
 
-  .inputDescripcion{
+  .tituloDescripcion{ font-size: 40px; font-weight: 700; margin-top: 100px;}
+
+  .tDescripcion{
     background-color: rgb(242, 242, 242);
     width: 100%;
-    height: 200px;
+    height: 150px;
     padding: 10px;
     margin-bottom: 15px;
     border: none;
     border-radius: 15px;
     box-sizing: border-box;
+    overflow-y: auto;
   }
   
   /* Estilos para los botones */

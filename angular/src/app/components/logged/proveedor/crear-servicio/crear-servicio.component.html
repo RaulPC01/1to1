@@ -1,25 +1,30 @@
 <div class="cuerpo">
   
     <div class="izquierda" >
-      <h3 class="tituloIzquierda"><span class="material-symbols-outlined">family_star</span> A Saber</h3>
+        <h3 class="tituloIzquierda"><span class="material-symbols-outlined">family_star</span> A Saber</h3>
       <div [ngClass]="{ 'hidden': !mostrarCategoria }">
         <p>Debes de elegir una categoria. Elige la categoria que más adecuada para tu servicio.</p>
       </div>
 
       <div [ngClass]="{ 'hidden': !mostrarNombre }">
         <p>¡El titulo es un elemento clave! Este debe ser único y representar con creces el servicio que quieres ofrecer.</p><br>
-        <h4 class="titulo2"><span id="iconoL" class="material-symbols-outlined"> thumb_up</span>   SE RECOMIENDA</h4>
       </div>
 
       <div [ngClass]="{ 'hidden': !mostrarDescripcion }">
         <p>Explica detalladamente el servicio que quieres ofrecer, tambien puedes explicar tu manera de trabajar y tu conocimiento sobre el sector.</p>
       </div>
 
-      <div [ngClass]="{ 'hidden': !mostrarTarifa }"></div>
+      <div [ngClass]="{ 'hidden': !mostrarTarifa }">
+        <p>Escoje el precio que más se adapte a tu servicio</p>
+      </div>
 
-      <div [ngClass]="{ 'hidden': !mostrarPoblacion }"></div>
+      <div [ngClass]="{ 'hidden': !mostrarPoblacion }">
+        <p>Escoje la población por donde estas dispuesto a ofrecer tu servicio</p>
+      </div>
 
-      <div [ngClass]="{ 'hidden': !mostrarPoblacion }"></div>
+      <div [ngClass]="{ 'hidden': !mostrarImagen}">
+        <p>Añade el logo de tu empresa o el una imagen que represente tu trabajo.</p>
+      </div>
     </div>
     
     
@@ -48,11 +53,11 @@
                           <option value="reparaciones">Reparaciones</option>
                           <option value="otros">Otros</option>
                       </select>
+                      <div class="contenedor-botones">
+                        <button type="button" class="bSiguiente" (click)="verNombreServicio()">Siguiente</button>
+                      </div>
                   </div>
             
-                  <div class="contenedor-botones">
-                    <button type="button" class="bSiguiente" (click)="verNombreServicio()">Siguiente</button>
-                  </div>
             </div>
 
             <!----------------------------NOMBRE DEL SERVICIO------------------------------------->
@@ -72,13 +77,14 @@
             <!----------------------------DESCRIPCION DEL SERVICIO------------------------------------->
             <div [ngClass]="{ 'hidden': !mostrarDescripcion }" class="mb-4">
               <div class="mb-3">
-                <h3 class="titulo"> Acerca de<span style="color: #b40301"> tu Servicio</span></h3>
-                <input type="text" class="inputDescripcion" placeholder="Explica detalladamente el servicio que quieres ofrecer" required>
-            </div>
-            
-            <div class="contenedor-botones">
-              <button type="button" (click)="volverNombreServicio()">Anterior</button>
-              <button type="button" class="bSiguiente" (click)="verTarifa()">Siguiente</button>
+                <h3 class="tituloDescripcion"> Acerca de<span style="color: #b40301"> tu Servicio</span></h3>
+                <textarea type="text" class="tDescripcion" placeholder="Ej: Limpieza profunda del ordenador y cambio de pasta térmica a domicilo" required></textarea>
+
+                <div class="contenedor-botones">
+                  <button type="button" (click)="volverNombreServicio()">Anterior</button>
+                  <button type="button" class="bSiguiente" (click)="verTarifa()">Siguiente</button>
+                </div>  
+
             </div>
           </div>
 
