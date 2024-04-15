@@ -13,7 +13,7 @@ export class TokenService {
 
   private Idtoken: string = '';
 
-  public DNIuser : string = '';
+  private DNIuser : string = '';
 
   constructor(private http: HttpClient, private router: Router) {
     this.cargarUsuarioAutenticado();

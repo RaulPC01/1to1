@@ -33,7 +33,7 @@ export class LoginComponent {
     this.tokenService.login(this.loginForm.value.dni, this.loginForm.value.password).subscribe({
         next: (dni: string) => {
           // Guarda el DNI del usuario en el servicio de autenticación
-          console.log(this.tokenService.DNIuser);
+          console.log(dni);
           //this.authService.iniciarSesion(response.dni); // Aquí se pasa el DNI al servicio
           // Redirigir a la página principal después del inicio de sesión exitoso
           this.router.navigate(['/home-comprador']);

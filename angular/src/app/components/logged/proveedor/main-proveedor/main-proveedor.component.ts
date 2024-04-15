@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { TokenService } from 'src/app/token.service';
 
 @Component({
   selector: 'app-main-proveedor',
@@ -16,16 +15,9 @@ export class MainProveedorComponent {
   mostrarPagosDevoluciones: boolean = false;
   mostrarOpciones: boolean = false;
 
-
-  id_usuario_proveedor= this.tokeService.DNIuser;
-
   registro: any = {};
- 
 
-  constructor(public tokeService: TokenService) { 
-
-    console.log(this.id_usuario_proveedor);
-  }
+  constructor() { }
 
   submitForm() {
     // Aquí iría la lógica para enviar el formulario
@@ -100,7 +92,5 @@ export class MainProveedorComponent {
     this.mostrarOpciones = false;
     this.mostrarPagosDevoluciones = true;
   }
-
-
 }
 
