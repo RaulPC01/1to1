@@ -4,6 +4,18 @@
     padding: 20px;
     margin: 20px;
     background-color: #f9f9f9;
+    width: 30%;
+    margin: 0 auto;
+}
+
+.fotoPerfil img{
+    width: 10%;
+    border-radius: 50%;
+    margin: 10px;
+}
+.fotoPerfil{
+    display: flex;
+    justify-content: center;
 }
 
 .card-header {
@@ -21,14 +33,14 @@
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
-    background-color: #007BFF;
+    background-color: #e60024;
     color: white;
     cursor: pointer;
     font-size: 16px;
 }
 
 .edit-button:hover, .save-button:hover {
-    background-color: #0056b3;
+    background-color: #960016;
 }
 
 .field label {
