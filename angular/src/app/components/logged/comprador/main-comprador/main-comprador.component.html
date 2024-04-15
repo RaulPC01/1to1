@@ -1,5 +1,7 @@
 <div class="body">
-    <p>Los profesionales con más puntuaciones por la comunidad <img src="../assets/imatges/grupopEstrellas.png" alt="estrellas"></p>
+    <p>Los profesionales con más puntuaciones por la comunidad <span class="material-symbols-outlined">
+      stars
+      </span></p>
   
     <div class="tarjetas">
       <div class="tarjeta" *ngFor="let service of topRatedServices">
@@ -7,14 +9,14 @@
           <img src="{{service.user.image}}" class="imagen">
   
           <div class="enlinea">
-            <div class="nombre">{{ service.user.name }}</div>
+            <div class="nombre">{{ service.user.name }}scasc</div>
   
             <div class="estrellas">
               <img *ngFor="let estrella of nEstrellas(service.puntuacion_valoracion)" src="../assets/imatges/1estrella.png" alt="estrella">
             </div>
           </div>
         
-          <div class="ciudad">{{ service.poblacion.nombre_poblacion}}</div>
+          <div class="ciudad">{{ service.poblacion.nombre_poblacion}}csaca</div>
           <div class="precio">{{ service.tarifa}}€</div>
           <div>{{service.categories.nombre_cateogira}}</div>
         </a>

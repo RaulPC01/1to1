@@ -1,81 +1,93 @@
+/* Base Styles */
 * {
-    box-sizing: border-box;
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
 }
 
+body {
+    margin: 0;
+    font-family: Arial, sans-serif; 
+}
+.contenido {
+    padding: 100px;
+}
 section {
-    width: 100%;
-    gap: 5px;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    padding: 30px ;
+    
+    gap: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px,1fr));
+    
 }
-
-section h2 {
-    width: 100%;
-    color: #999;
-    font-family: monospace;
-}
-
 .card {
-    width: fit-content;
-    margin-top: 100px;
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+   
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s; /* Smooth transformation on hover */
 }
 
 .card.estilo-b{
-    width: 17%;
+width: 100%;
 }
 
-.estilo-b {
-    font-family: sans-serif;
-    text-align: center;
-    width: 2    0%;
-    height: auto;
+.card:hover {
+    transform: scale(1.05); /* Slightly enlarge cards on hover */
 }
 
-.estilo-b .img-container {
-    overflow: hidden;
-    position: relative;
-}
-
-.estilo-b .img-container img {
+.img-container {
     width: 100%;
+    display: block; /* Ensures the container takes the full width */
 }
 
-.estilo-b .img-container .price {
+.img-container img {
+    width: 100%;
+    height: auto; /* Maintains aspect ratio */
+    display: block;
+}
+
+.infoS {
+    padding: 15px;
+    color: #333; 
+    display: flex;
+    justify-content: space-around;
+}
+
+.titulo {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px; /* Space between title and star rating */
+}
+
+.material-symbols-outlined {
+    display: flex;
+  
+    font-size: 18px;
+    margin: 5px 0; /* Spacing between symbol items */
+}
+
+.material-symbols-outlined p {
+    margin-left: 5px; /* Space between icon and its corresponding text */
+}
+
+.lugar {
+    font-size: 16px;
+}
+
+.price {
     position: absolute;
     top: 10px;
-    left: 0;
-    font-size: 20px;
-    background: white;
-    padding: 15px;
-}
-
-.estilo-b .img-container .favorite {
-    position: absolute;
-    bottom: 10px;
     right: 10px;
-    background: white;
-    border-radius: 50%;
-    height: 50px;
-    width: 50px;
-    cursor: pointer;
-}
-
-.estilo-b .img-container .favorite svg {
-    transform: translateY(14px);
-}
-
-.estilo-b .img-container .favorite:hover {
-    background: red;
-}
-
-.estilo-b .img-container .favorite:hover svg {
-    fill: white;
+    background-color: #FFA500; /* Orange background for price tag */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
 .estilo-b a {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
     margin-top: 2px;
     text-decoration: none;
     color: white;
@@ -88,35 +100,35 @@ section h2 {
     color: black;
     background-color: transparent;
     border: 1px solid black;
+    
 }
 
-span {
-    display: flex;
-    justify-content: center;
-    gap: 2px;
+/* Responsive Adjustments */
+
+@media (max-width: 600px) {
+    .card {
+        margin: 10px;
+    }
+
+    .titulo, .material-symbols-outlined p, .lugar {
+        font-size: 14px; /* Smaller font size for smaller screens */
+    }
+
+    .material-symbols-outlined {
+        font-size: 16px;
+    }
 }
 
-span p {
-    font-size: 20px;
-    padding: 2px;
+@media (min-width: 601px) and (max-width: 1200px) {
+    .card {
+        margin: 15px auto; /* Centering the card */
+        max-width: 80%; /* Maximum width to avoid too wide cards on tablets */
+    }
 }
 
-.material-symbols-outlined {
-    position: end;
-}
-
-.infoS {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-}
-
-.titulo {
-    font-size: larger;
-}
-
-@media (min-width: 768px) { 
-    .estilo-b {
-        width: 45%; 
+@media (min-width: 1201px) {
+    .card {
+        margin: 20px auto;
+        /* max-width: 50%; Ideal width for readability on large screens */
     }
 }
