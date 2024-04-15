@@ -19,7 +19,7 @@ import { MainCompradorComponent } from './components/logged/comprador/main-compr
 import { ServicioComponent } from './components/logged/comprador/servicio/servicio.component';
 
 import { HeaderLoggedComponent } from './components/header-logged/header-logged.component';
-import { ContratarServicioComponent } from './components/logged/comprador/contratar-servicio/contratar-servicio.component';
+import { CrearServicioComponent } from './components/logged/proveedor/crear-servicio/crear-servicio.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +36,8 @@ import { ContratarServicioComponent } from './components/logged/comprador/contra
     MainCompradorComponent,
     ServicioComponent,
     HeaderLoggedComponent,
+    CrearServicioComponent,
     
-    ContratarServicioComponent
   ],
   imports: [
     BrowserModule,

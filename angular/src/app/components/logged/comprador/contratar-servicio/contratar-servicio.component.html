@@ -1,29 +1,21 @@
 <form>
-    <h1>Crea aqui tu servicio</h1>
-    <div class="nombreS">
-        <label for="nombre">Nombre de servicio</label>
-        <input type="text" id="nombre" name="nombre" required>
-    </div>
-    <div class="precio">
-        <label for="precio">Precio</label>
-        <input type="number" id="precio" name="precio" required>
-    </div>
-    <div class="categoria">
-        <label for="categoria">Categoría</label>
-        <select id="categoria" name="categoria" required>
-            <option value="">Selecciona una categoría</option>
-            <option *ngFor="let categoria of categorias" [value]="categoria.id">{{ categoria.nombre_categoria }}</option>
-        </select>
-    </div>
-    <div class="poblacion">
-        <label for="poblacion">Población</label>
-        <input type="text" id="poblacion" name="poblacion" required>
+    <h1>Un útlimo paso...</h1>
+    
+    <div class="contingut">
+        <div>
+            <p class="servicio">Servicio</p>
+        </div>
+
+        <div class="divDescripcio">
+            <p class="descripcion">Descripción del servicio: *</p>
+            <textarea class="tDescripcion" rows="4" cols="50" placeholder="Describe el servicio que quieres recibir" required></textarea>
+        </div>  
+
+        <div class="divPrecio">
+            <p class="precio"> 18€>
+        </div>
+
     </div>
 
-    <div class="descripcion">
-        <label for="descripcion">Descripción</label>
-        <textarea id="descripcion" name="descripcion" required></textarea>
-    </div>
-
-    <button type="submit">Crear servicio</button>
+    <button type="submit">Contratar</button>
 </form>
