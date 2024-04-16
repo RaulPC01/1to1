@@ -1,0 +1,13 @@
+.btn.btn-primary{
+margin: 10px;
+width: 20%;
+height: 20%;
+}
+
+.btn.btn-info.btn-sm{
+    margin: 10px;
+}
+
+.btn.btn-danger.btn-sm{
+    margin: 10px;
+}
