@@ -78,7 +78,7 @@
             <div [ngClass]="{ 'hidden': !mostrarDescripcion }" class="mb-4">
               <div class="mb-3">
                 <h3 class="tituloDescripcion"> Acerca de<span style="color: #b40301"> tu Servicio</span></h3>
-                <textarea type="text" class="tDescripcion" placeholder="Ej: Limpieza profunda del ordenador y cambio de pasta térmica a domicilo" required></textarea>
+                <textarea type="text" class="textareaDescripcion" placeholder="Ej: Limpieza profunda del ordenador y cambio de pasta térmica a domicilo" required></textarea>
 
                 <div class="contenedor-botones">
                   <button type="button" (click)="volverNombreServicio()">Anterior</button>
@@ -91,10 +91,9 @@
 
           <!-------------------------------------TARIFA-------------------------------------------->
           <div [ngClass]="{ 'hidden': !mostrarTarifa }" class="mb-4">
-            <h3 class="mb-3">Tarifa</h3>
             <div class="mb-3">
-              <label>Número de Colegiado:</label>
-              <input type="text" [(ngModel)]="registro.numeroColegiado" required>
+              <h3 class="tituloDescripcion"><span style="color: #b40301">Tarifa</span> de tu Servicio</h3>
+              <input type="text" required>
             </div>
 
             <div class="contenedor-botones">
@@ -106,6 +105,9 @@
     
           <!-----------------------------------POBLACIÓN-------------------------------------------->
           <div [ngClass]="{ 'hidden': !mostrarPoblacion }" class="mb-4">
+            <div class="mb-3">
+              <h3 class="tituloDescripcion">Escoje una <span style="color: #b40301">Población</span></h3>
+            </div>
 
             <select id="categoria" required>
               <option value=null></option>
@@ -114,11 +116,10 @@
               <option value="mecanico">Juneda</option>
             </select>
 
-            <div>
-
+            <div class="contenedor-botones">
+              <button type="button" (click)="volverTarifa()">Anterior</button>
+              <button type="button" class="bSiguiente" (click)="verImagen()">Siguiente</button>
             </div>
-            <button type="button" (click)="volverTarifa()">Anterior</button>
-            <button type="button" class="bSiguiente" (click)="verImagen()">Siguiente</button>
           </div>
     
 
