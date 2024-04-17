@@ -32,11 +32,11 @@
     
     
     <div class="derecha">
-        <form (ngSubmit)="submitForm()" #registroForm="ngForm">
+        <form (ngSubmit)="guardarServicio()" #registroForm="ngForm">
               <!----------------------------CATEGORIA------------------------------------->
               <div [ngClass]="{ 'hidden': !mostrarCategoria }" class="mb-4">
                   <div class="mb-3">
-                      <h3 class="titulo" for="categoria">Escoje una <span style="color: #b40301"> Categoria</span></h3>
+                      <h3 class="titulo" for="categoria" formControlName="categoria">Escoje una <span style="color: #b40301"> Categoria</span></h3>
                       <select id="categoria" required>
                           <option value=null></option>
                           <option value="carpinteria">Carpinteria</option>
@@ -53,18 +53,18 @@
                           <option value="reparaciones">Reparaciones</option>
                           <option value="otros">Otros</option>
                       </select>
-                      <div class="contenedor-botones">
-                        <button type="button" class="bSiguiente" (click)="verNombreServicio()">Siguiente</button>
-                      </div>
                   </div>
-            
+
+                  <div class="contenedor-botones">
+                    <button type="button" class="bSiguiente" (click)="verNombreServicio()">Siguiente</button>
+                  </div>
             </div>
 
             <!----------------------------NOMBRE DEL SERVICIO------------------------------------->
             <div [ngClass]="{ 'hidden': !mostrarNombre }" class="mb-4">
                 <div class="mb-3">
                     <h3 class="titulo"><span style="color: #b40301"> Título</span> de tu servicio</h3>
-                    <input type="text" placeholder="Ej: Cambio de aceite" required>
+                    <input type="text" placeholder="Ej: Cambio de aceite" formControlName="nombre_servicio" required>
                 </div>
         
                 <div class="contenedor-botones">
@@ -78,7 +78,7 @@
             <div [ngClass]="{ 'hidden': !mostrarDescripcion }" class="mb-4">
               <div class="mb-3">
                 <h3 class="tituloDescripcion"> Acerca de<span style="color: #b40301"> tu Servicio</span></h3>
-                <textarea type="text" class="textareaDescripcion" placeholder="Ej: Limpieza profunda del ordenador y cambio de pasta térmica a domicilo" required></textarea>
+                <textarea type="text" class="textareaDescripcion" placeholder="Ej: Limpieza profunda del ordenador y cambio de pasta térmica a domicilo" formControlName="descripcion" required></textarea>
 
                 <div class="contenedor-botones">
                   <button type="button" (click)="volverNombreServicio()">Anterior</button>
@@ -93,7 +93,7 @@
           <div [ngClass]="{ 'hidden': !mostrarTarifa }" class="mb-4">
             <div class="mb-3">
               <h3 class="tituloDescripcion"><span style="color: #b40301">Tarifa</span> de tu Servicio</h3>
-              <input type="text" required>
+              <input type="text" formControlName="tarifa" required>
             </div>
 
             <div class="contenedor-botones">
@@ -107,14 +107,13 @@
           <div [ngClass]="{ 'hidden': !mostrarPoblacion }" class="mb-4">
             <div class="mb-3">
               <h3 class="tituloDescripcion">Escoje una <span style="color: #b40301">Población</span></h3>
+              <select id="categoria" formControlName="poblacion" required>
+                <option value=null></option>
+                <option value="carpinteria">Solsona</option>
+                <option value="profesor">Andorra</option>
+                <option value="mecanico">Juneda</option>
+              </select>
             </div>
-
-            <select id="categoria" required>
-              <option value=null></option>
-              <option value="carpinteria">Solsona</option>
-              <option value="profesor">Andorra</option>
-              <option value="mecanico">Juneda</option>
-            </select>
 
             <div class="contenedor-botones">
               <button type="button" (click)="volverTarifa()">Anterior</button>
@@ -125,13 +124,15 @@
 
           <!-------------------------------------IMAGEN-------------------------------------------->
           <div [ngClass]="{ 'hidden': !mostrarImagen }" class="mb-4">
-            <h3 class="mb-3">Experiencia</h3>
             <div class="mb-3">
-              <label>Años de Experiencia:</label>
-              <input type="text" name="aniosExperiencia" [(ngModel)]="registro.aniosExperiencia">
+              <h3 class="tituloDescripcion">Escoje una <span style="color: #b40301">Imagen</span></h3>
+              <input type="text" formControlName="tarifa" placeholder="Añadir link de la imagen" required>
             </div>
-            <button type="button" (click)="volverPoblacion()">Anterior</button>
-            <button type="submit" [disabled]="!registroForm.valid">Crear</button>
+            
+            <div>
+              <button type="button" (click)="volverPoblacion()">Anterior</button>
+              <button type="submit" [disabled]="!registroForm.valid">Crear</button>
+            </div>
           </div>
        
         </form>

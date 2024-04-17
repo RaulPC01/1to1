@@ -17,6 +17,7 @@ import { PerfilComponent } from './components/logged/perfil/perfil.component';
 import { MainProveedorComponent } from './components/logged/proveedor/main-proveedor/main-proveedor.component';
 import { MainCompradorComponent } from './components/logged/comprador/main-comprador/main-comprador.component';
 import { ServicioComponent } from './components/logged/comprador/servicio/servicio.component';
+import { Servicio } from './models/servicio.model';
 
 import { HeaderLoggedComponent } from './components/header-logged/header-logged.component';
 import { ContratarServicioComponent } from './components/logged/comprador/contratar-servicio/contratar-servicio.component';
@@ -37,9 +38,8 @@ import { CrearServicioComponent } from './components/logged/proveedor/crear-serv
     MainCompradorComponent,
     ServicioComponent,
     HeaderLoggedComponent,
-    
     ContratarServicioComponent,
-          CrearServicioComponent
+    CrearServicioComponent,
   ],
   imports: [
     BrowserModule,

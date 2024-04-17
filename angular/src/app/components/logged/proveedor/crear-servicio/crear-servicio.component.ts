@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Servicio } from 'src/app/models/servicio.model';
 
 @Component({
   selector: 'app-crear-servicio',
   templateUrl: './crear-servicio.component.html',
   styleUrls: ['./crear-servicio.component.css']
 })
-export class CrearServicioComponent {
+export class CrearServicioComponent implements OnInit {
   mostrarCategoria: boolean = true;
   mostrarNombre: boolean = false;
   mostrarDescripcion: boolean = false;
@@ -15,12 +17,40 @@ export class CrearServicioComponent {
 
   registro: any = {};
 
-  constructor() { }
-
-  submitForm() {
-    // Aquí iría la lógica para enviar el formulario
+  ngOnInit(): void {
+    this.mostrarCategoria = true;
+    this.mostrarNombre = false;
+    this.mostrarDescripcion = false;
+    this.mostrarTarifa = false;
+    this.mostrarPoblacion = false;
+    this.mostrarImagen = false;
   }
 
+  //----------------------------FORMLARIO SERVICIO----------------------------//
+  @Output() nuevaServicioEvent: EventEmitter<Servicio> = new EventEmitter<Servicio>();
+  @Output() EnviarFormulario = new EventEmitter<void>();
+  
+  servicioForm!: FormGroup;
+
+  constructor(private fb: FormBuilder) { 
+    this.servicioForm = this.fb.group({
+      categoria: new FormControl('', [Validators.required]),
+      nombre_servicio: new FormControl('', [Validators.required]),
+      descripcion: new FormControl('', [Validators.required]),
+      tarifa: new FormControl('', [Validators.required]),
+      poblacion: new FormControl('', [Validators.required]),
+      imagen: new FormControl('')
+    })
+  }
+
+  guardarServicio(){
+    
+  }
+  
+
+
+
+  //---------------------------CAMBIO DEL CONTENIDO---------------------------//
   volverCategoria(){
     this.mostrarNombre = false;
     this.mostrarCategoria = true;
