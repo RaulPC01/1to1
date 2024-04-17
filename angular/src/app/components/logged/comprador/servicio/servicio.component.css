@@ -1,9 +1,17 @@
+.cuerpo{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 20px;
+    padding: 20px;
+}
+
 .infoServicio{
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 0px 5px 0px #e0e0e0;
-    width: 60%;
+    width: 65%;
     margin: 2% ;
+    text-align: center;
 }
 
 .tituloServicio{
@@ -20,206 +28,118 @@
     margin: 1%;
 }
 
-.etiquetas{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    height:fit-content;
-    background-color:#EFCFCF ; 
-    border-radius: 30px;
-    box-shadow: 0px 0px 5px 0px #e0e0e0, 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.etiqueta{
-    display: flex;
-    justify-content: center;
-    margin: 2%;
-    color: black;
-    cursor: default;
-}
-@media (max-width: 1200px) {
-    .etiquetas {
-        flex-direction: column;
-        align-items: center;
-        width: 80%;
-        height: fit-content;
-    }
-    .etiqueta{
-        margin: 3%;
-        text-size-adjust: auto;
-    }
-}
-@media (max-width: 768px) {
-    .infoServicio{
-        width: 80%;
-    }
-    .etiquetas {
-        width: 80%;
-    }
-    
-}
-
-.nombreUsu{
-    font-size: 200%;
-    color: #4A4747;
-    text-align: left;
-    margin: 1%;
-}
-
-.descripcionUsu{
-    font-size: 20px;
-    color: #4A4747;
-    text-align:justify;
-    margin: 1%;
-}
-
-.paneles{
-    display: flex;
-    justify-content: space-around;
-    margin: 20px;
-    padding: 20px;
-}
 
 .panelDerecha{
-    padding: 20px;
+    padding: 20px 10px;
     border-radius: 5px;
     box-shadow: 0px 0px 5px 0px #e0e0e0;
     width: 40%;
     margin: 2% ;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .tarjeta {
-    padding: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 20px;
-    background-color: #f5f5f5;
-    -webkit-box-shadow: 0px 13px 13px -8px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 13px 13px -8px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 13px 13px -8px rgba(0, 0, 0, 0.75);
+    min-height: 200px;
+    max-height: 300px;
     width: 90%;
-    margin: 2%;
     display: flex;
-    margin: 0 auto;
-    margin-top: 80px;
+    padding: 15px 15px;
+    margin: 15px auto;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px #e0e0e0;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
-.tarjeta1 {
-    padding: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 20px;
-    background-color: #f5f5f5;
-    -webkit-box-shadow: 0px 13px 13px -8px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 13px 13px -8px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 13px 13px -8px rgba(0, 0, 0, 0.75);
+.datos{
+    margin-top: 10px;
+    height: 135px;
+}
+
+.nombre{ font-size: 23px; color: #4A4747; text-align: left; font-weight: 600; }
+
+.verPerfil { display: table; text-decoration: none; color: #e60024; font-weight: 400; cursor: pointer; }
+
+.verPerfil::after {
+    content: "";
+    display: block;
+    height: 1px;
+    background-color: #e60024;
+    transform: scale(0,1);
+    transform-origin: center;
+    transition: transform .25s;
+    
+  }
+
+.verPerfil:hover::after {
+    transform: scale(1,1);
+    background-color: #e60024;
+}
+
+
+
+.tarjeta2 {
+    min-height: 200px;
+    max-height: 300px;
     width: 90%;
-    margin: 1%;
     display: flex;
-    flex-direction: column; /* Agregado para que los textos estén uno debajo del otro */
-    align-items: center; /* Agregado para centrar los textos verticalmente */
-    margin-top: 5%; 
+    flex-direction: column;
+    padding: 10px 20px;
+    margin: 15px auto;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px #e0e0e0;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
-.ciudad2{
-    color: #4A4747;
-    margin: 0 auto; 
-    font-size: 45px;
-}
+.precio{ font-size: 25px; font-weight: 700; color: #4A4747;}
 
-.distancia, .precio{
-    color: #4A4747;
-    margin: 5px;
-}
+.ciudad{ color: #4A4747; margin: 0 auto; font-size: 35px; }
 
-.distancia{
-font-size: 20px;
-}
+/* .sitio{ font-size: 20px; font-weight: 500; color: #4A4747;} */
+
+.distancia{ font-size: 30px; }
 
 button{
-    background-color: #eb7878;
-    border: none;
-    color: white;
-    font-size: 20px;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 10px 1px;
+    border: 0;
+    border-radius: 10px;
+    min-height: 40px;
     width: 90%;
+    padding: 8px 10px;
     cursor: pointer;
-    border-radius: 30px;
-    box-shadow: 0px 0px 5px 0px #e0e0e0;
-    letter-spacing: 20px;
-    transition: transform 0.3s ease;
+    font-size: 16px;
+    font-weight: 600;
+    background: #b40301;
+    color: #fff;
 }
 
 button:hover {
-    transform: scale(1.1);
-}
-
-.nombre{
-    font-size: 200%;
-    color: #4A4747;
-    text-align: left;
-    margin: 1%;
+    background: #e60024;
+    color: #fff;
 }
 
 .fotoPerfil {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 50px;
     height: 50px;
     border-radius: 50%;
     margin-right: 100px;
     cursor: pointer;
     transition: transform 0.3s ease;
-  }
+    margin-left: 50px;
+}
 
 .fotoPerfil img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    margin-right: 100px; 
-    margin-left: 25%;
     object-fit: cover;
 }
-
-.fotoCompleta {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(61, 61, 61, 0.658);
-  border-radius: 0%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.fotoCompleta img {
- width: 50%;
- height: auto;
- border-radius: 0%;
- margin: 0 auto;
-}
-
-
-
-
-.estrellas{
-    display: flex;
-    justify-content: center;
-    margin: 0px;
-    width: 40%;
-}
-
-.datos{
-    margin-left: 30px;
-    margin-top: 10px;
-    height: 135px;
-}
-
-.edad{
-   margin: 0px;
-}
-.ciudad{
-    margin: 0px;
-} 
