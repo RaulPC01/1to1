@@ -15,7 +15,11 @@
     right: 8%;
 }
 
-.h2crearServicio{
+#derecha{
+    text-align: center;
+}
+
+h2{
     font-weight: 700;
 }
 
@@ -29,7 +33,7 @@
     background-color: #b40301;
     color: #fff;
     border: none;
-    border-radius: 15px;
+    border-radius: 10px;
     cursor: pointer;
     font-weight: 600;
     font-size: 16px;
@@ -47,4 +51,10 @@
     margin: 10px;
 }
 
-    
+
+td{
+    display: flex;
+    justify-content: center;
+}
+
+
