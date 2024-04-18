@@ -17,6 +17,13 @@
 
 }
 
+
+span{
+  display: flex;
+  align-items: center;
+}
+
+
 .encabezado {
   text-align: center;
   margin-bottom: 20px; /* Ajuste de margen inferior */
