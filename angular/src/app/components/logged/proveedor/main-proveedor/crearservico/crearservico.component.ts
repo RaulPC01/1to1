@@ -17,29 +17,47 @@ export class CrearservicoComponent implements OnInit {
   mostrarImagen: boolean = false;
   servicioForm!: FormGroup; // Declaración del FormGroup
   user: any; // Variable para almacenar los datos del perfil del usuario
-  categorias: any[] = []; 
+  categorias: any[] = [];
   poblaciones: any[] = [];
-
+  nombreLength: number = 0;
+  descripcionLength: number = 0;
+  countNombreLength(event: any): void {
+    const input = event.target as HTMLInputElement;
+    if (input.value.length > 40) {
+      input.value = input.value.slice(0, 40); // Limitar la longitud a 40 caracteres
+      this.servicioForm.get('nombre')?.setValue(input.value); // Actualizar el valor en el formulario
+    }
+    this.nombreLength = input.value.length;
+  }
+  countDescripcionLength(event: any): void {
+    const input = event.target as HTMLTextAreaElement;
+    if (input.value.length > 200) {
+      input.value = input.value.slice(0, 200); // Limitar la longitud a 200 caracteres
+      this.servicioForm.get('descripcion')?.setValue(input.value); // Actualizar el valor en el formulario
+    }
+    this.descripcionLength = input.value.length;
+  }
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     // Inicializar el formulario FormGroup
     this.servicioForm = this.formBuilder.group({
       idUser: ['', Validators.required],
       categoria: ['', Validators.required],
-      nombre: ['', [Validators.required, Validators.maxLength(20)]],
-      descripcion: ['', Validators.required],
-      precio: ['', Validators.required],
+      nombre: ['', [Validators.required, Validators.maxLength(40)]],
+      descripcion: ['', [Validators.required, Validators.maxLength(200)]],
+      precio: ['', [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/)]],
       poblacion: ['', Validators.required],
-      
+
     });
 
-
+  
     
+
     // Obtener los datos del perfil del usuario al iniciar el componente
     const token = localStorage.getItem('Idtoken');
     if (token) {
@@ -82,19 +100,19 @@ export class CrearservicoComponent implements OnInit {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-  
+
     this.http.get<any>('http://localhost:8000/api/perfil', { headers }).subscribe(
       (data) => {
         console.log('Datos del perfil:', data);
         this.user = data;
-  
+
         // Convertir el dni a un entero y establecerlo en el formulario
         const userId = this.user.dni;
         console.log('Valor de userId:', userId); // Verificar el valor de userId
         this.servicioForm.patchValue({
           idUser: userId
         });
-      
+
       },
       (error) => {
         console.error('Error al obtener el perfil del usuario:', error);
@@ -110,7 +128,7 @@ export class CrearservicoComponent implements OnInit {
         console.error('El campo idUser es requerido');
         return;
       }
-  
+
       // Enviar los datos del formulario al backend
       this.http.post<any>('http://localhost:8000/api/crear-servicio', this.servicioForm.value)
         .subscribe(
@@ -123,7 +141,7 @@ export class CrearservicoComponent implements OnInit {
             console.error('Error al enviar el formulario:', error);
             // Manejar errores en caso de que la solicitud falle
             // Redirigir al usuario a la página de inicio o mostrar un mensaje de error
-            this.router.navigate(['/']); 
+            this.router.navigate(['/']);
           }
         );
     } else {
@@ -141,7 +159,7 @@ export class CrearservicoComponent implements OnInit {
     this.mostrarNombre = true;
   }
 
-  volverNombreServicio(){
+  volverNombreServicio() {
     this.mostrarDescripcion = false;
     this.mostrarNombre = true;
   }
@@ -151,7 +169,7 @@ export class CrearservicoComponent implements OnInit {
     this.mostrarDescripcion = true;
   }
 
-  volverDescripcion(){
+  volverDescripcion() {
     this.mostrarTarifa = false;
     this.mostrarDescripcion = true;
   }
@@ -161,7 +179,7 @@ export class CrearservicoComponent implements OnInit {
     this.mostrarTarifa = true;
   }
 
-  volverTarifa(){
+  volverTarifa() {
     this.mostrarPoblacion = false;
     this.mostrarTarifa = true;
   }
@@ -171,7 +189,7 @@ export class CrearservicoComponent implements OnInit {
     this.mostrarPoblacion = true;
   }
 
-  volverPoblacion(){
+  volverPoblacion() {
     this.mostrarImagen = false;
     this.mostrarPoblacion = true;
   }
