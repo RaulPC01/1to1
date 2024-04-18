@@ -18,21 +18,36 @@ class UsersSeeder extends Seeder
         $lastNames = ['González', 'Fernández', 'López', 'Martínez', 'García', 'Sánchez', 'Pérez', 'Gómez', 'Díaz', 'Muñoz'];
         $domains = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'example.com'];
 
-        for ($i = 0; $i < 50; $i++) {
+        $usedEmails = [];
+        $usedNames = [];
+
+        $userCount = 0;
+
+        while ($userCount < 15) { // Crear 15 usuarios
             $firstName = $names[array_rand($names)];
             $lastName = $lastNames[array_rand($lastNames)];
             $email = strtolower($firstName . '.' . $lastName . '@' . $domains[array_rand($domains)]);
+            $fullName = $firstName . ' ' . $lastName;
 
-            User::create([
-                'dni' => $this->generateUniqueDNI(),
-                'name' => $firstName . ' ' . $lastName,
-                'dateOfBirth' => $this->generateRandomDateOfBirth(),
-                'email' => $email,
-                'phone' => $this->generateRandomPhone(),
-                'password' => bcrypt('password'),
-                'valoracion' => rand(1, 5),
-                'image' => null,
-            ]);
+            // Verificar si el correo electrónico o el nombre ya existen
+            if (!in_array($email, $usedEmails) && !in_array($fullName, $usedNames)) {
+                User::create([
+                    'dni' => $this->generateUniqueDNI(),
+                    'name' => $fullName,
+                    'dateOfBirth' => $this->generateRandomDateOfBirth(),
+                    'email' => $email,
+                    'phone' => $this->generateRandomPhone(),
+                    'password' => bcrypt('password'),
+                    'valoracion' => rand(1, 5),
+                    'image' => null,
+                ]);
+
+                // Agregar el correo electrónico y el nombre a las listas de utilizados
+                $usedEmails[] = $email;
+                $usedNames[] = $fullName;
+
+                $userCount++;
+            }
         }
     }
 

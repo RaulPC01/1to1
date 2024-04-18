@@ -20,6 +20,8 @@ import { ServicioComponent } from './components/logged/comprador/servicio/servic
 
 import { HeaderLoggedComponent } from './components/header-logged/header-logged.component';
 import { ContratarServicioComponent } from './components/logged/comprador/contratar-servicio/contratar-servicio.component';
+import { CommonModule } from '@angular/common';
+import { CrearservicoComponent } from './components/logged/proveedor/main-proveedor/crearservico/crearservico.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +38,10 @@ import { ContratarServicioComponent } from './components/logged/comprador/contra
     MainCompradorComponent,
     ServicioComponent,
     HeaderLoggedComponent,
-    
-    ContratarServicioComponent
+    CrearservicoComponent,
+    ContratarServicioComponent,
+
+          
   ],
   imports: [
     BrowserModule,
@@ -45,6 +49,8 @@ import { ContratarServicioComponent } from './components/logged/comprador/contra
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CommonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

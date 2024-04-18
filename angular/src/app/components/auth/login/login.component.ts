@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/token.service';
 
@@ -13,14 +11,8 @@ import { TokenService } from 'src/app/token.service';
 export class LoginComponent {
   loginForm: FormGroup;
   errorMessage: string | null = null;
-  showPopup = false;
 
-  constructor(
-    private fb: FormBuilder, 
-    private http: HttpClient, 
-    private router: Router, 
-    private tokenService: TokenService,
-  ) {
+  constructor(private fb: FormBuilder, private router: Router, private tokenService: TokenService) {
     this.loginForm = this.fb.group({
       dni: ['', Validators.required],
       password: ['', Validators.required]
@@ -30,18 +22,14 @@ export class LoginComponent {
   onSubmit(): void {
     const { dni, password } = this.loginForm.value;
 
-    this.tokenService.login(this.loginForm.value.dni, this.loginForm.value.password).subscribe({
-        next: (dni: string) => {
-          // Guarda el DNI del usuario en el servicio de autenticación
-          console.log(dni);
-          //this.authService.iniciarSesion(response.dni); // Aquí se pasa el DNI al servicio
-          // Redirigir a la página principal después del inicio de sesión exitoso
-          this.router.navigate(['/home-comprador']);
-        },
-        error: error => {
-          this.errorMessage = 'Hubo un problema al iniciar sesión. Por favor, inténtelo de nuevo.';
-        }
+    this.tokenService.login(dni, password).subscribe({
+      next: (token: string) => {
+        // Redirige a la página principal después del inicio de sesión exitoso
+        this.router.navigate(['/home-comprador']);
+      },
+      error: error => {
+        this.errorMessage = 'Hubo un problema al iniciar sesión. Por favor, inténtelo de nuevo.';
+      }
     });
   }
-
 }

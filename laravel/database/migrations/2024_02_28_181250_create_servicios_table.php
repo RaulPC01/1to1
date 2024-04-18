@@ -20,7 +20,7 @@ return new class extends Migration
            $table->unsignedBigInteger('nombre_poblacion'); // Cambiado a unsignedBigInteger
            $table->foreign('nombre_poblacion')->references('id_poblacion')->on('poblacion')->onDelete('cascade');
            $table->integer('tarifa');
-           $table->string('descripcion');
+           $table->text('descripcion');
            $table->string('tipo_servicio');
            $table->integer('puntuacion_valoracion');          
            $table->timestamps();

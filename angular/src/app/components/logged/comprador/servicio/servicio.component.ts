@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router'; // Añade Router aquí
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-servicio',
@@ -12,9 +12,7 @@ export class ServicioComponent implements OnInit {
   edadUsuario: number | undefined;
   mostrarCompleta = false;
 
-  constructor(private route: ActivatedRoute, 
-              private http: HttpClient,
-              private router: Router) { } // Inyecta Router aquí
+  constructor(private route: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -44,9 +42,5 @@ export class ServicioComponent implements OnInit {
 
   toggleImagenCompleta() {
     this.mostrarCompleta = !this.mostrarCompleta;
-  }
-
-  navegarDetalleServicio(servicioId: number) {
-    this.router.navigate(['/servicios', servicioId]);
   }
 }

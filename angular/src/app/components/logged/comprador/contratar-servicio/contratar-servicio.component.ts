@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { TokenService } from 'src/app/token.service';
 
 @Component({
   selector: 'app-contratar-servicio',
@@ -11,18 +12,10 @@ export class ContratarServicioComponent implements OnInit {
   servicioId: string | null = null; // Inicializado como null
   categorias: any[] = []; // Variable para almacenar las categorías
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+  constructor(private route: ActivatedRoute, private http: HttpClient, private tokenService: TokenService) { }
 
   ngOnInit(): void {
-    // Hacer la solicitud HTTP para obtener las categorías desde el backend
-    this.http.get<any[]>('http://localhost:8000/api/categorias')
-      .subscribe(categorias => {
-        this.categorias = categorias;
-      });
-
-    this.route.paramMap.subscribe(params => {
-      this.servicioId = params.get('id');
-      // Aquí puedes hacer lo que necesites con el ID del servicio, como cargar los detalles del servicio desde el backend, etc.
-    });
+    // Obtener el DNI del usuario del servicio TokenService
+   
   }
 }

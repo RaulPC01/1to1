@@ -6,22 +6,27 @@ use Illuminate\Http\Request;
 use App\Models\services;
 use App\Models\User;
 use App\Models\categories;
+use Illuminate\Support\Facades\Auth;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class ServiceController extends Controller
 {
     public function createService(Request $request)
     {
+        // Validar los datos del formulario
         $validatedData = $request->validate([
+            'idUser' => 'required|string',
             'nombre' => 'required|string',
-            'precio' => 'required|numeric',
+            'precio' => 'required|integer',
             'categoria' => 'required|integer',
-            'poblacion' => 'required|string',
+            'poblacion' => 'required|integer',
             'descripcion' => 'required|string',
         ]);
 
-        // Obtener el ID del usuario proveedor desde el token de autenticación
-        $idUsuarioProveedor = auth()->user()->dni;
+        // Obtener el ID del usuario del formulario
+        $idUsuarioProveedor = $validatedData['idUser'];
 
+        // Crear el servicio con los datos validados
         $service = services::create([
             'id_usuario_proveedor' => $idUsuarioProveedor,
             'id_categoria' => $validatedData['categoria'],
@@ -32,6 +37,7 @@ class ServiceController extends Controller
             'puntuacion_valoracion' => 0, 
         ]);
 
+        // Retornar la respuesta JSON con el servicio creado y el código de estado 201 (Created)
         return response()->json($service, 201);
     }
     public function user()
@@ -57,5 +63,5 @@ class ServiceController extends Controller
     }
 
     
-       
+ 
 }

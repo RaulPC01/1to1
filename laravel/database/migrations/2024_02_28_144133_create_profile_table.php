@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('dni')->unique(); // Cambiado a unique
             $table->foreign('dni')->references('dni')->on('users')->onDelete('cascade');
             $table->string('link_paypal')->nullable(); // Añadido nullable
-            $table->string('experiencia')->nullable(); // Añadido nullable
-            $table->string('habilidades')->nullable(); // Añadido nullable
-            $table->string('descripcion_personal')->nullable(); // Añadido nullable
+            $table->text('experiencia')->nullable(); // Añadido nullable
+            $table->text('habilidades')->nullable(); // Añadido nullable
+            $table->text('descripcion_personal')->nullable(); // Añadido nullable
             $table->string('foto_perfil')->nullable(); // Cambiado a nullable y corregido el nombre
             $table->timestamps();
         });

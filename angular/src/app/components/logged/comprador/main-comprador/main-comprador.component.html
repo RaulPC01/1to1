@@ -1,24 +1,26 @@
-<div class="body">
-    <p>Los profesionales con más puntuaciones por la comunidad <img src="../assets/imatges/grupopEstrellas.png" alt="estrellas"></p>
-    
-      <div class="card estilo-b" *ngFor="let service of topRatedServices">  
-          <div class="img-container">
-              <img src="../../../../../assets/herramientas-de-carpinteria_seveiestaci.jpg" >
-              <span class="price">{{service.tarifa}}</span>
-              <span class="favorite">
-                 
-              </span>
-          </div>
-          <div class="infoS">
-              <p class="titulo">{{service.titulo}}</p>
-              <span class="material-symbols-outlined">
-                  star <p>{{service.puntuacion_valoracion}}</p>
-              </span>
-              <span class="material-symbols-outlined">
-                  where_to_vote <p class="lugar">{{service.poblacion.nombre_poblacion}}</p>
-              </span>
-          </div>
-  
-          <a href="#">Ver mas</a>
+<h1 class="titulo">Estos son los servicios con más puntuaciones valorados por nuestra comunidad</h1>
+
+
+<div class="contenido">
+  <section class="grid-container">
+    <div class="card estilo-b" *ngFor="let service of topRatedServices">  
+      <div class="wavy-background"></div>
+      <div class="img-container">
+        <img src="\assets\carpintero.png" alt="producto 1">
+        <span class="price">{{service.tarifa}} €</span>
       </div>
-  </div>
+      <div class="info">
+        <p class="titulo">{{service.tipo_servicio}}</p>
+        <div class="rating">
+          <span class="material-symbols-outlined">
+            star <p>{{service.puntuacion_valoracion}}</p>
+          </span>
+          <span class="material-symbols-outlined">
+            where_to_vote <p class="lugar">{{service.poblacion.nombre_poblacion}}</p>
+          </span>
+        </div>
+      </div>
+      <a [routerLink]="['/servicios', service.id_servicios]">Ver más</a>
+    </div>
+  </section>
+</div>

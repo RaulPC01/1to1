@@ -10,6 +10,7 @@ import { ServicioComponent } from './components/logged/comprador/servicio/servic
 import { ContratarServicioComponent } from './components/logged/comprador/contratar-servicio/contratar-servicio.component';
 import { PerfilComponent } from './components/logged/perfil/perfil.component';
 import { MainProveedorComponent } from './components/logged/proveedor/main-proveedor/main-proveedor.component';
+import { CrearservicoComponent } from './components/logged/proveedor/main-proveedor/crearservico/crearservico.component';
 
 const routes: Routes = [
 
@@ -25,12 +26,14 @@ const routes: Routes = [
 
   { path: 'servicios/:id_servicios', component: ServicioComponent },
 
-  { path: 'servicio', component: ServicioComponent},
+  
 
   { path: 'contratar/:id', component: ContratarServicioComponent },
 
   
-  { path: 'crear-servicio', component: MainProveedorComponent },
+  { path: 'crear-servicio', component: CrearservicoComponent },
+
+
 
   // =====================================================
   {

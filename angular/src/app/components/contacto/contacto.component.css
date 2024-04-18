@@ -1,8 +1,20 @@
-.cuerpo{
-    height: 42em;
+.wave-bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 120%;
+    height: 170.5%;
+    z-index: -1;
+  }
+  
+  .cuerpo {
+    position: relative;
     display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 3% 4%;
-}
+    height: auto;
+  }
 
 h1 { font-size: 30px; }
 h2 { font-size: 26px; }

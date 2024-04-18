@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('id_user');
             $table->integer('id_servicio');
             $table->integer('id_user_proveedor');
-            $table->string('descripcion');
+            $table->text('descripcion');
             $table->date('date_servicio');
             $table->integer('telefono_user');
             $table->boolean('accpeted');
