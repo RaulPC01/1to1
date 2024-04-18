@@ -21,6 +21,12 @@
   text-align: center;
   margin-bottom: 20px; /* Ajuste de margen inferior */
 }
+.bSiguiente:disabled {
+    background-color: #cccccc; /* Color de fondo gris cuando está deshabilitado */
+    color: #666666; /* Color de texto gris para mejorar la legibilidad */
+    cursor: not-allowed; /* Cambia el cursor para indicar que el botón no es interactivo */
+    border: 1px solid #999999; /* Opcional: añade un borde para definir mejor el botón */
+}
 
 .titulo {
   font-size: 24px;
@@ -111,14 +117,24 @@
   /* Estilos para los botones */
   button {
     padding: 10px 20px;
-    background-color: #6c757d;
-    color: #fff;
-    border: none;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: black;
+    text-decoration: black;
     border-radius: 15px;
     cursor: pointer;
     margin-top: 15px;
   }
- 
+  .character-count {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 0.9em;
+}
+
+.text-danger {
+    color: #dc3545; /* Bootstrap’s danger color for errors */
+}
+
   /* Estilos para el botón de enviar */
   button[type="submit"] {
     background-color: #28a745;
@@ -152,3 +168,9 @@
   }
 
   
+  .bSiguiente[disabled] {
+    background-color: #cccccc; /* Color de fondo gris cuando está deshabilitado */
+    color: #666666; /* Color de texto gris para mejorar la legibilidad */
+    cursor: not-allowed; /* Cambia el cursor para indicar que el botón no es interactivo */
+    border: 1px solid #999999; /* Opcional: añade un borde para definir mejor el botón */
+}

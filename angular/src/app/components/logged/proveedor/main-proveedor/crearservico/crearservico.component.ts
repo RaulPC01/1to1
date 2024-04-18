@@ -31,13 +31,15 @@ export class CrearservicoComponent implements OnInit {
     this.servicioForm = this.formBuilder.group({
       idUser: ['', Validators.required],
       categoria: ['', Validators.required],
-      nombre: ['', Validators.required],
+      nombre: ['', [Validators.required, Validators.maxLength(20)]],
       descripcion: ['', Validators.required],
       precio: ['', Validators.required],
       poblacion: ['', Validators.required],
       
     });
 
+
+    
     // Obtener los datos del perfil del usuario al iniciar el componente
     const token = localStorage.getItem('Idtoken');
     if (token) {
