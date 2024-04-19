@@ -16,6 +16,7 @@
 }
 
 #derecha{
+    margin-top: 2%;
     text-align: center;
 }
 
@@ -53,7 +54,6 @@ h2{
 
 
 td{
-    display: flex;
     justify-content: center;
 }
 

@@ -43,6 +43,7 @@ export class PerfilComponent implements OnInit {
   toggleEditForm(): void {
     this.showEditForm = !this.showEditForm;
   }
+
   obtenerPerfilUsuario(token: string): void {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
@@ -68,7 +69,6 @@ export class PerfilComponent implements OnInit {
         });
       },
       (error) => {
-        
         // Manejar el error adecuadamente, por ejemplo, mostrar un mensaje al usuario
       }
     );

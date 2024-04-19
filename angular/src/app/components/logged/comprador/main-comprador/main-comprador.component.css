@@ -63,7 +63,7 @@ body {
   position: absolute;
   top: 10px;
   right: 10px;
-  background-color: #ff4b2b;
+  background-color: #b40301;
   color: #fff;
   padding: 5px 10px;
   border-radius: 5px;
@@ -114,14 +114,14 @@ a {
   text-align: center;
   text-decoration: none;
   color: #fff;
-  background-color: #ff4b2b;
+  background-color: #b40301;
   padding: 10px 0;
   border-radius: 0 0 12px 12px;
   transition: background-color 0.3s ease;
 }
 
 a:hover {
-  background-color: #ff416c;
+  background-color: #b44947;
 }
 
 /* Estilos para dispositivos móviles */

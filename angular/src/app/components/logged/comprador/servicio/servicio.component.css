@@ -1,225 +1,58 @@
+.cuerpo{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 20px;
+    padding: 50px 80px;
+}
+
 .infoServicio{
-    padding: 20px;
+    padding: 10px;
+    margin-left: 10px;
     border-radius: 5px;
-    box-shadow: 0px 0px 5px 0px #e0e0e0;
-    width: 60%;
-    margin: 2% ;
+    width: 65%;
 }
 
-.tituloServicio{
-    font-size: 40px;
-    color: #4A4747;
-    text-align: center;
-    margin: 5%;
+.tituloServicio{ font-size: 34px; color: #323232; }
+
+.infoUsuario{ margin-left: 20px;}
+
+.nombre{ font-size: 17px; color: #262525; text-align: left; }
+
+.tarjetaUsuario{
+    display: flex;
+    margin-top: 20px;
 }
 
-.descripcionServicio{
-    font-size: 20px;
-    color: #4A4747;
-    text-align:justify;
+.descripcionServicio{   
+    font-size: 18px;
+    color: #2f2f2f;
+    text-align: justify;
     margin: 1%;
 }
 
-.etiquetas{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    height:fit-content;
-    background-color:#EFCFCF ; 
-    border-radius: 30px;
-    box-shadow: 0px 0px 5px 0px #e0e0e0, 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.etiqueta{
-    display: flex;
-    justify-content: center;
-    margin: 2%;
-    color: black;
-    cursor: default;
-}
-@media (max-width: 1200px) {
-    .etiquetas {
-        flex-direction: column;
-        align-items: center;
-        width: 80%;
-        height: fit-content;
-    }
-    .etiqueta{
-        margin: 3%;
-        text-size-adjust: auto;
-    }
-}
-@media (max-width: 768px) {
-    .infoServicio{
-        width: 80%;
-    }
-    .etiquetas {
-        width: 80%;
-    }
-    
-}
-
-.nombreUsu{
-    font-size: 200%;
-    color: #4A4747;
-    text-align: left;
-    margin: 1%;
-}
-
-.descripcionUsu{
-    font-size: 20px;
-    color: #4A4747;
-    text-align:justify;
-    margin: 1%;
-}
-
-.paneles{
-    display: flex;
-    justify-content: space-around;
-    margin: 20px;
-    padding: 20px;
-}
-
-.panelDerecha{
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px 0px #e0e0e0;
-    width: 40%;
-    margin: 2% ;
-}
-
-.tarjeta {
-    padding: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 20px;
-    background-color: #f5f5f5;
-    -webkit-box-shadow: 0px 13px 13px -8px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 13px 13px -8px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 13px 13px -8px rgba(0, 0, 0, 0.75);
-    width: 90%;
-    margin: 2%;
-    display: flex;
-    margin: 0 auto;
-    margin-top: 80px;
-}
-
-.tarjeta1 {
-    padding: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 20px;
-    background-color: #f5f5f5;
-    -webkit-box-shadow: 0px 13px 13px -8px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 13px 13px -8px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 13px 13px -8px rgba(0, 0, 0, 0.75);
-    width: 90%;
-    margin: 1%;
-    display: flex;
-    flex-direction: column; /* Agregado para que los textos estén uno debajo del otro */
-    align-items: center; /* Agregado para centrar los textos verticalmente */
-    margin-top: 5%; 
-}
-
-.ciudad2{
-    color: #4A4747;
-    margin: 0 auto; 
-    font-size: 45px;
-}
-
-.distancia, .precio{
-    color: #4A4747;
-    margin: 5px;
-}
-
-.distancia{
-font-size: 20px;
-}
-
-button{
-    background-color: #eb7878;
-    border: none;
-    color: white;
-    font-size: 20px;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 10px 1px;
-    width: 90%;
-    cursor: pointer;
-    border-radius: 30px;
-    box-shadow: 0px 0px 5px 0px #e0e0e0;
-    letter-spacing: 20px;
-    transition: transform 0.3s ease;
-}
-
-button:hover {
-    transform: scale(1.1);
-}
-
-.nombre{
-    font-size: 200%;
-    color: #4A4747;
-    text-align: left;
-    margin: 1%;
-}
-
-.fotoPerfil {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 100px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-
-.fotoPerfil img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-right: 100px; 
-    margin-left: 25%;
-    object-fit: cover;
-}
-
-.fotoCompleta {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(61, 61, 61, 0.658);
-  border-radius: 0%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.fotoCompleta img {
- width: 50%;
- height: auto;
- border-radius: 0%;
- margin: 0 auto;
-}
-
-
-
-
-.estrellas{
-    display: flex;
-    justify-content: center;
-    margin: 0px;
-    width: 40%;
-}
 
 .datos{
-    margin-left: 30px;
     margin-top: 10px;
     height: 135px;
 }
 
-.edad{
-   margin: 0px;
+
+
+.fotoPerfil {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
-.ciudad{
-    margin: 0px;
-} 
+
+.fotoPerfil img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit:initial;
+}
