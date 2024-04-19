@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+
+      <div class="col-md-6" id="izquierda">
+        <h2>Crear tu Servicio</h2>
+        <p class="texto">Crear tu propio servicio te brinda la oportunidad de destacar tus habilidades únicas y llegar a una audiencia específica, potenciando tu visibilidad y oportunidades de negocio en nuestra plataforma.</p>
+        <a routerLink="/crear-servicio" class="btn btn-primary">Crear</a>
+      </div>
+
+      <div class="col-md-6" id="derecha">
+        <h2>Servicios Existentes</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let servicio of servicios; let i = index">
+              <th scope="row">{{i + 1}}</th>
+              <td>{{servicio.nombre}}</td>
+              <td>
+                <button class="btn btn-info btn-sm" (click)="editarServicio(servicio)">Editar</button>
+                <button class="btn btn-danger btn-sm" (click)="eliminarServicio(servicio)">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

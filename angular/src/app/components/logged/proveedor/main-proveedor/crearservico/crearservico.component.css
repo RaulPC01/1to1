@@ -11,8 +11,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
-   /* Ajuste para bajar los paneles */
-  margin-bottom: 20px; /* Elimina el ajuste de margen inferior */
+  margin-bottom: 20px;
   overflow-y: hidden;
 
 }
@@ -26,7 +25,7 @@ span{
 
 .encabezado {
   text-align: center;
-  margin-bottom: 20px; /* Ajuste de margen inferior */
+  margin-bottom: 20px;
 }
 .bSiguiente:disabled {
     background-color: #cccccc; /* Color de fondo gris cuando está deshabilitado */
@@ -38,8 +37,8 @@ span{
 .titulo {
   font-size: 24px;
   font-weight: bold;
-  color: #333; /* Color del texto */
-  margin-bottom: 10px; /* Espacio entre el título y el párrafo */
+  color: #333;
+  margin-bottom: 10px;
 }
 
 .descripcion {

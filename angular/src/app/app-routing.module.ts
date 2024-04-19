@@ -26,12 +26,13 @@ const routes: Routes = [
 
   { path: 'servicios/:id_servicios', component: ServicioComponent },
 
-  
-
   { path: 'contratar/:id', component: ContratarServicioComponent },
 
+  { path: 'main-proveedor', component: MainProveedorComponent },
   
   { path: 'crear-servicio', component: CrearservicoComponent },
+
+
 
 
 
