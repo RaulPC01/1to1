@@ -1,33 +1,24 @@
 <div class="navbar">
+  <div class="flex">
+    <a routerLink="/home-comprador" class="logo">
+      <div class="img">
+        <img src="../../../assets/imatges/logo.png" height="50px">
+      </div>
+    </a>
+  </div>
 
-    <div class="flex">
-        <a routerLink="/home-comprador" class="logo">
-            <div class="flex">
-                <div class="img">
-                    <img src="../../../assets/imatges/logo.png" height="50px">
-                </div>
-            </div>
-        </a>
+  <div class="links">
+    <a routerLink="/home-comprador" class="link">Contratar Servicios</a>
+    <a routerLink="/crear-servicio" class="link">Mis Servicios</a>
+  </div>
 
-    </div>
-
+  <div class="flex">
     <div class="links">
-        <a routerLink="/home-comprador" class="link link-center">Contrar Servicios</a>
-        <a routerLink="/crear-servicio" class="link link-left">Mis Servicios</a>
-        
+      <a routerLink="contacto" class="link">Contacto</a>
+      <div class="bPerfil">
+        <a routerLink="/perfil" class="link"><span class="material-symbols-outlined">person</span>Mi Perfil</a>
+      </div>
+      <a (click)="logout()" routerLink="/home" class="link"><span class="material-symbols-outlined">logout</span></a>
     </div>
-
-  
-
- 
-    <div class="flex">
-        <div class="links" style="margin-right: 24px;">
-            <a routerLink="contacto" class="link link-right">Contacto</a>
-            <div class="bPerfil">
-                <a routerLink="/perfil" class="link link-right"><span class="material-symbols-outlined">person</span>Mi Perfil</a>
-            </div>
-
-            <a class="link link-right" (click)="logout()" routerLink="/home"><span class="material-symbols-outlined">logout</span></a>
-        </div>
-    </div>
+  </div>
 </div>
