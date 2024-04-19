@@ -135,6 +135,7 @@ export class CrearservicoComponent implements OnInit {
           (data) => {
             // Manejar la respuesta del backend si es necesario
             console.log('Respuesta del servidor:', data);
+            this.router.navigate(['/proveedor'])
             // Redirigir al usuario a otra página, mostrar mensaje de éxito, etc.
           },
           (error: HttpErrorResponse) => {
