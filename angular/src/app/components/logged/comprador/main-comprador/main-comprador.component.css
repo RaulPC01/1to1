@@ -23,7 +23,7 @@ body {
 }
 
 .contenido {
-  padding: 50px;
+  padding: 150px;
   display: flex;
   justify-content: center;
 }
@@ -31,7 +31,7 @@ body {
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, minmax(300px, 1fr)); /* Columnas de 3 inicialmente */
-  gap: 20px;
+  gap: 100px;
 }
 .card {
   background-color: #fff;
@@ -78,6 +78,20 @@ body {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 10px;
+  text-align: center;
+}
+
+.rating{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+
+span{
+  display: flex;
+  align-items: center;
 }
 
 .rating p,
@@ -85,12 +99,13 @@ body {
   margin: 0;
   display: inline-flex;
   align-items: center; /* Alinear símbolos y valores verticalmente */
-  font-size: 14px;
-  color: #666;
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
 }
 
 .material-symbols-outlined {
-  font-size: 18px;
+  font-size: 22px;
   margin-right: 5px;
 }
 
