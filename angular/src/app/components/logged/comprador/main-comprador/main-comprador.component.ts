@@ -9,10 +9,11 @@ import { Router } from '@angular/router';
 })
 export class MainCompradorComponent {
   topRatedServices: any[] = [];
-
+  loading: boolean = false;
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
+    this.loading = true; 
     this.getTopRatedServices();
   }
 
@@ -26,9 +27,11 @@ export class MainCompradorComponent {
     this.http.post<any[]>(baseUrl, {}).subscribe(
       (data: any[]) => {
         this.topRatedServices = data;
+        this.loading = false;
       },
       (error) => {
         console.log('Error al obtener los servicios mejor valorados: ', error);
+        this.loading = false;
       }
     );
   }

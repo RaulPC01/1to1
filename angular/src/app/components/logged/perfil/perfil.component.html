@@ -1,60 +1,55 @@
 <div class="fotoPerfil">
-
     <img src="../../../../assets/herramientas-de-carpinteria_seveiestaci.jpg" alt="foto de perfil">
-
 </div>
+
 <div class="profile-card">
-   
-    
     <header class="card-header">
         <h2>Detalles de Perfil</h2>
-        <button class="edit-button" >Editar</button>
+        <button class="edit-button" (click)="toggleEditForm()">Editar</button>
     </header>
     
-    <div>
+    <div *ngIf="!showEditForm">
         <div class="card-content">
             <div class="field">
                 <label>Nombre Completo</label>
-                <div class="value"></div>
+                <div class="value">{{ user.name }}</div>
             </div>
             <div class="field">
                 <label>E-mail</label>
-                <div class="value"></div>
+                <div class="value">{{ user.email }}</div>
             </div>
             <div class="field">
                 <label>Numero de contacto</label>
-                <div class="value verified"> <span>Verified</span></div>
+                <div class="value verified">{{ user.phone }} <span>Verified</span></div>
             </div>
             <div class="field">
                 <label>Ciudad</label>
-                <div class="value"></div>
+                <div class="value">{{ user.poblacion.nombre_poblacion }}</div>
             </div>
         </div>
     </div>
     
-    <form  class="edit-form">
+    <form *ngIf="showEditForm" class="edit-form">
         <div class="form-group">
             <label>Nombre Completo:</label>
-            <input type="text"  name="fullName" required>
+            <input type="text" name="fullName" [(ngModel)]="user.name" required>
         </div>
         <div class="form-group">
             <label>E-mail:</label>
-            <input type="email" name="email" required>
+            <input type="email" name="email" [(ngModel)]="user.email" required>
         </div>
         <div class="form-group">
             <label>Número de Contacto:</label>
-            <input type="text" name="contactNumber" required>
+            <input type="text" name="contactNumber" [(ngModel)]="user.telefono" required>
         </div>
         <div class="form-group">
             <label>Ciudad:</label>
-            <input type="text"  name="city" required>
+            <input type="text" name="city" [(ngModel)]="user.poblacion" required>
         </div>
         <div class="form-group">
             <label>Cambiar Foto de Perfil:</label>
-            <input type="file" >
+            <input type="file">
         </div>
         <button type="submit" class="save-button">Guardar Cambios</button>
     </form>
-    
-
 </div>

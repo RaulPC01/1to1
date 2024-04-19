@@ -4,13 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use Illuminate\Support\Facades\DB;
+use App\Models\Profile;
 use Illuminate\Support\Facades\Auth;
-
 
 class ProfileController extends Controller
 {
-   
     public function show()
     {
         try {
@@ -18,15 +16,22 @@ class ProfileController extends Controller
             if (Auth::check()) {
                 // Obtener el usuario autenticado
                 $user = Auth::user();
-                // Devolver el perfil del usuario como respuesta JSON
-                return response()->json($user);
+                // Obtener el perfil del usuario
+                $profile = $user->profile;
+                // Combinar los datos del usuario y el perfil
+                $data = [
+                    'user' => $user,
+                    'profile' => $profile,
+                ];
+                // Devolver los datos combinados como respuesta JSON
+                return response()->json($data);
             } else {
                 // Si el usuario no está autenticado, devolver un error de autenticación
                 return response()->json(['error' => 'Usuario no autenticado'], 401);
             }
         } catch (\Exception $e) {
             // Manejar el error
-            return response()->json(['error' => 'Error al buscar el usuario: ' . $e->getMessage()], 500);
+            return response()->json(['error' => 'Error al buscar el perfil: ' . $e->getMessage()], 500);
         }
     }
 }
