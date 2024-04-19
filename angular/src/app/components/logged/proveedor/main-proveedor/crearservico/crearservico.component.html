@@ -50,7 +50,10 @@
                         <!-- Otros options -->
                     </select>
                     <div class="contenedor-botones">
-                        <button type="button" class="bSiguiente" (click)="verNombreServicio()">Siguiente</button>
+                        <button type="button" class="bSiguiente" (click)="verNombreServicio()"
+                            [disabled]="!servicioForm.get('categoria')?.valid">Siguiente</button>
+
+
                     </div>
                 </div>
             </div>
@@ -59,24 +62,30 @@
             <div [ngClass]="{ 'hidden': !mostrarNombre }" class="mb-4">
                 <div class="mb-3">
                     <h3 class="titulo"><span style="color: #b40301"> Título</span> de tu servicio</h3>
-                    <input type="text" formControlName="nombre" placeholder="Ej: Cambio de aceite" required>
+                    <input type="text" formControlName="nombre" placeholder="Ej: Cambio de aceite" required
+                    (input)="countNombreLength($event)">
+                <div class="contador-letras">{{ nombreLength }}/40</div>
                 </div>
 
                 <div class="contenedor-botones">
                     <button type="button" (click)="volverCategoria()">Anterior</button>
-                    <button type="button" class="bSiguiente" (click)="verDescripcion()">Siguiente</button>
+                    <button type="button" class="bSiguiente" (click)="verDescripcion()"
+                        [disabled]="!servicioForm.get('nombre')?.valid">Siguiente</button>
                 </div>
+
             </div>
 
             <!----------------------------DESCRIPCION DEL SERVICIO------------------------------------->
             <div [ngClass]="{ 'hidden': !mostrarDescripcion }" class="mb-4">
                 <div class="mb-3">
                     <h3 class="tituloDescripcion">Acerca de<span style="color: #b40301"> tu Servicio</span></h3>
-                    <textarea type="text" formControlName="descripcion" class="textareaDescripcion" placeholder="Ej: Limpieza profunda del ordenador y cambio de pasta térmica a domicilio" required></textarea>
-
+                    <textarea type="text" formControlName="descripcion" class="textareaDescripcion" placeholder="Ej: Limpieza profunda del ordenador y cambio de pasta térmica a domicilio" required>
+                    (input)="countDescripcionLength($event)"></textarea>
+                    <div class="contador-letras">{{ descripcionLength }}/200</div> <!-- Contador de letras -->
                     <div class="contenedor-botones">
                         <button type="button" (click)="volverNombreServicio()">Anterior</button>
-                        <button type="button" class="bSiguiente" (click)="verTarifa()">Siguiente</button>
+                        <button type="button" class="bSiguiente" (click)="verTarifa()"
+                            [disabled]="!servicioForm.get('descripcion')?.valid">Siguiente</button>
                     </div>
                 </div>
             </div>
