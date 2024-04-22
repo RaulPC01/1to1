@@ -9,6 +9,10 @@
       </div>
       <div class="infoUsuario">
         <p class="nombre">{{servicio.user.name}}</p>
+        <div class="puntuacion">
+          <span class="material-symbols-outlined">star</span>
+          <p>5</p>
+        </div>
       </div>
     </div>
 
@@ -23,6 +27,20 @@
   </div>
 
   <div class="panelDerecha">
+    <div class="miniDiv">
+      <p>Servicio</p>
+      <hr>
+    </div>
+    <hr>
+    <div class="targetaServicio">
+      <span class="tituloServicio">PRECIO</span>
+      <span class="Valor">{{servicio.tarifa}} €</span>
+    </div>
+    <div class="targetaServicio">
+      <span class="tituloServicio">UBICACIÓN</span>
+      <span class="Valor">{{ servicio.poblacion.nombre_poblacion }}</span>
+    </div>
+    <button> Contratar</button>
 
     <!-- 
       <div class="tarjeta2">
@@ -34,14 +52,6 @@
       <button class="contratar"  [routerLink]="['/contratar', servicio.id_servicios]">CONTRATAR</button>
     </div>
     -->
-
-    <div class="tarjeta2">
-      <h1 class="titulo3">Sobre el Servicio:</h1>
-        <p class="ciudad">{{ servicio.poblacion.nombre_poblacion | uppercase }}</p>
-        <p class="precio"> {{servicio.tarifa}} €</p>
-      <button class="contratar"  [routerLink]="['/contratar', servicio.id_servicios]">CONTRATAR</button>
-    </div>
-
   </div>
 
 

@@ -2,32 +2,38 @@
     display: flex;
     justify-content: space-around;
     margin: 10px 20px;
-    padding: 50px 80px;
+    padding: 40px 60px;
 }
 
+
 .infoServicio{
-    padding: 10px;
-    margin-left: 10px;
+    padding: 10px 0px;
     border-radius: 5px;
-    width: 65%;
+    width: 55%;
 }
 
 .tituloServicio{ font-size: 34px; color: #323232; }
-
-.infoUsuario{ margin-left: 20px;}
 
 .nombre{ font-size: 17px; color: #262525; text-align: left; }
 
 .tarjetaUsuario{
     display: flex;
     margin-top: 20px;
+    font-weight: 600;
+    color: #323232
 }
 
+
+.infoUsuario{ margin-left: 20px;}
+
+.puntuacion{ display: flex; margin-top: -11px; text-align: center; max-height: 20px; align-items: unset;}
+.puntuacion span{ font-size: 20px;}
+.puntuacion p{ font-size: 16px; margin-top: -1px; margin-left: 2px;}
+
 .descripcionServicio{   
-    font-size: 18px;
+    font-size: 16px;
     color: #2f2f2f;
     text-align: justify;
-    margin: 1%;
 }
 
 
@@ -51,8 +57,60 @@
 }
 
 .fotoPerfil img {
-    width: 60px;
-    height: 60px;
+    height: 120%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    position: absolute;
+    width: 120%;
     border-radius: 50%;
-    object-fit:initial;
 }
+
+/*----------------------DIV DERECHA---------------------------*/
+.panelDerecha{
+    border: 1px solid #c7c7c7;
+    width: 27%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.miniDiv{
+    border: 1px solid #c7c7c7;
+    justify-content: center;
+    color: black;
+    font-size: 18px;
+    font-weight: 600;
+    width: 110px;
+    padding: 15px 0px;
+    height: 60px;
+}
+
+.miniDiv hr{ background-color: #b40301; height: 2px;}
+
+.targetaServicio{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 25px;
+    width: 100%;
+}
+
+.targetaServicio .tituloServicio { font-weight: 600; font-size: 16px;}
+
+.targetaServicio .Valor { font-weight: 600; color: #555555;}
+
+
+button{
+    margin-top: 20px;
+    background-color: #b40301;
+    border-radius: 5px; 
+    width: 90%;
+    font-size: 18px; 
+    color: white;
+    border: none;
+    padding: 10px;
+    transition: box-shadow 0.3s;
+}
+
+button:hover{transform: scale(1.02);}
