@@ -33,14 +33,23 @@
     </div>
     <hr>
     <div class="targetaServicio">
-      <span class="tituloServicio">PRECIO</span>
-      <span class="Valor">{{servicio.tarifa}} €</span>
+      <span class="tituloServicio">Precio</span>
+      <span class="precioValor">{{servicio.tarifa}} €</span>
     </div>
+    <br>
     <div class="targetaServicio">
-      <span class="tituloServicio">UBICACIÓN</span>
-      <span class="Valor">{{ servicio.poblacion.nombre_poblacion }}</span>
+      <span class="tituloServicio">Ubicación</span>
+      <span class="Valor">{{ servicio.poblacion.nombre_poblacion | uppercase }}</span>
     </div>
-    <button> Contratar</button>
+  
+    <div class="extra">
+      <p> <span class="material-symbols-outlined"> check_small</span>  Buen trabajo</p>
+      <p> <span class="material-symbols-outlined"> check_small</span>  Atención de calidad</p>
+      <p> <span class="material-symbols-outlined"> check_small</span>  Servicio seguro y confiable</p>
+    </div>
+
+
+    <button> Contratar </button>
 
     <!-- 
       <div class="tarjeta2">

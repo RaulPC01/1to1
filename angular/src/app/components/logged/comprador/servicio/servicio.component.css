@@ -3,6 +3,7 @@
     justify-content: space-around;
     margin: 10px 20px;
     padding: 40px 60px;
+    align-items: center;
 }
 
 
@@ -67,16 +68,19 @@
 
 /*----------------------DIV DERECHA---------------------------*/
 .panelDerecha{
-    border: 1px solid #c7c7c7;
+    border: 1px solid #dcdcdc;
     width: 27%;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 330px;
+    padding-bottom: 10px;
+    border-radius: 5px;
 }
 
 .miniDiv{
-    border: 1px solid #c7c7c7;
+    border: 1px solid #dcdcdc;
     justify-content: center;
     color: black;
     font-size: 18px;
@@ -88,29 +92,56 @@
 
 .miniDiv hr{ background-color: #b40301; height: 2px;}
 
+.extra{
+    margin-top: 20px;
+    width: 100%;
+    text-align: left;
+    padding: 0px 25px;
+    align-items: center;
+    color: rgb(117, 117, 117);
+}
+
+.extra span{
+    font-weight: 600;
+    color: #262525;
+    font-size: 20px;
+}
+
+.extra p{
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
 .targetaServicio{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 25px;
+    padding: 0px 25px;
     width: 100%;
+    margin-top: -10px;
 }
+
 
 .targetaServicio .tituloServicio { font-weight: 600; font-size: 16px;}
 
-.targetaServicio .Valor { font-weight: 600; color: #555555;}
+.targetaServicio .precioValor{ font-weight: 600; font-size: 20px; color: #555555;}
 
+.targetaServicio .Valor { font-weight: 600; color: #555555; font-size: 17px;}
 
 button{
     margin-top: 20px;
     background-color: #b40301;
     border-radius: 5px; 
     width: 90%;
-    font-size: 18px; 
+    font-size: 16px; 
     color: white;
     border: none;
     padding: 10px;
     transition: box-shadow 0.3s;
+    font-weight: 600;
 }
 
 button:hover{transform: scale(1.02);}
