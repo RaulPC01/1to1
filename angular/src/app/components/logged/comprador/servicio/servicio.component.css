@@ -144,4 +144,4 @@ button{
     font-weight: 600;
 }
 
-button:hover{transform: scale(1.02);}
+button:hover{background-color: #a9302c;}
