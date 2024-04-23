@@ -8,6 +8,7 @@ use App\Http\Controllers\motiusController;
 use App\Http\Controllers\PoblacionController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\solicitudesController;
 use PharIo\Manifest\AuthorElement;
 
 /*
@@ -47,6 +48,8 @@ Route::get('/motivos',[motiusController::class, 'index']);
 
 Route::post('/create-tiket',[motiusController::class, 'createtiket']);
 
+Route::post('/crearSolicitud', [solicitudesController::class, 'create']);
 
-//Route::middleware('auth:api')->get('/obtener-datos-usuario-perfil/{dni}', 'UsuarioController@obenerDatosUsuarioYPerfil');
+Route::get('/services/{id_servicio}/user', [solicitudesController::class, 'getUserByServiceId']);
+
 

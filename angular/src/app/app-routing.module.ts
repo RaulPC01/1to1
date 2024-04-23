@@ -28,7 +28,7 @@ const routes: Routes = [
 
   
 
-  { path: 'contratar/:id', component: ContratarServicioComponent },
+  { path: 'contratar/:id_servicio', component: ContratarServicioComponent },
 
   
   { path: 'crear-servicio', component: CrearservicoComponent },

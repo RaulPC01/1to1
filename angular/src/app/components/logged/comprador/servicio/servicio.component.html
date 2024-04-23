@@ -44,8 +44,7 @@
       <h1 class="ciudad2">{{ servicio.poblacion.nombre_poblacion | uppercase }}<p>(<span class="Sitio">Presencial</span>)</p> </h1> 
       <p class="distancia">40 KM/redonda</p>
       <p class="precio">{{servicio.tarifa}} €</p>
-      <button class="contratar"  [routerLink]="['/contratar', servicio.id_servicios]">CONTRATAR</button>
-    </div>
+      <button class="contratar" [routerLink]="['/contratar', servicio.id_servicios]">CONTRATAR</button>    </div>
 
   </div>
 

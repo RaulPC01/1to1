@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('solicitudes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('id_user');
+            $table->string('id_user');
             $table->integer('id_servicio');
-            $table->integer('id_user_proveedor');
+            $table->string('id_user_proveedor');
             $table->text('descripcion');
             $table->date('date_servicio');
-            $table->integer('telefono_user');
+            $table->integer('telefono_user')->default(false);
             $table->boolean('accpeted');
         });
     }
