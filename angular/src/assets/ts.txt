@@ -1,0 +1,13 @@
+ mostrarDialogo = false;
+
+cerrarDialogo() {
+    this.mostrarDialogo = false;
+  }
+  
+  procesarPago() {
+    this.cerrarDialogo();
+    console.log('Procesando pago...');
+    setTimeout(() => {
+      alert('Pago realizado con éxito!');
+    }, 2000);
+  }
