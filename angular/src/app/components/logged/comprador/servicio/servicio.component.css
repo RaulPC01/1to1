@@ -1,225 +1,237 @@
-.infoServicio{
+
+.loading-spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; /* Asegura que esté por encima de otros elementos */
+    background-color: rgba(255, 255, 255, 0.5); /* Fondo semitransparente */
+    border-radius: 8px;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px 0px #e0e0e0;
-    width: 60%;
-    margin: 2% ;
-}
-
-.tituloServicio{
-    font-size: 40px;
-    color: #4A4747;
-    text-align: center;
-    margin: 5%;
-}
-
-.descripcionServicio{
-    font-size: 20px;
-    color: #4A4747;
-    text-align:justify;
-    margin: 1%;
-}
-
-.etiquetas{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    height:fit-content;
-    background-color:#EFCFCF ; 
-    border-radius: 30px;
-    box-shadow: 0px 0px 5px 0px #e0e0e0, 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.etiqueta{
-    display: flex;
-    justify-content: center;
-    margin: 2%;
-    color: black;
-    cursor: default;
-}
-@media (max-width: 1200px) {
-    .etiquetas {
-        flex-direction: column;
-        align-items: center;
-        width: 80%;
-        height: fit-content;
-    }
-    .etiqueta{
-        margin: 3%;
-        text-size-adjust: auto;
-    }
-}
-@media (max-width: 768px) {
-    .infoServicio{
-        width: 80%;
-    }
-    .etiquetas {
-        width: 80%;
-    }
-    
-}
-
-.nombreUsu{
-    font-size: 200%;
-    color: #4A4747;
-    text-align: left;
-    margin: 1%;
-}
-
-.descripcionUsu{
-    font-size: 20px;
-    color: #4A4747;
-    text-align:justify;
-    margin: 1%;
-}
-
-.paneles{
-    display: flex;
-    justify-content: space-around;
-    margin: 20px;
-    padding: 20px;
-}
-
-.panelDerecha{
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px 0px #e0e0e0;
-    width: 40%;
-    margin: 2% ;
-}
-
-.tarjeta {
-    padding: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 20px;
-    background-color: #f5f5f5;
-    -webkit-box-shadow: 0px 13px 13px -8px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 13px 13px -8px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 13px 13px -8px rgba(0, 0, 0, 0.75);
-    width: 90%;
-    margin: 2%;
-    display: flex;
-    margin: 0 auto;
-    margin-top: 80px;
-}
-
-.tarjeta1 {
-    padding: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 20px;
-    background-color: #f5f5f5;
-    -webkit-box-shadow: 0px 13px 13px -8px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 13px 13px -8px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 13px 13px -8px rgba(0, 0, 0, 0.75);
-    width: 90%;
-    margin: 1%;
-    display: flex;
-    flex-direction: column; /* Agregado para que los textos estén uno debajo del otro */
-    align-items: center; /* Agregado para centrar los textos verticalmente */
-    margin-top: 5%; 
-}
-
-.ciudad2{
-    color: #4A4747;
-    margin: 0 auto; 
-    font-size: 45px;
-}
-
-.distancia, .precio{
-    color: #4A4747;
-    margin: 5px;
-}
-
-.distancia{
-font-size: 20px;
-}
-
-button{
-    background-color: #eb7878;
-    border: none;
-    color: white;
-    font-size: 20px;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 10px 1px;
-    width: 90%;
-    cursor: pointer;
-    border-radius: 30px;
-    box-shadow: 0px 0px 5px 0px #e0e0e0;
-    letter-spacing: 20px;
-    transition: transform 0.3s ease;
-}
-
-button:hover {
-    transform: scale(1.1);
-}
-
-.nombre{
-    font-size: 200%;
-    color: #4A4747;
-    text-align: left;
-    margin: 1%;
-}
-
-.fotoPerfil {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 100px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
   }
-
-.fotoPerfil img {
-    width: 150px;
-    height: 150px;
+  
+  .spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #dc2020;
     border-radius: 50%;
-    margin-right: 100px; 
-    margin-left: 25%;
-    object-fit: cover;
-}
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+   
 
-.fotoCompleta {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(61, 61, 61, 0.658);
-  border-radius: 0%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.fotoCompleta img {
- width: 50%;
- height: auto;
- border-radius: 0%;
- margin: 0 auto;
-}
-
-
-
-
-.estrellas{
+.cuerpo{
     display: flex;
-    justify-content: center;
-    margin: 0px;
-    width: 40%;
+    justify-content: space-around;
+    margin: 10px 20px;
+    padding: 40px 60px;
+    align-items: center;
 }
+
+
+.infoServicio{
+    padding: 10px 0px;
+    border-radius: 5px;
+    width: 55%;
+}
+
+.tituloServicio{ font-size: 34px; color: #323232; }
+
+.nombre{ font-size: 17px; color: #262525; text-align: left; }
+
+.tarjetaUsuario{
+    display: flex;
+    margin-top: 20px;
+    font-weight: 600;
+    color: #323232
+}
+
+
+.infoUsuario{ margin-left: 20px;}
+
+.puntuacion{ display: flex; margin-top: -11px; text-align: center; max-height: 20px; align-items: unset;}
+.puntuacion span{ font-size: 20px;}
+.puntuacion p{ font-size: 16px; margin-top: -1px; margin-left: 2px;}
+
+.descripcionServicio{   
+    font-size: 16px;
+    color: #2f2f2f;
+    text-align: justify;
+}
+
 
 .datos{
-    margin-left: 30px;
     margin-top: 10px;
     height: 135px;
 }
 
-.edad{
-   margin: 0px;
+
+
+.fotoPerfil {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
-.ciudad{
-    margin: 0px;
-} 
+
+.fotoPerfil img {
+    height: 120%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    position: absolute;
+    width: 120%;
+    border-radius: 50%;
+}
+
+/*----------------------DIV DERECHA---------------------------*/
+.panelDerecha{
+    border: 1px solid #dcdcdc;
+    width: 27%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 330px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+}
+
+.miniDiv{
+    border: 1px solid #dcdcdc;
+    justify-content: center;
+    color: black;
+    font-size: 18px;
+    font-weight: 600;
+    width: 110px;
+    padding: 15px 0px;
+    height: 60px;
+}
+
+.miniDiv hr{ background-color: #b40301; height: 2px;}
+
+.extra{
+    margin-top: 20px;
+    width: 100%;
+    text-align: left;
+    padding: 0px 25px;
+    align-items: center;
+    color: rgb(117, 117, 117);
+}
+
+.extra span{
+    font-weight: 600;
+    color: #262525;
+    font-size: 20px;
+}
+
+.extra p{
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.targetaServicio{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 25px;
+    width: 100%;
+    margin-top: -10px;
+}
+
+
+.targetaServicio .tituloServicio { font-weight: 600; font-size: 16px;}
+
+.targetaServicio .precioValor{ font-weight: 600; font-size: 20px; color: #555555;}
+
+.targetaServicio .Valor { font-weight: 600; color: #555555; font-size: 17px;}
+
+button{
+    margin-top: 20px;
+    background-color: #b40301;
+    border-radius: 5px; 
+    width: 90%;
+    font-size: 17px; 
+    color: white;
+    border: none;
+    padding: 10px;
+    transition: box-shadow 0.3s;
+    font-weight: 600;
+}
+
+button:hover{background-color: #a9302c;}
+
+añadirComentario {
+    margin-top: 20px;
+  }
+  
+  .botonComentario {
+    background-color: #b40301;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    padding: 10px;
+    transition: box-shadow 0.3s;
+    font-weight: 600;
+  }
+  
+  .botonComentario:hover {
+    background-color: #a9302c;
+  }
+  
+  .inputComentario {
+    display: flex;
+    margin-top: 10px;
+  }
+  
+  .inputComentario input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .inputComentario button {
+    background-color: #b40301;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-left: 10px;
+  }
+  
+  .inputComentario button:hover {
+    background-color: #a9302c;
+  }
+  
+  /* Estilos para hacer el diseño responsive */
+  
+  @media screen and (max-width: 768px) {
+    .cuerpo {
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+  
+    .infoServicio {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  
+    .panelDerecha {
+      width: 100%;
+    }
+  }

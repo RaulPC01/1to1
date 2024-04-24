@@ -12,8 +12,6 @@ class solicitudesController extends Controller
 {
     public function create(Request $request)
     {
-
-        dd('ola');
         // Validar los datos del formulario
         $validatedData = $request->validate([
             'id_user' => 'required|string',
@@ -22,24 +20,16 @@ class solicitudesController extends Controller
             'descripcion' => 'required|string', // Cambiado a 'string' en lugar de 'text'
             'date_servicio' => 'required|date',
             'telefono_user' => 'required|string', // Cambiado a 'string' en lugar de 'integer'
-            'accepted' => 'required|boolean', // Cambiado a 'boolean' en lugar de 'accpeted'
+            'accepted' => '', // Cambiado a 'boolean' en lugar de 'accpeted'
         ]);
-
+    
         // Crear el servicio con los datos validados
-        $service = solicitudes::create([
-            'id_user' => $validatedData['id_user'], // Corregido a 'id_user'
-            'id_servicio' => $validatedData['id_servicio'], // Corregido a 'id_servicio'
-            'id_user_proveedor' => $validatedData['id_user_proveedor'], // Corregido a 'id_user_proveedor'
-            'descripcion' => $validatedData['descripcion'],
-            'date_servicio' => $validatedData['date_servicio'],
-            'telefono_user' => $validatedData['telefono_user'],
-            'accepted' => $validatedData['accepted'], // Corregido a 'accepted'
-        ]);
-
+        $service = solicitudes::create($validatedData);
+    
         // Retornar la respuesta JSON con el servicio creado y el código de estado 201 (Created)
         return response()->json($service, 201);
     }
-
+    
     public function getUserByServiceId($id_servicio)
     {
         // Buscar el servicio por su ID

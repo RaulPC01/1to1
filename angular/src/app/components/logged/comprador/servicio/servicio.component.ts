@@ -11,6 +11,8 @@ export class ServicioComponent implements OnInit {
   servicio: any;
   edadUsuario: number | undefined;
   mostrarCompleta = false;
+  loading: boolean = true;
+  mostrarInputComentario: boolean = false;
 
   constructor(private route: ActivatedRoute, private http: HttpClient) { }
 
@@ -27,6 +29,7 @@ export class ServicioComponent implements OnInit {
     this.http.get<any>(`http://localhost:8000/api/services/${id_servicios}`).subscribe(
       (data) => {   
         this.servicio = data;
+        this.loading = false;
         if (this.servicio && this.servicio.user && this.servicio.user.dateOfBirth) {
           const fechaNacimiento = new Date(this.servicio.user.dateOfBirth);
           const hoy = new Date();
@@ -35,6 +38,7 @@ export class ServicioComponent implements OnInit {
         }
       },
       (error) => {
+        this.loading = false;
         console.error('Error al obtener los detalles del servicio: ', error);
       }
     );
@@ -42,5 +46,10 @@ export class ServicioComponent implements OnInit {
 
   toggleImagenCompleta() {
     this.mostrarCompleta = !this.mostrarCompleta;
+  }
+
+
+  enviarComentario(){
+    
   }
 }

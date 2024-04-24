@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('descripcion');
             $table->date('date_servicio');
             $table->integer('telefono_user')->default(false);
-            $table->boolean('accpeted');
+            $table->boolean('accepted')->default(false);
         });
     }
 

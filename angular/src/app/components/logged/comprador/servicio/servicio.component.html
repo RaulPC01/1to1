@@ -1,54 +1,74 @@
 
-<div class="paneles">
+  <div class="loading-spinner" *ngIf="loading">
+    <div class="spinner"></div>
+  </div>
+
+
+<div class="cuerpo" *ngIf="!loading && servicio">
+
+
+
   <div class="infoServicio">
     <h1 class="tituloServicio">{{ servicio.tipo_servicio }}</h1>
-    <p class="descripcionServicio">{{servicio.descripcion}}
-    </p>
 
-    <div class="etiqueta">
-      <div class="etiquetas">
-        <p class="etiqueta">Etiqueta1</p>
-        <p class="etiqueta">Etiqueta2</p>
-        <p class="etiqueta">Etiqueta3</p>
-        <p class="etiqueta">Etiqueta4</p>
-        <p class="etiqueta">Etiqueta5</p>
+    <div class="tarjetaUsuario">
+      <div class="fotoPerfil" [ngClass]="{ 'fotoCompleta': mostrarCompleta }" (click)="toggleImagenCompleta()">
+        <img src="../assets/imatges/Raul.jpeg" alt="Foto de perfil">
+      </div>
+      <div class="infoUsuario">
+        <p class="nombre">{{servicio.user.name}}</p>
+        <div class="puntuacion">
+          <span class="material-symbols-outlined">star</span>
+          <p>5</p>
+        </div>
       </div>
     </div>
-    <hr>
-    <p class="nombreUsu">Sobre Usuario</p>
-    <p class="descripcionUsu">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Ipsa pariatur dolor aliquam consequuntur quidem, reprehenderit dolore facilis sapiente
-      acere quis a distinctio ab error mollitia? Fugiat dignissimos magni velit earum!</p>
+
+    <hr> 
+    <p class="descripcionServicio">{{servicio.descripcion}}
+    </p>
+    <hr>  
+    <p class="descripcionUsu"></p>
 
   </div>
 
   <div class="panelDerecha">
-
-    <div class="tarjeta">
-      <div class="fotoPerfil" [ngClass]="{ 'fotoCompleta': mostrarCompleta }" (click)="toggleImagenCompleta()">
-        <img src="../assets/imatges/Raul.jpeg" alt="Foto de perfil">
-      </div>
-      <div class="datos">
-
-        <p class="nombre">{{servicio.user.name}}</p>
-        <img src="../assets/imatges/grupopEstrellas.png" class="estrellas">
-        <p class="edad"></p>
-        <p class="ciudad">{{edadUsuario}} años 
-        <p>
-
-      </div>
+    <div class="miniDiv">
+      <p>Servicio</p>
+      <hr>
     </div>
-    <div class="tarjeta1">
+    <hr>
+    <div class="targetaServicio">
+      <span class="tituloServicio">Precio</span>
+      <span class="precioValor">{{servicio.tarifa}} €</span>
+    </div>
+    <br>
+    <div class="targetaServicio">
+      <span class="tituloServicio">Ubicación</span>
+      <span class="Valor">{{ servicio.poblacion.nombre_poblacion | uppercase }}</span>
+    </div>
+  
+    <div class="extra">
+      <p> <span class="material-symbols-outlined"> check_small</span>  Buen trabajo</p>
+      <p> <span class="material-symbols-outlined"> check_small</span>  Atención de calidad</p>
+      <p> <span class="material-symbols-outlined"> check_small</span>  Servicio seguro y confiable</p>
+    </div>
 
-      <!-- el uppercase es para que sea cual sea la ciudad este siempre en mayuscula -->
-      <h1 class="ciudad2">{{ servicio.poblacion.nombre_poblacion | uppercase }}<p>(<span class="Sitio">Presencial</span>)</p> </h1> 
-      <p class="distancia">40 KM/redonda</p>
-      <p class="precio">{{servicio.tarifa}} €</p>
-      <button class="contratar" [routerLink]="['/contratar', servicio.id_servicios]">CONTRATAR</button>    </div>
 
+    <button class="contratar"  [routerLink]="['/contratar', servicio.id_servicios]">CONTRATAR</button>
+
+    <!-- 
+      <div class="tarjeta2">
+      <div>
+        <h1 class="ciudad">{{ servicio.poblacion.nombre_poblacion | uppercase }} </h1>
+        <p class="sitio">(Presencial)</p>
+      </div>
+      <p class="precio">{{servicio.tarifa}} 10€</p>
+      
+    </div>
+    -->
+    
   </div>
 
 
 <div>
-
-    
