@@ -1,14 +1,10 @@
-User
-
-  <div class="loading-spinner" *ngIf="loading">
-    <!-- Aquí puedes usar cualquier biblioteca de ruedita de carga o implementar tu propio spinner -->
-    <div class="spinner"></div>
-  </div>
+<div class="loading-spinner" *ngIf="loading">
+  <!-- Aquí puedes usar cualquier biblioteca de ruedita de carga o implementar tu propio spinner -->
+  <div class="spinner"></div>
+</div>
 
 
 <div class="cuerpo" *ngIf="!loading && servicio">
-
-
 
   <div class="infoServicio">
     <h1 class="tituloServicio">{{ servicio.tipo_servicio }}</h1>
@@ -58,18 +54,7 @@ User
 
 
     <button class="contratar"  [routerLink]="['/contratar', servicio.id_servicios]">CONTRATAR</button>
-
-    <!-- 
-      <div class="tarjeta2">
-      <div>
-        <h1 class="ciudad">{{ servicio.poblacion.nombre_poblacion | uppercase }} </h1>
-        <p class="sitio">(Presencial)</p>
-      </div>
-      <p class="precio">{{servicio.tarifa}} 10€</p>
-    </div>
-    -->
     
   </div>
-
 
 <div>
