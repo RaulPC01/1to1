@@ -18,6 +18,8 @@ export class ContratarServicioComponent implements OnInit {
   nombreLength: number = 0;
   descripcionLength: number = 0;
   servicio: any;
+
+  acceptado: boolean = false;
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
@@ -32,13 +34,13 @@ export class ContratarServicioComponent implements OnInit {
 
       // Inicializar el formulario FormGroup
       this.servicioForm = this.formBuilder.group({
-        idUser: ['', Validators.required],
+        id_user: ['', Validators.required], // Cambiado a 'id_user'
         id_servicio: [servicioId, Validators.required], // Asignar el servicioId obtenido de la URL
         id_user_proveedor: ['', Validators.required],
         descripcion: ['', Validators.required],
         date_servicio: ['', Validators.required],
         telefono_user: ['', Validators.required],
-        accepted: [false], // Establecer accepted en false por defecto
+        accepted: [this.acceptado], // Establecer accepted en false por defecto
       });
 
       // Obtener los datos del perfil del usuario al iniciar el componente
@@ -51,8 +53,6 @@ export class ContratarServicioComponent implements OnInit {
       }
     });
   }
-
- 
 
   getUserByServiceId(idServicio: string): void {
     // Construir la URL de la solicitud
@@ -100,7 +100,7 @@ export class ContratarServicioComponent implements OnInit {
         
         console.log('Valor de userId:', userId); // Verificar el valor de userId
         this.servicioForm.patchValue({
-          idUser: userId,
+          id_user: userId, // Cambiado a 'id_user'
           telefono_user: telefono,
         });
 
@@ -123,11 +123,20 @@ export class ContratarServicioComponent implements OnInit {
 
 
   submitForm() {
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        // Otros encabezados si son necesarios
+      }),
+      withCredentials: true // Permitir el envío de cookies de autenticación
+    };
+
     // Console log de los datos del formulario antes de enviarlo al backend
     console.log('Datos del formulario:', this.servicioForm.value);
   
     // Enviar los datos del formulario al backend
-    this.http.get<any>('http://localhost:8000/api/crearSolicitud', this.servicioForm.value)
+    this.http.post<any>('http://localhost:8000/api/crearSolicitud', this.servicioForm.value)
       .subscribe(
         (data) => {
           // Manejar la respuesta del backend si es necesario

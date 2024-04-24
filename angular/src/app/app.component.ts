@@ -7,7 +7,7 @@ import { TokenService } from './token.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  isLoggedIn = false; // Asegúrate de que isLoggedIn sea inicializado aquí
+  isLoggedIn = true; // Asegúrate de que isLoggedIn sea inicializado aquí
 
   constructor(private tokenService: TokenService) { }
 

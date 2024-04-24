@@ -1,5 +1,13 @@
 
-<div class="cuerpo">
+  <div class="loading-spinner" *ngIf="loading">
+    <div class="spinner"></div>
+  </div>
+
+
+<div class="cuerpo" *ngIf="!loading && servicio">
+
+
+
   <div class="infoServicio">
     <h1 class="tituloServicio">{{ servicio.tipo_servicio }}</h1>
 
@@ -20,9 +28,7 @@
     <p class="descripcionServicio">{{servicio.descripcion}}
     </p>
     <hr>  
-    <p class="descripcionUsu">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Ipsa pariatur dolor aliquam consequuntur quidem, reprehenderit dolore facilis sapiente
-      acere quis a distinctio ab error mollitia? Fugiat dignissimos magni velit earum!</p>
+    <p class="descripcionUsu"></p>
 
   </div>
 
@@ -49,7 +55,7 @@
     </div>
 
 
-    <button [routerLink]="['/contratar', servicio.id_servicios]"> Contratar </button>
+    <button class="contratar"  [routerLink]="['/contratar', servicio.id_servicios]">CONTRATAR</button>
 
     <!-- 
       <div class="tarjeta2">
@@ -58,7 +64,7 @@
         <p class="sitio">(Presencial)</p>
       </div>
       <p class="precio">{{servicio.tarifa}} 10€</p>
-      <button class="contratar"  [routerLink]="['/contratar', servicio.id_servicios]">CONTRATAR</button>
+      
     </div>
     -->
     

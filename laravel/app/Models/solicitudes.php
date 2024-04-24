@@ -10,7 +10,7 @@ class solicitudes extends Model
     use HasFactory;
 
 
-    protected $table = 'servicios';
+    protected $table = 'solicitudes';
 
     protected $fillable = [
         'id_user',
