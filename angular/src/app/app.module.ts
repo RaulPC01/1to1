@@ -22,6 +22,7 @@ import { HeaderLoggedComponent } from './components/header-logged/header-logged.
 import { ContratarServicioComponent } from './components/logged/comprador/contratar-servicio/contratar-servicio.component';
 import { CommonModule } from '@angular/common';
 import { CrearservicoComponent } from './components/logged/proveedor/main-proveedor/crearservico/crearservico.component';
+import { SolicitudesComponent } from './components/logged/solicitudes/solicitudes/solicitudes.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { CrearservicoComponent } from './components/logged/proveedor/main-provee
     HeaderLoggedComponent,
     CrearservicoComponent,
     ContratarServicioComponent,
+    SolicitudesComponent,
 
           
   ],

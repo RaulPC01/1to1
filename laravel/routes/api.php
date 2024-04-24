@@ -49,4 +49,3 @@ Route::post('/create-tiket',[motiusController::class, 'createtiket']);
 
 
 //Route::middleware('auth:api')->get('/obtener-datos-usuario-perfil/{dni}', 'UsuarioController@obenerDatosUsuarioYPerfil');
-
