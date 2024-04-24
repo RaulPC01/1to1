@@ -11,7 +11,7 @@ export class ServicioComponent implements OnInit {
   servicio: any;
   edadUsuario: number | undefined;
   mostrarCompleta = false;
-
+  mostrarDialogo = false;
   constructor(private route: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -21,6 +21,18 @@ export class ServicioComponent implements OnInit {
         this.obtenerDetalleServicio(servicioId);
       }
     });
+  }
+
+  cerrarDialogo() {
+    this.mostrarDialogo = false;
+  }
+  
+  procesarPago() {
+    this.cerrarDialogo();
+    console.log('Procesando pago...');
+    setTimeout(() => {
+      alert('Pago realizado con éxito!');
+    }, 2000);
   }
 
   obtenerDetalleServicio(id_servicios: string): void {
