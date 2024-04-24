@@ -1,22 +1,22 @@
 <div class="navbar">
     <div class="flex">
-        <a routerLink="/home-comprador" class="logo">
+        <a routerLink="/home" class="logo">
             <div class="flex">
                 <div class="img">
                     <img src="../../../assets/imatges/logo.png" height="50px">
                 </div>
             </div>
         </a>
-
+  
     </div>
-
+  
     <div class="botonesCentrados">
-
+  
         <div class="links" >
-            <a a routerLink="/crear-servicio" class="link link-center">Ofrecer Servicios</a>
+            <a routerLink="/crear-servicio" class="link link-center">Ofrecer Servicios</a>
             <a routerLink="/home-comprador" class="link link-center">Contratar Servicios</a>
         </div>
-
+  
         
     </div>
     <div class="flex">
@@ -25,8 +25,10 @@
             <div class="bPerfil">
                 <a routerLink="/perfil" class="material-symbols-outlined">person</a>
             </div>
-
-            <a class="link link-right"><span class="material-symbols-outlined">logout</span></a>
+  
+            <!-- Agregar el (click) para llamar a la función logout() -->
+            <a (click)="logout()" class="link link-right"><span class="material-symbols-outlined">logout</span></a>
         </div>
     </div>
-</div> 
+  </div>
+  

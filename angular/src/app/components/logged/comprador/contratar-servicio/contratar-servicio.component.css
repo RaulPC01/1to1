@@ -1,0 +1,166 @@
+.wave-bg {
+    position: absolute;
+    bottom: 0; /* Cambia la posición inferior */
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+  
+  .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(167, 19, 19, 0.9);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 9999;
+  }
+  .cuerpo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+     /* Ajuste para bajar los paneles */
+    margin-bottom: 20px; /* Elimina el ajuste de margen inferior */
+    overflow-y: hidden;
+  
+  }
+  
+  .encabezado {
+    text-align: center;
+    margin-bottom: 20px; /* Ajuste de margen inferior */
+  }
+  
+  .titulo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333; /* Color del texto */
+    margin-bottom: 10px; /* Espacio entre el título y el párrafo */
+  }
+  
+  .descripcion {
+    font-size: 16px;
+    color: #666; /* Color del texto */
+  }
+  
+  
+  
+  .izquierda {
+    background-color: #b40301;
+    color: white;
+    padding: 40px;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 300px;
+    margin-right: 20px; /* Espacio entre los paneles */
+  }
+  
+  .derecha {
+    background-color: transparent;
+    color: #000;
+    padding: 20px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 600px;
+    margin-left: 20px; /* Espacio entre los paneles */
+  }
+  
+  @media screen and (min-width: 768px) {
+    .cuerpo {
+      flex-wrap: wrap;
+    }
+  
+    .izquierda, .derecha {
+      margin: 20px; /* Espacio entre los paneles en dispositivos grandes */
+      flex: 1 1 calc(50% - 40px); /* Ajusta el tamaño de los paneles para que ocupen la mitad del contenedor */
+      max-width: calc(50% - 40px); /* Ajusta el ancho máximo de los paneles */
+    }
+  }
+  
+  
+  .tituloIzquierda{ font-weight: 700; }
+  .titulo2{ font-size: 16px;}
+  .titulo2 #iconoL{ font-size: 16px; margin-right: 5px;}
+  
+  
+  /* Estilos para el contenedor del formulario */
+  
+  
+  
+    .titulo{ font-size: 40px; font-weight: 700; margin-top: 80px;}
+    
+    input[type="text"],
+    input[type="date"],
+    select {
+      background-color: rgb(242, 242, 242);
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 15px;
+      box-sizing: border-box;
+    }
+  
+    .tituloDescripcion{ font-size: 40px; font-weight: 700; margin-top: 80px;}
+  
+    .textareaDescripcion{
+      background-color: rgb(242, 242, 242);
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 15px;
+      box-sizing: border-box;
+      overflow-y: auto;
+      resize: none;
+    }
+    
+    /* Estilos para los botones */
+    button {
+      padding: 10px 20px;
+      background-color: #6c757d;
+      color: #fff;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+   
+    /* Estilos para el botón de enviar */
+    button[type="submit"] {
+      background-color: #28a745;
+    }
+    
+    /* Estilos para los títulos */
+    h2, h3 { margin-bottom: 15px;}
+  
+    .hidden { display: none; }
+  
+   .contenedor-botones{
+    display: flex;
+    justify-content: center ;
+   }
+  
+   .contenedor-botones button{ margin: 0 10px; }
+  
+  
+  
+    .bSiguiente{
+      padding: 10px 20px;
+      background-color: #b40301;
+      color: #fff;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+    }
+  
+    .bSiguiente:hover{
+      transform: scale(1.01);
+    }
+  
+    
+  

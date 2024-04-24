@@ -10,7 +10,9 @@
 
 <div class="cuerpo">
 
-
+    <div *ngIf="showConfirmation" class="popup">
+        ¡El Servicio se ha creado correctamente! Muchas gracias por formar parte de nuestra família. Ya puedes ver tu servicio en nuestra pàgina.
+      </div>
     <div class="izquierda">
         <h3 class="tituloIzquierda"><span class="material-symbols-outlined">family_star</span> A Saber</h3>
         <div [ngClass]="{ 'hidden': !mostrarCategoria }">
@@ -73,14 +75,15 @@
                 <div class="mb-3">
                     <h3 class="titulo"><span style="color: #b40301"> Título</span> de tu servicio</h3>
                     <input type="text" formControlName="nombre" placeholder="Ej: Cambio de aceite" required
-                        (input)="countNombreLength($event)">
-                    <div class="contador-letras">{{ nombreLength }}/40</div> <!-- Contador de letras -->
+                    (input)="countNombreLength($event)">
+                <div class="contador-letras">{{ nombreLength }}/40</div>
                 </div>
                 <div class="contenedor-botones">
                     <button type="button" (click)="volverCategoria()">Anterior</button>
                     <button type="button" class="bSiguiente" (click)="verDescripcion()"
                         [disabled]="!servicioForm.get('nombre')?.valid">Siguiente</button>
                 </div>
+
             </div>
 
 
@@ -88,9 +91,8 @@
             <div [ngClass]="{ 'hidden': !mostrarDescripcion }" class="mb-4">
                 <div class="mb-3">
                     <h3 class="tituloDescripcion">Acerca de<span style="color: #b40301"> tu Servicio</span></h3>
-                    <textarea type="text" formControlName="descripcion" class="textareaDescripcion"
-                        placeholder="Ej: Limpieza profunda del ordenador y cambio de pasta térmica a domicilio" required
-                        (input)="countDescripcionLength($event)"></textarea>
+                    <textarea type="text" formControlName="descripcion" class="textareaDescripcion" placeholder="Ej: Limpieza profunda del ordenador y cambio de pasta térmica a domicilio" required>
+                    (input)="countDescripcionLength($event)"></textarea>
                     <div class="contador-letras">{{ descripcionLength }}/200</div> <!-- Contador de letras -->
                     <div class="contenedor-botones">
                         <button type="button" (click)="volverNombreServicio()">Anterior</button>

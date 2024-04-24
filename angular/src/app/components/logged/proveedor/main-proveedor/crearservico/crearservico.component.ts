@@ -19,8 +19,10 @@ export class CrearservicoComponent implements OnInit {
   user: any; // Variable para almacenar los datos del perfil del usuario
   categorias: any[] = [];
   poblaciones: any[] = [];
+  showConfirmation: boolean = false;
   nombreLength: number = 0;
   descripcionLength: number = 0;
+
   countNombreLength(event: any): void {
     const input = event.target as HTMLInputElement;
     if (input.value.length > 40) {
@@ -37,6 +39,7 @@ export class CrearservicoComponent implements OnInit {
     }
     this.descripcionLength = input.value.length;
   }
+  
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
@@ -135,7 +138,13 @@ export class CrearservicoComponent implements OnInit {
           (data) => {
             // Manejar la respuesta del backend si es necesario
             console.log('Respuesta del servidor:', data);
-            this.router.navigate(['/proveedor'])
+            this.showConfirmation = true; // Mostrar el mensaje de confirmación
+            setTimeout(() => {
+              this.showConfirmation = false; // Ocultar el mensaje de confirmación después de 4 segundos
+              this.router.navigate(['/home-comprador']);
+
+            }, 4000); // Tiempo en milisegundos (en este caso, 4 segundos)
+            this.servicioForm.reset(); // Restablecer los valores del formulario
             // Redirigir al usuario a otra página, mostrar mensaje de éxito, etc.
           },
           (error: HttpErrorResponse) => {

@@ -68,7 +68,7 @@ export class PerfilComponent implements OnInit {
           dateOfBirth: this.user.dateOfBirth
         });
       },
-      (error) => {
+      (error) => {  
         // Manejar el error adecuadamente, por ejemplo, mostrar un mensaje al usuario
       }
     );

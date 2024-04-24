@@ -29,4 +29,9 @@ class ProfileController extends Controller
             return response()->json(['error' => 'Error al buscar el usuario: ' . $e->getMessage()], 500);
         }
     }
+
+    public function editProfile(){
+
+        
+    }
 }

@@ -24,6 +24,8 @@ import { CommonModule } from '@angular/common';
 import { CrearservicoComponent } from './components/logged/proveedor/main-proveedor/crearservico/crearservico.component';
 import { SolicitudesComponent } from './components/logged/solicitudes/solicitudes/solicitudes.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +54,8 @@ import { SolicitudesComponent } from './components/logged/solicitudes/solicitude
     ReactiveFormsModule,
     HttpClientModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
