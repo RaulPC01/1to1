@@ -31,6 +31,7 @@
                     <h3 class="tituloDescripcion">Describe <span style="color: #b40301"> tu Problema</span></h3>
                     <textarea type="text" formControlName="descripcion" class="textareaDescripcion" placeholder="Ej: Limpieza profunda del ordenador y cambio de pasta térmica a domicilio" required (input)="countDescripcionLength($event)"></textarea>
                     <div class="contador-letras">{{ descripcionLength }}/200</div> <!-- Contador de letras -->
+                    
                     <div class="contenedor-botones">
                         <button type="button" class="bSiguiente" (click)="verDate()" [disabled]="!servicioForm.get('descripcion')?.valid">Siguiente</button>
                     </div>
@@ -49,6 +50,7 @@
                     <button type="submit" [disabled]="!servicioForm.valid">Enviar Solicitud</button>
                 </div>
             </div>
+
         </form>
     </div> 
 </div>

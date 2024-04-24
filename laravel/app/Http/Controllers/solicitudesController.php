@@ -12,8 +12,8 @@ class solicitudesController extends Controller
 {
     public function create(Request $request)
     {
-
         dd('ola');
+        
         // Validar los datos del formulario
         $validatedData = $request->validate([
             'id_user' => 'required|string',
@@ -50,6 +50,16 @@ class solicitudesController extends Controller
 
         // Retornar los datos del usuario
         return response()->json($user);
+    }
+
+
+    public function verMisSolcitudes($user_dni) {
+
+        try{
+            
+        } catch(\Exception $e) {
+            return response()->json(['message' => 'Ha ocurrido un error al retornar las solcitudes: ' . $e->getMessage()], 500);
+        }
     }
 }
 

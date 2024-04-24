@@ -44,8 +44,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CrearservicoComponent,
     ContratarServicioComponent,
     SolicitudesComponent,
-
-          
   ],
   imports: [
     BrowserModule,

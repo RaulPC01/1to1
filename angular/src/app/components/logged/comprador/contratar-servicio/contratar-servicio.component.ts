@@ -82,6 +82,8 @@ export class ContratarServicioComponent implements OnInit {
     );
   }
 
+
+
   obtenerPerfilUsuario(token: string): void {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
@@ -117,6 +119,8 @@ export class ContratarServicioComponent implements OnInit {
       }
     );
   }
+
+
 
   submitForm() {
     // Console log de los datos del formulario antes de enviarlo al backend
