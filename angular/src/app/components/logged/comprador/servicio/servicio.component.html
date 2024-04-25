@@ -1,20 +1,14 @@
-User
+<div class="loading-spinner" *ngIf="loading">
+  <!-- Aquí puedes usar cualquier biblioteca de ruedita de carga o implementar tu propio spinner -->
+  <div class="spinner"></div>
+</div>
 
-  <div class="loading-spinner" *ngIf="loading">
-    <!-- Aquí puedes usar cualquier biblioteca de ruedita de carga o implementar tu propio spinner -->
-    <div class="spinner"></div>
-  </div>
-
-
-<div class="cuerpo" *ngIf="!loading && servicio">
-
-
-
+<div class="cuerpo" *ngIf="!loading">
   <div class="infoServicio">
     <h1 class="tituloServicio">{{ servicio.tipo_servicio }}</h1>
 
     <div class="tarjetaUsuario">
-      <div class="fotoPerfil" [ngClass]="{ 'fotoCompleta': mostrarCompleta }" (click)="toggleImagenCompleta()">
+      <div class="fotoPerfil" [ngClass]="{ 'fotoCompleta': mostrarCompleta }">
         <img src="../assets/imatges/Raul.jpeg" alt="Foto de perfil">
       </div>
       <div class="infoUsuario">
@@ -27,11 +21,30 @@ User
     </div>
 
     <hr> 
-    <p class="descripcionServicio">{{servicio.descripcion}}
-    </p>
+    <p class="descripcionServicio">{{servicio.descripcion}}</p>
     <hr>  
     <p class="descripcionUsu"></p>
 
+    <div class="añadirComentario" *ngIf="!mostrarInputComentario">
+      <button class="botonComentario" (click)="mostrarInputComentario = true">Añadir comentario</button>
+    </div>
+
+    <div *ngIf="mostrarInputComentario" class="inputComentario">
+      <form [formGroup]="mensajeForm" (ngSubmit)="enviarComentario()">
+        <textarea formControlName="mensage" placeholder="Escribe tu comentario aquí" class="comentarioInput"></textarea>
+        <button type="submit"  class="enviarBoton">Enviar</button>
+      </form>
+    </div>
+
+    <div class="comentarios">
+      <h2>Comentarios</h2>
+      <div *ngFor="let comentario of comentarios" class="comentario">
+        <div class="usuario">
+          <p>{{ comentario.Nombre_user }}</p>
+        </div>
+        <p>{{ comentario.mensage }}</p>
+      </div>
+    </div>
   </div>
 
   <div class="panelDerecha">
@@ -51,26 +64,11 @@ User
     </div>
   
     <div class="extra">
-      <p> <span class="material-symbols-outlined"> check_small</span>  Buen trabajo</p>
-      <p> <span class="material-symbols-outlined"> check_small</span>  Atención de calidad</p>
-      <p> <span class="material-symbols-outlined"> check_small</span>  Servicio seguro y confiable</p>
+      <p><span class="material-symbols-outlined"> check_small</span>  Buen trabajo</p>
+      <p><span class="material-symbols-outlined"> check_small</span>  Atención de calidad</p>
+      <p><span class="material-symbols-outlined"> check_small</span>  Servicio seguro y confiable</p>
     </div>
 
-
-    <button class="contratar"  [routerLink]="['/contratar', servicio.id_servicios]">CONTRATAR</button>
-
-    <!-- 
-      <div class="tarjeta2">
-      <div>
-        <h1 class="ciudad">{{ servicio.poblacion.nombre_poblacion | uppercase }} </h1>
-        <p class="sitio">(Presencial)</p>
-      </div>
-      <p class="precio">{{servicio.tarifa}} 10€</p>
-      
-    </div>
-    -->
-    
+    <button class="contratar" [routerLink]="['/contratar', servicio.id_servicios]">CONTRATAR</button>
   </div>
-
-
-<div>
+</div>

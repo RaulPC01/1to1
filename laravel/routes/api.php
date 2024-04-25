@@ -52,4 +52,6 @@ Route::post('/crearSolicitud', [solicitudesController::class, 'create']);
 
 Route::get('/services/{id_servicio}/user', [solicitudesController::class, 'getUserByServiceId']);
 
+Route::post('/resena', [ServiceController::class, 'createComentarios']);
 
+Route::get('servicios/{id_servicio}/comentarios', [ServiceController::class, 'comentariosDeServicio']);

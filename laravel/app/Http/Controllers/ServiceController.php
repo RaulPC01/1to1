@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\services;
 use App\Models\User;
 use App\Models\categories;
+use App\Models\comentarios;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Contracts\Service\Attribute\Required;
 
@@ -61,6 +62,34 @@ class ServiceController extends Controller
         // Retorna el servicio en formato JSON
         return response()->json($service);
     }
+
+
+    public function createComentarios(Request $request)
+    {
+        // Validar los datos del formulario
+        $validatedData = $request->validate([
+            'IdUsuarioComentario' => 'required|string',
+            'Nombre_user' => 'required|string',
+            'mensage' => 'required|string',
+            'id_Servicio' => 'required|string', // Cambiado a 'string' en lugar de 'text'
+           
+        ]);
+    
+        // Crear el servicio con los datos validados
+        $service = comentarios::create($validatedData);
+    
+        // Retornar la respuesta JSON con el servicio creado y el código de estado 201 (Created)
+        return response()->json($service, 201);
+    }
+
+    public function comentariosDeServicio($idServicio)
+    {
+        // Seleccionar todos los comentarios del servicio especificado
+        $comentarios = comentarios::where('id_Servicio', $idServicio)->get();
+        
+        return response()->json(['comentarios' => $comentarios], 200);
+    }
+    
 
    
     

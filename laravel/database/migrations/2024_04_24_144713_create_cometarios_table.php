@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cometarios', function (Blueprint $table) {
+        Schema::create('comentarios', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->userDelComentario();
-            $table->mensage();
-            $table->IdService();
+            $table->string('IdUsuarioComentario');
+            $table->text('Nombre_user');
+            $table->string('mensage');
+            $table->string('id_Servicio');
+            
             
         });
     }
