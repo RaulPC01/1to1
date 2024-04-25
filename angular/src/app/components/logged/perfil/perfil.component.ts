@@ -43,6 +43,7 @@ export class PerfilComponent implements OnInit {
   toggleEditForm(): void {
     this.showEditForm = !this.showEditForm;
   }
+
   obtenerPerfilUsuario(token: string): void {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`

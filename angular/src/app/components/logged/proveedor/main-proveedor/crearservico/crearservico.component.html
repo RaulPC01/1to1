@@ -1,5 +1,7 @@
 <svg class="wave-bg" viewBox="0 0 1440 320">
-    <path fill="#b40301" fill-opacity="1" d="M0,160L48,144C96,128,192,96,288,96C384,96,480,128,576,165.3C672,203,768,245,864,240C960,235,1056,181,1152,160C1248,139,1344,149,1392,154.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+    <path fill="#b40301" fill-opacity="1"
+        d="M0,160L48,144C96,128,192,96,288,96C384,96,480,128,576,165.3C672,203,768,245,864,240C960,235,1056,181,1152,160C1248,139,1344,149,1392,154.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+    </path>
 </svg>
 <div class="encabezado">
     <h2 class="titulo">¡Estas a punto de crear tu propio servicio!</h2>
@@ -18,19 +20,27 @@
         </div>
 
         <div [ngClass]="{ 'hidden': !mostrarNombre }">
-            <p>Recuerda que el título es un aspecto fundamental. Debe ser único y transmitir claramente el servicio que deseas ofrecer. Un título bien elegido no solo captará la atención de tus clientes potenciales, sino que también les proporcionará una comprensión instantánea de lo que ofreces. </p><br>
+            <p>Recuerda que el título es un aspecto fundamental. Debe ser único y transmitir claramente el servicio que
+                deseas ofrecer. Un título bien elegido no solo captará la atención de tus clientes potenciales, sino que
+                también les proporcionará una comprensión instantánea de lo que ofreces. </p><br>
         </div>
 
         <div [ngClass]="{ 'hidden': !mostrarDescripcion }">
-            <p> Proporciona una descripción detallada del servicio que deseas ofrecer. Además, siéntete libre de compartir tu enfoque de trabajo único y tu experiencia en el sector.  Cuanta más información nos proporciones, mas fàcil entenderan tus clientes el servicio que ofreces. </p>
+            <p> Proporciona una descripción detallada del servicio que deseas ofrecer. Además, siéntete libre de
+                compartir tu enfoque de trabajo único y tu experiencia en el sector. Cuanta más información nos
+                proporciones, mas fàcil entenderan tus clientes el servicio que ofreces. </p>
         </div>
 
         <div [ngClass]="{ 'hidden': !mostrarTarifa }">
-            <p>Selecciona el precio que mejor se ajuste al servicio que ofrecemos. Si necesitas asesoramiento sobre la tarifa adecuada, ¡estamos aquí para ayudarte! El precio puede variar dependiendo de diversos factores, como la complejidad del trabajo, el tiempo requerido y los materiales utilizados.</p>
+            <p>Selecciona el precio que mejor se ajuste al servicio que ofrecemos. Si necesitas asesoramiento sobre la
+                tarifa adecuada, ¡estamos aquí para ayudarte! El precio puede variar dependiendo de diversos factores,
+                como la complejidad del trabajo, el tiempo requerido y los materiales utilizados.</p>
         </div>
 
         <div [ngClass]="{ 'hidden': !mostrarPoblacion }">
-            <p>Selecciona la población en la que estás dispuesto a ofrecer tu servicio. Al elegir la ubicación adecuada, podemos asegurarnos de dirigirnos a la audiencia correcta y brindar un servicio óptimo en tu área de preferencia.</p>
+            <p>Selecciona la población en la que estás dispuesto a ofrecer tu servicio. Al elegir la ubicación adecuada,
+                podemos asegurarnos de dirigirnos a la audiencia correcta y brindar un servicio óptimo en tu área de
+                preferencia.</p>
         </div>
 
         <div [ngClass]="{ 'hidden': !mostrarImagen }">
@@ -45,10 +55,11 @@
                 <div class="mb-3">
                     <h3 class="titulo" for="categoria">Elige una <span style="color: #b40301">Categoría</span></h3>
                     <select id="categoria" formControlName="categoria" required>
-                        <option value=null></option>
-                        <option *ngFor="let categoria of categorias" [value]="categoria.id">{{ categoria.nombre_cateogira }}</option>
-                        <!-- Otros options -->
+                        <option value="" disabled selected>Selecciona una categoría</option>
+                        <option *ngFor="let categoria of categorias" [value]="categoria.id">{{
+                            categoria.nombre_cateogira }}</option>
                     </select>
+
                     <div class="contenedor-botones">
                         <button type="button" class="bSiguiente" (click)="verNombreServicio()"
                             [disabled]="!servicioForm.get('categoria')?.valid">Siguiente</button>
@@ -59,6 +70,7 @@
             </div>
 
             <!----------------------------NOMBRE DEL SERVICIO------------------------------------->
+            <!-- NOMBRE DEL SERVICIO -->
             <div [ngClass]="{ 'hidden': !mostrarNombre }" class="mb-4">
                 <div class="mb-3">
                     <h3 class="titulo"><span style="color: #b40301"> Título</span> de tu servicio</h3>
@@ -66,7 +78,6 @@
                     (input)="countNombreLength($event)">
                 <div class="contador-letras">{{ nombreLength }}/40</div>
                 </div>
-
                 <div class="contenedor-botones">
                     <button type="button" (click)="volverCategoria()">Anterior</button>
                     <button type="button" class="bSiguiente" (click)="verDescripcion()"
@@ -74,6 +85,7 @@
                 </div>
 
             </div>
+
 
             <!----------------------------DESCRIPCION DEL SERVICIO------------------------------------->
             <div [ngClass]="{ 'hidden': !mostrarDescripcion }" class="mb-4">
@@ -94,7 +106,7 @@
             <div [ngClass]="{ 'hidden': !mostrarTarifa }" class="mb-4">
                 <div class="mb-3">
                     <h3 class="tituloDescripcion"><span style="color: #b40301">Tarifa</span> de tu Servicio</h3>
-                    <input type="text" formControlName="precio" required>
+                    <input type="number" formControlName="precio" required>
                 </div>
 
                 <div class="contenedor-botones">
@@ -103,13 +115,18 @@
                 </div>
             </div>
 
+            <!-- -----------------------------------CARGA DE IMAGEN-------------------------------------------- -->
+
+            <!-- Aqui estaria bien poder subir el link de la imagen y guardarlo en BD -->
+
             <!-----------------------------------POBLACIÓN-------------------------------------------->
             <div [ngClass]="{ 'hidden': !mostrarPoblacion }" class="mb-4">
                 <div class="mb-3">
                     <h3 class="tituloDescripcion">Elige una <span style="color: #b40301">Población</span></h3>
                     <select id="poblacion" formControlName="poblacion" required>
                         <option value=null></option>
-                        <option *ngFor="let poblacion of poblaciones " [value]="poblacion.id_poblacion">{{ poblacion.nombre_poblacion }}</option>
+                        <option *ngFor="let poblacion of poblaciones " [value]="poblacion.id_poblacion">{{
+                            poblacion.nombre_poblacion }}</option>
 
                         <!-- Otros options -->
                     </select>
@@ -121,8 +138,7 @@
                 </div>
             </div>
 
-         
+
         </form>
     </div>
 </div>
-
