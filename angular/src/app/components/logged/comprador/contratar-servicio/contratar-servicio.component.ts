@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -18,15 +18,23 @@ export class ContratarServicioComponent implements OnInit {
   nombreLength: number = 0;
   descripcionLength: number = 0;
   servicio: any;
-
+  mostrarDialogo: boolean = false;
+  dateInvalid: boolean = false;
   acceptado: boolean = false;
+
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
 
+  ) {
+    this.servicioForm = new FormGroup({
+      descripcion: new FormControl(''),
+      date_servicio: new FormControl('')
+    });
+  }
+// Inicializa el componente y configura el formulario con valores por defecto.
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       const servicioId = params.get('id_servicio');
@@ -54,6 +62,37 @@ export class ContratarServicioComponent implements OnInit {
     });
   }
 
+  // cerrar dialogo de pago
+  cerrarDialogo() {
+    this.mostrarDialogo = false;
+  }
+
+  // combrobacion de la fecha del servicio para que no pueda ser inferior a la actual
+  checkDate() {
+    const dateControl = this.servicioForm.get('date_servicio');
+
+    if (dateControl && dateControl.value) {
+      const selectedDate = new Date(dateControl.value);
+      const currentDate = new Date();
+      currentDate.setHours(0, 0, 0, 0); // Ajustar la hora a medianoche para comparar solo las fechas
+
+      // Comprobar si la fecha seleccionada es anterior a la fecha actual
+      this.dateInvalid = selectedDate < currentDate;
+    } else {
+      // Manejar el caso en que no se ha seleccionado una fecha o el control es nulo
+      this.dateInvalid = true; // O definirlo como false según la lógica deseada
+    }
+  }
+
+  // mensaje de proceso de pago
+  procesarPago() {
+    this.cerrarDialogo();
+    console.log('Procesando pago...');
+    setTimeout(() => {
+      alert('Pago realizado con éxito!');
+    }, 2000);
+  }
+
   getUserByServiceId(idServicio: string): void {
     // Construir la URL de la solicitud
     const url = `http://localhost:8000/api/services/${idServicio}/user`;
@@ -65,12 +104,12 @@ export class ContratarServicioComponent implements OnInit {
         console.log('Datos del usuario:', data);
 
         this.userProv = data;
-      
+
         const userPorvId = this.userProv.dni;
 
         this.servicioForm.patchValue({
           id_user_proveedor: userPorvId, // Asignar el dni del usuario proveedor al campo id_user_proveedor
-          
+
         });
         // Aquí puedes implementar la lógica para manejar los datos del usuario
       },
@@ -80,8 +119,8 @@ export class ContratarServicioComponent implements OnInit {
         // Aquí puedes implementar la lógica para manejar el error, como mostrar un mensaje al usuario
       }
     );
-  }
-
+}
+// funcion para obtener el perfil del usuario
   obtenerPerfilUsuario(token: string): void {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
@@ -95,7 +134,7 @@ export class ContratarServicioComponent implements OnInit {
         // Convertir el dni a un entero y establecerlo en el formulario
         const userId = this.user.dni;
         const telefono = this.user.phone;
-        
+
         console.log('Valor de userId:', userId); // Verificar el valor de userId
         this.servicioForm.patchValue({
           id_user: userId, // Cambiado a 'id_user'
@@ -130,7 +169,7 @@ export class ContratarServicioComponent implements OnInit {
 
     // Console log de los datos del formulario antes de enviarlo al backend
     console.log('Datos del formulario:', this.servicioForm.value);
-  
+
     // Enviar los datos del formulario al backend
     this.http.post<any>('http://localhost:8000/api/crearSolicitud', this.servicioForm.value)
       .subscribe(
@@ -153,23 +192,24 @@ export class ContratarServicioComponent implements OnInit {
         }
       );
   }
-  
 
+  //funcion para ver la descripcion
   verDescripcion() {
     this.mostrarDescripcion = true;
     this.mostrarDate = false;
   }
-
+//funcion para ver la fecha
   verDate() {
     this.mostrarDescripcion = false;
     this.mostrarDate = true;
   }
-
+//funcion para pasar a la vista anterior que en este caso es la descripcion
   anteriorDescripcion() {
     this.mostrarDate = false;
     this.mostrarDescripcion = true;
   }
 
+  // contador para ver cuantos digitos hay en el campo de la descripcion
   countDescripcionLength(event: any): void {
     const input = event.target as HTMLTextAreaElement;
     if (input.value.length > 200) {
