@@ -7,6 +7,7 @@ use App\Models\solicitudes;
 use App\Models\services;
 use Illuminate\Support\Facades\Auth;
 use function Laravel\Prompts\error;
+use App\Models\User;
 
 class solicitudesController extends Controller
 {
@@ -42,15 +43,13 @@ class solicitudesController extends Controller
         return response()->json($user);
     }
 
-    public function obtenerSolicitudesUsuario(Request $request)
-{
-    // Obtener el DNI del usuario autenticado
-    $dni_usuario = Auth::user()->dni;
+    public function getSolicitudesPorProveedor($id_user_proveedor)
+    {
+        // Buscar todas las solicitudes del proveedor por su ID
+        $solicitudes = solicitudes::where('id_user_proveedor', $id_user_proveedor)->get();
 
-    // Buscar las solicitudes asociadas al usuario autenticado por su DNI
-    $solicitudes = solicitudes::where('id_user', $dni_usuario)->get();
-
-    return response()->json($solicitudes);
-}
+        // Retornar las solicitudes encontradas
+        return response()->json($solicitudes);
+    }
 }
 

@@ -11,6 +11,7 @@ import { ContratarServicioComponent } from './components/logged/comprador/contra
 import { PerfilComponent } from './components/logged/perfil/perfil.component';
 import { MainProveedorComponent } from './components/logged/proveedor/main-proveedor/main-proveedor.component';
 import { CrearservicoComponent } from './components/logged/proveedor/main-proveedor/crearservico/crearservico.component';
+import { TiketsServiciosComponent } from './tikets-servicios/tikets-servicios.component';
 
 const routes: Routes = [
 
@@ -26,14 +27,13 @@ const routes: Routes = [
 
   { path: 'servicios/:id_servicios', component: ServicioComponent },
 
-  
 
   { path: 'contratar/:id_servicio', component: ContratarServicioComponent },
 
   
   { path: 'crear-servicio', component: CrearservicoComponent },
 
-
+  { path: 'solicictudes', component: TiketsServiciosComponent },
 
   // =====================================================
   {

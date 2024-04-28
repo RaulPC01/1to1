@@ -1,4 +1,5 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http'; // Agregar esta línea
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -22,14 +23,14 @@ export class TiketsServiciosComponent implements OnInit {
   }
 
   obtenerPerfilUsuario(token: string): void {
-    const headers = new HttpHeaders({
+    const headers = new HttpHeaders({ // Aquí se usa HttpHeaders
       'Authorization': `Bearer ${token}`
     });
     this.http.get<any>('http://localhost:8000/api/perfil', { headers }).subscribe(
       (data) => {
         console.log('Datos del perfil:', data);
-        const dni = data.dni; // Obtener el dni del perfil
-        this.obtenerSolicitudesUsuario(token, dni); // Llamada a la función obtenerSolicitudesUsuario con el DNI del usuario
+        // Llamada a la función obtenerSolicitudesProveedor con el ID del usuario proveedor
+        this.obtenerSolicitudesProveedor(data.dni);
       },
       (error) => {
         console.error('Error al obtener el perfil del usuario:', error);
@@ -38,17 +39,14 @@ export class TiketsServiciosComponent implements OnInit {
     );
   }
 
-  obtenerSolicitudesUsuario(token: string, dni: string): void {
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    });
-    this.http.get<any[]>('http://localhost:8000/api/solicitudes-usuario?dni=' + dni, { headers }).subscribe(
+  obtenerSolicitudesProveedor(id_user_proveedor: string): void {
+    this.http.get<any[]>('http://localhost:8000/api/solicitudes/' + id_user_proveedor).subscribe(
       (data) => {
-        console.log('Solicitudes del usuario:', data);
+        console.log('Solicitudes del proveedor:', data);
         this.solicitudes = data; // Asignar las solicitudes devueltas a la variable local
       },
       (error) => {
-        console.error('Error al obtener las solicitudes del usuario:', error);
+        console.error('Error al obtener las solicitudes del proveedor:', error);
         // Manejar el error adecuadamente, por ejemplo, mostrar un mensaje al usuario
       }
     );
