@@ -23,6 +23,7 @@ import { ContratarServicioComponent } from './components/logged/comprador/contra
 import { CommonModule } from '@angular/common';
 import { CrearservicoComponent } from './components/logged/proveedor/main-proveedor/crearservico/crearservico.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TiketsServiciosComponent } from './tikets-servicios/tikets-servicios.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeaderLoggedComponent,
     CrearservicoComponent,
     ContratarServicioComponent,
+    TiketsServiciosComponent,
 
           
   ],

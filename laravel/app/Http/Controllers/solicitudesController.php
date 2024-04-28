@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\solicitudes;
 use App\Models\services;
-
+use Illuminate\Support\Facades\Auth;
 use function Laravel\Prompts\error;
 
 class solicitudesController extends Controller
@@ -41,5 +41,16 @@ class solicitudesController extends Controller
         // Retornar los datos del usuario
         return response()->json($user);
     }
+
+    public function obtenerSolicitudesUsuario(Request $request)
+{
+    // Obtener el DNI del usuario autenticado
+    $dni_usuario = Auth::user()->dni;
+
+    // Buscar las solicitudes asociadas al usuario autenticado por su DNI
+    $solicitudes = solicitudes::where('id_user', $dni_usuario)->get();
+
+    return response()->json($solicitudes);
+}
 }
 

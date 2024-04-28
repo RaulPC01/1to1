@@ -1,0 +1,10 @@
+
+    <h2>Tickets de Servicios</h2>
+    <ul>
+      <li *ngFor="let solicitud of solicitudes">
+        <h3>ID de Solicitud: {{ solicitud.id }}</h3>
+        <p>Descripción: {{ solicitud.descripcion }}</p>
+        <p>ID de Usuario Proveedor: {{ solicitud.id_user_proveedor }}</p>
+       
+      </li>
+    </ul>

@@ -31,7 +31,7 @@ export class ContratarServicioComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       const servicioId = params.get('id_servicio');
       console.log('ID del servicio:', servicioId);
-
+  
       // Inicializar el formulario FormGroup
       this.servicioForm = this.formBuilder.group({
         id_user: ['', Validators.required], // Cambiado a 'id_user'
@@ -42,35 +42,70 @@ export class ContratarServicioComponent implements OnInit {
         telefono_user: ['', Validators.required],
         accepted: [this.acceptado], // Establecer accepted en false por defecto
       });
-
+  
       // Obtener los datos del perfil del usuario al iniciar el componente
       const token = localStorage.getItem('Idtoken');
-      if (token) {
-        this.obtenerPerfilUsuario(token);
+      if (token && servicioId !== null) {
+        this.obtenerPerfilUsuario(token, servicioId); // Pasar servicioId aquí
       } else {
-        console.error('El token no está definido en el almacenamiento local');
+        console.error('El token no está definido en el almacenamiento local o servicioId es null');
         // Manejar el error adecuadamente, por ejemplo, redirigir al usuario a la página de inicio de sesión
       }
     });
   }
-
-  getUserByServiceId(idServicio: string): void {
+  
+  
+  obtenerPerfilUsuario(token: string, servicioId: string): void { // Agregar servicioId como parámetro
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+  
+    this.http.get<any>('http://localhost:8000/api/perfil', { headers }).subscribe(
+      (data) => {
+        console.log('Datos del usuario loggeado:', data);
+        this.user = data;
+  
+        // Convertir el dni a un entero y establecerlo en el formulario
+        const userId = this.user.dni;
+        const telefono = this.user.phone;
+        
+        console.log('Valor de userId:', userId);
+        this.servicioForm.patchValue({
+          id_user: userId,
+          telefono_user: telefono,
+        });
+  
+        // Pasar servicioId a getUserByServiceId
+        if (servicioId) {
+          this.getUserByServiceId(servicioId); // Corregir aquí
+        } else {
+          console.error('El servicioId no está definido');
+        }
+      },
+      (error) => {
+        console.error('Error al obtener el perfil del usuario:', error);
+      }
+    );
+  }
+  
+  
+  
+  getUserByServiceId(servicioId: string): void {
     // Construir la URL de la solicitud
-    const url = `http://localhost:8000/api/services/${idServicio}/user`;
-
+    const url = `http://localhost:8000/api/services/${servicioId}/user`;
+    console.log('ID DEL SERVICIO:', servicioId);
+  
     // Realizar la solicitud HTTP GET
     this.http.get<any>(url).subscribe(
       (data) => {
         // Manejar la respuesta exitosa
-        console.log('Datos del usuario:', data);
-
-        this.userProv = data;
-      
-        const userPorvId = this.userProv.dni;
-
+        console.log('Datos del usuario del servicio:', data);
+  
+        // Utilizar el ID del usuario proveedor del servicio
+        const userProvId = data.id.toString(); // Convertir a cadena de texto
+  
         this.servicioForm.patchValue({
-          id_user_proveedor: userPorvId, // Asignar el dni del usuario proveedor al campo id_user_proveedor
-          
+          id_user_proveedor: userProvId, // Asignar el ID del usuario proveedor al campo id_user_proveedor
         });
         // Aquí puedes implementar la lógica para manejar los datos del usuario
       },
@@ -81,42 +116,11 @@ export class ContratarServicioComponent implements OnInit {
       }
     );
   }
+  
 
-  obtenerPerfilUsuario(token: string): void {
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    });
 
-    this.http.get<any>('http://localhost:8000/api/perfil', { headers }).subscribe(
-      (data) => {
-        console.log('Datos del perfil:', data);
-        this.user = data;
-
-        // Convertir el dni a un entero y establecerlo en el formulario
-        const userId = this.user.dni;
-        const telefono = this.user.phone;
-        
-        console.log('Valor de userId:', userId); // Verificar el valor de userId
-        this.servicioForm.patchValue({
-          id_user: userId, // Cambiado a 'id_user'
-          telefono_user: telefono,
-        });
-
-        // Obtener el ID del usuario proveedor después de obtener el perfil del usuario
-        const id_user_proveedor = this.user.id; // Aquí debe ser la propiedad correcta del usuario que representa el proveedor
-        if (id_user_proveedor) {
-          this.getUserByServiceId(id_user_proveedor);
-        } else {
-          console.error('El user_proveedor_id no está definido');
-          // Manejar el error adecuadamente, por ejemplo, redirigir al usuario a la página de inicio de sesión
-        }
-      },
-      (error) => {
-        console.error('Error al obtener el perfil del usuario:', error);
-        // Manejar el error adecuadamente, por ejemplo, mostrar un mensaje al usuario
-      }
-    );
-  }
+  
+  
 
   submitForm() {
 
