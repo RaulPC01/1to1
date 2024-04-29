@@ -9,10 +9,11 @@ import { MainCompradorComponent } from './components/logged/comprador/main-compr
 import { ServicioComponent } from './components/logged/comprador/servicio/servicio.component';
 import { ContratarServicioComponent } from './components/logged/comprador/contratar-servicio/contratar-servicio.component';
 import { PerfilComponent } from './components/logged/perfil/perfil.component';
-import { MainProveedorComponent } from './components/logged/proveedor/main-proveedor/main-proveedor.component';
 import { CrearservicoComponent } from './components/logged/proveedor/main-proveedor/crearservico/crearservico.component';
 import { TiketsServiciosComponent } from './tikets-servicios/tikets-servicios.component';
 import { MisServiviosComponent } from './mis-servivios/mis-servivios.component';
+import { AuthGuard } from './guards/auth.guard'; // Importa el guardia AuthGuard
+
 
 const routes: Routes = [
 
@@ -20,23 +21,21 @@ const routes: Routes = [
 
   { path: 'register', component: RegisterComponent},
   
-  { path: 'contacto', component: ContactoComponent},
+  { path: 'contacto', component: ContactoComponent, canActivate: [AuthGuard] },
 
-  { path: 'home-comprador', component: MainCompradorComponent},
+  { path: 'home-comprador', component: MainCompradorComponent },
 
-  { path: 'perfil', component: PerfilComponent },  
+  { path: 'perfil', component: PerfilComponent , canActivate: [AuthGuard] },  
 
   { path: 'servicios/:id_servicios', component: ServicioComponent },
 
+  { path: 'contratar/:id_servicio', component: ContratarServicioComponent, canActivate: [AuthGuard]  },
 
-  { path: 'contratar/:id_servicio', component: ContratarServicioComponent },
+  { path: 'crear-servicio', component: CrearservicoComponent , canActivate: [AuthGuard] },
 
-  
-  { path: 'crear-servicio', component: CrearservicoComponent },
+  { path: 'solicictudes', component: TiketsServiciosComponent , canActivate: [AuthGuard] },
 
-  { path: 'solicictudes', component: TiketsServiciosComponent },
-
-  { path: 'mis-servicios', component: MisServiviosComponent },
+  { path: 'mis-servicios', component: MisServiviosComponent, canActivate: [AuthGuard]  },
 
 
   // =====================================================
@@ -63,6 +62,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard],
 })
 export class AppRoutingModule { }

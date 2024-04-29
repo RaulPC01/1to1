@@ -14,6 +14,7 @@
   z-index: -1;
 }
 
+
 .loading-spinner {
   position: fixed;
   top: 50%;
@@ -40,7 +41,28 @@
 }
 
  
+.superprof-container {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-image: url('https://example.com/path/to/your/background-image.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px;
+}
 
+.superprof-container p {
+  margin-bottom: 10px;
+}
+
+.superprof-container p:nth-child(5) {
+  font-weight: bold;
+  color: #00698f;
+}
+
+.superprof-container p:nth-child(9) {
+  font-weight: bold;
+  color: #00698f;
+}
 
 
 body {

@@ -8,8 +8,11 @@
       <input class="Inputs" type="tel" placeholder="Teléfono" formControlName="phone" required>
       <input class="Inputs" type="password" placeholder="Contraseña" formControlName="password" required>
       <input class="Inputs" type="password" placeholder="Repite la contraseña" formControlName="password_confirmation" required>
-
-      <!-- Agrega el campo de carga de imagen -->
+      
+      <!-- Mostrar mensaje de error si las contraseñas no coinciden -->
+      <div *ngIf="RegisterForm.hasError('passwordMismatch') && (RegisterForm.get('password') || RegisterForm.get('password_confirmation'))" style="color: red;">
+        Las contraseñas no coinciden.
+      </div>
 
       <button type="submit">Registrarse</button>
   </form>

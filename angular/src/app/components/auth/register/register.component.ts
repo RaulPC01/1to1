@@ -1,7 +1,20 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+
+// Define una función para validar que las dos contraseñas sean iguales
+const passwordMatchValidator = (control: AbstractControl): { [key: string]: boolean } | null => {
+  const password = control.get('password');
+  const confirmPassword = control.get('password_confirmation');
+
+  // Verifica si ambas contraseñas tienen valores y si son iguales
+  if (password?.value !== confirmPassword?.value) {
+    return { 'passwordMismatch': true };
+  }
+
+  return null;
+};
 
 @Component({
   selector: 'app-register',
@@ -12,7 +25,6 @@ export class RegisterComponent {
   RegisterForm: FormGroup;
   errorMessage: string = '';
   
-
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -26,24 +38,30 @@ export class RegisterComponent {
       phone: ['', Validators.required],
       password: ['', Validators.required],
       password_confirmation: ['', Validators.required],
-    
+    }, {
+      // Agrega la validación personalizada al formulario
+      validators: passwordMatchValidator
     });
   }
 
-  onSubmit(): void {
-    if (this.RegisterForm.valid) {
-      const formData = new FormData();
+  // Agrega una verificación de nulidad antes de acceder a las propiedades
+onSubmit(): void {
+  if (this.RegisterForm.valid) {
+    const formData = new FormData();
+    const password = this.RegisterForm.get('password');
+    const passwordConfirmation = this.RegisterForm.get('password_confirmation');
 
+    // Verifica si las propiedades existen y son válidas
+    if (password && passwordConfirmation && password.valid && passwordConfirmation.valid) {
       formData.append('dni', this.RegisterForm.value.dni);
       formData.append('name', this.RegisterForm.value.name);
       formData.append('dateOfBirth', this.RegisterForm.value.dateOfBirth);
       formData.append('email', this.RegisterForm.value.email);
       formData.append('phone', this.RegisterForm.value.phone);
-      formData.append('password', this.RegisterForm.value.password);
-      formData.append('password_confirmation', this.RegisterForm.value.password_confirmation);
+      formData.append('password', password.value);
+      formData.append('password_confirmation', passwordConfirmation.value);
 
-      
-
+      // Realiza la solicitud HTTP con los datos del formulario
       this.http.post<any>('http://localhost:8000/api/register', formData)
         .subscribe(
           (data) => {
@@ -62,4 +80,6 @@ export class RegisterComponent {
       this.errorMessage = 'Por favor, complete el formulario correctamente.';
     }
   }
+}
+
 }

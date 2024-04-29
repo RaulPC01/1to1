@@ -14,7 +14,9 @@ export class MainCompradorComponent {
 
   ngOnInit(): void {
     this.loading = true; 
+    
     this.getTopRatedServices();
+
   }
 
   nEstrellas(score: number): any[] {
