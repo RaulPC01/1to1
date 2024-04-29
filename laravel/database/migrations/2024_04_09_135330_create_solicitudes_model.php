@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('id_user');
             $table->integer('id_servicio');
             $table->string('id_user_proveedor');
+            $table->string('nombre_Servicio');
+            $table->string('name_user_solicitud');
             $table->text('descripcion');
             $table->date('date_servicio');
             $table->integer('telefono_user')->default(false);

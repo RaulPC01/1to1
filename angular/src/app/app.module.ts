@@ -24,6 +24,7 @@ import { CommonModule } from '@angular/common';
 import { CrearservicoComponent } from './components/logged/proveedor/main-proveedor/crearservico/crearservico.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TiketsServiciosComponent } from './tikets-servicios/tikets-servicios.component';
+import { MisServiviosComponent } from './mis-servivios/mis-servivios.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { TiketsServiciosComponent } from './tikets-servicios/tikets-servicios.co
     CrearservicoComponent,
     ContratarServicioComponent,
     TiketsServiciosComponent,
+    MisServiviosComponent,
 
           
   ],

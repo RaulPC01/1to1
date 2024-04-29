@@ -1,10 +1,38 @@
+<div class="loading-spinner" *ngIf="loading">
+  <!-- Aquí puedes usar cualquier biblioteca de ruedita de carga o implementar tu propio spinner -->
+  <div class="spinner"></div>
+</div>
 
-    <h2>Solicitudes del Proveedor</h2>
-    <ul>
-      <li *ngFor="let solicitud of solicitudes">
-        <!-- Aquí puedes mostrar la información de cada solicitud -->
-        <p>ID de Solicitud: {{ solicitud.id }}</p>
-        <p>Descripción: {{ solicitud.descripcion }}</p>
-        <!-- Añade más campos según tus necesidades -->
-      </li>
-    </ul>
+<div  *ngIf="!loading">
+
+  <h2>Solicitudes por aceptar:</h2>
+  <div *ngFor="let solicitud of solicitudesPorAcceptar">
+    <p>Descripción: {{ solicitud.descripcion }}</p>
+    <p>Nombre de usuario: {{ solicitud.name_user_solicitud }}</p>
+    <p>Nombre del servicio: {{ solicitud.nombre_Servicio }}</p>
+    <p>Fecha del servicio: {{ solicitud.date_servicio }}</p>
+    <button (click)="aceptarSolicitud(solicitud)">Aceptar</button>
+    <button (click)="rechazarSolicitud(solicitud)">Rechazar</button>
+    <hr>
+  </div>
+  
+  <h2>Solicitudes aceptadas:</h2>
+  <div *ngFor="let solicitud of solicitudesAcceptadas">
+    <p>Descripción: {{ solicitud.descripcion }}</p>
+    <p>Nombre de usuario: {{ solicitud.name_user_solicitud }}</p>
+    <p>Nombre del servicio: {{ solicitud.nombre_Servicio }}</p>
+    <p>Fecha del servicio: {{ solicitud.date_servicio }}</p>
+    <hr>
+  </div>
+  
+  <h2>Todas las solicitudes:</h2>
+  <div *ngFor="let solicitud of solicitudes">
+    <p>Descripción: {{ solicitud.descripcion }}</p>
+    <p>Nombre de usuario: {{ solicitud.name_user_solicitud }}</p>
+    <p>Nombre del servicio: {{ solicitud.nombre_Servicio }}</p>
+    <p>Fecha del servicio: {{ solicitud.date_servicio }}</p>
+    <hr>
+  </div>
+  
+
+</div>

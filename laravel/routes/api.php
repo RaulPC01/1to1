@@ -59,3 +59,12 @@ Route::get('servicios/{id_servicio}/comentarios', [ServiceController::class, 'co
 Route::get('/solicitudes/{id_user_proveedor}', [solicitudesController::class, 'getSolicitudesPorProveedor']);
 
 
+Route::get('/por-acceptar/{id_user_proveedor}', [solicitudesController::class, 'solicitudesPorAcceptar']);
+
+Route::get('/solicitudes-aceptadas/{id_user_proveedor}/',  [solicitudesController::class, 'solicitudesAcceptadas']);
+
+Route::put('/solicitudes/{id}/aceptar',  [solicitudesController::class, 'aceptarSolicitud']);
+
+Route::delete('/solicitudes/{id}/rechazar',  [solicitudesController::class, 'rechazarSolicitud']);
+
+Route::get('/serviciosUser/{id_usuario_proveedor}', [ServiceController::class, 'serviciosSegunUsuario']);

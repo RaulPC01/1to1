@@ -89,6 +89,19 @@ class ServiceController extends Controller
         
         return response()->json(['comentarios' => $comentarios], 200);
     }
+
+    public function serviciosSegunUsuario($id_usuario_proveedor)
+    {
+        // Busca todos los servicios del proveedor por su ID
+        $services = services::where('id_usuario_proveedor', $id_usuario_proveedor)->get();
+
+        // Retorna los servicios encontrados
+        return response()->json($services);
+    }
+
+
+
+
     
 
    

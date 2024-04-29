@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/token.service';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header-logged',
@@ -9,20 +11,29 @@ import { TokenService } from 'src/app/token.service';
 })
 export class HeaderLoggedComponent implements OnInit {
   isLoggedIn: boolean = false;
+  usuarioActual: any;
+  showToggleMenu: boolean = false;
 
-  usuarioActual: any; // Supongamos que el objeto de usuario tiene una propiedad 'dni'
-
-  constructor(public TokenService: TokenService, private router: Router) { }
+  constructor(
+    public TokenService: TokenService, 
+    private router: Router,
+    private breakpointObserver: BreakpointObserver
+  ) { }
 
   ngOnInit(): void {
-    // Obtener información del usuario actual al inicializar el componente
     this.usuarioActual = localStorage.getItem('Idtoken');
+    this.breakpointObserver.observe([Breakpoints.Handset, '(min-width: 750px)'])
+      .pipe(
+        map(result => result.matches)
+      )
+      .subscribe(matches => {
+        this.showToggleMenu = !matches;
+      });
   }
 
   redireccionarAlPerfil(): void {
     const token = this.usuarioActual;
     if (token) {
-      // Redirigir al perfil solo si se obtiene un token válido
       this.router.navigate(['/perfil']);
     } else {
       console.error('No se pudo obtener el token de usuario');
@@ -32,7 +43,22 @@ export class HeaderLoggedComponent implements OnInit {
   filtrarServicios(categoria: string): void {
     this.router.navigate(['/servicio'], { queryParams: { categoria } });
   }
+
   logout(): void {
     this.TokenService.cerrarSesion();
+  }
+
+  toggleMobileMenu(): void {
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileMenu !== null) {
+      mobileMenu.classList.toggle('active');
+    }
+  }
+
+  closeMobileMenu(): void {
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileMenu !== null) {
+      mobileMenu.classList.remove('active');
+    }
   }
 }

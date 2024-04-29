@@ -37,6 +37,8 @@ export class ContratarServicioComponent implements OnInit {
         id_user: ['', Validators.required], // Cambiado a 'id_user'
         id_servicio: [servicioId, Validators.required], // Asignar el servicioId obtenido de la URL
         id_user_proveedor: ['', Validators.required],
+        nombre_Servicio: ['', Validators.required],
+        name_user_solicitud: ['', Validators.required],
         descripcion: ['', Validators.required],
         date_servicio: ['', Validators.required],
         telefono_user: ['', Validators.required],
@@ -46,7 +48,8 @@ export class ContratarServicioComponent implements OnInit {
       // Obtener los datos del perfil del usuario al iniciar el componente
       const token = localStorage.getItem('Idtoken');
       if (token && servicioId !== null) {
-        this.obtenerPerfilUsuario(token, servicioId); // Pasar servicioId aquí
+        this.obtenerPerfilUsuario(token, servicioId);
+        this. obtenerDetalleServicio(servicioId); // Pasar servicioId aquí
       } else {
         console.error('El token no está definido en el almacenamiento local o servicioId es null');
         // Manejar el error adecuadamente, por ejemplo, redirigir al usuario a la página de inicio de sesión
@@ -54,7 +57,29 @@ export class ContratarServicioComponent implements OnInit {
     });
   }
   
-  
+  obtenerDetalleServicio(id_servicios: string): void {
+    this.http.get<any>(`http://localhost:8000/api/services/${id_servicios}`).subscribe(
+      (data) => {   
+        console.log('JSON retornado por la API:', data);
+        
+        this.servicio = data;
+          const nomServicio = this.servicio.tipo_servicio;
+        if (this.servicio && this.servicio.id_servicios) {
+          this.servicioForm.patchValue({
+            nombre_Servicio: nomServicio,
+          });
+        } else {
+          console.error('No se pudo obtener el id del servicio correctamente');
+        }
+
+      },
+      (error) => {
+        console.error('Error al obtener los detalles del servicio: ', error);
+        
+      }
+    );
+  }
+
   obtenerPerfilUsuario(token: string, servicioId: string): void { // Agregar servicioId como parámetro
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
@@ -68,11 +93,13 @@ export class ContratarServicioComponent implements OnInit {
         // Convertir el dni a un entero y establecerlo en el formulario
         const userId = this.user.dni;
         const telefono = this.user.phone;
+        const nombreUser = this.user.name;
         
         console.log('Valor de userId:', userId);
         this.servicioForm.patchValue({
           id_user: userId,
           telefono_user: telefono,
+          name_user_solicitud:nombreUser,
         });
   
         // Pasar servicioId a getUserByServiceId
@@ -102,7 +129,7 @@ export class ContratarServicioComponent implements OnInit {
         console.log('Datos del usuario del servicio:', data);
   
         // Utilizar el ID del usuario proveedor del servicio
-        const userProvId = data.id.toString(); // Convertir a cadena de texto
+        const userProvId = data.dni.toString(); // Convertir a cadena de texto
   
         this.servicioForm.patchValue({
           id_user_proveedor: userProvId, // Asignar el ID del usuario proveedor al campo id_user_proveedor

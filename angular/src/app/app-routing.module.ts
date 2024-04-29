@@ -12,6 +12,7 @@ import { PerfilComponent } from './components/logged/perfil/perfil.component';
 import { MainProveedorComponent } from './components/logged/proveedor/main-proveedor/main-proveedor.component';
 import { CrearservicoComponent } from './components/logged/proveedor/main-proveedor/crearservico/crearservico.component';
 import { TiketsServiciosComponent } from './tikets-servicios/tikets-servicios.component';
+import { MisServiviosComponent } from './mis-servivios/mis-servivios.component';
 
 const routes: Routes = [
 
@@ -34,6 +35,9 @@ const routes: Routes = [
   { path: 'crear-servicio', component: CrearservicoComponent },
 
   { path: 'solicictudes', component: TiketsServiciosComponent },
+
+  { path: 'mis-servicios', component: MisServiviosComponent },
+
 
   // =====================================================
   {

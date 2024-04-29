@@ -1,34 +1,40 @@
 <div class="navbar">
     <div class="flex">
         <a routerLink="/home-comprador" class="logo">
-            <div class="flex">
-                <div class="img">
-                    <img src="../../../assets/imatges/logo.png" height="50px">
-                </div>
+            <div class="img">
+                <img src="../../../assets/imatges/logo.png" height="50px">
             </div>
         </a>
-  
     </div>
-  
     <div class="botonesCentrados">
-  
-        <div class="links" >
-            <a routerLink="/crear-servicio" class="link link-center">Ofrecer Servicios</a>
+        <div class="links">
             <a routerLink="/home-comprador" class="link link-center">Contratar Servicios</a>
+            <a routerLink="/crear-servicio" class="link link-center">Ofrecer Servicios</a>
+            <a routerLink="/solicictudes" class="link link-center">Solicitudes</a>
+            <a routerLink="/mis-servicios" class="link link-center">Mis Servicios</a>
         </div>
-  
-        
     </div>
     <div class="flex">
-        <div class="links" >
+        <div class="links">
             <a routerLink="contacto" class="link link-right">Contacto</a>
             <div class="bPerfil">
                 <a routerLink="/perfil" class="material-symbols-outlined">person</a>
             </div>
-  
-            <!-- Agregar el (click) para llamar a la función logout() -->
-            <a (click)="logout()" class="link link-right"><span class="material-symbols-outlined">logout</span></a>
+            <a class="link link-right" id="toggleMenu" (click)="toggleMobileMenu()" *ngIf="showToggleMenu">
+                <span class="material-symbols-outlined">menu</span>
+            </a>
+            <a (click)="logout()" class="link link-right" id="logoutButton"><span class="material-symbols-outlined">logout</span></a>
         </div>
     </div>
-  </div>
-  
+</div>
+
+<div id="mobileMenu" class="mobile-menu">
+    <a routerLink="/home-comprador" class="link link-center" (click)="closeMobileMenu()">Contratar Servicios</a>
+    <a routerLink="/crear-servicio" class="link link-center" (click)="closeMobileMenu()">Ofrecer Servicios</a>
+    <a routerLink="/solicitudes" class="link link-center" (click)="closeMobileMenu()">Solicitudes</a>
+    <a routerLink="/mis-servicios" class="link link-center" (click)="closeMobileMenu()">Mis Servicios</a>
+    <a routerLink="contacto" class="link link-center" (click)="closeMobileMenu()">Contacto</a>
+    <a routerLink="/perfil" class="link link-center" (click)="closeMobileMenu()">Perfil</a>
+    <a class="link link-center" id="toggleMenuMobile" (click)="closeMobileMenu()"><span class="material-symbols-outlined">close</span></a>
+    <a (click)="logout()" class="link link-center"><span class="material-symbols-outlined">logout</span></a>
+</div>

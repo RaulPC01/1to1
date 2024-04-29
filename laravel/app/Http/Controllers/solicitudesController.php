@@ -18,6 +18,8 @@ class solicitudesController extends Controller
             'id_user' => 'required|string',
             'id_servicio' => 'required|integer',
             'id_user_proveedor' => 'required|string',
+            'nombre_Servicio'  => 'required|string',
+            'name_user_solicitud' => 'required|string',
             'descripcion' => 'required|string', // Cambiado a 'string' en lugar de 'text'
             'date_servicio' => 'required|date',
             'telefono_user' => 'required|string', // Cambiado a 'string' en lugar de 'integer'
@@ -51,5 +53,47 @@ class solicitudesController extends Controller
         // Retornar las solicitudes encontradas
         return response()->json($solicitudes);
     }
+
+    public function solicitudesPorAcceptar ($id_user_proveedor)
+{
+    // Buscar todas las solicitudes del proveedor por su ID
+    $solicitudes = solicitudes::where('id_user_proveedor', $id_user_proveedor)
+                               ->where('accepted', false)
+                               ->get();
+
+    // Retornar las solicitudes encontradas
+    return response()->json($solicitudes);
+}
+
+public function solicitudesAcceptadas($id_user_proveedor)
+{
+    // Buscar todas las solicitudes aceptadas del proveedor por su ID
+    $solicitudes = solicitudes::where('id_user_proveedor', $id_user_proveedor)
+                               ->where('accepted', true)
+                               ->get();
+
+    // Retornar las solicitudes aceptadas encontradas
+    return response()->json($solicitudes);
+}
+public function aceptarSolicitud($id)
+{
+    $solicitud = solicitudes::findOrFail($id);
+    
+    
+
+    $solicitud->update(['accepted' => true]);
+
+    return response()->json(['message' => 'La solicitud ha sido aceptada exitosamente.']);
+}
+
+public function rechazarSolicitud($id)
+{
+    $solicitud = solicitudes::findOrFail($id);
+    
+   
+        $solicitud->delete(); // Si la solicitud ya ha sido aceptada, eliminarla
+        return response()->json(['message' => 'La solicitud ha sido eliminada exitosamente.']);
+  
+}
 }
 
