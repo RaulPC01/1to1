@@ -68,3 +68,9 @@ Route::put('/solicitudes/{id}/aceptar',  [solicitudesController::class, 'aceptar
 Route::delete('/solicitudes/{id}/rechazar',  [solicitudesController::class, 'rechazarSolicitud']);
 
 Route::get('/serviciosUser/{id_usuario_proveedor}', [ServiceController::class, 'serviciosSegunUsuario']);
+
+// Ruta para eliminar un servicio
+Route::delete('/servicios/{id}', [ServiceController::class, 'destroy']);
+
+// Ruta para editar un servicio
+Route::put('/servicios/{id}', [ServiceController::class, 'update']);

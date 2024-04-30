@@ -7,12 +7,17 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./mis-servivios.component.css']
 })
 export class MisServiviosComponent implements OnInit {
+  servicios: any[] = [];
+  editando = false;
+  servicioEditando: any = {};
 
   constructor(private http: HttpClient) { }
   
-  servicios: any[] = [];
-
   ngOnInit(): void {
+    this.cargarServicios();
+  }
+
+  cargarServicios(): void {
     const token = localStorage.getItem('Idtoken');
     if (token) {
       this.obtenerPerfilUsuario(token);
@@ -23,32 +28,78 @@ export class MisServiviosComponent implements OnInit {
   }
 
   obtenerPerfilUsuario(token: string): void {
-    const headers = new HttpHeaders({ // Aquí se usa HttpHeaders
+    const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
     this.http.get<any>('http://localhost:8000/api/perfil', { headers }).subscribe(
       (data) => {
         console.log('Datos del perfil:', data);
-        // Llamada a la función obtenerSolicitudesProveedor con el ID del usuario proveedor
         this.serviciosUsuario(data.dni);
       },
       (error) => {
         console.error('Error al obtener el perfil del usuario:', error);
-        // Manejar el error adecuadamente, por ejemplo, mostrar un mensaje al usuario
       }
     );
   }
 
-  serviciosUsuario(idUsuarioProveedor:string){
+  serviciosUsuario(idUsuarioProveedor: string) {
     this.http.get<any[]>(`http://localhost:8000/api/serviciosUser/${idUsuarioProveedor}`).subscribe(
       (data) => {
         console.log('Servicios del proveedor:', data);
-        this.servicios = data; // Asigna los servicios devueltos a la variable local
+        this.servicios = data;
       },
       (error) => {
         console.error('Error al obtener los servicios del proveedor:', error);
-        // Maneja el error adecuadamente, por ejemplo, muestra un mensaje al usuario
       }
     );
   }
+
+  eliminarServicio(idServicio: number): void {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('Idtoken')}`
+    });
+    this.http.delete(`http://localhost:8000/api/servicios/${idServicio}`, { headers }).subscribe(
+      () => {
+        console.log('Servicio eliminado correctamente');
+        this.servicios = this.servicios.filter(servicio => servicio.id_servicios !== idServicio);
+      },
+      (error) => {
+        console.error('Error al eliminar el servicio:', error);
+      }
+    );
+  }
+
+  activarEdicion(servicio: any): void {
+    // Si el formulario ya está visible y se hace clic en "Editar" de nuevo, se oculta
+    if (this.editando && this.servicioEditando.id_servicios === servicio.id_servicios) {
+      this.editando = false;
+    } else {
+      this.servicioEditando = { ...servicio };
+      this.editando = true;
+    }
+  }
+  actualizarServicio(): void {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('Idtoken')}`
+    });
+    this.http.put(`http://localhost:8000/api/servicios/${this.servicioEditando.id_servicios}`, this.servicioEditando, { headers })
+      .subscribe(
+        (response) => {
+          console.log('Servicio actualizado:', response);
+          this.editando = false;
+          this.cargarServicios(); // Recargar la lista de servicios para mostrar los datos actualizados
+        },
+        (error) => {
+          console.error('Error al actualizar el servicio:', error);
+        }
+      );
+      this.toggleEditForm(this.servicioEditando);
+  }
+  toggleEditForm(servicio: any): void {
+    // Si el servicio actualmente editado es el mismo que el servicio clicado,
+    // lo cerramos (servicioEditando = null). De lo contrario, lo abrimos.
+    this.servicioEditando = this.servicioEditando === servicio ? null : servicio;
+  }
+
+ 
 }
