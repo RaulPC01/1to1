@@ -31,7 +31,7 @@ export class ContactoComponent implements OnInit {
       idUser: ['', Validators.required],
       nombre: ['', Validators.required],
       apellidos: ['', Validators.required],
-      motivo: ['', Validators.required],
+      motius: ['', Validators.required],
       descripcion: ['', Validators.required]
     });
     const token = localStorage.getItem('Idtoken');
@@ -75,7 +75,7 @@ export class ContactoComponent implements OnInit {
   }
 
   submitForm() {
-    if (this.tiketform.valid) {
+    
       this.ticketsService.crearTicket(this.tiketform.value)
         .subscribe(
           (data) => {
@@ -84,16 +84,16 @@ export class ContactoComponent implements OnInit {
             setTimeout(() => {
               this.showConfirmation = false; // Ocultar el mensaje de confirmación después de 4 segundos
             }, 4000); // Tiempo en milisegundos (en este caso, 4 segundos)
-            this.tiketform.reset(); // Restablecer los valores del formulario
+            
+            window.location.reload();
           },
           (error: HttpErrorResponse) => {
             console.error('Error al enviar el formulario:', error);
-            this.router.navigate(['/contacto']); 
+            console.log('Datos enviados:', this.tiketform.value); 
+            window.location.reload();
           }
         );
-    } else {
-      console.error('El formulario no es válido');
-    }
+  
   }
 
 }

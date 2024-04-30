@@ -10,10 +10,10 @@ export class TicketsService {
   constructor(private http: HttpClient) { }
 
   crearTicket(ticketData: any): Observable<any> {
-    return this.http.post<any>('http://localhost:8000/api/create-ticket', ticketData);
+    return this.http.post<any>('http://localhost:8000/api/create-tiket', ticketData);
   }
 
   getMotivos(): Observable<any[]> {
-    return this.http.get<any[]>('http://localhost:8000/api/reasons');
+    return this.http.get<any[]>('http://localhost:8000/api/motivos');
   }
 }

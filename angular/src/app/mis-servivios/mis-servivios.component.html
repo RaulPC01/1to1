@@ -1,6 +1,6 @@
 <h2>Mis Servicios</h2>
 
-<div *ngIf="servicios.length > 0; else noServicios">
+<div>
   <div *ngFor="let servicio of servicios" class="servicio">
     <h3>{{ servicio.tipo_servicio }}</h3>
     <a [routerLink]="['/servicios', servicio.id_servicios]">Ver más</a>
@@ -9,6 +9,4 @@
   </div>
 </div>
 
-<ng-template #noServicios>
-  <p>No se encontraron servicios.</p>
-</ng-template>
+

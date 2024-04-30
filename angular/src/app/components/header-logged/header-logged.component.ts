@@ -43,8 +43,8 @@ export class HeaderLoggedComponent implements OnInit {
 
   logout(): void {
     this.TokenService.cerrarSesion();
+    this.router.navigate(['']);
   }
-
   toggleMobileMenu(): void {
     const mobileMenu = document.getElementById('mobileMenu');
     if (mobileMenu !== null) {

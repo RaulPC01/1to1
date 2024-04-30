@@ -1,5 +1,3 @@
-
-
 <div class="loading-spinner" *ngIf="loading">
   <!-- Aquí puedes usar cualquier biblioteca de ruedita de carga o implementar tu propio spinner -->
   <div class="spinner"></div>
@@ -8,13 +6,13 @@
 
 
 
-<div class="contenido" *ngIf="!loading" >
+<div class="contenido" *ngIf="!loading">
   <h1 class="titulo">Estos son los servicios con más puntuaciones valorados por nuestra comunidad</h1>
   <br>
   <br>
   <br>
   <section class="grid-container">
-    <div class="card estilo-b" *ngFor="let service of topRatedServices.slice(getStartIndex(), getEndIndex())">  
+    <div class="card estilo-b" *ngFor="let service of topRatedServices.slice(getStartIndex(), getEndIndex())">
 
       <div class="wavy-background"></div>
       <div class="img-container">
@@ -37,37 +35,95 @@
   </section>
   <div class="pagination-container">
     <button class="pagination-button" (click)="prevPage()" [disabled]="currentPage === 1">&lt; Anterior</button>
-    
-    <button class="pagination-button" (click)="nextPage()" [disabled]="currentPage === getTotalPages()">Siguiente &gt;</button>
+
+    <button class="pagination-button" (click)="nextPage()" [disabled]="currentPage === getTotalPages()">Siguiente
+      &gt;</button>
   </div>
 
   <br>
-  
-  <br>
-  
-  <br>
-  
-  <br>
-  
+
   <br>
 
-  <h3 class="titulo" for="categoria" style="font-size: xx-large;">¡Explora nuestras <span style="color: #b40301; font-size: xx-large;">Categorías</span> con mas servicios!</h3>
+  <br>
+
+  <br>
+
+  <br>
+
+  <h3 class="titulo" for="categoria" style="font-size: xx-large;">¡Explora nuestras <span
+      style="color: #b40301; font-size: xx-large;">Categorías</span> con mas servicios!</h3>
 
 </div>
 
 
 
-<div class="container" *ngIf="!loading" >
+<div class="container" *ngIf="!loading">
   <div class="column" *ngFor="let column of columns">
-    <a class="category" 
-         *ngFor="let category of getColumnCategories(column)"
-         [class.selected]="selectedCategoryId === category.id"
-         (click)="onSelectCategory(category.id)">
+    <a class="category" *ngFor="let category of getColumnCategories(column)"
+      [class.selected]="selectedCategoryId === category.id" (click)="onSelectCategory(category.id)">
       {{category. nombre_categoria}}
-  </a>
+    </a>
   </div>
 </div>
 
+<div class="contenedor">
+  <div class="grande">
+    <img src="../../../assets/imatges/servicio_imagen_example.jpg" alt="" class="imagen-fondo">
+    <div class="texto">
+      <p style="font-weight: 800; font-size: 150%;">Da un paso y sé un OneToOner, </p>
+      <br>
+      <p style="font-weight: 500;">¡Forma parte de nuestra comunidad y empieza a crear tu propio servicio!</p>
+      <button class="boton" routerLink="/crear-servicio">Únete ahora mismo</button>
+    </div>
+  </div>
+</div>
+
+<div class="options-container">
+
+  <div class="option" style="background-color: rgba(224, 237, 181, 0.232);">
+    <div class="option-content">
+      <img src="../../../assets/imatges/prof1.jpeg" alt="Icon 1" class="profile-pic">
+      <div class="text-container">
+        <h3>Roger Orteu</h3>
+        <p>Juneda</p>
+
+      </div>
+
+    </div>
+    <br>
+    <br>
+
+    <p>Roger és un gran professional, és una persona muy atenta y comprensiva. Es muy trabajador y cumple en su
+      totalidad lo que promete en su servicio. Un professional muy recomendado.</p>
+  </div>
+
+  <div class="option" style="background-color: rgb(204, 236, 97);">
+    <div class="option-content">
+      <img src="../../../assets/imatges/prof1.jpeg" alt="Icon 1" class="profile-pic">
+      <div class="text-container">
+        <h3>Arian Lanuza</h3>
+        <p>Solsona</p>
+      </div>
+    </div>
+  </div>
+  <div class="option" style="background-color: rgb(228, 132, 54);">
+    <div class="option-content">
+      <img src="../../../assets/imatges/prof1.jpeg" alt="Icon 1" class="profile-pic">
+      <div class="text-container">
+        <h3>Raul Pereira</h3>
+        <p>Andorra</p>
+      </div>
+    </div>
+  </div>
+  <div class="option" style="background-color:rgb(242, 26, 22)">
+    <div class="option-content">
+      <img src="../../../assets/imatges/prof1.jpeg" alt="Icon 1" class="profile-pic">
+      <div class="text-container">
+        <h3>Mehdi Tahrat</h3>
+        <p>Argelia</p>
+      </div>
+    </div>
+  </div>
 
 
-
+</div>
