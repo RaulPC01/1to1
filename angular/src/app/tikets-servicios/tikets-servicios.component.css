@@ -1,3 +1,54 @@
+.container{
+  padding: 1%;
+}
+
+
+#izquierda{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 130px;
+  padding: 10px;
+  height: 100%;
+  right: 8%;
+}
+
+.tituloSolicitud{
+  font-weight: 700;
+  font-size: 40px;
+  color: #b40301;
+}
+
+#derecha{
+  margin-top: 2%;
+  text-align: center;
+}
+
+h2{
+  font-weight: 700;
+}
+
+.texto{
+  font-weight: 600;
+  color: rgb(78, 78, 78);
+}
+
+.botonAceptar{ background-color: green; }
+.botonAceptar:hover{ background-color: rgb(62, 147, 62);}
+
+.botonRechazar{ background-color: #b40301;}
+.botonRechazar:hover{ background-color: #ab4846;}
+
+
+
+
+
+
+
+
+
 
 .loading-spinner {
     position: fixed;

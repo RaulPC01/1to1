@@ -1,38 +1,23 @@
-<div class="loading-spinner" *ngIf="loading">
-  <!-- Aquí puedes usar cualquier biblioteca de ruedita de carga o implementar tu propio spinner -->
-  <div class="spinner"></div>
-</div>
+<div class="container"> 
+  <div class="row">
+    <div class="col-md-6" id="izquierda">
+      <h2 class="tituloSolicitud">Solicitudes por aceptar</h2>
+      <p class="texto"><strong>1to1</strong> te permite gestionar tus solicitudes de servicio de manera eficiente. Aquí, puedes visualizar todas las peticiones de clientes que están interesados en lo que ofreces, dándote la oportunidad de organizar y responder de forma rápida y eficaz. Con esta herramienta, podrás mantener un seguimiento claro de tus solicitudes, facilitando la comunicación y mejorando tu productividad.</p>
+    </div>
 
-<div  *ngIf="!loading">
-
-  <h2>Solicitudes por aceptar:</h2>
-  <div *ngFor="let solicitud of solicitudesPorAcceptar">
-    <p>Descripción: {{ solicitud.descripcion }}</p>
-    <p>Nombre de usuario: {{ solicitud.name_user_solicitud }}</p>
-    <p>Nombre del servicio: {{ solicitud.nombre_Servicio }}</p>
-    <p>Fecha del servicio: {{ solicitud.date_servicio }}</p>
-    <button (click)="aceptarSolicitud(solicitud)">Aceptar</button>
-    <button (click)="rechazarSolicitud(solicitud)">Rechazar</button>
-    <hr>
+    <div class="col-md-6" id="derecha">
+      <h2>Solicitudes</h2>
+      <div *ngFor="let solicitud of solicitudesPorAcceptar">
+        <div class="infoSolicitud">
+          <p>Servicio: {{ solicitud.nombre_Servicio }}</p>
+          <p>Nombre de usuario: {{ solicitud.name_user_solicitud }}</p>
+          <p>Fecha del servicio: {{ solicitud.date_servicio }}</p>
+          <p>Problema: {{ solicitud.descripcion }}</p>
+        </div>
+        <button class="botonAceptar" (click)="aceptarSolicitud(solicitud)">Aceptar</button>
+        <button class="botonRechazar" (click)="rechazarSolicitud(solicitud)">Rechazar</button>
+        <hr>
+      </div>
+    </div>
   </div>
-  
-  <h2>Solicitudes aceptadas:</h2>
-  <div *ngFor="let solicitud of solicitudesAcceptadas">
-    <p>Descripción: {{ solicitud.descripcion }}</p>
-    <p>Nombre de usuario: {{ solicitud.name_user_solicitud }}</p>
-    <p>Nombre del servicio: {{ solicitud.nombre_Servicio }}</p>
-    <p>Fecha del servicio: {{ solicitud.date_servicio }}</p>
-    <hr>
-  </div>
-  
-  <h2>Todas las solicitudes:</h2>
-  <div *ngFor="let solicitud of solicitudes">
-    <p>Descripción: {{ solicitud.descripcion }}</p>
-    <p>Nombre de usuario: {{ solicitud.name_user_solicitud }}</p>
-    <p>Nombre del servicio: {{ solicitud.nombre_Servicio }}</p>
-    <p>Fecha del servicio: {{ solicitud.date_servicio }}</p>
-    <hr>
-  </div>
-  
-
 </div>

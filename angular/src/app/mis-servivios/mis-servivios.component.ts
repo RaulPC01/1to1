@@ -100,4 +100,6 @@ export class MisServiviosComponent implements OnInit {
     // lo cerramos (servicioEditando = null). De lo contrario, lo abrimos.
     this.servicioEditando = this.servicioEditando === servicio ? null : servicio;
   }
+
+ 
 }
