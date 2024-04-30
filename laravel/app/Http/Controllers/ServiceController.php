@@ -99,6 +99,21 @@ class ServiceController extends Controller
         return response()->json($services);
     }
 
+    public function selectServicesByCategory($categoryId)
+    {
+        // Valida que se haya enviado el ID de la categoría en la solicitud
+     
+        $services = services::with('user', 'poblacion', 'categories')
+        ->whereHas('categories', function ($query) use ($categoryId) {
+            $query->where('id_categoria', $categoryId);
+        })
+        ->orderByDesc('puntuacion_valoracion')
+        ->get();
+
+        return response()->json($services);
+
+    }
+
 
 
 

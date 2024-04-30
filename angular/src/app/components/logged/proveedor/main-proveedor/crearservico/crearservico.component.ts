@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-
+import { ServicioService } from 'src/app/servicio.service';
+import { UserService } from 'src/app/user.service';
 @Component({
   selector: 'app-crearservico',
   templateUrl: './crearservico.component.html',
@@ -15,13 +16,20 @@ export class CrearservicoComponent implements OnInit {
   mostrarTarifa: boolean = false;
   mostrarPoblacion: boolean = false;
   mostrarImagen: boolean = false;
-  servicioForm!: FormGroup; // Declaración del FormGroup
-  user: any; // Variable para almacenar los datos del perfil del usuario
+  servicioForm!: FormGroup; 
+  user: any; 
   categorias: any[] = []; 
   poblaciones: any[] = [];
   showConfirmation: boolean = false;
   nombreLength: number  =0;
   descripcionLength: number =0;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private servicioService: ServicioService,
+    private router: Router,
+    private UserService : UserService,
+  ) {}
 
   countNombreLength(event: any): void {
     const input = event.target as HTMLInputElement;
@@ -39,12 +47,6 @@ export class CrearservicoComponent implements OnInit {
     }
     this.descripcionLength = input.value.length;
   }
-
-  constructor(
-    private formBuilder: FormBuilder,
-    private http: HttpClient,
-    private router: Router
-  ) {}
 
   ngOnInit(): void {
     // Inicializar el formulario FormGroup
@@ -72,7 +74,7 @@ export class CrearservicoComponent implements OnInit {
   }
 
   obtenerCategorias(): void {
-    this.http.get<any[]>('http://localhost:8000/api/categories').subscribe(
+    this.servicioService.obtenerCategorias().subscribe(
       (categorias) => {
         console.log('Categorías:', categorias);
         this.categorias = categorias;
@@ -85,7 +87,7 @@ export class CrearservicoComponent implements OnInit {
   }
 
   obtenerPoblaciones(): void {
-    this.http.get<any[]>('http://localhost:8000/api/poblaciones').subscribe(
+    this.servicioService.obtenerPoblaciones().subscribe(
       (poblaciones) => {
         console.log('Poblaciones:', poblaciones);
         this.poblaciones = poblaciones;
@@ -97,11 +99,7 @@ export class CrearservicoComponent implements OnInit {
     );
   }
   obtenerPerfilUsuario(token: string): void {
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    });
-  
-    this.http.get<any>('http://localhost:8000/api/perfil', { headers }).subscribe(
+    this.UserService.obtenerPerfilUsuario(token).subscribe(
       (data) => {
         console.log('Datos del perfil:', data);
         this.user = data;
@@ -130,32 +128,32 @@ export class CrearservicoComponent implements OnInit {
       }
   
       // Enviar los datos del formulario al backend
-      this.http.post<any>('http://localhost:8000/api/crear-servicio', this.servicioForm.value)
-        .subscribe(
-          (data) => {
-            // Manejar la respuesta del backend si es necesario
-            console.log('Respuesta del servidor:', data);
-            this.showConfirmation = true; // Mostrar el mensaje de confirmación
-            setTimeout(() => {
-              this.showConfirmation = false; // Ocultar el mensaje de confirmación después de 4 segundos
-              this.router.navigate(['/home-comprador']);
+      this.servicioService.crearServicio(this.servicioForm.value).subscribe(
+        (data) => {
+          // Manejar la respuesta del backend si es necesario
+          console.log('Respuesta del servidor:', data);
+          this.showConfirmation = true; // Mostrar el mensaje de confirmación
+          setTimeout(() => {
+            this.showConfirmation = false; // Ocultar el mensaje de confirmación después de 4 segundos
+            this.router.navigate(['/home-comprador']);
 
-            }, 4000); // Tiempo en milisegundos (en este caso, 4 segundos)
-            this.servicioForm.reset(); // Restablecer los valores del formulario
-            // Redirigir al usuario a otra página, mostrar mensaje de éxito, etc.
-          },
-          (error: HttpErrorResponse) => {
-            console.error('Error al enviar el formulario:', error);
-            // Manejar errores en caso de que la solicitud falle
-            // Redirigir al usuario a la página de inicio o mostrar un mensaje de error
-            this.router.navigate(['/']); 
-          }
-        );
+          }, 4000); // Tiempo en milisegundos (en este caso, 4 segundos)
+          this.servicioForm.reset(); // Restablecer los valores del formulario
+          // Redirigir al usuario a otra página, mostrar mensaje de éxito, etc.
+        },
+        (error: HttpErrorResponse) => {
+          console.error('Error al enviar el formulario:', error);
+          // Manejar errores en caso de que la solicitud falle
+          // Redirigir al usuario a la página de inicio o mostrar un mensaje de error
+          this.router.navigate(['/']); 
+        }
+      );
     } else {
       console.error('El formulario no es válido');
       // El formulario no es válido, manejar el caso según tus necesidades
     }
   }
+
   volverCategoria() {
     this.mostrarNombre = false;
     this.mostrarCategoria = true;
@@ -206,3 +204,5 @@ export class CrearservicoComponent implements OnInit {
     this.mostrarImagen = true;
   }
 }
+
+

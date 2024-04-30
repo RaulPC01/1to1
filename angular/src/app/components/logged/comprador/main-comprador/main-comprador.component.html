@@ -1,25 +1,21 @@
-<h1 class="titulo">Estos son los servicios con más puntuaciones valorados por nuestra comunidad</h1>
+
 
 <div class="loading-spinner" *ngIf="loading">
   <!-- Aquí puedes usar cualquier biblioteca de ruedita de carga o implementar tu propio spinner -->
   <div class="spinner"></div>
 </div>
 
-<div class="superprof-container">
-  <p>Tú también,</p>
-  <p>sé un Superprof</p>
-  <p>Comparte tus conocimientos, vive de tu</p>
-  <p>pasión y sé independiente</p>
-  <p>Saber más ✩</p>
-  <p>Tú también, sé un Superprof</p>
-  <p>Comparte tus conocimientos, vive de tu</p>
-  <p>pasión y sé independiente</p>
-  <p>Saber más ✩</p>
-</div>
 
-<div class="contenido">
+
+
+<div class="contenido" *ngIf="!loading" >
+  <h1 class="titulo">Estos son los servicios con más puntuaciones valorados por nuestra comunidad</h1>
+  <br>
+  <br>
+  <br>
   <section class="grid-container">
-    <div class="card estilo-b" *ngFor="let service of topRatedServices">  
+    <div class="card estilo-b" *ngFor="let service of topRatedServices.slice(getStartIndex(), getEndIndex())">  
+
       <div class="wavy-background"></div>
       <div class="img-container">
         <img src="\assets\carpintero.png" alt="producto 1">
@@ -39,4 +35,39 @@
       <a [routerLink]="['/servicios', service.id_servicios]">Ver más</a>
     </div>
   </section>
+  <div class="pagination-container">
+    <button class="pagination-button" (click)="prevPage()" [disabled]="currentPage === 1">&lt; Anterior</button>
+    
+    <button class="pagination-button" (click)="nextPage()" [disabled]="currentPage === getTotalPages()">Siguiente &gt;</button>
+  </div>
+
+  <br>
+  
+  <br>
+  
+  <br>
+  
+  <br>
+  
+  <br>
+
+  <h3 class="titulo" for="categoria" style="font-size: xx-large;">¡Explora nuestras <span style="color: #b40301; font-size: xx-large;">Categorías</span> con mas servicios!</h3>
+
 </div>
+
+
+
+<div class="container" *ngIf="!loading" >
+  <div class="column" *ngFor="let column of columns">
+    <a class="category" 
+         *ngFor="let category of getColumnCategories(column)"
+         [class.selected]="selectedCategoryId === category.id"
+         (click)="onSelectCategory(category.id)">
+      {{category. nombre_categoria}}
+  </a>
+  </div>
+</div>
+
+
+
+

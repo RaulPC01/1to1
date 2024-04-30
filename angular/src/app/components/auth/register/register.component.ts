@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { UserService } from 'src/app/user.service';
 
 // Define una función para validar que las dos contraseñas sean iguales
 const passwordMatchValidator = (control: AbstractControl): { [key: string]: boolean } | null => {
@@ -28,7 +29,8 @@ export class RegisterComponent {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private userService: UserService
   ) {
     this.RegisterForm = this.formBuilder.group({
       dni: ['', Validators.required],
@@ -45,41 +47,40 @@ export class RegisterComponent {
   }
 
   // Agrega una verificación de nulidad antes de acceder a las propiedades
-onSubmit(): void {
-  if (this.RegisterForm.valid) {
-    const formData = new FormData();
-    const password = this.RegisterForm.get('password');
-    const passwordConfirmation = this.RegisterForm.get('password_confirmation');
+  onSubmit(): void {
+    if (this.RegisterForm.valid) {
+      const formData = new FormData();
+      const password = this.RegisterForm.get('password');
+      const passwordConfirmation = this.RegisterForm.get('password_confirmation');
 
-    // Verifica si las propiedades existen y son válidas
-    if (password && passwordConfirmation && password.valid && passwordConfirmation.valid) {
-      formData.append('dni', this.RegisterForm.value.dni);
-      formData.append('name', this.RegisterForm.value.name);
-      formData.append('dateOfBirth', this.RegisterForm.value.dateOfBirth);
-      formData.append('email', this.RegisterForm.value.email);
-      formData.append('phone', this.RegisterForm.value.phone);
-      formData.append('password', password.value);
-      formData.append('password_confirmation', passwordConfirmation.value);
+      // Verifica si las propiedades existen y son válidas
+      if (password && passwordConfirmation && password.valid && passwordConfirmation.valid) {
+        formData.append('dni', this.RegisterForm.value.dni);
+        formData.append('name', this.RegisterForm.value.name);
+        formData.append('dateOfBirth', this.RegisterForm.value.dateOfBirth);
+        formData.append('email', this.RegisterForm.value.email);
+        formData.append('phone', this.RegisterForm.value.phone);
+        formData.append('password', password.value);
+        formData.append('password_confirmation', passwordConfirmation.value);
 
-      // Realiza la solicitud HTTP con los datos del formulario
-      this.http.post<any>('http://localhost:8000/api/register', formData)
-        .subscribe(
-          (data) => {
-            // Manejar la respuesta del backend si es necesario
-          },
-          (error: HttpErrorResponse) => {
-            if (error.error && error.error.message) {
-              this.errorMessage = error.error.message;
-            } else {
-              this.errorMessage = 'Hubo un problema al procesar la solicitud. Por favor, inténtalo de nuevo más tarde.';
+        // Realiza la solicitud HTTP con los datos del formulario
+        this.userService.registerUser(formData)
+          .subscribe(
+            (data) => {
+              // Manejar la respuesta del backend si es necesario
+            },
+            (error: HttpErrorResponse) => {
+              if (error.error && error.error.message) {
+                this.errorMessage = error.error.message;
+              } else {
+                this.errorMessage = 'Hubo un problema al procesar la solicitud. Por favor, inténtalo de nuevo más tarde.';
+              }
+              this.router.navigate(['/login']);
             }
-            this.router.navigate(['/login']);
-          }
-        );
-    } else {
-      this.errorMessage = 'Por favor, complete el formulario correctamente.';
+          );
+      } else {
+        this.errorMessage = 'Por favor, complete el formulario correctamente.';
+      }
     }
   }
-}
-
 }

@@ -68,3 +68,5 @@ Route::put('/solicitudes/{id}/aceptar',  [solicitudesController::class, 'aceptar
 Route::delete('/solicitudes/{id}/rechazar',  [solicitudesController::class, 'rechazarSolicitud']);
 
 Route::get('/serviciosUser/{id_usuario_proveedor}', [ServiceController::class, 'serviciosSegunUsuario']);
+
+Route::get('/services/por-categroia/{category_id}', [ServiceController::class, 'selectServicesByCategory']);

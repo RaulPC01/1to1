@@ -1,6 +1,6 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/app/user.service';
 import { TokenService } from 'src/app/token.service';
 
 @Component({
@@ -14,8 +14,8 @@ export class PerfilComponent implements OnInit {
   showEditForm: boolean = false;
 
   constructor(
-    private http: HttpClient,
-    private TokenService: TokenService,
+    private userService: UserService,
+    private tokenService: TokenService,
     private formBuilder: FormBuilder
   ) { }
 
@@ -43,19 +43,15 @@ export class PerfilComponent implements OnInit {
   toggleEditForm(): void {
     this.showEditForm = !this.showEditForm;
   }
-  obtenerPerfilUsuario(token: string): void {
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    });
 
-    this.http.get<any>('http://localhost:8000/api/perfil', { headers }).subscribe(
+  obtenerPerfilUsuario(token: string): void {
+    this.userService.obtenerPerfilUsuario(token).subscribe(
       (data) => {
         console.log('Datos del perfil:', data);
-        console.log(data);
         this.user = data;
         if (localStorage.getItem('Idtoken') === data.token) {
           console.error('El token almacenado en el navegador coincide con el token devuelto por el backend');
-          this.TokenService.cerrarSesion();
+          this.tokenService.cerrarSesion();
         }
 
         // Establece los valores del formulario
@@ -68,7 +64,7 @@ export class PerfilComponent implements OnInit {
         });
       },
       (error) => {  
-        // Manejar el error adecuadamente, por ejemplo, mostrar un mensaje al usuario
+      
       }
     );
   }

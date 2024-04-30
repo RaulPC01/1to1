@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
+import { UserService } from 'src/app/user.service';
+import { ServicioService } from 'src/app/servicio.service';
 
 @Component({
   selector: 'app-contratar-servicio',
@@ -24,7 +26,9 @@ export class ContratarServicioComponent implements OnInit {
     private formBuilder: FormBuilder,
     private http: HttpClient,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private userService: UserService,
+    private servicioService: ServicioService
   ) {}
 
   ngOnInit(): void {
@@ -49,7 +53,7 @@ export class ContratarServicioComponent implements OnInit {
       const token = localStorage.getItem('Idtoken');
       if (token && servicioId !== null) {
         this.obtenerPerfilUsuario(token, servicioId);
-        this. obtenerDetalleServicio(servicioId); // Pasar servicioId aquí
+        this.obtenerDetalleServicio(servicioId); // Pasar servicioId aquí
       } else {
         console.error('El token no está definido en el almacenamiento local o servicioId es null');
         // Manejar el error adecuadamente, por ejemplo, redirigir al usuario a la página de inicio de sesión
@@ -58,12 +62,12 @@ export class ContratarServicioComponent implements OnInit {
   }
   
   obtenerDetalleServicio(id_servicios: string): void {
-    this.http.get<any>(`http://localhost:8000/api/services/${id_servicios}`).subscribe(
+    this.servicioService.obtenerDetalleServicio(id_servicios).subscribe(
       (data) => {   
         console.log('JSON retornado por la API:', data);
         
         this.servicio = data;
-          const nomServicio = this.servicio.tipo_servicio;
+        const nomServicio = this.servicio.tipo_servicio;
         if (this.servicio && this.servicio.id_servicios) {
           this.servicioForm.patchValue({
             nombre_Servicio: nomServicio,
@@ -80,12 +84,8 @@ export class ContratarServicioComponent implements OnInit {
     );
   }
 
-  obtenerPerfilUsuario(token: string, servicioId: string): void { // Agregar servicioId como parámetro
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    });
-  
-    this.http.get<any>('http://localhost:8000/api/perfil', { headers }).subscribe(
+  obtenerPerfilUsuario(token: string, servicioId: string): void {
+    this.userService.obtenerPerfilUsuario(token).subscribe(
       (data) => {
         console.log('Datos del usuario loggeado:', data);
         this.user = data;
@@ -99,7 +99,7 @@ export class ContratarServicioComponent implements OnInit {
         this.servicioForm.patchValue({
           id_user: userId,
           telefono_user: telefono,
-          name_user_solicitud:nombreUser,
+          name_user_solicitud: nombreUser,
         });
   
         // Pasar servicioId a getUserByServiceId
@@ -115,15 +115,9 @@ export class ContratarServicioComponent implements OnInit {
     );
   }
   
-  
-  
   getUserByServiceId(servicioId: string): void {
     // Construir la URL de la solicitud
-    const url = `http://localhost:8000/api/services/${servicioId}/user`;
-    console.log('ID DEL SERVICIO:', servicioId);
-  
-    // Realizar la solicitud HTTP GET
-    this.http.get<any>(url).subscribe(
+    this.userService.getUserByServiceId(servicioId).subscribe(
       (data) => {
         // Manejar la respuesta exitosa
         console.log('Datos del usuario del servicio:', data);
@@ -144,26 +138,13 @@ export class ContratarServicioComponent implements OnInit {
     );
   }
   
-
-
-  
-  
-
   submitForm() {
-
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        // Otros encabezados si son necesarios
-      }),
-      withCredentials: true // Permitir el envío de cookies de autenticación
-    };
 
     // Console log de los datos del formulario antes de enviarlo al backend
     console.log('Datos del formulario:', this.servicioForm.value);
   
     // Enviar los datos del formulario al backend
-    this.http.post<any>('http://localhost:8000/api/crearSolicitud', this.servicioForm.value)
+    this.servicioService.enviarSolicitud(this.servicioForm.value)
       .subscribe(
         (data) => {
           // Manejar la respuesta del backend si es necesario
@@ -184,7 +165,6 @@ export class ContratarServicioComponent implements OnInit {
         }
       );
   }
-  
 
   verDescripcion() {
     this.mostrarDescripcion = true;

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ServicioService } from 'src/app/servicio.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-mis-servivios',
@@ -8,7 +9,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class MisServiviosComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private servicioService: ServicioService , private userService: UserService) { // Corrección aquí
+    
+  }
   
   servicios: any[] = [];
 
@@ -23,10 +26,7 @@ export class MisServiviosComponent implements OnInit {
   }
 
   obtenerPerfilUsuario(token: string): void {
-    const headers = new HttpHeaders({ // Aquí se usa HttpHeaders
-      'Authorization': `Bearer ${token}`
-    });
-    this.http.get<any>('http://localhost:8000/api/perfil', { headers }).subscribe(
+    this.userService.obtenerPerfilUsuario(token).subscribe(
       (data) => {
         console.log('Datos del perfil:', data);
         // Llamada a la función obtenerSolicitudesProveedor con el ID del usuario proveedor
@@ -40,15 +40,7 @@ export class MisServiviosComponent implements OnInit {
   }
 
   serviciosUsuario(idUsuarioProveedor:string){
-    this.http.get<any[]>(`http://localhost:8000/api/serviciosUser/${idUsuarioProveedor}`).subscribe(
-      (data) => {
-        console.log('Servicios del proveedor:', data);
-        this.servicios = data; // Asigna los servicios devueltos a la variable local
-      },
-      (error) => {
-        console.error('Error al obtener los servicios del proveedor:', error);
-        // Maneja el error adecuadamente, por ejemplo, muestra un mensaje al usuario
-      }
-    );
+    this.servicioService.serviciosUsuario(idUsuarioProveedor);
+    this.servicios = this.servicioService.servicios; // Asigna los servicios devueltos a la variable local
   }
 }
