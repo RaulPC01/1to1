@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\services;
 use App\Models\User;
 use App\Models\categories;
+use App\Models\comentarios;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Contracts\Service\Attribute\Required;
 
@@ -62,6 +63,75 @@ class ServiceController extends Controller
         return response()->json($service);
     }
 
+
+    public function createComentarios(Request $request)
+    {
+        // Validar los datos del formulario
+        $validatedData = $request->validate([
+            'IdUsuarioComentario' => 'required|string',
+            'Nombre_user' => 'required|string',
+            'mensage' => 'required|string',
+            'id_Servicio' => 'required|string', // Cambiado a 'string' en lugar de 'text'
+           
+        ]);
+    
+        // Crear el servicio con los datos validados
+        $service = comentarios::create($validatedData);
+    
+        // Retornar la respuesta JSON con el servicio creado y el código de estado 201 (Created)
+        return response()->json($service, 201);
+    }
+
+    public function comentariosDeServicio($idServicio)
+    {
+        // Seleccionar todos los comentarios del servicio especificado
+        $comentarios = comentarios::where('id_Servicio', $idServicio)->get();
+        
+        return response()->json(['comentarios' => $comentarios], 200);
+    }
+
+    public function serviciosSegunUsuario($id_usuario_proveedor)
+    {
+        // Busca todos los servicios del proveedor por su ID
+        $services = services::where('id_usuario_proveedor', $id_usuario_proveedor)->get();
+
+        // Retorna los servicios encontrados
+        return response()->json($services);
+    }
+
+// Funcion para eliminar un servicio
+    public function destroy($id)
+    {
+        $services = services::find($id);
+        if ($services) {
+            $services->delete();
+            return response()->json(['message' => 'Servicio eliminado con éxito'], 200);
+        }
+        return response()->json(['error' => 'Servicio no encontrado'], 404);
+    }
+    
+// Funcion para editar un servicio
+
+public function update(Request $request, $id)
+{
+    $services = services::find($id);
+    if (!$services) {
+        return response()->json(['message' => 'Servicio no encontrado'], 404);
+    }
+
+    $services->update($request->all());
+    return response()->json(['message' => 'Servicio actualizado con éxito', 'servicio' => $services], 200);
+}
+  
+public function crearSolicitud(Request $request) {
+    $request->validate([
+        'nombre' => 'required', // Ensuring 'nombre' is required
+        'descripcion' => 'required',
+        'date_servicio' => 'required'
+    ]);
+
+    // Proceed to handle the request knowing all fields are validated
+}
    
     
  

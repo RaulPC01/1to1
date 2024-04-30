@@ -29,9 +29,10 @@ export class ContratarServicioComponent implements OnInit {
     private route: ActivatedRoute
 
   ) {
-    this.servicioForm = new FormGroup({
-      descripcion: new FormControl(''),
-      date_servicio: new FormControl('')
+    this.servicioForm = this.formBuilder.group({
+      nombre: ['', Validators.required], // Add validators as necessary
+      descripcion: ['', Validators.required],
+      date_servicio: ['', Validators.required]
     });
   }
 // Inicializa el componente y configura el formulario con valores por defecto.
