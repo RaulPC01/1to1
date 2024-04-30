@@ -114,6 +114,30 @@ class ServiceController extends Controller
 
     }
 
+    public function destroy($id)
+    {
+        $services = services::find($id);
+        if ($services) {
+            $services->delete();
+            return response()->json(['message' => 'Servicio eliminado con éxito'], 200);
+        }
+        return response()->json(['error' => 'Servicio no encontrado'], 404);
+    }
+    
+// Funcion para editar un servicio
+
+public function update(Request $request, $id)
+{
+    $services = services::find($id);
+    if (!$services) {
+        return response()->json(['message' => 'Servicio no encontrado'], 404);
+    }
+
+    $services->update($request->all());
+    return response()->json(['message' => 'Servicio actualizado con éxito', 'servicio' => $services], 200);
+}
+  
+
 
 
 

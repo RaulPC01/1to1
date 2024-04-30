@@ -1,12 +1,42 @@
 <h2>Mis Servicios</h2>
-
-<div>
-  <div *ngFor="let servicio of servicios" class="servicio">
+<hr class="hr">
+<div *ngIf="servicios.length > 0; else noServicios" class="servicios-container">
+  <div *ngFor="let servicio of servicios" class="servicio-card">
     <h3>{{ servicio.tipo_servicio }}</h3>
-    <a [routerLink]="['/servicios', servicio.id_servicios]">Ver más</a>
+    <p>{{ servicio.descripcion }}</p>
+    <p>{{ servicio.tarifa }}€</p>
+    
+    <div class="buttons">
+      <a [routerLink]="['/servicios', servicio.id_servicios]" class="button view-button"><i class="fas fa-info-circle"></i> Ver más</a>
+      <button (click)="toggleEditForm(servicio)" class="button edit-button"><i class="fas fa-edit"></i> Editar</button>
+      <button (click)="eliminarServicio(servicio.id_servicios)" class="button delete-button"><i class="fas fa-trash-alt"></i> Eliminar</button>
+    </div>
+    
+    <!-- Formulario de edición del servicio actual -->
+   <!-- Formulario de edición del servicio actual -->
+<div *ngIf="servicioEditando && servicioEditando.id_servicios === servicio.id_servicios" class="edit-form">
+  <form (ngSubmit)="actualizarServicio()" class="edit-form-inner">
+    <h4>Editar Servicio</h4>
+    <div class="form-group">
+      <label for="tipo">Tipo de servicio:</label>
+      <input type="text" [(ngModel)]="servicioEditando.tipo_servicio" id="tipo" name="tipo" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="descripcion">Descripción:</label>
+      <textarea [(ngModel)]="servicioEditando.descripcion" id="descripcion" name="descripcion" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="tarifa">Tarifa (€):</label>
+      <input type="number" [(ngModel)]="servicioEditando.tarifa" id="tarifa" name="tarifa" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Actualizar Servicio</button>
+    <button type="button" class="btn btn-secondary" (click)="toggleEditForm(servicio)">Cancelar</button>
+  </form>
+</div>
 
-    <hr class="hr">
   </div>
 </div>
 
-
+<ng-template #noServicios>
+  <p>No se encontraron servicios.</p>
+</ng-template>
