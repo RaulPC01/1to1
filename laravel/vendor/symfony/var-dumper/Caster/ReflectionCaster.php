@@ -128,16 +128,10 @@ class ReflectionCaster
      */
     public static function castAttribute(\ReflectionAttribute $c, array $a, Stub $stub, bool $isNested)
     {
-        $map = [
+        self::addMap($a, $c, [
             'name' => 'getName',
             'arguments' => 'getArguments',
-        ];
-
-        if (\PHP_VERSION_ID >= 80400) {
-            unset($map['name']);
-        }
-
-        self::addMap($a, $c, $map);
+        ]);
 
         return $a;
     }
@@ -413,7 +407,7 @@ class ReflectionCaster
                     if (!$type instanceof \ReflectionNamedType) {
                         $signature .= $type.' ';
                     } else {
-                        if ($param->allowsNull() && 'mixed' !== $type->getName()) {
+                        if (!$param->isOptional() && $param->allowsNull() && 'mixed' !== $type->getName()) {
                             $signature .= '?';
                         }
                         $signature .= substr(strrchr('\\'.$type->getName(), '\\'), 1).' ';

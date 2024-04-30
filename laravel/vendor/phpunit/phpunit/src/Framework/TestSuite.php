@@ -44,7 +44,6 @@ use PHPUnit\Util\Reflection;
 use PHPUnit\Util\Test as TestUtil;
 use ReflectionClass;
 use ReflectionMethod;
-use SebastianBergmann\CodeCoverage\InvalidArgumentException;
 use SebastianBergmann\CodeCoverage\UnintentionallyCoveredCodeException;
 use Throwable;
 
@@ -63,21 +62,13 @@ class TestSuite implements IteratorAggregate, Reorderable, SelfDescribing, Test
     /**
      * @psalm-var array<string,list<Test>>
      */
-    private array $groups = [];
-
-    /**
-     * @psalm-var ?list<ExecutionOrderDependency>
-     */
+    private array $groups         = [];
     private ?array $requiredTests = null;
 
     /**
      * @psalm-var list<Test>
      */
-    private array $tests = [];
-
-    /**
-     * @psalm-var ?list<ExecutionOrderDependency>
-     */
+    private array $tests             = [];
     private ?array $providedTests    = null;
     private ?Factory $iteratorFilter = null;
 
@@ -236,7 +227,7 @@ class TestSuite implements IteratorAggregate, Reorderable, SelfDescribing, Test
      */
     public function addTestFile(string $filename): void
     {
-        if (str_ends_with($filename, '.phpt') && is_file($filename)) {
+        if (is_file($filename) && str_ends_with($filename, '.phpt')) {
             try {
                 $this->addTest(new PhptTestCase($filename));
             } catch (RunnerException $e) {
@@ -317,10 +308,10 @@ class TestSuite implements IteratorAggregate, Reorderable, SelfDescribing, Test
     }
 
     /**
+     * @throws \SebastianBergmann\CodeCoverage\InvalidArgumentException
      * @throws CodeCoverageException
      * @throws Event\RuntimeException
      * @throws Exception
-     * @throws InvalidArgumentException
      * @throws NoPreviousThrowableException
      * @throws UnintentionallyCoveredCodeException
      */

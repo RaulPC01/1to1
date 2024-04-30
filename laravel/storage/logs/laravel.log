@@ -11303,6 +11303,7 @@ Did you mean this?
 #49 C:\\Users\\orteu\\OneDrive\\Documentos\\GitHub\\.1to1\\1to1\\laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\orteu\\\\...')
 #50 {main}
 "} 
+<<<<<<< HEAD
 [2024-04-26 12:25:18] local.ERROR: SQLSTATE[HY000] [1049] Unknown database 'onetoone' (Connection: mysql, SQL: select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = 'OneToOne' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED') order by table_name) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 1049): SQLSTATE[HY000] [1049] Unknown database 'onetoone' (Connection: mysql, SQL: select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = 'OneToOne' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED') order by table_name) at C:\\Users\\alumnat\\Documents\\GitHub\\1to1\\laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:829)
 [stacktrace]
 #0 C:\\Users\\alumnat\\Documents\\GitHub\\1to1\\laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(783): Illuminate\\Database\\Connection->runQueryCallback('select table_na...', Array, Object(Closure))
@@ -11833,3 +11834,5 @@ Did you mean this?
 #49 C:\\Users\\alumnat\\Documents\\GitHub\\1to1\\laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\alumna...')
 #50 {main}
 "} 
+=======
+>>>>>>> parent of 4ebcb9cf (commit)

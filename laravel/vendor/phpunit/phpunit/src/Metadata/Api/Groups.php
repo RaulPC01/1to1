@@ -10,7 +10,6 @@
 namespace PHPUnit\Metadata\Api;
 
 use function array_flip;
-use function array_key_exists;
 use function array_unique;
 use function assert;
 use function strtolower;
@@ -31,24 +30,13 @@ use PHPUnit\Metadata\UsesFunction;
 final class Groups
 {
     /**
-     * @var array<string, array<int, string>>
-     */
-    private static array $groupCache = [];
-
-    /**
      * @psalm-param class-string $className
      * @psalm-param non-empty-string $methodName
      *
-     * @psalm-return array<int, string>
+     * @psalm-return list<string>
      */
     public function groups(string $className, string $methodName, bool $includeVirtual = true): array
     {
-        $key = $className . '::' . $methodName . '::' . $includeVirtual;
-
-        if (array_key_exists($key, self::$groupCache)) {
-            return self::$groupCache[$key];
-        }
-
         $groups = [];
 
         foreach (Registry::parser()->forClassAndMethod($className, $methodName)->isGroup() as $group) {
@@ -62,7 +50,7 @@ final class Groups
         }
 
         if (!$includeVirtual) {
-            return self::$groupCache[$key] = array_unique($groups);
+            return array_unique($groups);
         }
 
         foreach (Registry::parser()->forClassAndMethod($className, $methodName) as $metadata) {
@@ -97,7 +85,7 @@ final class Groups
             }
         }
 
-        return self::$groupCache[$key] = array_unique($groups);
+        return array_unique($groups);
     }
 
     /**

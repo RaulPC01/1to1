@@ -10,7 +10,6 @@ use Spatie\LaravelIgnition\FlareMiddleware\AddExceptionInformation;
 use Spatie\LaravelIgnition\FlareMiddleware\AddJobs;
 use Spatie\LaravelIgnition\FlareMiddleware\AddLogs;
 use Spatie\LaravelIgnition\FlareMiddleware\AddQueries;
-use Spatie\LaravelIgnition\FlareMiddleware\AddContext;
 use Spatie\LaravelIgnition\FlareMiddleware\AddNotifierName;
 
 return [
@@ -54,7 +53,6 @@ return [
         AddJobs::class => [
             'max_chained_job_reporting_depth' => 5,
         ],
-        AddContext::class,
         CensorRequestBodyFields::class => [
             'censor_fields' => [
                 'password',

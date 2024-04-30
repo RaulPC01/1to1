@@ -769,7 +769,7 @@ class Stringable implements JsonSerializable, ArrayAccess
     /**
      * Strip HTML and PHP tags from the given string.
      *
-     * @param  string[]|string|null  $allowedTags
+     * @param  string  $allowedTags
      * @return static
      */
     public function stripTags($allowedTags = null)

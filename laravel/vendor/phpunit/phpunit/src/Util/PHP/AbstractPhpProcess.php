@@ -9,12 +9,11 @@
  */
 namespace PHPUnit\Util\PHP;
 
-use const PHP_BINARY;
 use const PHP_SAPI;
 use function array_keys;
 use function array_merge;
 use function assert;
-use function explode;
+use function escapeshellarg;
 use function file_exists;
 use function file_get_contents;
 use function ini_get_all;
@@ -53,6 +52,10 @@ abstract class AbstractPhpProcess
 
     public static function factory(): self
     {
+        if (PHP_OS_FAMILY === 'Windows') {
+            return new WindowsPhpProcess;
+        }
+
         return new DefaultPhpProcess;
     }
 
@@ -153,15 +156,12 @@ abstract class AbstractPhpProcess
 
     /**
      * Returns the command based into the configurations.
-     *
-     * @return string[]
      */
-    public function getCommand(array $settings, ?string $file = null): array
+    public function getCommand(array $settings, string $file = null): string
     {
         $runtime = new Runtime;
 
-        $command   = [];
-        $command[] = PHP_BINARY;
+        $command = $runtime->getBinary();
 
         if ($runtime->hasPCOV()) {
             $settings = array_merge(
@@ -179,29 +179,29 @@ abstract class AbstractPhpProcess
             );
         }
 
-        $command = array_merge($command, $this->settingsToParameters($settings));
+        $command .= $this->settingsToParameters($settings);
 
         if (PHP_SAPI === 'phpdbg') {
-            $command[] = '-qrr';
+            $command .= ' -qrr';
 
             if (!$file) {
-                $command[] = 's=';
+                $command .= 's=';
             }
         }
 
         if ($file) {
-            $command[] = '-f';
-            $command[] = $file;
+            $command .= ' ' . escapeshellarg($file);
         }
 
         if ($this->arguments) {
             if (!$file) {
-                $command[] = '--';
+                $command .= ' --';
             }
+            $command .= ' ' . $this->arguments;
+        }
 
-            foreach (explode(' ', $this->arguments) as $arg) {
-                $command[] = trim($arg);
-            }
+        if ($this->stderrRedirection) {
+            $command .= ' 2>&1';
         }
 
         return $command;
@@ -212,16 +212,12 @@ abstract class AbstractPhpProcess
      */
     abstract public function runJob(string $job, array $settings = []): array;
 
-    /**
-     * @return list<string>
-     */
-    protected function settingsToParameters(array $settings): array
+    protected function settingsToParameters(array $settings): string
     {
-        $buffer = [];
+        $buffer = '';
 
         foreach ($settings as $setting) {
-            $buffer[] = '-d';
-            $buffer[] = $setting;
+            $buffer .= ' -d ' . escapeshellarg($setting);
         }
 
         return $buffer;

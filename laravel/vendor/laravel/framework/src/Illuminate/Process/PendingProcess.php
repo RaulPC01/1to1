@@ -266,10 +266,8 @@ class PendingProcess
      * Start the process in the background.
      *
      * @param  array<array-key, string>|string|null  $command
-     * @param  callable|null  $output
+     * @param  callable  $output
      * @return \Illuminate\Process\InvokedProcess
-     *
-     * @throws \RuntimeException
      */
     public function start(array|string $command = null, callable $output = null)
     {
@@ -384,8 +382,6 @@ class PendingProcess
      * @param  callable|null  $output
      * @param  \Closure  $fake
      * @return \Illuminate\Process\FakeInvokedProcess
-     *
-     * @throw \LogicException
      */
     protected function resolveAsynchronousFake(string $command, ?callable $output, Closure $fake)
     {

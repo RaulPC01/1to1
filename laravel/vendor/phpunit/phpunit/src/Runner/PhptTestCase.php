@@ -57,7 +57,6 @@ use PHPUnit\TextUI\Configuration\Registry as ConfigurationRegistry;
 use PHPUnit\Util\PHP\AbstractPhpProcess;
 use SebastianBergmann\CodeCoverage\Data\RawCodeCoverageData;
 use SebastianBergmann\CodeCoverage\InvalidArgumentException;
-use SebastianBergmann\CodeCoverage\ReflectionException;
 use SebastianBergmann\CodeCoverage\StaticAnalysisCacheNotConfiguredException;
 use SebastianBergmann\CodeCoverage\Test\TestSize\TestSize;
 use SebastianBergmann\CodeCoverage\Test\TestStatus\TestStatus;
@@ -85,7 +84,7 @@ final class PhptTestCase implements Reorderable, SelfDescribing, Test
      *
      * @throws Exception
      */
-    public function __construct(string $filename, ?AbstractPhpProcess $phpUtil = null)
+    public function __construct(string $filename, AbstractPhpProcess $phpUtil = null)
     {
         if (!is_file($filename)) {
             throw new FileDoesNotExistException($filename);
@@ -107,11 +106,11 @@ final class PhptTestCase implements Reorderable, SelfDescribing, Test
      * Runs a test and collects its result in a TestResult instance.
      *
      * @throws \PHPUnit\Framework\Exception
+     * @throws \SebastianBergmann\CodeCoverage\ReflectionException
      * @throws \SebastianBergmann\Template\InvalidArgumentException
      * @throws Exception
      * @throws InvalidArgumentException
      * @throws NoPreviousThrowableException
-     * @throws ReflectionException
      * @throws StaticAnalysisCacheNotConfiguredException
      * @throws TestIdMissingException
      * @throws UnintentionallyCoveredCodeException
@@ -186,9 +185,7 @@ final class PhptTestCase implements Reorderable, SelfDescribing, Test
         $jobResult    = $this->phpUtil->runJob($code, $this->stringifyIni($settings));
         $this->output = $jobResult['stdout'] ?? '';
 
-        if (CodeCoverage::instance()->isActive()) {
-            $coverage = $this->cleanupForCoverage();
-
+        if (CodeCoverage::instance()->isActive() && ($coverage = $this->cleanupForCoverage())) {
             CodeCoverage::instance()->codeCoverage()->start($this->filename, TestSize::large());
 
             CodeCoverage::instance()->codeCoverage()->append(
@@ -640,17 +637,15 @@ final class PhptTestCase implements Reorderable, SelfDescribing, Test
         $coverage = RawCodeCoverageData::fromXdebugWithoutPathCoverage([]);
         $files    = $this->getCoverageFiles();
 
-        $buffer = false;
-
         if (is_file($files['coverage'])) {
             $buffer = @file_get_contents($files['coverage']);
-        }
 
-        if ($buffer !== false) {
-            $coverage = @unserialize($buffer);
+            if ($buffer !== false) {
+                $coverage = @unserialize($buffer);
 
-            if ($coverage === false) {
-                $coverage = RawCodeCoverageData::fromXdebugWithoutPathCoverage([]);
+                if ($coverage === false) {
+                    $coverage = RawCodeCoverageData::fromXdebugWithoutPathCoverage([]);
+                }
             }
         }
 

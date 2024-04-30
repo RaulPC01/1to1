@@ -225,7 +225,7 @@ final class Application
 
             $result = TestResultFacade::result();
 
-            if (!$extensionReplacesResultOutput && !$configuration->debug()) {
+            if (!$extensionReplacesResultOutput) {
                 OutputFacade::printResult($result, $testDoxResult, $duration);
             }
 

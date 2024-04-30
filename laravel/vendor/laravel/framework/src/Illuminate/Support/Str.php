@@ -1298,7 +1298,7 @@ class Str
      */
     public static function apa($value)
     {
-        if (trim($value) === '') {
+        if ($value === '') {
             return $value;
         }
 
@@ -1634,7 +1634,7 @@ class Str
     }
 
     /**
-     * Generate a time-ordered UUID.
+     * Generate a time-ordered UUID (version 4).
      *
      * @return \Ramsey\Uuid\UuidInterface
      */

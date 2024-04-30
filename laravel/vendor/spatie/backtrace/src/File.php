@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\Backtrace\CodeSnippets;
+namespace Spatie\Backtrace;
 
 use SplFileObject;
 
-class FileSnippetProvider implements SnippetProvider
+class File
 {
     /** @var \SplFileObject */
     protected $file;

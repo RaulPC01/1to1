@@ -14,14 +14,6 @@ function text(string $label, string $placeholder = '', string $default = '', boo
 }
 
 /**
- * Prompt the user for multiline text input.
- */
-function textarea(string $label, string $placeholder = '', string $default = '', bool|string $required = false, ?Closure $validate = null, string $hint = '', int $rows = 5): string
-{
-    return (new TextareaPrompt($label, $placeholder, $default, $required, $validate, $hint, $rows))->prompt();
-}
-
-/**
  * Prompt the user for input, hiding the value.
  */
 function password(string $label, string $placeholder = '', bool|string $required = false, mixed $validate = null, string $hint = ''): string
@@ -58,14 +50,6 @@ function multiselect(string $label, array|Collection $options, array|Collection 
 function confirm(string $label, bool $default = true, string $yes = 'Yes', string $no = 'No', bool|string $required = false, mixed $validate = null, string $hint = ''): bool
 {
     return (new ConfirmPrompt(...func_get_args()))->prompt();
-}
-
-/**
- * Prompt the user to continue or cancel after pausing.
- */
-function pause(string $message = 'Press enter to continue...'): bool
-{
-    return (new PausePrompt(...func_get_args()))->prompt();
 }
 
 /**
@@ -199,9 +183,4 @@ function progress(string $label, iterable|int $steps, ?Closure $callback = null,
     }
 
     return $progress;
-}
-
-function form(): FormBuilder
-{
-    return new FormBuilder();
 }
