@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServicioService } from 'src/app/servicio.service';
-import { UserService } from '../user.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-mis-servivios',
@@ -12,9 +11,7 @@ export class MisServiviosComponent implements OnInit {
   editando = false;
   servicioEditando: any = {};
 
-  constructor(private servicioService: ServicioService , private userService: UserService) { // Corrección aquí
-    
-  }
+  constructor(private http: HttpClient) { }
   
   ngOnInit(): void {
     this.cargarServicios();
@@ -103,6 +100,4 @@ export class MisServiviosComponent implements OnInit {
     // lo cerramos (servicioEditando = null). De lo contrario, lo abrimos.
     this.servicioEditando = this.servicioEditando === servicio ? null : servicio;
   }
-
- 
 }
