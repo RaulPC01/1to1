@@ -50,7 +50,7 @@
 
   <br>
 
-  <h3 class="titulo" for="categoria" style="font-size: xx-large;">¡Explora nuestras <span
+  <h3 class="titulo" for="categoria" style="font-size: xx-large;" >¡Explora nuestras <span
       style="color: #b40301; font-size: xx-large;">Categorías</span> con mas servicios!</h3>
 
 </div>
@@ -68,7 +68,7 @@
 
 
 
-<div class="contenedor">
+<div class="contenedor"  *ngIf="!loading">
   <div class="grande">
     <img src="../../../assets/imatges/servicio_imagen_example.jpg" alt="" class="imagen-fondo">
     <div class="texto">
@@ -81,10 +81,10 @@
 </div>
 
 
-<h1>¡La pruevas son mas que evidentes! 
+<h1  *ngIf="!loading">¡La pruevas son mas que evidentes! 
 </h1>
 
-<div class="options-container">
+<div class="options-container"  *ngIf="!loading">
 
   <div class="option" style="background-color: rgba(224, 237, 181, 0.232);">
     <div class="option-content">

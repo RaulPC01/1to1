@@ -21,33 +21,20 @@ export class MainCompradorComponent implements OnInit {
     { id: 7, nombre_categoria: "Jardinero" },
     { id: 8, nombre_categoria: "Diseñador gráfico" },
     { id: 9, nombre_categoria: "Programador" },
-    { id: 10, nombre_categoria: "Cocinero" },
-    { id: 11, nombre_categoria: "Camarero" },
     { id: 12, nombre_categoria: "Albañil" },
-    { id: 13, nombre_categoria: "Ingeniero civil" },
     { id: 14, nombre_categoria: "Abogado" },
-    { id: 16, nombre_categoria: "Psicólogo" },
     { id: 19, nombre_categoria: "Fisioterapeuta" },
-    { id: 20, nombre_categoria: "Nutricionista" },
+
     { id: 21, nombre_categoria: "Entrenador personal" },
     { id: 22, nombre_categoria: "Masajista" },
-    { id: 24, nombre_categoria: "Maquillador" },
     { id: 25, nombre_categoria: "Estilista" },
-    { id: 26, nombre_categoria: "Decorador" },
-    { id: 28, nombre_categoria: "Traductor" },
-    { id: 31, nombre_categoria: "Actor" },
-    { id: 32, nombre_categoria: "Músico" },
-    { id: 33, nombre_categoria: "Pintor (artista)" },
     { id: 34, nombre_categoria: "Escultor" },
     { id: 35, nombre_categoria: "Fotógrafo" },
-    { id: 36, nombre_categoria: "Modelo" },
     { id: 38, nombre_categoria: "Bailarín" },
     { id: 39, nombre_categoria: "Instructor de yoga" },
-    { id: 40, nombre_categoria: "Piloto" },
-    { id: 41, nombre_categoria: "Taxista" },
     { id: 43, nombre_categoria: "Repartidor" },
-    { id: 46, nombre_categoria: "Secretario" },
-    { id: 57, nombre_categoria: "Veterinario" },
+
+
   ];
 
   selectedCategoryId: number | undefined;
