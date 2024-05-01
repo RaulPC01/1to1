@@ -4,15 +4,16 @@
 
 
 #izquierda{
+  position: sticky;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: 130px;
-  padding: 10px;
+  padding: 10px 20px;
   height: 100%;
-  right: 8%;
+  left: 10px;
+  top: 200px;
 }
 
 .tituloSolicitud{
@@ -22,8 +23,14 @@
 }
 
 #derecha{
-  margin-top: 2%;
+  margin-top: 1%;
   text-align: center;
+}
+
+.tituloDerecha{
+  font-weight: 700;
+  font-size: 30px;
+  color: #b40301;
 }
 
 h2{
@@ -35,16 +42,43 @@ h2{
   color: rgb(78, 78, 78);
 }
 
+.infoSolicitud{
+  max-width: 550px;
+  padding: 1.5em;
+  background-color: rgb(243, 241, 241);
+  border-radius: 20px;
+}
+
+.solicitud-encabezado {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: rgb(76, 76, 76);
+}
+
+.nombreServicio{
+  font-weight: 700;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+.botones{
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
 .botonAceptar{ background-color: green; }
 .botonAceptar:hover{ background-color: rgb(62, 147, 62);}
 
 .botonRechazar{ background-color: #b40301;}
 .botonRechazar:hover{ background-color: #ab4846;}
 
-
-
-
-
+.infoSolicitud p.descripcion {
+  max-width: 500px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
 
 
 
