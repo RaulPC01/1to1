@@ -37,7 +37,9 @@
     width: 65%; /* Ajusta el ancho para dejar espacio al panel de la derecha */
     padding: 10px; /* Agrega relleno al contenido */
     border-radius: 5px;
-  }
+     white-space: pre-line;
+    }
+  
   
   .panelDerecha {
     width: 30%; /* Ancho fijo del panel de la derecha */

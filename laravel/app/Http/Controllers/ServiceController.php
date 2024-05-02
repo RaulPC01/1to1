@@ -114,8 +114,48 @@ class ServiceController extends Controller
 
     }
 
+    public function destroy($id)
+    {
+        $services = services::find($id);
+        if ($services) {
+            $services->delete();
+            return response()->json(['message' => 'Servicio eliminado con éxito'], 200);
+        }
+        return response()->json(['error' => 'Servicio no encontrado'], 404);
+    }
+    
+// Funcion para editar un servicio
 
+public function update(Request $request, $id)
+{
+    $services = services::find($id);
+    if (!$services) {
+        return response()->json(['message' => 'Servicio no encontrado'], 404);
+    }
 
+    $services->update($request->all());
+    return response()->json(['message' => 'Servicio actualizado con éxito', 'servicio' => $services], 200);
+}
+  
+
+public function buscarServicios(Request $request)
+{
+    $terminoBusqueda = $request->input('terminoBusqueda');
+
+    // Buscar servicios que coincidan con el término de búsqueda
+    $servicios = services::with('user', 'poblacion', 'categories')
+                        ->where('tipo_servicio', 'like', '%' . $terminoBusqueda . '%')
+                        ->orWhere('descripcion', 'like', '%' . $terminoBusqueda . '%')
+                        ->orWhereHas('user', function ($query) use ($terminoBusqueda) {
+                            $query->where('name', 'like', '%' . $terminoBusqueda . '%');
+                        })
+                        ->orWhereHas('poblacion', function ($query) use ($terminoBusqueda) {
+                            $query->where('nombre_poblacion', 'like', '%' . $terminoBusqueda . '%');
+                        })
+                        ->get();
+
+    return response()->json($servicios);
+}
 
 // Funcion para eliminar un servicio
     public function destroy($id)

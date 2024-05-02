@@ -16,9 +16,7 @@ class DatabaseSeeder extends Seeder
 
             CategoriesSeeder::class,
             PoblacionSeeder::class,
-            UsersSeeder::class,
             motius_nomsSeeder::class,
-            profileSeeder::class,
             ServicesSeeder::class,
 
 

@@ -64,7 +64,7 @@
                     <h3 class="titulo"><span style="color: #b40301"> Título</span> de tu servicio</h3>
                     <input type="text" formControlName="nombre" placeholder="Ej: Cambio de aceite" required
                     (input)="countNombreLength($event)">
-                <div class="contador-letras">{{ nombreLength }}/40</div>
+                <div class="contador-letras">{{ nombreLength }}/60</div>
                 </div>
 
                 <div class="contenedor-botones">
@@ -81,7 +81,7 @@
                     <h3 class="tituloDescripcion">Acerca de<span style="color: #b40301"> tu Servicio</span></h3>
                     <textarea type="text" formControlName="descripcion" class="textareaDescripcion" placeholder="Ej: Limpieza profunda del ordenador y cambio de pasta térmica a domicilio" required>
                     (input)="countDescripcionLength($event)"></textarea>
-                    <div class="contador-letras">{{ descripcionLength }}/200</div> <!-- Contador de letras -->
+                    <div class="contador-letras">{{ descripcionLength }}/2000</div> <!-- Contador de letras -->
                     <div class="contenedor-botones">
                         <button type="button" (click)="volverNombreServicio()">Anterior</button>
                         <button type="button" class="bSiguiente" (click)="verTarifa()"

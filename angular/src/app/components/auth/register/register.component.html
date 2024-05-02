@@ -1,3 +1,12 @@
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 <div class="tarjetaRegistro">
   <h1 class="titulo">Regístrate</h1>
   <form [formGroup]="RegisterForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
@@ -8,11 +17,14 @@
       <input class="Inputs" type="tel" placeholder="Teléfono" formControlName="phone" required>
       <input class="Inputs" type="password" placeholder="Contraseña" formControlName="password" required>
       <input class="Inputs" type="password" placeholder="Repite la contraseña" formControlName="password_confirmation" required>
-      
-      <!-- Mostrar mensaje de error si las contraseñas no coinciden -->
       <div *ngIf="RegisterForm.hasError('passwordMismatch') && (RegisterForm.get('password') || RegisterForm.get('password_confirmation'))" style="color: red;">
         Las contraseñas no coinciden.
       </div>
+      <input class="Inputs" type="file" accept="image/*" (change)="onFileSelected($event)" required>
+      
+      
+
+
 
       <button type="submit">Registrarse</button>
   </form>
@@ -20,3 +32,4 @@
   <p>¿Ya tienes una cuenta?</p>
   <a href="/login">Inicia sesión</a>
 </div>
+

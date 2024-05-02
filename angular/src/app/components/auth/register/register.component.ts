@@ -1,22 +1,8 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/user.service';
-
-// Define una función para validar que las dos contraseñas sean iguales
-const passwordMatchValidator = (control: AbstractControl): { [key: string]: boolean } | null => {
-  const password = control.get('password');
-  const confirmPassword = control.get('password_confirmation');
-
-  // Verifica si ambas contraseñas tienen valores y si son iguales
-  if (password?.value !== confirmPassword?.value) {
-    return { 'passwordMismatch': true };
-  }
-
-  return null;
-};
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -25,12 +11,13 @@ const passwordMatchValidator = (control: AbstractControl): { [key: string]: bool
 export class RegisterComponent {
   RegisterForm: FormGroup;
   errorMessage: string = '';
-  
+
+ 
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router,
     private http: HttpClient,
-    private userService: UserService
+    private userService: UserService,
+    private Router: Router
   ) {
     this.RegisterForm = this.formBuilder.group({
       dni: ['', Validators.required],
@@ -39,48 +26,85 @@ export class RegisterComponent {
       email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required],
       password: ['', Validators.required],
-      password_confirmation: ['', Validators.required],
+      password_confirmation: ['', Validators.required], // Agregado para confirmar la contraseña
+      image: [null] // Campo para la imagen
     }, {
-      // Agrega la validación personalizada al formulario
-      validators: passwordMatchValidator
+      validators: this.passwordMatchValidator // Validación personalizada para las contraseñas
     });
   }
 
-  // Agrega una verificación de nulidad antes de acceder a las propiedades
+  // Función para validar que las contraseñas coincidan
+  passwordMatchValidator(formGroup: FormGroup) {
+    const password = formGroup.get('password')?.value;
+    const confirmPassword = formGroup.get('password_confirmation')?.value;
+
+    if (password !== confirmPassword) {
+      formGroup.get('password_confirmation')?.setErrors({ passwordMismatch: true });
+      return { passwordMismatch: true };
+    } else {
+      formGroup.get('password_confirmation')?.setErrors(null);
+      return null;
+    }
+  }
+
+  // Método para mostrar mensajes de error
+  showError(controlName: string, errorName: string) {
+    return this.RegisterForm.controls[controlName].hasError(errorName);
+  }
+  
+  // Maneja la selección de archivos
+  onFileSelected(event: any): void {
+    const file: File = event.target.files[0];
+    if (file) {
+      this.getBase64(file).then((base64: string) => {
+        this.RegisterForm.patchValue({
+          image: base64 // Almacena la imagen codificada en Base64 en el formulario
+        });
+      });
+    }
+  }
+
+  // Convierte un archivo a Base64
+  getBase64(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = error => reject(error);
+    });
+  }
+
+  // Envía el formulario al backend
   onSubmit(): void {
     if (this.RegisterForm.valid) {
       const formData = new FormData();
-      const password = this.RegisterForm.get('password');
-      const passwordConfirmation = this.RegisterForm.get('password_confirmation');
+      Object.keys(this.RegisterForm.value).forEach(key => {
+        formData.append(key, this.RegisterForm.value[key]);
+      });
 
-      // Verifica si las propiedades existen y son válidas
-      if (password && passwordConfirmation && password.valid && passwordConfirmation.valid) {
-        formData.append('dni', this.RegisterForm.value.dni);
-        formData.append('name', this.RegisterForm.value.name);
-        formData.append('dateOfBirth', this.RegisterForm.value.dateOfBirth);
-        formData.append('email', this.RegisterForm.value.email);
-        formData.append('phone', this.RegisterForm.value.phone);
-        formData.append('password', password.value);
-        formData.append('password_confirmation', passwordConfirmation.value);
-
-        // Realiza la solicitud HTTP con los datos del formulario
-        this.userService.registerUser(formData)
-          .subscribe(
-            (data) => {
-              // Manejar la respuesta del backend si es necesario
-            },
-            (error: HttpErrorResponse) => {
+      this.userService.registerUser(formData)
+        .subscribe(
+          (data) => {
+            // Maneja la respuesta exitosa del backend
+            console.log(data);
+            this.Router.navigate(['/login']);
+          },
+          (error: HttpErrorResponse) => {
+            // Maneja los errores de la solicitud HTTP
+            console.error(error);
+            if (error.status === 409) {
+              // Correo electrónico, DNI o número de teléfono duplicado
               if (error.error && error.error.message) {
                 this.errorMessage = error.error.message;
               } else {
-                this.errorMessage = 'Hubo un problema al procesar la solicitud. Por favor, inténtalo de nuevo más tarde.';
+                this.errorMessage = 'El correo electrónico, el DNI o el número de teléfono ya están en uso.';
               }
-              this.router.navigate(['/login']);
+            } else {
+              // Otro tipo de error
+              this.errorMessage = 'Hubo un problema al procesar la solicitud. Por favor, inténtalo de nuevo más tarde.';
             }
-          );
-      } else {
-        this.errorMessage = 'Por favor, complete el formulario correctamente.';
-      }
+          }
+        );
     }
   }
 }

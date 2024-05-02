@@ -33,16 +33,16 @@ export class CrearservicoComponent implements OnInit {
 
   countNombreLength(event: any): void {
     const input = event.target as HTMLInputElement;
-    if (input.value.length > 40) {
-      input.value = input.value.slice(0, 40); // Limitar la longitud a 40 caracteres
+    if (input.value.length > 60) {
+      input.value = input.value.slice(0, 60); // Limitar la longitud a 40 caracteres
       this.servicioForm.get('nombre')?.setValue(input.value); // Actualizar el valor en el formulario
     }
     this.nombreLength = input.value.length;
   }
   countDescripcionLength(event: any): void {
     const input = event.target as HTMLTextAreaElement;
-    if (input.value.length > 200) {
-      input.value = input.value.slice(0, 200); // Limitar la longitud a 200 caracteres
+    if (input.value.length > 2000) {
+      input.value = input.value.slice(0, 2000); // Limitar la longitud a 200 caracteres
       this.servicioForm.get('descripcion')?.setValue(input.value); // Actualizar el valor en el formulario
     }
     this.descripcionLength = input.value.length;
