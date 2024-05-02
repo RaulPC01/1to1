@@ -9,7 +9,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TiketsServiciosComponent implements OnInit {
 
-
   solicitudes: any[] = [];
   solicitudesAcceptadas: any[] = [];
   solicitudesPorAcceptar: any[] = [];

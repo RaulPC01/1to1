@@ -1,9 +1,17 @@
 .container{
-  padding: 1%;
   min-height: 30em;
 }
+/*------------------------------------SUBMNEU---------------------------------------------*/
+.submenu{
+  height: 40px;
+  background-color: #0056b3;
+  margin-top: -7px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
-
+/*--------------------------------CONTINGUT DIV ESQUERRA-----------------------------------------*/
 #izquierda{
   position: fixed;
   display: flex;
@@ -11,26 +19,37 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 10px 10px;
-  left: 50px;
-  margin-left: -120px;
+  padding: 10px 100px;
+  left: 20px;
+  top: 18em;
+  margin-left: -20px;
 }
 
-.tituloSolicitud{
+.titulo{
   font-weight: 700;
   font-size: 40px;
   color: #b40301;
 }
 
+.texto{
+  font-weight: 600;
+  color: rgb(78, 78, 78);
+  font-size: 16px;
+}
+
+
+/*--------------------------------CONTINGUT DIV DRETA-----------------------------------------*/
 #derecha{
   margin-top: 1%;
   text-align: center;
-  right: -600px;
+  right: -700px;
+  flex-direction: column;
+  margin-top: 30px;
 }
 
 .tituloDerecha{
   font-weight: 700;
-  font-size: 30px;
+  font-size: 35px;
   color: #b40301;
 }
 
@@ -38,15 +57,10 @@ h2{
   font-weight: 700;
 }
 
-.texto{
-  font-weight: 600;
-  color: rgb(78, 78, 78);
-}
-
 .infoSolicitud{
   max-width: 550px;
   padding: 1.5em;
-  background-color: rgb(243, 241, 241);
+  background-color: rgb(251, 248, 248);
   border-radius: 20px;
 }
 
@@ -81,10 +95,15 @@ h2{
   overflow-wrap: break-word;
 }
 
+.contenido{
+  height: 450px;
+  width: 100%;
+  overflow-y: scroll;
+  margin-top: 20px;
+}
 
 
-
-
+/*--------------------------------LOADING-SPINNER-----------------------------------------*/
 .loading-spinner {
     position: fixed;
     top: 50%;
