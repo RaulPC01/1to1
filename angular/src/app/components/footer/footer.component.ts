@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core'; // Importa el servicio de traducción
 
 @Component({
   selector: 'app-footer',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent {
+
+ 
+
+  constructor(private translateService: TranslateService) {
+    this.translateService.setDefaultLang('es'); // Establece el idioma por defecto como español
+  }
+
+
+  cambiarIdioma(idioma: string): void {
+    this.translateService.use(idioma); // Cambia el idioma utilizando el servicio de traducción
+  }
 
 }

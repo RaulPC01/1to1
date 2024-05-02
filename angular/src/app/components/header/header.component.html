@@ -1,26 +1,25 @@
-    <div class="navbar">
-        <div class="flex">
-            <a routerLink="/home-comprador" class="logo">
-                <div class="flex">
-                    <div class="img">
-                        <img src="../../../assets/imatges/logo.png" height="50px">
-                    </div>
+<div class="navbar">
+    <div class="flex">
+        <a routerLink="/home-comprador" class="logo">
+            <div class="flex">
+                <div class="img">
+                    <img src="../../../assets/imatges/logo.png" height="50px">
                 </div>
-            </a>
-
-        </div>
-
-        <div class="links" style="margin-left: -8px;">
-            <a routerLink="/crear-servicio" class="link link-center">Ofrecer Servicios</a>
-            <a routerLink="/home-comprador" class="link link-center">Contrar Servicios</a>
-        </div>
-
-        <div class="flex">
-            <div class="links" style="margin-right: 24px;">
-                <a routerLink="contacto" class="link link-right">Contacto</a>
             </div>
-
-            <button routerLink="/login" class="login">Iniciar sesión</button>
-            <button routerLink="/register" class="signup">Regístrate</button>
-        </div>
+        </a>
     </div>
+
+    <div class="links" style="margin-left: -8px;">
+        <a routerLink="/crear-servicio" class="link link-center">{{ 'navbar.offer_services' | translate }}</a>
+        <a routerLink="/home-comprador" class="link link-center">{{ 'navbar.hire_services' | translate }}</a>
+    </div>
+
+    <div class="flex">
+        <div class="links" style="margin-right: 24px;">
+            <a routerLink="contacto" class="link link-right">{{ 'navbar.contact' | translate }}</a>
+        </div>
+
+        <button routerLink="/login" class="login">{{ 'navbar.login' | translate }}</button>
+        <button routerLink="/register" class="signup">{{ 'navbar.signup' | translate }}</button>
+    </div>
+</div>

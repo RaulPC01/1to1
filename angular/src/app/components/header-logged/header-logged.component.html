@@ -6,18 +6,19 @@
             </div>
         </a>
     </div>
-    
+
     <div class="botonesCentrados">
         <div class="links">
-            <a routerLink="/home-comprador" class="link link-center">Contratar Servicios</a>
-            <a routerLink="/crear-servicio" class="link link-center">Ofrecer Servicios</a>
-            <a routerLink="/solicictudes" class="link link-center">Solicitudes</a>
-            <a routerLink="/mis-servicios" class="link link-center">Mis Servicios</a>
+            <a routerLink="/home-comprador" class="link link-center">{{ 'header_logged.hire_services' | translate }}</a>
+            <a routerLink="/crear-servicio" class="link link-center">{{ 'header_logged.offer_services' | translate }}</a>
+            <a routerLink="/solicictudes" class="link link-center">{{ 'header_logged.requests' | translate }}</a>
+            <a routerLink="/mis-servicios" class="link link-center">{{ 'header_logged.my_services' | translate }}</a>
         </div>
     </div>
+
     <div class="flex">
         <div class="links">
-            <a routerLink="contacto" class="link link-right">Contacto</a>
+            <a routerLink="contacto" class="link link-right">{{ 'header_logged.contact' | translate }}</a>
             <div class="bPerfil">
                 <a routerLink="/perfil" class="material-symbols-outlined">person</a>
             </div>
@@ -30,12 +31,12 @@
 </div>
 
 <div id="mobileMenu" class="mobile-menu">
-    <a routerLink="/home-comprador" class="link link-center" (click)="closeMobileMenu()">Contratar Servicios</a>
-    <a routerLink="/crear-servicio" class="link link-center" (click)="closeMobileMenu()">Ofrecer Servicios</a>
-    <a routerLink="/solicitudes" class="link link-center" (click)="closeMobileMenu()">Solicitudes</a>
-    <a routerLink="/mis-servicios" class="link link-center" (click)="closeMobileMenu()">Mis Servicios</a>
-    <a routerLink="contacto" class="link link-center" (click)="closeMobileMenu()">Contacto</a>
-    <a routerLink="/perfil" class="link link-center" (click)="closeMobileMenu()">Perfil</a>
+    <a routerLink="/home-comprador" class="link link-center" (click)="closeMobileMenu()">{{ 'header_logged.hire_services' | translate }}</a>
+    <a routerLink="/crear-servicio" class="link link-center" (click)="closeMobileMenu()">{{ 'header_logged.offer_services' | translate }}</a>
+    <a routerLink="/solicitudes" class="link link-center" (click)="closeMobileMenu()">{{ 'header_logged.requests' | translate }}</a>
+    <a routerLink="/mis-servicios" class="link link-center" (click)="closeMobileMenu()">{{ 'header_logged.my_services' | translate }}</a>
+    <a routerLink="contacto" class="link link-center" (click)="closeMobileMenu()">{{ 'header_logged.contact' | translate }}</a>
+    <a routerLink="/perfil" class="link link-center" (click)="closeMobileMenu()">{{ 'header_logged.profile' | translate }}</a>
     <a class="link link-center" id="toggleMenuMobile" (click)="closeMobileMenu()"><span class="material-symbols-outlined">close</span></a>
-    <a (click)="logout()" class="link link-center"><span class="material-symbols-outlined">logout</span></a>
+    <a (click)="logout()" class="link link-center"><span class="material-symbols-outlined">{{ 'header_logged.logout' | translate }}</span></a>
 </div>
