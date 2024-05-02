@@ -40,12 +40,60 @@
   100% { transform: rotate(360deg); }
 }
 
- 
+.buscar-container {
+  display: flex;
+  position: fixed;
+  top: 68px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px; /* Ajusta según sea necesario */
+  background-color: #ffffff;
+  z-index: 19999;
+  height: 60px;
+  width: 100%;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Aplica sombra */
+  
+}
+
+.buscar-input {
+  padding: 4px 10px;
+  border: 2px solid #e0e0e0;
+  border-radius: 25px; /* Bordas redondeados */
+  font-size: 16px;
+  width: 300px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  margin-right: 10px; /* Espacio entre el input y el botón */
+}
+
+.buscar-input:focus {
+  outline: none;
+  border-color: #b40301;
+  
+}
+
+.buscar-button {
+  background-color: rgba(180, 4, 1, 0);
+  color: #fff;
+  border: none;
+  border-radius: 25px; /* Bordas redondeados */
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.buscar-button:hover {
+  background-color: #ffffff00; /* Color oscuro al pasar el ratón */
+}
+
+.buscar-button:focus {
+  outline: none;
+}
+
 
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
+  background-color: #b40301;
 }
 
 

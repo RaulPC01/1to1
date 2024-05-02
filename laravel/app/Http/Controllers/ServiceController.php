@@ -138,8 +138,24 @@ public function update(Request $request, $id)
 }
   
 
+public function buscarServicios(Request $request)
+{
+    $terminoBusqueda = $request->input('terminoBusqueda');
 
+    // Buscar servicios que coincidan con el término de búsqueda
+    $servicios = services::with('user', 'poblacion', 'categories')
+                        ->where('tipo_servicio', 'like', '%' . $terminoBusqueda . '%')
+                        ->orWhere('descripcion', 'like', '%' . $terminoBusqueda . '%')
+                        ->orWhereHas('user', function ($query) use ($terminoBusqueda) {
+                            $query->where('name', 'like', '%' . $terminoBusqueda . '%');
+                        })
+                        ->orWhereHas('poblacion', function ($query) use ($terminoBusqueda) {
+                            $query->where('nombre_poblacion', 'like', '%' . $terminoBusqueda . '%');
+                        })
+                        ->get();
 
+    return response()->json($servicios);
+}
 
     
 

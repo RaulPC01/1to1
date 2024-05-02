@@ -9,6 +9,7 @@ import { ServicioService } from 'src/app/servicio.service';
 })
 export class MainCompradorComponent implements OnInit {
   topRatedServices: any[] = [];
+  buscarPalabra: string = '';
   loading: boolean = false;
   numberOfColumns = 4;
   categories = [
@@ -59,12 +60,14 @@ export class MainCompradorComponent implements OnInit {
   nextPage(): void {
     if (this.currentPage < this.getTotalPages()) {
       this.currentPage++;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 
   prevPage(): void {
     if (this.currentPage > 1) {
       this.currentPage--;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 
@@ -119,6 +122,21 @@ export class MainCompradorComponent implements OnInit {
       },
       (error) => {
         console.log('Error al obtener los servicios por categoría: ', error);
+        this.loading = false;
+      }
+    );
+  }
+
+  searchServices(): void {
+    this.loading = true;
+    this.servicioService.buscarServicios(this.buscarPalabra).subscribe(
+      (services: any[]) => {
+        this.topRatedServices = services;
+        this.loading = false;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      },
+      (error) => {
+        console.log('Error al buscar servicios: ', error);
         this.loading = false;
       }
     );

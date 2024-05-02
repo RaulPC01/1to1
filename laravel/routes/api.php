@@ -74,3 +74,5 @@ Route::get('/services/por-categroia/{category_id}', [ServiceController::class, '
 Route::delete('/servicios/{id}', [ServiceController::class, 'destroy']);
 
 Route::put('/servicios/{id}', [ServiceController::class, 'update']);
+
+Route::get('/buscar-servicios', [ServiceController::class, 'buscarServicios']);
