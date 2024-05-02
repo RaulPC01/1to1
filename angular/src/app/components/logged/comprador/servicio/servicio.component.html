@@ -9,7 +9,7 @@
 
     <div class="tarjetaUsuario">
       <div class="fotoPerfil" [ngClass]="{ 'fotoCompleta': mostrarCompleta }">
-        <img src="../assets/imatges/Raul.jpeg" alt="Foto de perfil">
+        <img [src]="servicio.user.image" alt="Foto de perfil">
       </div>
       <div class="infoUsuario">
         <p class="nombre">{{servicio.user.name}}</p>

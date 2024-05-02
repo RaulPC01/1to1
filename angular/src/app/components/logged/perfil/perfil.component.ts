@@ -64,7 +64,7 @@ export class PerfilComponent implements OnInit {
         });
       },
       (error) => {  
-      
+        console.error('Error al obtener el perfil del usuario:', error);
       }
     );
   }

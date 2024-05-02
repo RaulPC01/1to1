@@ -96,6 +96,7 @@ export class MainCompradorComponent implements OnInit {
       (data: any[]) => {
         this.topRatedServices = data;
         this.loading = false;
+        console.log(this.topRatedServices);
       },
       (error) => {
         console.log('Error al obtener los servicios mejor valorados: ', error);

@@ -3,11 +3,11 @@
 
 .tarjetaRegistro {
     width: 475px;
-    min-height: 500px;
+    min-height: 400px;
     border-radius: 10px;
     text-align: center;
     background-color: rgb(255, 255, 255);
-    position: absolute;
+    position:fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -24,7 +24,7 @@
 
 .Inputs{
     width: 300px;
-    height: 40px;
+    height: 35px;
     border-radius: 10px;
     border: 1px solid #555555;
     margin-top: 10px;   

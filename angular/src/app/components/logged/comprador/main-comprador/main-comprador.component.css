@@ -80,13 +80,17 @@ body {
 .img-container {
   position: relative;
   overflow: hidden;
+  width: 100%; /* Establece un ancho fijo para el contenedor de la imagen */
+  height: 225px; /* Establece una altura fija para el contenedor de la imagen */
 }
 
 .img-container img {
-  width: 100%;
-  height: auto;
+  width: 125%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+  height: auto; /* Permite que la altura se ajuste automáticamente para mantener la proporción */
   display: block;
+  object-fit: cover; /* Mantiene la relación de aspecto y recorta la imagen según sea necesario para ajustarse al contenedor */
 }
+
 
 .price {
   position: absolute;
