@@ -1,8 +1,9 @@
+<!-- Spinner de carga -->
 <div class="loading-spinner" *ngIf="loading">
-  <!-- Aquí puedes usar cualquier biblioteca de ruedita de carga o implementar tu propio spinner -->
   <div class="spinner"></div>
 </div>
 
+<!-- Contenido de los servicios -->
 <div *ngIf="!loading">
   <h2>Mis Servicios</h2>
   <hr class="hr" />
@@ -12,13 +13,14 @@
       <p>{{ servicio.descripcion }}</p>
       <p>{{ servicio.tarifa }}€</p>
       
+      <!-- Botones de acción -->
       <div class="buttons">
         <a [routerLink]="['/servicios', servicio.id_servicios]" class="button view-button"><i class="fas fa-info-circle"></i> Ver más</a>
         <button (click)="toggleEditForm(servicio)" class="button edit-button"><i class="fas fa-edit"></i> Editar</button>
         <button (click)="eliminarServicio(servicio.id_servicios)" class="button delete-button"><i class="fas fa-trash-alt"></i> Eliminar</button>
       </div>
       
-      <!-- Formulario de edición del servicio actual -->
+      <!-- Formulario de edición -->
       <div *ngIf="servicioEditando && servicioEditando.id_servicios === servicio.id_servicios" class="edit-form">
         <form (ngSubmit)="actualizarServicio()" class="edit-form-inner">
           <h4>Editar Servicio</h4>
@@ -42,6 +44,7 @@
   </div>
 </div>
 
+<!-- Mensaje si no hay servicios -->
 <div *ngIf="!loading">
   <ng-template #noServicios>
     <p>No se encontraron servicios.</p>
