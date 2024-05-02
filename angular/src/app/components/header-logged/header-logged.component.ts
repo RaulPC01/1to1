@@ -40,14 +40,11 @@ export class HeaderLoggedComponent implements OnInit {
     }
   }
 
-  filtrarServicios(categoria: string): void {
-    this.router.navigate(['/servicio'], { queryParams: { categoria } });
-  }
 
   logout(): void {
     this.TokenService.cerrarSesion();
+    this.router.navigate(['']);
   }
-
   toggleMobileMenu(): void {
     const mobileMenu = document.getElementById('mobileMenu');
     if (mobileMenu !== null) {

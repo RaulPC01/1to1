@@ -1,22 +1,29 @@
-// En user.service.ts
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
 
+
+export class UserService {
+ 
   constructor(private http: HttpClient) { }
 
-  obtenerPerfilUsuario(token: string): Observable<any> {
-    const headers = { 'Authorization': `Bearer ${token}` };
-    return this.http.get<any>('http://localhost:8000/api/user/profile', { headers });
+  registerUser(formData: FormData): Observable<any> {
+    return this.http.post<any>('http://localhost:8000/api/register', formData);
   }
 
-  getUserByServiceId(servicioId: string): Observable<any> {
-    return this.http.get<any>(`http://localhost:8000/api/user/service/${servicioId}`);
+  obtenerPerfilUsuario(token: string) {
+    const headers = { 'Authorization': `Bearer ${token}` };
+    return this.http.get<any>('http://localhost:8000/api/perfil', { headers });
   }
+  
+  getUserByServiceId(servicioId: string): Observable<any> {
+    const url = `http://localhost:8000/api/services/${servicioId}/user`;
+    return this.http.get<any>(url);
+  }
+
+
 }

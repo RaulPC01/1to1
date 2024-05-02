@@ -86,7 +86,7 @@ export class ContratarServicioComponent implements OnInit {
 
   obtenerPerfilUsuario(token: string, servicioId: string): void {
     this.userService.obtenerPerfilUsuario(token).subscribe(
-      (data: any) => {
+      (data) => {
         console.log('Datos del usuario loggeado:', data);
         this.user = data;
   
@@ -109,7 +109,7 @@ export class ContratarServicioComponent implements OnInit {
           console.error('El servicioId no está definido');
         }
       },
-      (error: any) => {
+      (error) => {
         console.error('Error al obtener el perfil del usuario:', error);
       }
     );
@@ -118,7 +118,7 @@ export class ContratarServicioComponent implements OnInit {
   getUserByServiceId(servicioId: string): void {
     // Construir la URL de la solicitud
     this.userService.getUserByServiceId(servicioId).subscribe(
-      (data: { dni: { toString: () => any; }; }) => {
+      (data) => {
         // Manejar la respuesta exitosa
         console.log('Datos del usuario del servicio:', data);
   

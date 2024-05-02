@@ -14,24 +14,13 @@ class AuthController extends Controller
         $request->validate([
             'dni' => 'required|string|unique:users',
             'name' => 'required|string',
-            'dateOfBirth' => 'required|string',
+            'dateOfBirth' => 'required|date', // Cambiado a tipo de dato date
             'email' => 'required|email|unique:users',
             'phone' => 'required|string',
             'password' => 'required|string',
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Añade validaciones para la imagen
+            'image' => 'nullable|string', // La imagen ahora es opcional y se espera que sea una cadena Base64
         ]);
     
-        // Guardar la imagen en un directorio
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = time() . '_' . $image->getClientOriginalName();
-            $image->move(public_path('uploads'), $imageName);
-            $imagePath = '/uploads/' . $imageName;
-        } else {
-            $imagePath = null;
-        }
-    
-        // Crear un nuevo objeto User con los datos del formulario
         $user = new User();
         $user->dni = $request->dni;
         $user->name = $request->name;
@@ -39,16 +28,11 @@ class AuthController extends Controller
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->password = Hash::make($request->password);
-        $user->image = $imagePath;
-        $user->created_at = now();
-    
-        // Guardar el nuevo usuario en la base de datos
+        $user->image = $request->image; // Almacenar la imagen codificada en Base64
         $user->save();
     
-        // Redirigir al formulario de inicio de sesión después del registro
-        return redirect()->route('login');
+        return response()->json(['message' => 'Usuario registrado exitosamente'], 201);
     }
-
     public function login(Request $request)
     {
         // Obtener los datos del formulario

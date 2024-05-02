@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/user.service';
+import { TicketsService } from 'src/app/tikets.service';
 
 @Component({
   selector: 'app-contacto',
   templateUrl: './contacto.component.html',
   styleUrls: ['./contacto.component.css']
 })
-export class ContactoComponent {
+export class ContactoComponent implements OnInit {
 
   tiketform!: FormGroup;
   motivos: any[] = [];
@@ -18,7 +20,9 @@ export class ContactoComponent {
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private userService: UserService,
+    private ticketsService: TicketsService
   ) {}
 
   ngOnInit(): void {
@@ -40,7 +44,7 @@ export class ContactoComponent {
   }
 
   obtenerMotivos(): void {
-    this.http.get<any[]>('http://localhost:8000/api/motivos').subscribe(
+    this.ticketsService.getMotivos().subscribe(
       (motivos) => {
         console.log('motivos:', motivos);
         this.motivos = motivos;
@@ -52,11 +56,7 @@ export class ContactoComponent {
   }
 
   obtenerPerfilUsuario(token: string): void {
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    });
-  
-    this.http.get<any>('http://localhost:8000/api/perfil', { headers }).subscribe(
+    this.userService.obtenerPerfilUsuario(token).subscribe(
       (data) => {
         console.log('Datos del perfil:', data);
         this.user = data;
@@ -73,15 +73,10 @@ export class ContactoComponent {
       }
     );
   }
-  submitForm() {
-    if (this.tiketform.valid) {
-      if (!this.tiketform.value.idUser) {
-        console.error('El campo idUser es requerido');
-        return;
-      }
 
-  
-      this.http.post<any>('http://localhost:8000/api/create-tiket', this.tiketform.value)
+  submitForm() {
+    
+      this.ticketsService.crearTicket(this.tiketform.value)
         .subscribe(
           (data) => {
             console.log('Respuesta del servidor:', data);
@@ -89,16 +84,16 @@ export class ContactoComponent {
             setTimeout(() => {
               this.showConfirmation = false; // Ocultar el mensaje de confirmación después de 4 segundos
             }, 4000); // Tiempo en milisegundos (en este caso, 4 segundos)
-            this.tiketform.reset(); // Restablecer los valores del formulario
+            
+            window.location.reload();
           },
           (error: HttpErrorResponse) => {
             console.error('Error al enviar el formulario:', error);
-            this.router.navigate(['/contacto']); 
+            console.log('Datos enviados:', this.tiketform.value); 
+            window.location.reload();
           }
         );
-    } else {
-      console.error('El formulario no es válido');
-    }
+  
   }
 
 }

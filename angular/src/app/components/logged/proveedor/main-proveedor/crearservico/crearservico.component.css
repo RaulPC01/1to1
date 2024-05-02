@@ -22,15 +22,14 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
-   /* Ajuste para bajar los paneles */
-  margin-bottom: 20px; /* Elimina el ajuste de margen inferior */
+  margin-bottom: 20px;
   overflow-y: hidden;
 
 }
 
 .encabezado {
   text-align: center;
-  margin-bottom: 20px; /* Ajuste de margen inferior */
+  margin-bottom: 20px;
 }
 
 .titulo {

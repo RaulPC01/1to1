@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\services;
 use App\Models\User;
@@ -99,7 +98,21 @@ class ServiceController extends Controller
         return response()->json($services);
     }
 
-// Funcion para eliminar un servicio
+    public function selectServicesByCategory($categoryId)
+    {
+        // Valida que se haya enviado el ID de la categoría en la solicitud
+     
+        $services = services::with('user', 'poblacion', 'categories')
+        ->whereHas('categories', function ($query) use ($categoryId) {
+            $query->where('id_categoria', $categoryId);
+        })
+        ->orderByDesc('puntuacion_valoracion')
+        ->get();
+
+        return response()->json($services);
+
+    }
+
     public function destroy($id)
     {
         $services = services::find($id);
@@ -109,11 +122,29 @@ class ServiceController extends Controller
         }
         return response()->json(['error' => 'Servicio no encontrado'], 404);
     }
+
+public function buscarServicios(Request $request)
+{
+    $terminoBusqueda = $request->input('terminoBusqueda');
+
+    // Buscar servicios que coincidan con el término de búsqueda
+    $servicios = services::with('user', 'poblacion', 'categories')
+                        ->where('tipo_servicio', 'like', '%' . $terminoBusqueda . '%')
+                        ->orWhere('descripcion', 'like', '%' . $terminoBusqueda . '%')
+                        ->orWhereHas('user', function ($query) use ($terminoBusqueda) {
+                            $query->where('name', 'like', '%' . $terminoBusqueda . '%');
+                        })
+                        ->orWhereHas('poblacion', function ($query) use ($terminoBusqueda) {
+                            $query->where('nombre_poblacion', 'like', '%' . $terminoBusqueda . '%');
+                        })
+                        ->get();
+
+    return response()->json($servicios);
+}
     
 // Funcion para editar un servicio
 
-public function update(Request $request, $id)
-{
+public function update(Request $request, $id){
     $services = services::find($id);
     if (!$services) {
         return response()->json(['message' => 'Servicio no encontrado'], 404);
@@ -122,9 +153,5 @@ public function update(Request $request, $id)
     $services->update($request->all());
     return response()->json(['message' => 'Servicio actualizado con éxito', 'servicio' => $services], 200);
 }
-  
-
-   
     
- 
 }

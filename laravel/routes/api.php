@@ -69,8 +69,10 @@ Route::delete('/solicitudes/{id}/rechazar',  [solicitudesController::class, 'rec
 
 Route::get('/serviciosUser/{id_usuario_proveedor}', [ServiceController::class, 'serviciosSegunUsuario']);
 
-// Ruta para eliminar un servicio
+Route::get('/services/por-categroia/{category_id}', [ServiceController::class, 'selectServicesByCategory']);
+
 Route::delete('/servicios/{id}', [ServiceController::class, 'destroy']);
 
-// Ruta para editar un servicio
 Route::put('/servicios/{id}', [ServiceController::class, 'update']);
+
+Route::get('/buscar-servicios', [ServiceController::class, 'buscarServicios']);

@@ -1,3 +1,89 @@
+.container{
+  padding: 1%;
+  min-height: 30em;
+}
+
+
+#izquierda{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px 10px;
+  left: 50px;
+  margin-left: -120px;
+}
+
+.tituloSolicitud{
+  font-weight: 700;
+  font-size: 40px;
+  color: #b40301;
+}
+
+#derecha{
+  margin-top: 1%;
+  text-align: center;
+  right: -600px;
+}
+
+.tituloDerecha{
+  font-weight: 700;
+  font-size: 30px;
+  color: #b40301;
+}
+
+h2{
+  font-weight: 700;
+}
+
+.texto{
+  font-weight: 600;
+  color: rgb(78, 78, 78);
+}
+
+.infoSolicitud{
+  max-width: 550px;
+  padding: 1.5em;
+  background-color: rgb(243, 241, 241);
+  border-radius: 20px;
+}
+
+.solicitud-encabezado {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: rgb(76, 76, 76);
+}
+
+.nombreServicio{
+  font-weight: 700;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+.botones{
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
+.botonAceptar{ background-color: green; }
+.botonAceptar:hover{ background-color: rgb(62, 147, 62);}
+
+.botonRechazar{ background-color: #b40301;}
+.botonRechazar:hover{ background-color: #ab4846;}
+
+.infoSolicitud p.descripcion {
+  max-width: 500px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+
+
+
 
 .loading-spinner {
     position: fixed;

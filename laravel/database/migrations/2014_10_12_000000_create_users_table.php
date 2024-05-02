@@ -22,19 +22,15 @@ return new class extends Migration
             $table->string('phone')->unique();
             $table->string('password');
             $table->string('valoracion')->nullable();
-            $table->string('image')->nullable();
+            $table->longText('image')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('users');
-    
     }
    
 

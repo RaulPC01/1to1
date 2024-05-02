@@ -46,7 +46,7 @@
 
                 <div class="contenedor-botones">
                     <button type="button" (click)="anteriorDescripcion()">Anterior</button>
-                    <button type="submit" >Enviar Solicitud</button>
+                    <button type="submit" [disabled]="!servicioForm.valid">Enviar Solicitud</button>
                 </div>
             </div>
         </form>

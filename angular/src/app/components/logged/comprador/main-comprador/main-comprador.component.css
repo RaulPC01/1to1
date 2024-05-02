@@ -28,7 +28,7 @@
 
 .spinner {
   border: 4px solid #f3f3f3;
-  border-top: 4px solid #dc2020;
+  border-top: 4px solid #b40301;
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -40,41 +40,70 @@
   100% { transform: rotate(360deg); }
 }
 
- 
-.superprof-container {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  background-image: url('https://example.com/path/to/your/background-image.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 50px;
+.buscar-container {
+  display: flex;
+  position: fixed;
+  top: 68px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px; /* Ajusta según sea necesario */
+  background-color: #ffffff;
+  z-index: 19999;
+  height: 60px;
+  width: 100%;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Aplica sombra */
+  
 }
 
-.superprof-container p {
-  margin-bottom: 10px;
+.buscar-input {
+  padding: 4px 10px;
+  border: 2px solid #e0e0e0;
+  border-radius: 25px; /* Bordas redondeados */
+  font-size: 16px;
+  width: 300px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  margin-right: 10px; /* Espacio entre el input y el botón */
 }
 
-.superprof-container p:nth-child(5) {
-  font-weight: bold;
-  color: #00698f;
+.buscar-input:focus {
+  outline: none;
+  border-color: #b40301;
+  
 }
 
-.superprof-container p:nth-child(9) {
-  font-weight: bold;
-  color: #00698f;
+.buscar-button {
+  background-color: rgba(180, 4, 1, 0);
+  color: #fff;
+  border: none;
+  border-radius: 25px; /* Bordas redondeados */
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
+
+.buscar-button:hover {
+  background-color: #ffffff00; /* Color oscuro al pasar el ratón */
+}
+
+.buscar-button:focus {
+  outline: none;
+}
+
 
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
+  background-color: #b40301;
 }
 
-.contenido {
-  padding: 50px;
-  display: flex;
-  justify-content: center;
-}
+
+  .contenido {
+    padding: 50px;
+    display: flex;
+    flex-direction: column; /* Cambia a disposición de columna */
+    align-items: center; /* Centra horizontalmente */
+  }
+
 
 .grid-container {
   display: grid;
@@ -87,7 +116,7 @@ body {
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
-  min-width: 300px; /* Tamaño mínimo para las tarjetas */
+  min-width:250px; /* Tamaño mínimo para las tarjetas */
   z-index: 999; /* Asegúrate de que el z-index de las tarjetas sea inferior al del encabezado */
 }
 
@@ -99,19 +128,23 @@ body {
 .img-container {
   position: relative;
   overflow: hidden;
+  width: 100%; /* Establece un ancho fijo para el contenedor de la imagen */
+  height: 225px; /* Establece una altura fija para el contenedor de la imagen */
 }
 
 .img-container img {
-  width: 100%;
-  height: auto;
+  width: 125%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+  height: auto; /* Permite que la altura se ajuste automáticamente para mantener la proporción */
   display: block;
+  object-fit: cover; /* Mantiene la relación de aspecto y recorta la imagen según sea necesario para ajustarse al contenedor */
 }
+
 
 .price {
   position: absolute;
   top: 10px;
   right: 10px;
-  background-color: #ff4b2b;
+  background-color: #b40301;
   color: #fff;
   padding: 5px 10px;
   border-radius: 5px;
@@ -123,7 +156,13 @@ body {
 }
 
 .titulo {
-  font-size: 20px;
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.titulo1 {
+  font-size: 37px;
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -147,14 +186,35 @@ a {
   text-align: center;
   text-decoration: none;
   color: #fff;
-  background-color: #ff4b2b;
+  background-color: #b40301;
   padding: 10px 0;
   border-radius: 0 0 12px 12px;
   transition: background-color 0.3s ease;
 }
 
 a:hover {
-  background-color: #ff416c;
+  background-color: #b40301;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: space-between; /* Espacio igual entre elementos */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  margin-top: 20px; /* Espacio superior */
+}
+
+.pagination-button {
+  background-color: #b40301;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-button:hover {
+  background-color: #b40301;
 }
 
 /* Estilos para dispositivos móviles */
@@ -162,4 +222,187 @@ a:hover {
   .grid-container {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Cambiar tamaño mínimo de las tarjetas en dispositivos móviles */
   }
+}
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+/* Estilos de las columnas */
+.column {
+  width: calc(25% - 20px); /* Ajustar según el número de columnas */
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos de las categorías */
+.category {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 768px) {
+  .container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .column {
+      width: 100%;
+      margin-bottom: 20px;
+  }
+}
+.contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.grande {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s; /* Transición suave para el efecto de zoom */
+}
+
+.grande:hover {
+  transform: scale(1.05); /* Aplica un zoom del 10% al pasar el ratón sobre la imagen */
+}
+
+.imagen-fondo {
+  width: 100%;
+  height: auto;
+  border-radius: 40px;
+}
+
+.texto {
+  position: absolute;
+  text-align: justify;
+  height: fit-content;
+  width: 370px;
+  bottom: 30px;
+  right: 30px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 40px;
+  font-size: 20px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.boton {
+  width: 330px;
+  background-color: #b40301;
+  color: #fff;
+  border: none;
+  padding: 15px 15px;
+  margin-top: 10px;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.boton:hover {
+  background-color: #b40301;
+}
+
+
+
+
+.options-container {
+  position: relative; /* Añade posición relativa al contenedor */
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 10vh;
+  height: max-content;
+}
+
+.options-wrapper {
+  display: flex; /* Utiliza flexbox para alinear las tarjetas horizontalmente */
+  overflow-x: auto; /* Permite el desplazamiento horizontal */
+  gap: 20px; /* Espacio entre las tarjetas */
+}
+
+.option {
+  width: 400px; /* Ajusta el ancho según sea necesario */
+  height: auto; /* Cambia la altura a automático para que se ajuste al contenido */
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  overflow: hidden; /* Para asegurar que la imagen redonda no se desborde */
+}
+
+.option:hover {
+  transform: translateX(20px); /* Traslada la opción hacia la derecha al pasar el ratón */
+}
+
+.options-container {
+  display: flex;
+  justify-content: center;
+  
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 5vh;
+}
+
+.option {
+  width: 350px;
+  height:380px;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  margin: 20px;
+  overflow: hidden; /* Para asegurar que la imagen redonda no se desborde */
+}
+
+.option:hover {
+  transform: translateX(-20px); /* Traslada la opción hacia la izquierda al pasar el ratón */
+}
+
+.option-content {
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; /* Hace la imagen redonda */
+  margin-right: 20px;
+}
+
+.text-container {
+  text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.text-container h3 {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.text-container p {
+  color: #666;
+  margin: 0;
 }

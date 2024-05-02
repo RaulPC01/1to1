@@ -10,10 +10,12 @@ export class MisServiviosComponent implements OnInit {
   servicios: any[] = [];
   editando = false;
   servicioEditando: any = {};
+  loading: boolean = false;
 
   constructor(private http: HttpClient) { }
   
   ngOnInit(): void {
+    this.loading = true; 
     this.cargarServicios();
   }
 
@@ -47,6 +49,7 @@ export class MisServiviosComponent implements OnInit {
       (data) => {
         console.log('Servicios del proveedor:', data);
         this.servicios = data;
+        this.loading = false; // Establecer loading en false cuando se complete la carga
       },
       (error) => {
         console.error('Error al obtener los servicios del proveedor:', error);
@@ -78,6 +81,7 @@ export class MisServiviosComponent implements OnInit {
       this.editando = true;
     }
   }
+
   actualizarServicio(): void {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${localStorage.getItem('Idtoken')}`
@@ -93,8 +97,9 @@ export class MisServiviosComponent implements OnInit {
           console.error('Error al actualizar el servicio:', error);
         }
       );
-      this.toggleEditForm(this.servicioEditando);
+    this.toggleEditForm(this.servicioEditando);
   }
+
   toggleEditForm(servicio: any): void {
     // Si el servicio actualmente editado es el mismo que el servicio clicado,
     // lo cerramos (servicioEditando = null). De lo contrario, lo abrimos.

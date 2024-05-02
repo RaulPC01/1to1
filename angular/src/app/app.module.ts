@@ -25,6 +25,8 @@ import { CrearservicoComponent } from './components/logged/proveedor/main-provee
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TiketsServiciosComponent } from './tikets-servicios/tikets-servicios.component';
 import { MisServiviosComponent } from './mis-servivios/mis-servivios.component';
+import { MatIconModule } from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -56,7 +58,8 @@ import { MisServiviosComponent } from './mis-servivios/mis-servivios.component';
     HttpClientModule,
     CommonModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
