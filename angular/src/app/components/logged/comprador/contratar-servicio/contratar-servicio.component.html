@@ -1,7 +1,5 @@
 <svg class="wave-bg" viewBox="0 0 1440 320">
-    <path fill="#b40301" fill-opacity="1"
-        d="M0,160L48,144C96,128,192,96,288,96C384,96,480,128,576,165.3C672,203,768,245,864,240C960,235,1056,181,1152,160C1248,139,1344,149,1392,154.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
-    </path>
+    <path fill="#b40301" fill-opacity="1" d="M0,160L48,144C96,128,192,96,288,96C384,96,480,128,576,165.3C672,203,768,245,864,240C960,235,1056,181,1152,160C1248,139,1344,149,1392,154.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
 </svg>
 <div class="encabezado">
     <h2 class="titulo">¡Estás a punto de crear tu propio servicio!</h2>
@@ -16,29 +14,25 @@
     <div class="izquierda">
         <h3 class="tituloIzquierda"><span class="material-symbols-outlined">family_star</span> A Saber</h3>
         <div [ngClass]="{ 'hidden': !mostrarDescripcion }">
-            <p>Recurda explicar con todo detalle possobile el problema al que te enfrentas para que el proveedor del
-                servicio pueda entender claramente lo que estás experimentand, así serà màs fàcil para los dos.</p>
+            <p>Recurda explicar con todo detalle possobile el problema al que te enfrentas  para que el proveedor del servicio pueda entender claramente lo que estás experimentand, así serà màs fàcil para los dos.</p>
         </div>
 
         <div [ngClass]="{ 'hidden': !mostrarDate }">
-            <p>Elige la fecha a la que gustaría que se realizara ese servicio. Esto solo sera una </p><br>
+            <p>Elige la fecha a la que gustaría que se realizara ese servicio. Esto solo sera una  </p><br>
         </div>
 
     </div>
 
     <div class="derecha">
-        <form [formGroup]="servicioForm">
+        <form [formGroup]="servicioForm" (ngSubmit)="submitForm()" >
             <!----------------------------DESCRIPCION DEL SERVICIO------------------------------------->
             <div [ngClass]="{ 'hidden': !mostrarDescripcion }" class="mb-4">
                 <div class="mb-3">
                     <h3 class="tituloDescripcion">Describe <span style="color: #b40301"> tu Problema</span></h3>
-                    <textarea type="text" formControlName="descripcion" class="textareaDescripcion"
-                        placeholder="Ej: Limpieza profunda del ordenador y cambio de pasta térmica a domicilio" required
-                        (input)="countDescripcionLength($event)"></textarea>
+                    <textarea type="text" formControlName="descripcion" class="textareaDescripcion" placeholder="Ej: Limpieza profunda del ordenador y cambio de pasta térmica a domicilio" required (input)="countDescripcionLength($event)"></textarea>
                     <div class="contador-letras">{{ descripcionLength }}/200</div> <!-- Contador de letras -->
                     <div class="contenedor-botones">
-                        <button type="button" class="bSiguiente" (click)="verDate()"
-                            [disabled]="!servicioForm.get('descripcion')?.valid">Siguiente</button>
+                        <button type="button" class="bSiguiente" (click)="verDate()" [disabled]="!servicioForm.get('descripcion')?.valid">Siguiente</button>
                     </div>
                 </div>
             </div>
@@ -46,42 +40,15 @@
             <!-------------------------------------TARIFA-------------------------------------------->
             <div [ngClass]="{ 'hidden': !mostrarDate }" class="mb-4">
                 <div class="mb-3">
-                    <h3 class="tituloDescripcion"><span style="color: #b40301">Fecha</span> de realizacion del Servicio</h3>
-                    <input type="date" formControlName="date_servicio" required (change)="checkDate()">
-                    <!-- Mensaje de error cuando la fecha es inválida -->
-                    <div *ngIf="dateInvalid" class="error-message" style="color: red;">
-                        Por favor, selecciona una fecha válida (no puede ser anterior a la fecha actual).
-                    </div>
+                    <h3 class="tituloDescripcion"><span style="color: #b40301">Fecha </span> de realizacion del Servicio</h3>
+                    <input type="date" formControlName="date_servicio" required>
                 </div>
 
                 <div class="contenedor-botones">
                     <button type="button" (click)="anteriorDescripcion()">Anterior</button>
-                    <!-- Botón deshabilitado si el formulario es inválido o la fecha es incorrecta -->
-                    <button (click)="mostrarDialogo = true" [disabled]="!servicioForm.valid || dateInvalid">Pagar</button>
+                    <button type="submit" >Enviar Solicitud</button>
                 </div>
             </div>
         </form>
-    </div>
-</div>
-
-<div>
-    <div class="modal" [ngClass]="{ 'show': mostrarDialogo }">
-        <div class="modal-content">
-            <div class="fotoVisa">
-                <div class="cerrar"></div>
-                <span class="close" (click)="cerrarDialogo()">&times;</span>
-                <img src="../../../../../assets/imatges/LogoVisa.png" alt="">
-            </div>
-            <h2>Detalles de Pago</h2>
-            <form (submit)="procesarPago()" (ngSubmit)="submitForm()">
-                <label for="cardNumber">Número de Tarjeta:</label>
-                <input type="text" id="cardNumber" name="cardNumber" required>
-                <label for="expiryDate">Fecha de Expiración:</label>
-                <input type="date" id="expiryDate" name="expiryDate" required>
-                <label for="cvv">CVV:</label>
-                <input type="text" id="cvv" name="cvv" required>
-                <button type="submit">Realizar Pago</button>
-            </form>
-        </div>
-    </div>
+    </div> 
 </div>
