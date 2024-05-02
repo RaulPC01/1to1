@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\services;
 use App\Models\User;
@@ -123,20 +122,6 @@ class ServiceController extends Controller
         }
         return response()->json(['error' => 'Servicio no encontrado'], 404);
     }
-    
-// Funcion para editar un servicio
-
-public function update(Request $request, $id)
-{
-    $services = services::find($id);
-    if (!$services) {
-        return response()->json(['message' => 'Servicio no encontrado'], 404);
-    }
-
-    $services->update($request->all());
-    return response()->json(['message' => 'Servicio actualizado con éxito', 'servicio' => $services], 200);
-}
-  
 
 public function buscarServicios(Request $request)
 {
@@ -156,22 +141,10 @@ public function buscarServicios(Request $request)
 
     return response()->json($servicios);
 }
-
-// Funcion para eliminar un servicio
-    public function destroy($id)
-    {
-        $services = services::find($id);
-        if ($services) {
-            $services->delete();
-            return response()->json(['message' => 'Servicio eliminado con éxito'], 200);
-        }
-        return response()->json(['error' => 'Servicio no encontrado'], 404);
-    }
     
 // Funcion para editar un servicio
 
-public function update(Request $request, $id)
-{
+public function update(Request $request, $id){
     $services = services::find($id);
     if (!$services) {
         return response()->json(['message' => 'Servicio no encontrado'], 404);
@@ -180,9 +153,5 @@ public function update(Request $request, $id)
     $services->update($request->all());
     return response()->json(['message' => 'Servicio actualizado con éxito', 'servicio' => $services], 200);
 }
-  
-
-   
     
- 
 }
