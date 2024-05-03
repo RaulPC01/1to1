@@ -4,27 +4,41 @@
 /*------------------------------------SUBMNEU---------------------------------------------*/
 .submenu{
   height: 40px;
-  margin-top: -7px;
+  margin-top: -2px;
   align-items: center;
   justify-content: center;
   text-align: center;
   display: flex;
-  color: gray;
 }
 
-.submenu a{
-  padding: 5px 10px;
+.submenu button{
+  padding: 5px 30px;
   font-weight: 500;
   cursor: pointer;
+  background: none;
+  color: gray;
+  text-decoration: none;
+  border: none;
 }
 
-.submenu a:hover{
+.submenu button:hover{
   color: #b40301;
+  border: none;
 }
 
-.active-tab {
-  color: red;
+.submenu button:focus {
+  outline: none;
 }
+
+
+.submenu .active {
+  color: #b40301;
+  border: none;
+  outline: none;
+  
+}
+
+
 /*--------------------------------CONTINGUT DIV ESQUERRA-----------------------------------------*/
 #izquierda{
   position: fixed;
@@ -97,6 +111,15 @@ h2{
   margin-bottom: 0;
 }
 
+.botones button{
+  padding: 8px 16px;
+    margin-right: 10px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 .botonAceptar{ background-color: green; }
 .botonAceptar:hover{ background-color: rgb(62, 147, 62);}
 
@@ -118,6 +141,7 @@ h2{
 
 
 /*--------------------------------LOADING-SPINNER-----------------------------------------*/
+
 .loading-spinner {
     position: fixed;
     top: 50%;
@@ -154,20 +178,6 @@ h2{
   
   p {
     margin: 5px 0;
-  }
-  
-  button {
-    padding: 8px 16px;
-    margin-right: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
   }
   
   hr {

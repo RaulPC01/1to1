@@ -26,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TiketsServiciosComponent } from './tikets-servicios/tikets-servicios.component';
 import { MisServiviosComponent } from './mis-servivios/mis-servivios.component';
 import { MatIconModule } from '@angular/material/icon';
+import { ProbaComponent } from './proba/proba.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { MatIconModule } from '@angular/material/icon';
     ContratarServicioComponent,
     TiketsServiciosComponent,
     MisServiviosComponent,
+    ProbaComponent,
 
           
   ],

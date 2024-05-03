@@ -1,7 +1,7 @@
 <div class="submenu">
-  <a (click)="changeTab('solicitudesPorAceptar')" [ngClass]="{'active-tab': activeTab === 'solicitudesPorAceptar'}"> Solicitudes por aceptar </a>
-  <a (click)="changeTab('solicitudesAceptadas')" [ngClass]="{'active-tab': activeTab === 'solicitudesAceptadas'}"> Solicitudes Aceptadas </a>
-  <a (click)="changeTab('todaslasSolicitudes')" [ngClass]="{'active-tab': activeTab === 'todaslasSolicitudes'}"> Todas las Solicitudes </a>
+  <button [class.active]="activeTab === 'solicitudesPorAceptar'" (click)="changeTab('solicitudesPorAceptar')"> Solicitudes por aceptar </button>
+  <button [class.active]="activeTab === 'solicitudesAceptadas'" (click)="changeTab('solicitudesAceptadas')"> Solicitudes Aceptadas </button>
+  <button [class.active]="activeTab === 'todaslasSolicitudes'" (click)="changeTab('todaslasSolicitudes')"> Todas las Solicitudes </button>
 </div>
 
 <div class="container"> 
@@ -63,7 +63,7 @@
   <div class="tercero" *ngIf="activeTab === 'todaslasSolicitudes'">
     <div class="row" style="display: flex; align-items: center;">
       <div class="col-md-7" id="izquierda">
-        <h2 class="titulo">Solicitudes Aceptadas</h2>
+        <h2 class="titulo">Todas las solicitudes</h2>
         <p class="texto">En esta sección encontrarás el historial completo de todas las solicitudes realizadas a través de nuestra plataforma. Podrás ver cada solicitud junto con su estado actual, ya sea pendiente, en proceso o finalizada. Esta página te permite llevar un seguimiento de tus solicitudes y acceder a información detallada sobre cada una de ellas. Utiliza esta herramienta para mantenerte al día con tus trámites y servicios.</p>
       </div>
   
