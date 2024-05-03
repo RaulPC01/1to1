@@ -4,13 +4,27 @@
 /*------------------------------------SUBMNEU---------------------------------------------*/
 .submenu{
   height: 40px;
-  background-color: #0056b3;
   margin-top: -7px;
   align-items: center;
   justify-content: center;
   text-align: center;
+  display: flex;
+  color: gray;
 }
 
+.submenu a{
+  padding: 5px 10px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.submenu a:hover{
+  color: #b40301;
+}
+
+.active-tab {
+  color: red;
+}
 /*--------------------------------CONTINGUT DIV ESQUERRA-----------------------------------------*/
 #izquierda{
   position: fixed;
@@ -44,7 +58,7 @@
   text-align: center;
   right: -700px;
   flex-direction: column;
-  margin-top: 30px;
+  margin-top: 5px;
 }
 
 .tituloDerecha{
