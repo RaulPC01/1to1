@@ -13,6 +13,7 @@ import { ServicioService } from 'src/app/servicio.service';
 export class ContratarServicioComponent implements OnInit {
   mostrarDescripcion: boolean = true;
   mostrarDate: boolean = false;
+  mostrarMetodoPago = false;
   servicioForm!: FormGroup;
   user: any;
   userProv: any;
@@ -29,7 +30,9 @@ export class ContratarServicioComponent implements OnInit {
     private route: ActivatedRoute,
     private userService: UserService,
     private servicioService: ServicioService
-  ) {}
+  ) {
+    
+  }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -180,6 +183,17 @@ export class ContratarServicioComponent implements OnInit {
     this.mostrarDate = false;
     this.mostrarDescripcion = true;
   }
+  verMetodoPago() {
+    this.mostrarDescripcion = false;
+    this.mostrarDate = false;
+    this.mostrarMetodoPago = true;
+}
+
+anteriorDate() {
+    this.mostrarDescripcion = true;
+    this.mostrarDate = false;
+    this.mostrarMetodoPago = false;
+}
 
   countDescripcionLength(event: any): void {
     const input = event.target as HTMLTextAreaElement;

@@ -32,12 +32,13 @@
                     <textarea type="text" formControlName="descripcion" class="textareaDescripcion" placeholder="Ej: Limpieza profunda del ordenador y cambio de pasta térmica a domicilio" required (input)="countDescripcionLength($event)"></textarea>
                     <div class="contador-letras">{{ descripcionLength }}/200</div> <!-- Contador de letras -->
                     <div class="contenedor-botones">
-                        <button type="button" class="bSiguiente" (click)="verDate()" [disabled]="!servicioForm.get('descripcion')?.valid">Siguiente</button>
+                       <button type="button" (click)="anteriorDescripcion()">Anterior</button>
+                       <button type="button" class="bSiguiente" (click)="verDate()" [disabled]="!servicioForm.get('descripcion')?.valid">Siguiente</button>
                     </div>
                 </div>
             </div>
 
-            <!-------------------------------------TARIFA-------------------------------------------->
+            <!-------------------------------------Fecha de realización-------------------------------------------->
             <div [ngClass]="{ 'hidden': !mostrarDate }" class="mb-4">
                 <div class="mb-3">
                     <h3 class="tituloDescripcion"><span style="color: #b40301">Fecha </span> de realizacion del Servicio</h3>
@@ -46,6 +47,52 @@
 
                 <div class="contenedor-botones">
                     <button type="button" (click)="anteriorDescripcion()">Anterior</button>
+                <button type="button" (click)="verMetodoPago()" [disabled]="!servicioForm.get('date_servicio')?.valid">Siguiente</button>
+                </div>
+            </div>
+            
+            <div [ngClass]="{ 'hidden': !mostrarMetodoPago }" class="mb-4">
+                <h3>Realizar el pago</h3>
+                <form action="#" class="credit-card-div">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" placeholder="Introduce el número de tarjeta" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <span class="help-block text-muted small-font"> Mes de expiración</span>
+                                    <input type="text" class="form-control" placeholder="MM" />
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <span class="help-block text-muted small-font"> Año de expiración</span>
+                                    <input type="text" class="form-control" placeholder="AA" />
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <span class="help-block text-muted small-font"> CCV</span>
+                                    <input type="text" class="form-control" placeholder="CCV" />
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <img src="assets/img/1.png" class="img-rounded" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 pad-adjust">
+                                    <input type="text" class="form-control" placeholder="Nombre en la tarjeta" />
+                                </div>
+                            </div>
+                            <div class="row">
+                               
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                
+    
+                <div class="contenedor-botones">
+                    <button type="button" (click)="anteriorDate()">Anterior</button>
                     <button type="submit" [disabled]="!servicioForm.valid">Enviar Solicitud</button>
                 </div>
             </div>
