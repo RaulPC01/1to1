@@ -1,3 +1,146 @@
+.container{
+  min-height: 30em;
+}
+/*------------------------------------SUBMNEU---------------------------------------------*/
+.submenu {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  z-index: 999; /* Asegura que esté por encima del contenido */
+  background-color: white; /* Fondo del submenú */
+}
+
+/* Estilos para el contenido */
+
+
+.submenu button{
+  padding: 5px 30px;
+  font-weight: 500;
+  cursor: pointer;
+  background: none;
+  color: gray;
+  text-decoration: none;
+  border: none;
+}
+
+.submenu button:hover{
+  color: #b40301;
+  border: none;
+}
+
+.submenu button:focus {
+  outline: none;
+}
+
+
+.submenu .active {
+  color: #b40301;
+  border: none;
+  outline: none;
+  
+}
+
+
+/*--------------------------------CONTINGUT DIV ESQUERRA-----------------------------------------*/
+#izquierda{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px 100px;
+  left: 20px;
+  top: 18em;
+  margin-left: -20px;
+}
+
+.titulo{
+  font-weight: 700;
+  font-size: 40px;
+  color: #b40301;
+}
+
+.texto{
+  font-weight: 600;
+  color: rgb(78, 78, 78);
+  font-size: 16px;
+}
+
+
+/*--------------------------------CONTINGUT DIV DRETA-----------------------------------------*/
+#derecha{
+  margin-top: 1%;
+  text-align: center;
+  right: -700px;
+  flex-direction: column;
+  margin-top: 5px;
+}
+
+.tituloDerecha{
+  font-weight: 700;
+  font-size: 35px;
+  color: #b40301;
+}
+
+h2{
+  font-weight: 700;
+}
+
+.infoSolicitud{
+  max-width: 550px;
+  padding: 1.5em;
+  background-color: rgb(251, 248, 248);
+  border-radius: 20px;
+}
+
+.solicitud-encabezado {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: rgb(76, 76, 76);
+}
+
+.nombreServicio{
+  font-weight: 700;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+.botones{
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
+.botones button{
+  padding: 8px 16px;
+    margin-right: 10px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.botonAceptar{ background-color: green; }
+.botonAceptar:hover{ background-color: rgb(62, 147, 62);}
+
+.botonRechazar{ background-color: #b40301;}
+.botonRechazar:hover{ background-color: #ab4846;}
+
+.infoSolicitud p.descripcion {
+  max-width: 500px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.contenido {
+  max-height: calc(100vh - 120px); /* Tamaño máximo del contenido, ajusta según necesites */
+  overflow-y: auto; /* Agrega un scroll solo si es necesario */
+}
+
+/*--------------------------------LOADING-SPINNER-----------------------------------------*/
 
 .loading-spinner {
     position: fixed;
@@ -35,20 +178,6 @@
   
   p {
     margin: 5px 0;
-  }
-  
-  button {
-    padding: 8px 16px;
-    margin-right: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
   }
   
   hr {
