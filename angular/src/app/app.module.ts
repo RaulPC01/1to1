@@ -26,6 +26,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TiketsServiciosComponent } from './tikets-servicios/tikets-servicios.component';
 import { MisServiviosComponent } from './mis-servivios/mis-servivios.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+
 
 
 @NgModule({
@@ -57,7 +60,9 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    MatMenuModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

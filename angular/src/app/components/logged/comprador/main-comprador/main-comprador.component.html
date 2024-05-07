@@ -3,13 +3,6 @@
   <div class="spinner"></div>
 </div>
 
-
-<div class="buscar-container">
-  <input type="text" [(ngModel)]="buscarPalabra" placeholder="Buscar servicios..." (keyup.enter)="searchServices()" class="buscar-input">
-  <button (click)="searchServices()" class="buscar-button"> <img src="../../../assets/imatges/busqueda.png" height="30px"></button>
-</div>
-
-
 <br>
 <div class="contenido" *ngIf="!loading">
   <h1 class="titulo1">Estos son los servicios con más puntuaciones valorados por nuestra comunidad</h1>

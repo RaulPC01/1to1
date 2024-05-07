@@ -3,8 +3,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 9999; /* Asegura que esté por encima de otros elementos */
-  background-color: rgba(255, 255, 255, 0.5); /* Fondo semitransparente */
+  z-index: 9999;
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 8px;
   padding: 20px;
 }
