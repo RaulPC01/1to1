@@ -1,14 +1,17 @@
-.container{
-  min-height: 30em;
+.cuerpo{
+  padding-top: 1px;
 }
+
 /*------------------------------------SUBMNEU---------------------------------------------*/
 .submenu{
   height: 40px;
-  margin-top: 10px;
+  margin-top: 5px;
   align-items: center;
   justify-content: center;
   text-align: center;
   display: flex;
+  margin-bottom: 20px;
+  border-bottom: 0.5px solid #eeeeee; /* Línea divisoria */
 }
 
 .submenu button{
@@ -36,6 +39,11 @@
   border: none;
   outline: none;
   
+}
+
+/*-------------------------------CONTENEDOR-----------------------------*/
+.container{
+  min-height: 30em;
 }
 
 
