@@ -2,36 +2,8 @@
   <div class="spinner"></div>
 </div>
 
-<div class="cuerpo" *ngIf="!loading">
-  <div class="contenedorSevicios">
-    <h1 class="titulo1">{{ 'home.title1' | translate }}</h1>
-    <section class="grid-container">
-    <div class="card estilo-b" *ngFor="let service of topRatedServices.slice(getStartIndex(), getEndIndex())">
-
-      <div class="wavy-background"></div>
-      <div class="img-container">
-        <img [src]="service.user.image" alt="Foto de perfil">
-        <span class="price">{{service.tarifa}} €</span>
-      </div>
-      <div class="info">
-        <p class="titulo">{{service.tipo_servicio}}</p>
-        <div class="rating">
-          <span class="material-symbols-outlined">
-            star <p>{{service.puntuacion_valoracion}}</p>
-          </span>
-          <span class="material-symbols-outlined">
-            where_to_vote <p class="lugar">{{service.poblacion.nombre_poblacion}}</p>
-          </span>
-        </div>
-      </div>
-      <a [routerLink]="['/servicios', service.id_servicios]">{{ 'home.view_more' | translate }}</a>
-    </div>
-    </section>
-
-    <div class="pagination-container">
-      <button class="pagination-button" (click)="prevPage()" [disabled]="currentPage === 1">{{ 'home.prev_button' | translate }}</button>
-      <button class="pagination-button" (click)="nextPage()" [disabled]="currentPage === getTotalPages()">{{ 'home.next_button' | translate }}</button>
-    </div>
+<div class="tituloHome" *ngIf="!loading">
+  <h1>Encuentra tu <span style="color: #b40301">Profesional</span></h1>
 </div>
 
 <!---------------------DIV CATEGORIAS------------------>

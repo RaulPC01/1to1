@@ -1,15 +1,84 @@
-.cuerpo{
+.tituloHome{
+  text-align: center;
+}
+
+.tituloHome h1{
+  margin-top: 100px;
+  font-size: 40px;
+  font-weight: bold;
 }
 
 .contenedorServicios{
   padding: 50px;
   display: flex;
-  flex-direction: column; /* Cambia a disposición de columna */
-  align-items: center; /* Centra horizontalmente */
+  flex-direction: column;
+  align-items: center;
 }
 
 
-/*--------------------------------SPINNER--------------------------------------*/
+
+
+/*--------------------------------CATEGORIAS--------------------------------------*/
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 3px 20px;
+}
+
+.column {
+  width: calc(25% - 20px);
+  background: none;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.category {
+  margin-bottom: 10px;
+  padding: 10px;
+  background: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.text-container {
+  text-align: center;
+}
+
+.text-container h3 {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.text-container p {
+  color: #666;
+  margin: 0;
+}
+
+a {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #efe5e5;
+  padding: 10px 0;
+  font-weight: 500;
+  border-radius: 0 0 12px 12px;
+  transition: background-color 0.3s ease;
+}
+
+a:hover {
+  background-color: #e3e3e3;
+}
+
+/*---------------------------------PUBLICIDAD--------------------------------------*/
+
+
+
+/*-----------------------------------SPINNER--------------------------------------*/
 .loading-spinner {
   position: fixed;
   top: 50%;
@@ -34,3 +103,19 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.wave-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 120%;
+  height: 60%;
+  z-index: -1;
+} 
+
+
