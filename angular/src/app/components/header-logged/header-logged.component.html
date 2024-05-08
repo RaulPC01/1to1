@@ -1,41 +1,41 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
-  <div class="flex">
-      <a routerLink="/home-comprador" class="logo">
-          <div class="img">
-              <img src="../../../assets/imatges/logo.png" height="50px">
-          </div>
-      </a>
-  </div>
+<div class="navbar">
+    <div class="flex">
+        <a routerLink="/home-comprador" class="logo">
+            <div class="img">
+                <img src="../../../assets/imatges/logo.png" height="50px">
+            </div>
+        </a>
+    </div>
+    
+    <div class="botonesCentrados">
+        <div class="links">
+            <a routerLink="/home-comprador" class="link link-center">Contratar Servicios</a>
+            <a routerLink="/crear-servicio" class="link link-center">Ofrecer Servicios</a>
+            <a routerLink="/solicictudes" class="link link-center">Solicitudes</a>
+            <a routerLink="/mis-servicios" class="link link-center">Mis Servicios</a>
+        </div>
+    </div>
+    <div class="flex">
+        <div class="links">
+            <a routerLink="contacto" class="link link-right">Contacto</a>
+            <div class="bPerfil">
+                <a routerLink="/perfil" class="material-symbols-outlined">person</a>
+            </div>
+            <a class="link link-right" id="toggleMenu" (click)="toggleMobileMenu()" *ngIf="showToggleMenu">
+                <span class="material-symbols-outlined">menu</span>
+            </a>
+            <a (click)="logout()" class="link link-right" id="logoutButton"><span class="material-symbols-outlined">logout</span></a>
+        </div>
+    </div>
+</div>
 
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="home-comprador">Contratar Servicio</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="crear-servicio">Ofrecer Servicios</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="mis-servicios">Mis Servicios</a>
-        </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="solicitudes">Solicitudes</a>
-      </li>
-    </ul>
-
-    <form class="form-inline my-2 my-lg-0">
-      <input  class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-    </form>
-
-      <!--MENU DESPLEGABLE-->
-      <button class="opciones" mat-button [matMenuTriggerFor]="menu">
-        <span class="material-symbols-outlined">menu</span>
-      </button>
-
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="/perfil">Ver Perfil</button>
-        <button mat-menu-item routerLink="contacto">Contacto</button>
-        <button (click)="logout()" mat-menu-item>Cerrar Sesión</button>
-      </mat-menu>
-      </div>
-</nav>
+<div id="mobileMenu" class="mobile-menu">
+    <a routerLink="/home-comprador" class="link link-center" (click)="closeMobileMenu()">Contratar Servicios</a>
+    <a routerLink="/crear-servicio" class="link link-center" (click)="closeMobileMenu()">Ofrecer Servicios</a>
+    <a routerLink="/solicitudes" class="link link-center" (click)="closeMobileMenu()">Solicitudes</a>
+    <a routerLink="/mis-servicios" class="link link-center" (click)="closeMobileMenu()">Mis Servicios</a>
+    <a routerLink="contacto" class="link link-center" (click)="closeMobileMenu()">Contacto</a>
+    <a routerLink="/perfil" class="link link-center" (click)="closeMobileMenu()">Perfil</a>
+    <a class="link link-center" id="toggleMenuMobile" (click)="closeMobileMenu()"><span class="material-symbols-outlined">close</span></a>
+    <a (click)="logout()" class="link link-center"><span class="material-symbols-outlined">logout</span></a>
+</div>

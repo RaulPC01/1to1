@@ -12,7 +12,7 @@
         <img [src]="servicio.user.image" alt="Foto de perfil">
       </div>
       <div class="infoUsuario">
-        <p class="nombre">{{ servicio.user.name }}</p>
+        <p class="nombre">{{servicio.user.name}}</p>
         <div class="puntuacion">
           <span class="material-symbols-outlined">star</span>
           <p>5</p>
@@ -21,23 +21,23 @@
     </div>
 
     <hr> 
-    <p class="descripcionServicio">{{ servicio.descripcion }}</p>
+    <p class="descripcionServicio">{{servicio.descripcion}}</p>
     <hr>  
     <p class="descripcionUsu"></p>
 
     <div class="añadirComentario" *ngIf="!mostrarInputComentario">
-      <button class="botonComentario" (click)="mostrarInputComentario = true">{{ 'ser.add_comment_button' | translate }}</button>
+      <button class="botonComentario" (click)="mostrarInputComentario = true">Añadir comentario</button>
     </div>
 
     <div *ngIf="mostrarInputComentario" class="inputComentario">
       <form [formGroup]="mensajeForm" (ngSubmit)="enviarComentario()">
-        <textarea formControlName="mensage" placeholder="{{ 'ser.write_comment_placeholder' | translate }}" class="comentarioInput"></textarea>
-        <button type="submit"  class="enviarBoton">{{ 'ser.send_button' | translate }}</button>
+        <textarea formControlName="mensage" placeholder="Escribe tu comentario aquí" class="comentarioInput"></textarea>
+        <button type="submit"  class="enviarBoton">Enviar</button>
       </form>
     </div>
 
     <div class="comentarios">
-      <h2>{{ 'ser.comments_title' | translate }}</h2>
+      <h2>Comentarios</h2>
       <div *ngFor="let comentario of comentarios" class="comentario">
         <div class="usuario">
           <p>{{ comentario.Nombre_user }}</p>
@@ -49,26 +49,26 @@
 
   <div class="panelDerecha">
     <div class="miniDiv">
-      <p>{{ 'ser.service_section' | translate }}</p>
+      <p>Servicio</p>
       <hr>
     </div>
     <hr>
     <div class="targetaServicio">
-      <span class="tituloServicio">{{ 'ser.price_title' | translate }}</span>
-      <span class="precioValor">{{ servicio.tarifa }} €</span>
+      <span class="tituloServicio">Precio</span>
+      <span class="precioValor">{{servicio.tarifa}} €</span>
     </div>
     <br>
     <div class="targetaServicio">
-      <span class="tituloServicio">{{ 'ser.location_title' | translate }}</span>
+      <span class="tituloServicio">Ubicación</span>
       <span class="Valor">{{ servicio.poblacion.nombre_poblacion | uppercase }}</span>
     </div>
   
     <div class="extra">
-      <p><span class="material-symbols-outlined">check_small</span>{{ 'ser.good_work' | translate }}</p>
-      <p><span class="material-symbols-outlined">check_small</span>{{ 'ser.quality_attention' | translate }}</p>
-      <p><span class="material-symbols-outlined">check_small</span>{{ 'ser.safe_reliable_service' | translate }}</p>
+      <p><span class="material-symbols-outlined"> check_small</span>  Buen trabajo</p>
+      <p><span class="material-symbols-outlined"> check_small</span>  Atención de calidad</p>
+      <p><span class="material-symbols-outlined"> check_small</span>  Servicio seguro y confiable</p>
     </div>
 
-    <button class="contratar" [routerLink]="['/contratar', servicio.id_servicios]">{{ 'ser.hire_button' | translate }}</button>
+    <button class="contratar" [routerLink]="['/contratar', servicio.id_servicios]">CONTRATAR</button>
   </div>
 </div>

@@ -1,57 +1,66 @@
+<svg class="wave-bg" viewBox="0 0 1440 320">
+    <path fill="#b40301" fill-opacity="1" d="M0,288L48,282.7C96,277,192,267,288,224C384,181,480,107,576,96C672,85,768,139,864,160C960,181,1056,171,1152,149.3C1248,128,1344,96,1392,80L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" transform="rotate(180 720 160)"></path>
+</svg>
+
 
 <div  class="cuerpo">
    
     <div *ngIf="showConfirmation" class="popup">
-        {{ 'contact.confirmation_message' | translate }}
-    </div>
-
+        ¡El formulario se ha enviado correctamente! Muchas gracias por contactas con nosotros. ¡Nos pondremos en contacto contigo lo antes posible!
+      </div>
+      
+      
     <div id="BIzquierda">
-        <h1 >{{ 'contact.title' | translate }}</h1>
+        <h1 style="color: white;">Déjanos un mensaje</h1>
         <hr id="Linea" size="2">
         <br>
 
         <div id="Formulario">
             <br>
-            <p id="texto">{{ 'contact.support_text' | translate }}</p>
+            <p id="texto">Comparte tus preguntas con nuestro equipo de soporte y te responderemos rápidamente para que puedas continuar con tu proyecto.</p>
             <br>
 
-            <form method="post" [formGroup]="tiketform" (ngSubmit)="submitForm()">
+            <!------------FALTA CONECTAR EL FORMULARIO------------>
+            <form  method="post" [formGroup]="tiketform" (ngSubmit)="submitForm()">
+
                 <div class="row">
                     <div class="col-md-5">
-                        <label for="nombre">{{ 'contact.name_label' | translate }}</label>
-                        <input type="nombre" class="form-control" id="nombre" placeholder="{{ 'contact.name_label' | translate }}" name="nombre" formControlName="nombre">
+                        <label for="nombre">Nombre</label>
+                        <input type="nombre" class="form-control" id="nombre" placeholder="Escribe tu nombre" name="nombre" formControlName="nombre" >
                     </div>
 
                     <div class="col-md-5">
-                        <label for="apellido">{{ 'contact.lastname_label' | translate }}</label>
-                        <input type="apellido" class="form-control" id="apellido" placeholder="{{ 'contact.lastname_label' | translate }}" name="apellido" formControlName="apellidos">
+                        <label for="apellido">Apellido</label>
+                        <input type="apellido" class="form-control" id="apellido" placeholder="Escribe tu apellido" name="apellido" formControlName="apellidos" >
                     </div>
                 </div>
-
+                
                 <div class="col-md-11">
-                    <label for="asunto">{{ 'contact.subject_label' | translate }}</label>
-                    <select id="motius" formControlName="motius" required class="form-control">
-                        <option value=null ></option>
-                        <option *ngFor="let motius of motivos" [value]="motius.id">{{ motius.Nom_Motiu }}</option>
+                    <label  for="asunto">Asunto</label>
+                    <select id="motius"formControlName="motius" required class="form-control">
+                        <option  value=null></option>
+                        <option *ngFor="let motius of motivos" [value]="motius.id">{{ motius.Nom_Motiu}}</option>
+                      
                     </select>
                 </div>
 
                 <div class="col-md-11">
-                    <label for="mensaje">{{ 'contact.message_label' | translate }}</label>
-                    <input id="inputs" type="mensaje" class="form-control" id="mensaje" placeholder="{{ 'contact.message_label' | translate }}" name="nombre" formControlName="descripcion"><br>
+                    <label for="mensaje">Mensaje</label>
+                    <input id="inputs" type="mensaje" class="form-control" id="mensaje" placeholder="Escribe tu mensaje" name="nombre" formControlName="descripcion" ><br>
                 </div>
-
-                <input type="submit" value="{{ 'contact.send_button' | translate }}" id="BEnviar" class="btn btn-default">
+        
+                <input type="submit" value="Enviar" id="BEnviar" class="btn btn-default">
             </form>
-        </div>
-    </div>
 
+        </div>
+
+    </div>
     <div id="BDerecha">
-        <h2>{{ 'contact.office_title' | translate }}</h2>
+        <h2>Nuestra Oficina</h2>
         <hr id="Linea2" size="2">
         <br>
-        <p>{{ 'contact.address' | translate }}</p>
-        <p>{{ 'contact.support_whatsapp' | translate }}</p>
-        <p>{{ 'contact.email' | translate }}</p>
+        <p>C/ Avinguda de les Garrigues 34. 25001,Lleida, Spain.</p>
+        <p>Support. WhatsApp: <strong>(+34) 655 645 535</strong></p>
+        <p>Email: <strong>1to1&commat;gmail.com</strong></p>
     </div>
 </div>

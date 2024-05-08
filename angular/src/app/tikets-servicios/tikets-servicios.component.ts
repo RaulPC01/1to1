@@ -1,4 +1,3 @@
-
 import { HttpClient, HttpHeaders } from '@angular/common/http'; // Agregar esta línea
 
 import { Component, OnInit } from '@angular/core';
@@ -9,12 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tikets-servicios.component.css']
 })
 export class TiketsServiciosComponent implements OnInit {
+
+
   solicitudes: any[] = [];
   solicitudesAcceptadas: any[] = [];
   solicitudesPorAcceptar: any[] = [];
   loading: boolean = false;
 
-  activeTab: string = 'solicitudesPorAceptar';
 
   constructor(private http: HttpClient) { }
 
@@ -28,10 +28,6 @@ export class TiketsServiciosComponent implements OnInit {
       console.error('El token no está definido en el almacenamiento local');
       // Manejar el error, por ejemplo, redirigir al usuario a la página de inicio de sesión
     }
-  }
-
-  changeTab(tab: string): void {
-    this.activeTab = tab;
   }
 
   obtenerPerfilUsuario(token: string): void {

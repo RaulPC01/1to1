@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { TokenService } from 'src/app/token.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
-import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-header-logged',
@@ -11,7 +10,6 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./header-logged.component.css']
 })
 export class HeaderLoggedComponent implements OnInit {
-  buscarPalabra: string = '';
   isLoggedIn: boolean = false;
   usuarioActual: any;
   showToggleMenu: boolean = false;
@@ -60,5 +58,4 @@ export class HeaderLoggedComponent implements OnInit {
       mobileMenu.classList.remove('active');
     }
   }
-    
 }
