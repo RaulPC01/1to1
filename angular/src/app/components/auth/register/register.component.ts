@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent {
   RegisterForm: FormGroup;
   errorMessage: string = '';
-  submitted = false;
+
  
   constructor(
     private formBuilder: FormBuilder,
@@ -21,17 +21,16 @@ export class RegisterComponent {
   ) {
     this.RegisterForm = this.formBuilder.group({
       dni: ['', Validators.required],
-      name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]*$/)]],  // Validates no numbers
+      name: ['', Validators.required],
       dateOfBirth: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required, Validators.pattern(/^[0-9]{9}$/)]],  // Validates exactly 9 digits
-      password: ['', [Validators.required, Validators.minLength(8)]], // Validates minimum length of 8
-      password_confirmation: ['', Validators.required],
-      image: [null]
+      phone: ['', Validators.required],
+      password: ['', Validators.required],
+      password_confirmation: ['', Validators.required], // Agregado para confirmar la contraseña
+      image: [null] // Campo para la imagen
     }, {
-      validators: this.passwordMatchValidator
+      validators: this.passwordMatchValidator // Validación personalizada para las contraseñas
     });
-    
   }
 
   // Función para validar que las contraseñas coincidan
@@ -47,32 +46,7 @@ export class RegisterComponent {
       return null;
     }
   }
-  getErrorMessage(controlName: string): string {
-    const control = this.RegisterForm.get(controlName);
-  
-    if (!control) {
-      return 'Control is not found'; // Handling if control itself is null
-    }
-  
-    if (control.hasError('required')) {
-      return 'Este campo es obligatorio.';
-    } else if (control.hasError('pattern')) {
-      if (controlName === 'phone') {
-        return 'El número de teléfono debe tener 9 dígitos.';
-      } else {
-        return 'El nombre no debe contener números.';
-      }
-    } else if (control.hasError('minlength')) {
-      return 'La contraseña debe tener al menos 8 caracteres.';
-    } else if (control.hasError('email')) {
-      return 'Por favor ingresa un correo electrónico válido.';
-    } else if (control.hasError('passwordMismatch')) {
-      return 'Las contraseñas no coinciden.';
-    }
-    return '';
-  }
-  
-  
+
   // Método para mostrar mensajes de error
   showError(controlName: string, errorName: string) {
     return this.RegisterForm.controls[controlName].hasError(errorName);
@@ -102,43 +76,35 @@ export class RegisterComponent {
 
   // Envía el formulario al backend
   onSubmit(): void {
-    this.submitted = true; // Set the flag to true regardless of form validity
-  
     if (this.RegisterForm.valid) {
       const formData = new FormData();
       Object.keys(this.RegisterForm.value).forEach(key => {
         formData.append(key, this.RegisterForm.value[key]);
       });
-  
+
       this.userService.registerUser(formData)
         .subscribe(
           (data) => {
-            // Handle the successful backend response
+            // Maneja la respuesta exitosa del backend
             console.log(data);
-            this.Router.navigate(['/login']); // Navigate on success
+            this.Router.navigate(['/login']);
           },
           (error: HttpErrorResponse) => {
-            // Handle the HTTP request errors
+            // Maneja los errores de la solicitud HTTP
             console.error(error);
             if (error.status === 409) {
-              // Email, DNI, or phone number already in use
-              this.errorMessage = error.error?.message || 'El correo electrónico, el DNI o el número de teléfono ya están en uso.';
+              // Correo electrónico, DNI o número de teléfono duplicado
+              if (error.error && error.error.message) {
+                this.errorMessage = error.error.message;
+              } else {
+                this.errorMessage = 'El correo electrónico, el DNI o el número de teléfono ya están en uso.';
+              }
             } else {
-              // Other types of errors
+              // Otro tipo de error
               this.errorMessage = 'Hubo un problema al procesar la solicitud. Por favor, inténtalo de nuevo más tarde.';
             }
           }
         );
-    } else {
-      this.scrollToFirstInvalidControl(); // Optional: Scroll to the first invalid control
     }
   }
-  
-  private scrollToFirstInvalidControl(): void {
-    const firstInvalidControl: HTMLElement | null = document.querySelector('form .ng-invalid');
-    if (firstInvalidControl) {
-      firstInvalidControl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  }
-  
 }

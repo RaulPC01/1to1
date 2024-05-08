@@ -33,7 +33,7 @@ const routes: Routes = [
 
   { path: 'crear-servicio', component: CrearservicoComponent , canActivate: [AuthGuard] },
 
-  { path: 'solicitudes', component: TiketsServiciosComponent , canActivate: [AuthGuard] },
+  { path: 'solicictudes', component: TiketsServiciosComponent , canActivate: [AuthGuard] },
 
   { path: 'mis-servicios', component: MisServiviosComponent, canActivate: [AuthGuard]  },
 
