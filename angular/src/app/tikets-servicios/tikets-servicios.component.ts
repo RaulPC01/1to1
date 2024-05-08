@@ -1,3 +1,4 @@
+
 import { HttpClient, HttpHeaders } from '@angular/common/http'; // Agregar esta línea
 
 import { Component, OnInit } from '@angular/core';

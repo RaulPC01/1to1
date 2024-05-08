@@ -4,8 +4,9 @@
 </div>
 
 <br>
+
 <div class="contenido" *ngIf="!loading">
-  <h1 class="titulo1">Estos son los servicios con más puntuaciones valorados por nuestra comunidad</h1>
+  <h1 class="titulo1">{{ 'home.title1' | translate }}</h1>
   <br>
   <br>
   <br>
@@ -28,14 +29,13 @@
           </span>
         </div>
       </div>
-      <a [routerLink]="['/servicios', service.id_servicios]">Ver más</a>
+      <a [routerLink]="['/servicios', service.id_servicios]">{{ 'home.view_more' | translate }}</a>
     </div>
   </section>
   <div class="pagination-container">
-    <button class="pagination-button" (click)="prevPage()" [disabled]="currentPage === 1">&lt; Anterior</button>
+    <button class="pagination-button" (click)="prevPage()" [disabled]="currentPage === 1">{{ 'home.prev_button' | translate }}</button>
 
-    <button class="pagination-button" (click)="nextPage()" [disabled]="currentPage === getTotalPages()">Siguiente
-      &gt;</button>
+    <button class="pagination-button" (click)="nextPage()" [disabled]="currentPage === getTotalPages()">{{ 'home.next_button' | translate }}</button>
   </div>
 
   <br>
@@ -48,104 +48,50 @@
 
   <br>
 
-  <h3 class="titulo" for="categoria" style="font-size: xx-large;" >¡Explora nuestras <span
-      style="color: #b40301; font-size: xx-large;">Categorías</span> con mas servicios!</h3>
+  <h3 class="titulo" for="categoria" style="font-size: xx-large;">{{ 'home.categories_title' | translate }}</h3>
 
 </div>
-
-
 
 <div class="container" *ngIf="!loading">
   <div class="column" *ngFor="let column of columns">
     <a class="category" *ngFor="let category of getColumnCategories(column)"
       [class.selected]="selectedCategoryId === category.id" (click)="onSelectCategory(category.id)">
-      {{category. nombre_categoria}}
+      {{category.nombre_categoria | translate}}
     </a>
   </div>
 </div>
 
-
-
-<div class="contenedor"  *ngIf="!loading">
+<div class="contenedor" *ngIf="!loading">
   <div class="grande">
     <img src="../../../assets/imatges/servicio_imagen_example.jpg" alt="" class="imagen-fondo">
     <div class="texto">
-      <p style="font-weight: 800; font-size: 150%;">Da un paso y sé un OneToOner, </p>
+      <p style="font-weight: 800; font-size: 150%;">{{ 'home.create_service_button' | translate }}</p>
       <br>
-      <p style="font-weight: 500;">¡Forma parte de nuestra comunidad y empieza a crear tu propio servicio!</p>
-      <button class="boton" routerLink="/crear-servicio">Únete ahora mismo</button>
+      <p style="font-weight: 500;">{{ 'home.create_service_description' | translate }}</p>
+      <button class="boton" routerLink="/crear-servicio">{{ 'home.create_service_button' | translate }}</button>
     </div>
   </div>
 </div>
 
+<h1 *ngIf="!loading">{{ 'home.evidence_title' | translate }}</h1>
 
-<h1  *ngIf="!loading">¡La pruevas son mas que evidentes! 
-</h1>
-
-<div class="options-container"  *ngIf="!loading">
+<div class="options-container" *ngIf="!loading">
 
   <div class="option" style="background-color: rgba(224, 237, 181, 0.232);">
     <div class="option-content">
       <img src="../../../assets/imatges/prof1.jpeg" alt="Icon 1" class="profile-pic">
       <div class="text-container">
-        <h3>Roger Orteu</h3>
-        <p>Juneda</p>
-
+        <h3>{{ 'home.testimonial1_name' | translate }}</h3>
+        <p>{{ 'home.testimonial1_location' | translate }}</p>
       </div>
 
     </div>
     <br>
     <br>
 
-    <p>Roger és un gran professional, és una persona muy atenta y comprensiva. Es muy trabajador y cumple en su
-      totalidad lo que promete en su servicio. Un professional muy recomendado.</p>
+    <p>{{ 'home.testimonial1_text' | translate }}</p>
   </div>
 
-  <div class="option" style="background-color: rgb(231, 246, 179);">
-    <div class="option-content">
-      <img src="../../../assets/imatges/prof1.jpeg" alt="Icon 1" class="profile-pic">
-      <div class="text-container">
-        <h3>Arian Lanuza</h3>
-        <p>Solsona</p>
-      </div>
-    </div>
-    <br>
-    <br>
-
-    <p>Arian es un profesional excepcional, se destaca por su atención y comprensión hacia sus clientes. Su dedicación y
-      compromiso se reflejan en la calidad de su trabajo, cumpliendo con lo que promete en cada servicio. Sin duda, lo
-      recomendaría ampliamente como un profesional confiable.</p>
-  </div>
-  <div class="option" style="background-color: rgb(224, 165, 117);">
-    <div class="option-content">
-      <img src="../../../assets/imatges/prof1.jpeg" alt="Icon 1" class="profile-pic">
-      <div class="text-container">
-        <h3>Raul Pereira</h3>
-        <p>Andorra</p>
-      </div>
-    </div>
-    <br>
-    <br>
-
-    <p>Raul es un experto en su campo, caracterizado por su atención personalizada y su empatía hacia sus clientes. Su
-      ética laboral y su compromiso con la excelencia hacen que cada servicio sea impecable. Recomiendo totalmente a
-      Raul como un profesional de confianza.</p>
-  </div>
-  <div class="option" style="background-color:rgb(248, 124, 122)">
-    <div class="option-content">
-      <img src="../../../assets/imatges/prof1.jpeg" alt="Icon 1" class="profile-pic">
-      <div class="text-container">
-        <h3>Mehdi Tahrat</h3>
-        <p>Argelia</p>
-      </div>
-    </div>
-    <br>
-    <br>
-
-    <p>Mehdi es un profesional de primera categoría, conocido por su actitud atenta y comprensiva. Su arduo trabajo y su
-      compromiso con la satisfacción del cliente son evidentes en cada proyecto que emprende. No dudaría en recomendar a
-      Mehdi como un profesional altamente confiable y competente.</p>
-  </div>
-
+  <!-- More testimonials here -->
 
 </div>

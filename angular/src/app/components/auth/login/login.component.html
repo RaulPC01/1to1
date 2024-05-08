@@ -1,15 +1,12 @@
 <p *ngIf="errorMessage" class="error" style="color: red;">{{ errorMessage }}</p>
 
-
-    <div class="tarjetaLogin">
-
-        <h1 class="titulo">Inicia sesión</h1>
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-            <input class="Inputs" type="string" placeholder="DNI" formControlName="dni" required>
-            <input class="Inputs" type="password" placeholder="Contraseña" formControlName="password" required>
-            <button type="submit">Iniciar sesión</button>
-        </form>
-    
-        <p>¿No tienes cuenta?</p>
-        <a routerLink="/register">Regístrate</a>
-    </div>
+<div class="tarjetaLogin">
+    <h1 class="titulo">{{ 'login.title' | translate }}</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <input class="Inputs" type="string" placeholder="{{ 'login.placeholder_dni' | translate }}" formControlName="dni" required>
+        <input class="Inputs" type="password" placeholder="{{ 'login.placeholder_password' | translate }}" formControlName="password" required>
+        <button type="submit">{{ 'login.login_button' | translate }}</button>
+    </form>
+    <p>{{ 'login.no_account_message' | translate }}</p>
+    <a routerLink="/register">{{ 'login.register_link' | translate }}</a>
+</div>
