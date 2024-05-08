@@ -41,18 +41,23 @@
             <!-------------------------------------Fecha de realización-------------------------------------------->
             <div [ngClass]="{ 'hidden': !mostrarDate }" class="mb-4">
                 <div class="mb-3">
-                    <h3 class="tituloDescripcion"><span style="color: #b40301">Fecha </span> de realizacion del Servicio</h3>
-                    <input type="date" formControlName="date_servicio" required>
+                    <h3 class="tituloDescripcion"><span style="color: #b40301">Fecha</span> de realizacion del Servicio</h3>
+                    <input type="date" formControlName="date_servicio" [min]="minDate" [max]="maxDate" required>
+                    <div *ngIf="servicioForm.controls['date_servicio'].errors?.['dateRange']" class="alert alert-danger">
+                        La fecha debe estar entre hoy y un año a partir de hoy.
+                    </div>
                 </div>
-
+            
                 <div class="contenedor-botones">
                     <button type="button" (click)="anteriorDescripcion()">Anterior</button>
-                <button type="button" (click)="verMetodoPago()" [disabled]="!servicioForm.get('date_servicio')?.valid">Siguiente</button>
+                    <button type="button" (click)="verMetodoPago()" [disabled]="!servicioForm.valid">Siguiente</button>
                 </div>
             </div>
             
+            
+             <!-------------------------------------Metodo de Pago-------------------------------------------->
             <div [ngClass]="{ 'hidden': !mostrarMetodoPago }" class="mb-4">
-                <h3>Realizar el pago</h3>
+                <h3 class="tituloDescripcion">Realizar el pago</h3>
                 <form action="#" class="credit-card-div">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -70,12 +75,12 @@
                                     <span class="help-block text-muted small-font"> Año de expiración</span>
                                     <input type="text" class="form-control" placeholder="AA" />
                                 </div>
-                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                <div class="col-md-3 col-sm-3 col-xs-3" style="display: flex; flex-direction: column;">
                                     <span class="help-block text-muted small-font"> CCV</span>
                                     <input type="text" class="form-control" placeholder="CCV" />
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
-                                    <img src="assets/img/1.png" class="img-rounded" />
+                                    <img src="../../../../../assets/imatges/Visa_Logo.png" class="img-rounded" />
                                 </div>
                             </div>
                             <div class="row">

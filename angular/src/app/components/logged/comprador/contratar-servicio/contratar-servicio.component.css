@@ -192,6 +192,13 @@
   width: 40%;
 }
 
+.img-rounded{
+  
+  width: 70px;
+  height: 50px;
+
+}
+
 .close {
   color: #aaa;
   float: right;
