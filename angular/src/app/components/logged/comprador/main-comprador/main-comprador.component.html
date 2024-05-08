@@ -1,16 +1,11 @@
 <div class="loading-spinner" *ngIf="loading">
-  <!-- Aquí puedes usar cualquier biblioteca de ruedita de carga o implementar tu propio spinner -->
   <div class="spinner"></div>
 </div>
 
-<br>
-
-<div class="contenido" *ngIf="!loading">
-  <h1 class="titulo1">{{ 'home.title1' | translate }}</h1>
-  <br>
-  <br>
-  <br>
-  <section class="grid-container">
+<div class="cuerpo" *ngIf="!loading">
+  <div class="contenedorSevicios">
+    <h1 class="titulo1">{{ 'home.title1' | translate }}</h1>
+    <section class="grid-container">
     <div class="card estilo-b" *ngFor="let service of topRatedServices.slice(getStartIndex(), getEndIndex())">
 
       <div class="wavy-background"></div>
@@ -31,27 +26,15 @@
       </div>
       <a [routerLink]="['/servicios', service.id_servicios]">{{ 'home.view_more' | translate }}</a>
     </div>
-  </section>
-  <div class="pagination-container">
-    <button class="pagination-button" (click)="prevPage()" [disabled]="currentPage === 1">{{ 'home.prev_button' | translate }}</button>
+    </section>
 
-    <button class="pagination-button" (click)="nextPage()" [disabled]="currentPage === getTotalPages()">{{ 'home.next_button' | translate }}</button>
-  </div>
-
-  <br>
-
-  <br>
-
-  <br>
-
-  <br>
-
-  <br>
-
-  <h3 class="titulo" for="categoria" style="font-size: xx-large;">{{ 'home.categories_title' | translate }}</h3>
-
+    <div class="pagination-container">
+      <button class="pagination-button" (click)="prevPage()" [disabled]="currentPage === 1">{{ 'home.prev_button' | translate }}</button>
+      <button class="pagination-button" (click)="nextPage()" [disabled]="currentPage === getTotalPages()">{{ 'home.next_button' | translate }}</button>
+    </div>
 </div>
 
+<!---------------------DIV CATEGORIAS------------------>
 <div class="container" *ngIf="!loading">
   <div class="column" *ngFor="let column of columns">
     <a class="category" *ngFor="let category of getColumnCategories(column)"
@@ -61,6 +44,8 @@
   </div>
 </div>
 
+
+<!--------------------.DIV PUBLICITARIO----------------->
 <div class="contenedor" *ngIf="!loading">
   <div class="grande">
     <img src="../../../assets/imatges/servicio_imagen_example.jpg" alt="" class="imagen-fondo">
@@ -91,7 +76,5 @@
 
     <p>{{ 'home.testimonial1_text' | translate }}</p>
   </div>
-
-  <!-- More testimonials here -->
 
 </div>
