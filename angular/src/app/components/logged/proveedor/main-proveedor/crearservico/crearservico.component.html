@@ -79,8 +79,9 @@
             <div [ngClass]="{ 'hidden': !mostrarDescripcion }" class="mb-4">
                 <div class="mb-3">
                     <h3 class="tituloDescripcion">Acerca de<span style="color: #b40301"> tu Servicio</span></h3>
-                    <textarea type="text" formControlName="descripcion" class="textareaDescripcion" placeholder="Ej: Limpieza profunda del ordenador y cambio de pasta térmica a domicilio" required>
+                    <textarea type="text" formControlName="descripcion" class="textareaDescripcion" placeholder="Ej: Limpieza profunda del ordenador y cambio de pasta térmica a domicilio" required
                     (input)="countDescripcionLength($event)"></textarea>
+                    
                     <div class="contador-letras">{{ descripcionLength }}/2000</div> <!-- Contador de letras -->
                     <div class="contenedor-botones">
                         <button type="button" (click)="volverNombreServicio()">Anterior</button>
@@ -94,12 +95,13 @@
             <div [ngClass]="{ 'hidden': !mostrarTarifa }" class="mb-4">
                 <div class="mb-3">
                     <h3 class="tituloDescripcion"><span style="color: #b40301">Tarifa</span> de tu Servicio</h3>
-                    <input type="text" formControlName="precio" required>
+                    <input type="number" formControlName="precio" required>
                 </div>
 
                 <div class="contenedor-botones">
                     <button type="button" (click)="volverDescripcion()">Anterior</button>
-                    <button type="button" class="bSiguiente" (click)="verPoblacion()">Siguiente</button>
+                    <button type="button" class="bSiguiente" (click)="verPoblacion()" [disabled]="!servicioForm.get('precio')?.valid">Siguiente</button>
+
                 </div>
             </div>
 

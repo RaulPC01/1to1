@@ -91,6 +91,7 @@
   .titulo{ font-size: 40px; font-weight: 700; margin-top: 80px;}
   
   input[type="text"],
+  input[type="number"],
   input[type="date"],
   select {
     background-color: rgb(242, 242, 242);
