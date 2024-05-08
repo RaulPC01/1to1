@@ -1,0 +1,106 @@
+{
+  "login": {
+    "title": "Log In",
+    "error_message": "There was a problem logging in. Please try again.",
+    "placeholder_dni": "ID",
+    "placeholder_password": "Password",
+    "login_button": "Log In",
+    "no_account_message": "Don't have an account?",
+    "register_link": "Sign Up"
+  },
+  "register": {
+    "title": "Register",
+    "dni": "ID",
+    "fullName": "Full Name",
+    "dateOfBirth": "Date of Birth",
+    "email": "Email",
+    "phone": "Phone",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "submitButton": "Register",
+    "alreadyHaveAccount": "Already have an account?",
+    "loginLink": "Log In",
+    "passwordMismatchError": "Passwords do not match.",
+    "emailPhoneDuplicateError": "The email, ID, or phone number is already in use.",
+    "genericError": "There was a problem processing the request. Please try again later."
+  },
+  "contact": {
+    "title": "Leave us a message",
+    "confirmation_message": "The form has been submitted successfully! Thank you for contacting us. We will get back to you as soon as possible.",
+    "name_label": "Name",
+    "lastname_label": "Last Name",
+    "subject_label": "Subject",
+    "message_label": "Message",
+    "send_button": "Send",
+    "office_title": "Our Office",
+    "address": "C/ Avinguda de les Garrigues 34. 25001, Lleida, Spain.",
+    "support_whatsapp": "Support. WhatsApp: (+34) 655 645 535",
+    "email": "Email: 1to1@gmail.com",
+    "support_text": "Share your questions with our support team and we will respond quickly so you can continue with your project."
+  },
+  "navbar": {
+    "offer_services": "Offer Services",
+    "hire_services": "Hire Services",
+    "contact": "Contact",
+    "login": "Log In",
+    "signup": "Sign Up"
+  },
+  "header_logged": {
+    "hire_services": "Hire Services",
+    "offer_services": "Offer Services",
+    "requests": "Requests",
+    "my_services": "My Services",
+    "contact": "Contact",
+    "profile": "Profile",
+    "logout": "Log Out"
+  },
+  "service_creation": {
+    "date_prefix": "Date",
+    "date_description": "of Service Completion",
+    "desc_prefix": "Describe",
+    "desc_description": "Your Issue",
+    "title": "You're about to create your own service!",
+    "description": "Please complete the following fields to create your service offer.",
+    "confirmation_message": "Your request has been successfully submitted! You will soon receive a response from the service provider.",
+    "to_know": {
+        "title": "To Know",
+        "description_detail": "Remember to explain in as much detail as possible the problem you are facing so that the service provider can clearly understand what you are experiencing, making it easier for both of you.",
+        "date_detail": "Choose the date on which you would like the service to be performed. This will only be"
+    },
+    "placeholders": {
+        "description": "E.g.: Deep cleaning of the computer and thermal paste replacement at home"
+    },
+    "buttons": {
+        "next": "Next",
+        "previous": "Previous",
+        "submit": "Submit Request"
+    }
+},
+"home":{
+  "view_more": "View More",
+  "search_placeholder": "Search services...",
+  "title1": "These are the highest-rated services by our community",
+  "prev_button": "Previous",
+  "next_button": "Next",
+  "categories_title": "Explore our Categories with the most services!",
+  "create_service_button": "Join now",
+  "create_service_description": "Be part of our community and start creating your own service!",
+  "evidence_title": "The evidence is more than clear!",
+  "testimonial1_name": "Roger Orteu",
+  "testimonial1_location": "Juneda",
+  "testimonial1_text": "Roger is a great professional, he is a very attentive and understanding person. He is very hardworking and fulfills everything he promises in his service. A highly recommended professional."
+},
+"ser": {
+  "add_comment_button": "Add comment",
+  "write_comment_placeholder": "Write your comment here",
+  "send_button": "Send",
+  "comments_title": "Comments",
+  "service_section": "Service",
+  "price_title": "Price",
+  "location_title": "Location",
+  "good_work": "Good work",
+  "quality_attention": "Quality attention",
+  "safe_reliable_service": "Safe and reliable service",
+  "hire_button": "HIRE"
+}
+}
