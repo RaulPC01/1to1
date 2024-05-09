@@ -73,7 +73,7 @@
   }
 
   .izquierda, .derecha {
-    margin: 20px; /* Espacio entre los paneles en dispositivos grandes */
+    margin: 20px;
     flex: 1 1 calc(50% - 40px); /* Ajusta el tamaño de los paneles para que ocupen la mitad del contenedor */
     max-width: calc(50% - 40px); /* Ajusta el ancho máximo de los paneles */
   }

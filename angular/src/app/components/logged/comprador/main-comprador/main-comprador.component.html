@@ -16,37 +16,66 @@
   </div>
 </div>
 
+<!---------------------DIV SERVICIOS------------------>
+<div class="contenedorTarjetas">
+  <section class="tarjetas">
+    <div class="card estilo-b" *ngFor="let service of topRatedServices.slice(getStartIndex(), getEndIndex())">
+
+      <a id="aTarjeta" [routerLink]="['/servicios', service.id_servicios]">
+        <div class="img-container">
+          <img [src]="service.user.image" alt="Foto de perfil">
+          <span class="price">{{service.tarifa}} €</span>
+        </div>
+        <div class="info">
+          <p class="titulo">{{service.tipo_servicio}}</p>
+          <button class="botonVer"> Ver más... </button>
+        </div>
+      </a>
+    </div>
+  </section>
+</div>
+
+
+<!--
+  <div class="contenedorTarjetas">
+  <section class="grid-container">
+    <div class="card estilo-b" *ngFor="let service of topRatedServices.slice(getStartIndex(), getEndIndex())">
+
+      <div class="wavy-background"></div>
+      <div class="img-container">
+        <img [src]="service.user.image" alt="Foto de perfil">
+        <span class="price">{{service.tarifa}} €</span>
+      </div>
+      <div class="info">
+        <p class="titulo">{{service.tipo_servicio}}</p>
+        <div class="rating">
+          <span class="material-symbols-outlined">
+            star <p>{{service.puntuacion_valoracion}}</p>
+          </span>
+          <span class="material-symbols-outlined">
+            where_to_vote <p class="lugar">{{service.poblacion.nombre_poblacion}}</p>
+          </span>
+        </div>
+      </div>
+      <a [routerLink]="['/servicios', service.id_servicios]">{{ 'home.view_more' | translate }}</a>
+    </div>
+  </section>
+</div>
+-->
+
 
 <!--------------------.DIV PUBLICITARIO----------------->
 <div class="contenedor" *ngIf="!loading">
   <div class="grande">
-    <img src="../../../assets/imatges/servicio_imagen_example.jpg" alt="" class="imagen-fondo">
+    <img src="../../../assets/imatges/programador.jpg" alt="" class="imagen-fondo">
     <div class="texto">
-      <p style="font-weight: 800; font-size: 150%;">{{ 'home.create_service_button' | translate }}</p>
+      <p style="font-weight: 800; font-size: 140%;">¡Únete ahora mismo a nuestra comunidad!</p>
       <br>
-      <p style="font-weight: 500;">{{ 'home.create_service_description' | translate }}</p>
+      <p style="font-weight: 500; margin-top: -20px; width: 100%; padding-inline: 25px;">
+        Comienza a crear tu propio servicio y explora un mundo lleno de oportunidades.
+        Desbloquea recursos exclusivos y conéctate con profesionales de todo el mundo.
+        ¡El futuro es tuyo para construirlo!</p>
       <button class="boton" routerLink="/crear-servicio">{{ 'home.create_service_button' | translate }}</button>
     </div>
   </div>
-</div>
-
-<h1 *ngIf="!loading">{{ 'home.evidence_title' | translate }}</h1>
-
-<div class="options-container" *ngIf="!loading">
-
-  <div class="option" style="background-color: rgba(224, 237, 181, 0.232);">
-    <div class="option-content">
-      <img src="../../../assets/imatges/prof1.jpeg" alt="Icon 1" class="profile-pic">
-      <div class="text-container">
-        <h3>{{ 'home.testimonial1_name' | translate }}</h3>
-        <p>{{ 'home.testimonial1_location' | translate }}</p>
-      </div>
-
-    </div>
-    <br>
-    <br>
-
-    <p>{{ 'home.testimonial1_text' | translate }}</p>
-  </div>
-
 </div>
