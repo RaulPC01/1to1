@@ -26,6 +26,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TiketsServiciosComponent } from './tikets-servicios/tikets-servicios.component';
 import { MisServiviosComponent } from './mis-servivios/mis-servivios.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -54,8 +57,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     ContratarServicioComponent,
     TiketsServiciosComponent,
     MisServiviosComponent,
-
-          
   ],
   imports: [
     BrowserModule,
@@ -63,6 +64,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CommonModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatMenuModule,
+    MatButtonModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

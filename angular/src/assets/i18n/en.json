@@ -5,7 +5,7 @@
     "placeholder_dni": "ID",
     "placeholder_password": "Password",
     "login_button": "Log In",
-    "no_account_message": "Don't have an account?",
+    "no_account_message": "You don't have an account?",
     "register_link": "Sign Up"
   },
   "register": {
@@ -58,8 +58,8 @@
     "date_prefix": "Date",
     "date_description": "of Service Completion",
     "desc_prefix": "Describe",
-    "desc_description": "Your Issue",
-    "title": "You're about to create your own service!",
+    "desc_description": "Your Problem",
+    "title": "You are about to create your own service!",
     "description": "Please complete the following fields to create your service offer.",
     "confirmation_message": "Your request has been successfully submitted! You will soon receive a response from the service provider.",
     "to_know": {
@@ -88,7 +88,7 @@
   "evidence_title": "The evidence is more than clear!",
   "testimonial1_name": "Roger Orteu",
   "testimonial1_location": "Juneda",
-  "testimonial1_text": "Roger is a great professional, he is a very attentive and understanding person. He is very hardworking and fulfills everything he promises in his service. A highly recommended professional."
+  "testimonial1_text": "Roger is a great professional, he is a very attentive and an understanding person. He is a very hardworking professional and completes everything he promises in his service. He is a highly recommended specialist."
 },
 "ser": {
   "add_comment_button": "Add comment",
