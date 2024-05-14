@@ -3,23 +3,22 @@
 <footer>
     <div class="div">
         <div class="left">
-            <div class="voteit">© 2024 1to1</div>
+            <div class="voteit">{{ 'footer.voteit' | translate }}</div>
             <div class="politicas">
-                <a class="politica">Aviso Legal</a>
-                <a class="politica">Política de privacidad</a>
-                <a class="politica">Política de cookies</a>
-                <a class="politica"> <strong>Contacto</strong></a>
+                <a class="politica">{{ 'footer.avisoLegal' | translate }}</a>
+                <a class="politica">{{ 'footer.politicaPrivacidad'  | translate}}</a>
+                <a class="politica">{{ 'footer.politicaCookies'  | translate}}</a>
+                <a class="politica"> <strong>{{ 'footer.contacto'  | translate}}</strong></a>
             </div>
         </div>
         <div class="right">
-            <a (click)="cambiarIdioma('es')">
-                Idioma: Español 
-                <span class="arrow"></span>
-            </a>
-            <a (click)="cambiarIdioma('en')">
-                Idioma: English 
-                <span class="arrow"></span>
-            </a>
+            
+            <select id="language-select" (change)="cambiarIdioma($event)">
+                <option value="es">Español</option>
+                <option value="en">English</option>
+            </select>
         </div>
+        
+        
     </div>
 </footer>

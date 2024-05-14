@@ -46,14 +46,30 @@
     "signup": "Sign Up"
   },
   "header_logged": {
-    "hire_services": "Hire Services",
-    "offer_services": "Offer Services",
-    "requests": "Requests",
-    "my_services": "My Services",
-    "contact": "Contact",
-    "profile": "Profile",
-    "logout": "Log Out"
+    "contratar" : "Hire",
+    "ofrecer" : "Offer",
+    "misServicios" : "My Services",
+    "solicitudes" : "Requests",
+    "buscar" : "Search",
+    "perfil" : "Profile",
+    "contacto" : "Contact",
+    "cerrarSesion" : "Log Out"
   },
+
+  "error": {
+    "error" : "Error",
+    "error_message" : "An error occurred while processing your request. Please try again later.",
+    "error_button" : "Return to Home"
+  },
+
+  "footer": {
+    "voteit" : "© 2024 1to1",
+    "avisoLegal" : "Legal Notice",
+    "politicaPrivacidad" : "Privacy Policy",
+    "politicaCookies" : "Cookies Policy",
+    "contacto" : "Contact"
+  },
+
   "service_creation": {
     "date_prefix": "Date",
     "date_description": "of Service Completion",

@@ -8,6 +8,32 @@
       "no_account_message": "¿No tienes cuenta?",
       "register_link": "Regístrate"
     },
+
+    "header_logged": {
+      "contratar" : "Contratar",
+      "ofrecer" : "Ofrecer",
+      "misServicios" : "Mis Servicios",
+      "solicitudes" : "Solicitudes",
+      "buscar" : "Buscar",
+      "perfil" : "Perfil",
+    "contacto" : "Contacto",
+    "cerrarSesion" : "Cerrar Sesión"
+    },
+
+    "error": {
+      "error" : "Error",
+      "error_message" : "Ha ocurrido un error. Por favor, inténtalo de nuevo más tarde.",
+      "error_button" : "Volver"
+    },
+
+    "footer": {
+      "voteit" : "© 2024 1to1",
+      "avisoLegal" : "Aviso Legal",
+      "politicaPrivacidad" : "Política de Privacidad",
+      "politicaCookies" : "Política de Cookies",
+      "contacto" : "Contacto"
+    },
+
     "register": {
       "title": "Registrarse",
       "dni": "DNI",
@@ -45,15 +71,7 @@
         "login": "Iniciar sesión",
         "signup": "Regístrate"
     },
-    "header_logged": {
-        "hire_services": "Contratar Servicios",
-        "offer_services": "Ofrecer Servicios",
-        "requests": "Solicitudes",
-        "my_services": "Mis Servicios",
-        "contact": "Contacto",
-        "profile": "Perfil",
-        "logout": "Cerrar Sesión"
-    },
+   
     "service_creation": {
         "date_prefix" : "Fecha",
         "date_description" : "de realizacion del Servicio",

@@ -10,21 +10,21 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="home-comprador">Contratar Servicio</a>
+        <a class="nav-link" routerLink="home-comprador">{{ 'header_logged.contratar' | translate }}</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="crear-servicio">Ofrecer Servicios</a>
+          <a class="nav-link" routerLink="crear-servicio">{{'header_logged.ofrecer' | translate }}</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="mis-servicios">Mis Servicios</a>
+          <a class="nav-link" routerLink="mis-servicios">{{'header_logged.misServicios' | translate}}</a>
         </li>
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="solicitudes">Solicitudes</a>
+        <a class="nav-link" routerLink="solicitudes">{{'header_logged.solicitudes' | translate}}</a>
       </li>
     </ul>
 
     <form class="form-inline my-2 my-lg-0">
-      <input  class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+      <input  class="form-control mr-sm-2" type="search" placeholder="{{'header_logged.buscar' | translate}}" aria-label="Search">
     </form>
 
       <!--MENU DESPLEGABLE-->
@@ -33,9 +33,9 @@
       </button>
 
       <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="/perfil">Ver Perfil</button>
-        <button mat-menu-item routerLink="contacto">Contacto</button>
-        <button (click)="logout()" mat-menu-item>Cerrar Sesión</button>
+        <button mat-menu-item routerLink="/perfil">{{'header_logged.perfil' | translate}}</button>
+        <button mat-menu-item routerLink="contacto">{{'header_logged.contacto' | translate}}</button>
+        <button (click)="logout()" mat-menu-item>{{'header_logged.cerrarSesion' | translate}}</button>
       </mat-menu>
       </div>
 </nav>

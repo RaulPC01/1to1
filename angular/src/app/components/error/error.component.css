@@ -1,0 +1,33 @@
+.error-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background-color: #f8f8f8;
+    color: #333;
+  }
+  
+  .error-title {
+    font-size: 6rem;
+    margin: 0;
+  }
+  
+  .error-message {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+  }
+  
+  .error-link {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 1.25rem;
+    margin-top: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .error-link:hover {
+    color: #0056b3;
+  }
+  
