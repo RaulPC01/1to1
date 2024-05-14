@@ -8,11 +8,12 @@
     <div class="left-content">
       <div class="col-md-6">
         <h2 class="tituloCrearServicio">Crear Servicio</h2>
-        <p class="texto">Crear tu propio servicio te brinda la oportunidad de destacar tus habilidades únicas y llegar a una audiencia específica, potenciando tu visibilidad y oportunidades de negocio en nuestra plataforma.</p>
-        
-          
-            <a routerLink="/crear-servicio" class="btn btn-primary">Crear</a>
-        
+        <p class="texto">Crear tu propio servicio te brinda la oportunidad de destacar tus habilidades únicas y llegar a
+          una audiencia específica, potenciando tu visibilidad y oportunidades de negocio en nuestra plataforma.</p>
+
+
+        <a routerLink="/crear-servicio" class="btn btn-primary">Crear</a>
+
       </div>
     </div>
 
@@ -25,9 +26,12 @@
           <p>{{ servicio.descripcion }}</p>
           <p>{{ servicio.tarifa }}€</p>
           <div class="buttons">
-            <a [routerLink]="['/servicios', servicio.id_servicios]" class="button view-button"><i class="fas fa-info-circle"></i> Ver más</a>
-            <button (click)="toggleEditForm(servicio)" class="button edit-button"><i class="fas fa-edit"></i> Editar</button>
-            <button (click)="eliminarServicio(servicio.id_servicios)" class="button delete-button"><i class="fas fa-trash-alt"></i> Eliminar</button>
+            <a [routerLink]="['/servicios', servicio.id_servicios]" class="button view-button"><i
+                class="fas fa-info-circle"></i> Ver más</a>
+            <button (click)="toggleEditForm(servicio)" class="button edit-button"><i class="fas fa-edit"></i>
+              Editar</button>
+            <button (click)="eliminarServicio(servicio.id_servicios)" class="button delete-button"><i
+                class="fas fa-trash-alt"></i> Eliminar</button>
           </div>
           <!-- Formulario de edición del servicio actual -->
           <div *ngIf="servicioEditando && servicioEditando.id_servicios === servicio.id_servicios" class="edit-form">
@@ -35,15 +39,18 @@
               <h4>Editar Servicio</h4>
               <div class="form-group">
                 <label for="tipo">Tipo de servicio:</label>
-                <input type="text" [(ngModel)]="servicioEditando.tipo_servicio" id="tipo" name="tipo" class="form-control">
+                <input type="text" [(ngModel)]="servicioEditando.tipo_servicio" id="tipo" name="tipo"
+                  class="form-control">
               </div>
               <div class="form-group">
                 <label for="descripcion">Descripción:</label>
-                <textarea [(ngModel)]="servicioEditando.descripcion" id="descripcion" name="descripcion" class="form-control"></textarea>
+                <textarea [(ngModel)]="servicioEditando.descripcion" id="descripcion" name="descripcion"
+                  class="form-control"></textarea>
               </div>
               <div class="form-group">
                 <label for="tarifa">Tarifa (€):</label>
-                <input type="number" [(ngModel)]="servicioEditando.tarifa" id="tarifa" name="tarifa" class="form-control">
+                <input type="number" [(ngModel)]="servicioEditando.tarifa" id="tarifa" name="tarifa"
+                  class="form-control">
               </div>
               <button type="submit" class="btn btn-primary">Actualizar Servicio</button>
               <button type="button" class="btn btn-secondary" (click)="toggleEditForm(servicio)">Cancelar</button>
