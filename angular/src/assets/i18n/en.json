@@ -70,6 +70,32 @@
     "contacto" : "Contact"
   },
 
+
+  "contratar-servicio" : {
+    "aSaber" : "To Know",
+    "titulo" : "You are about to hire a service!",
+    "descripcion2" : "Please complete the following fields to submit your service request.",
+    "confirmacion" : "Your request has been successfully sent! You will receive a response from the service provider shortly.",
+    "descripcion" : "Remember to explain in as much detail as possible the problem you are facing so that the service provider can clearly understand what you are experiencing. This will make it easier for both of you.",
+    "fecha" : "Choose the date on which you would like the service to be performed. This will only be a preliminary reference.",
+    "describe" : "Describe",
+    "tuProblema" : "your Problem",
+    "anterior" : "Previous",
+    "siguiente" : "Next",
+    "fecha1": "Date",
+    "fecha2": "of service performance",
+    "errorFecha": "The date must be between today and one year from today.",
+    "metodoPago": "Payment Method",
+    "realizarPago": "Make Payment",
+    "introducirTarjeta": "Enter the card number",
+    "mesExpiracion": "Expiration Month",
+    "añoExpiracion": "Expiration Year",
+    "nombreTarjeta": "Cardholder Name",
+    "enviarSolicitud": "Submit Request",
+    "ejemplo": "E.g.: Deep cleaning of the computer and thermal paste replacement at home"
+  },
+
+
   "service_creation": {
     "date_prefix": "Date",
     "date_description": "of Service Completion",

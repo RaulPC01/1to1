@@ -34,6 +34,30 @@
       "contacto" : "Contacto"
     },
 
+    "contratar-servicio" : {
+      "aSaber" : "A Saber",
+      "titulo" : "¡Estás a punto de contratar un servicio!",
+      "descripcion2" : "Por favor, completa los siguientes campos para enviar tu solicitud de servicio.",
+      "confirmacion" : "¡Tu solicitud se ha enviado correctamente! En breves recibirás una respuesta del proveedor del servicio.",
+      "descripcion" : "Recurda explicar con todo detalle possobile el problema al que te enfrentas  para que el proveedor del servicio pueda entender claramente lo que estás experimentand, así serà màs fàcil para los dos.",
+      "fecha" : "Elige la fecha en la que te gustaría que se realizara el servicio. Esto solo será una referencia preliminar.",
+      "describe" : "Describe",
+      "tuProblema" : "tu Problema",
+      "anterior" : "Anterior",
+      "siguiente" : "Siguiente",
+      "fecha1": "Fecha",
+      "fecha2": "de realización del servicio",
+      "errorFecha": "La fecha debe estar entre hoy y un año a partir de hoy.",
+      "metodoPago": "Método de Pago",
+      "realizarPago": "Realizar Pago",
+      "introducirTarjeta": "Introduce el número de tarjeta",
+      "mesExpiracion": "Mes de Expiración",
+      "añoExpiracion": "Año de Expiración",
+      "nombreTarjeta": "Nombre de la Tarjeta",
+      "enviarSolicitud": "Enviar Solicitud",
+      "ejemplo": "Ej: Limpieza profunda del ordenador y cambio de pasta térmica a domicilio"
+    },
+
     "register": {
       "title": "Registrarse",
       "dni": "DNI",

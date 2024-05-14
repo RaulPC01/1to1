@@ -2,38 +2,37 @@
     <path fill="#b40301" fill-opacity="1" d="M0,160L48,144C96,128,192,96,288,96C384,96,480,128,576,165.3C672,203,768,245,864,240C960,235,1056,181,1152,160C1248,139,1344,149,1392,154.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
 </svg>
 <div class="encabezado">
-    <h2 class="titulo">¡Estás a punto de crear tu propio servicio!</h2>
-    <p class="descripcion">Por favor, completa los siguientes campos para crear tu oferta de servicio.</p>
+    <h2 class="titulo"> {{ 'contratar-servicio.titulo' | translate }}</h2>
+    <p class="descripcion"> {{ 'contratar-servicio.descripcion2' | translate }}</p>
 </div>
 
 <div class="cuerpo">
 
     <div *ngIf="showConfirmation" class="popup">
-        ¡Tu Solicitud se ha enviado correctamente! En breves recibiras una respuesta del proveedor del servicio.
+        {{ 'contratar-servicio.confirmacion' | translate }}
     </div>
     <div class="izquierda">
-        <h3 class="tituloIzquierda"><span class="material-symbols-outlined">family_star</span> A Saber</h3>
+        <h3 class="tituloIzquierda"><span class="material-symbols-outlined">family_star</span>  {{ 'contratar-servicio.aSaber' | translate }}</h3>
         <div [ngClass]="{ 'hidden': !mostrarDescripcion }">
-            <p>Recurda explicar con todo detalle possobile el problema al que te enfrentas  para que el proveedor del servicio pueda entender claramente lo que estás experimentand, así serà màs fàcil para los dos.</p>
+            <p> {{ 'contratar-servicio.descripcion' | translate }}</p>
         </div>
 
         <div [ngClass]="{ 'hidden': !mostrarDate }">
-            <p>Elige la fecha a la que gustaría que se realizara ese servicio. Esto solo sera una  </p><br>
+            <p>{{ 'contratar-servicio.fecha' | translate }}</p><br>
         </div>
-
     </div>
 
     <div class="derecha">
-        <form [formGroup]="servicioForm" (ngSubmit)="submitForm()" >
+        <form [formGroup]="servicioForm" (ngSubmit)="submitForm()">
             <!----------------------------DESCRIPCION DEL SERVICIO------------------------------------->
             <div [ngClass]="{ 'hidden': !mostrarDescripcion }" class="mb-4">
                 <div class="mb-3">
-                    <h3 class="tituloDescripcion">Describe <span style="color: #b40301"> tu Problema</span></h3>
-                    <textarea type="text" formControlName="descripcion" class="textareaDescripcion" placeholder="Ej: Limpieza profunda del ordenador y cambio de pasta térmica a domicilio" required (input)="countDescripcionLength($event)"></textarea>
+                    <h3 class="tituloDescripcion">{{ 'contratar-servicio.describe' | translate }} <span style="color: #b40301">{{ 'contratar-servicio.tuProblema' | translate }}</span></h3>
+                    <textarea type="text" formControlName="descripcion" class="textareaDescripcion" placeholder="{{ 'contratar-servicio.ejemplo' | translate}}" required (input)="countDescripcionLength($event)"></textarea>
                     <div class="contador-letras">{{ descripcionLength }}/200</div> <!-- Contador de letras -->
                     <div class="contenedor-botones">
-                       <button type="button" (click)="anteriorDescripcion()">Anterior</button>
-                       <button type="button" class="bSiguiente" (click)="verDate()" [disabled]="!servicioForm.get('descripcion')?.valid">Siguiente</button>
+                       <button type="button" (click)="anteriorDescripcion()">{{ 'contratar-servicio.anterior' | translate }}</button>
+                       <button type="button" class="bSiguiente" (click)="verDate()" [disabled]="!servicioForm.get('descripcion')?.valid">{{ 'contratar-servicio.siguiente' | translate }}</button>
                     </div>
                 </div>
             </div>
@@ -41,42 +40,41 @@
             <!-------------------------------------Fecha de realización-------------------------------------------->
             <div [ngClass]="{ 'hidden': !mostrarDate }" class="mb-4">
                 <div class="mb-3">
-                    <h3 class="tituloDescripcion"><span style="color: #b40301">Fecha</span> de realizacion del Servicio</h3>
+                    <h3 class="tituloDescripcion"><span style="color: #b40301">{{ 'contratar-servicio.fecha1' | translate }}</span> {{ 'contratar-servicio.fecha2' | translate }}</h3>
                     <input type="date" formControlName="date_servicio" [min]="minDate" [max]="maxDate" required>
                     <div *ngIf="servicioForm.controls['date_servicio'].errors?.['dateRange']" class="alert alert-danger">
-                        La fecha debe estar entre hoy y un año a partir de hoy.
+                        {{ 'contratar-servicio.errorFecha' | translate }}
                     </div>
                 </div>
             
                 <div class="contenedor-botones">
-                    <button type="button" (click)="anteriorDescripcion()">Anterior</button>
-                    <button type="button" (click)="verMetodoPago()" [disabled]="!servicioForm.valid">Siguiente</button>
+                    <button type="button" (click)="anteriorDescripcion()">{{ 'contratar-servicio.anterior' | translate }}</button>
+                    <button type="button" (click)="verMetodoPago()" [disabled]="!servicioForm.valid">{{ 'contratar-servicio.siguiente' | translate }}</button>
                 </div>
             </div>
             
-            
              <!-------------------------------------Metodo de Pago-------------------------------------------->
             <div [ngClass]="{ 'hidden': !mostrarMetodoPago }" class="mb-4">
-                <h3 class="tituloDescripcion">Realizar el pago</h3>
+                <h3 class="tituloDescripcion">{{ 'contratar-servicio.realizarPago' | translate }}</h3>
                 <form action="#" class="credit-card-div">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" placeholder="Introduce el número de tarjeta" />
+                                    <input type="text" class="form-control" placeholder="{{ 'contratar-servicio.introducirTarjeta' | translate }}" />
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-3 col-sm-3 col-xs-3">
-                                    <span class="help-block text-muted small-font"> Mes de expiración</span>
+                                    <span class="help-block text-muted small-font">{{ 'contratar-servicio.mesExpiracion' | translate }}</span>
                                     <input type="text" class="form-control" placeholder="MM" />
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
-                                    <span class="help-block text-muted small-font"> Año de expiración</span>
+                                    <span class="help-block text-muted small-font">{{ 'contratar-servicio.añoExpiracion' | translate }}</span>
                                     <input type="text" class="form-control" placeholder="AA" />
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3" style="display: flex; flex-direction: column;">
-                                    <span class="help-block text-muted small-font"> CCV</span>
+                                    <span class="help-block text-muted small-font">CCV</span>
                                     <input type="text" class="form-control" placeholder="CCV" />
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
@@ -85,20 +83,16 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12 pad-adjust">
-                                    <input type="text" class="form-control" placeholder="Nombre en la tarjeta" />
+                                    <input type="text" class="form-control" placeholder="{{ 'contratar-servicio.nombreTarjeta' | translate }}" />
                                 </div>
-                            </div>
-                            <div class="row">
-                               
                             </div>
                         </div>
                     </div>
                 </form>
-                
     
                 <div class="contenedor-botones">
-                    <button type="button" (click)="anteriorDate()">Anterior</button>
-                    <button type="submit" [disabled]="!servicioForm.valid">Enviar Solicitud</button>
+                    <button type="button" (click)="anteriorDate()">{{ 'contratar-servicio.anterior' | translate}}</button>
+                    <button type="submit" [disabled]="!servicioForm.valid">{{ 'contratar-servicio.enviarSolicitud' | translate }}</button>
                 </div>
             </div>
         </form>
