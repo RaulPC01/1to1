@@ -88,8 +88,17 @@
         "evidence_title": "¡La pruebas son más que evidentes!",
         "testimonial1_name": "Roger Orteu",
         "testimonial1_location": "Juneda",
-        "testimonial1_text": "Roger es un gran profesional, es una persona muy atenta y comprensiva. Es muy trabajador y cumple en su totalidad lo que promete en su servicio. Un profesional muy recomendado."
+        "testimonial1_text": "Roger es un gran profesional, es una persona muy atenta y comprensiva. Es muy trabajador y cumple en su totalidad lo que promete en su servicio. Un profesional muy recomendado.",
+        "testimonial3_name": "Arian Lanuza",
+        "testimonial3_location": "Solsona",
+        "testimonial3_text": "Arián Lanuza es un profesional sobresaliente, con una atención excepcional y una dedicación insuperable en su trabajo. Sin duda, lo recomendaría sin reservas.",
+        "testimonial2_name": "Raul Pereira",
+        "testimonial2_location": "Andorra",
+        "testimonial2_text": "Raul Pereira es un profesional excepcional, siempre atento y comprometido. Su dedicación y cumplimiento hacen que sea altamente recomendado en su servicio."
       },
+
+     
+
       "ser": {
         "add_comment_button": "Añadir comentario",
         "write_comment_placeholder": "Escribe tu comentario aquí",
