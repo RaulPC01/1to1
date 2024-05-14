@@ -3,41 +3,26 @@
 <br>
 <br>
 <br>
-<br>
+
 
 <div class="tarjetaRegistro">
-  <h1 class="titulo">Regístrate</h1>
+  <h1 class="titulo">{{ 'register.title' | translate }}</h1>
   <form [formGroup]="RegisterForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
-    <input class="Inputs" type="text" placeholder="DNI" formControlName="dni" required>
-    <div *ngIf="submitted && RegisterForm.get('dni')?.errors" class="error-message">
-      {{ getErrorMessage('dni') }}
-    </div>
-    <input class="Inputs" type="text" placeholder="Nombre Completo" formControlName="name" required>
-    <div *ngIf="submitted && RegisterForm.get('name')?.errors" class="error-message">
-      {{ getErrorMessage('name') }}
-    </div>
-    <input class="Inputs" type="date" placeholder="Fecha de Nacimiento" formControlName="dateOfBirth" required>
-    <input class="Inputs" type="email" placeholder="E-mail" formControlName="email" required>
-    <input class="Inputs" type="tel" placeholder="Teléfono" formControlName="phone" required>
-    <div *ngIf="submitted && RegisterForm.get('phone')?.errors" class="error-message">
-      {{ getErrorMessage('phone') }}
-    </div>
-    <input class="Inputs" type="password" placeholder="Contraseña" formControlName="password" required>
-    <div *ngIf="submitted && RegisterForm.get('password')?.errors" class="error-message">
-      {{ getErrorMessage('password') }}
-    </div>
-    <input class="Inputs" type="password" placeholder="Repite la contraseña" formControlName="password_confirmation"
-      required>
-    <div
-      *ngIf="RegisterForm.hasError('passwordMismatch') && (RegisterForm.get('password') || RegisterForm.get('password_confirmation'))"
-      style="color: red;">
-      Las contraseñas no coinciden.
-    </div>
-    <input class="Inputs" type="file" accept="image/*" (change)="onFileSelected($event)" required>
-
-    <button type="submit">Registrarse</button>
+      <input class="Inputs" type="text" placeholder="{{ 'register.dni' | translate }}" formControlName="dni" required>
+      <input class="Inputs" type="text" placeholder="{{ 'register.fullName' | translate }}" formControlName="name" required>
+      <input class="Inputs" type="date" placeholder="{{ 'register.dateOfBirth' | translate }}" formControlName="dateOfBirth" required>
+      <input class="Inputs" type="email" placeholder="{{ 'register.email' | translate }}" formControlName="email" required>
+      <input class="Inputs" type="tel" placeholder="{{ 'register.phone' | translate }}" formControlName="phone" required>
+      <input class="Inputs" type="password" placeholder="{{ 'register.password' | translate }}" formControlName="password" required>
+      <input class="Inputs" type="password" placeholder="{{ 'register.confirmPassword' | translate }}" formControlName="password_confirmation" required>
+      <div *ngIf="RegisterForm.hasError('passwordMismatch') && (RegisterForm.get('password') || RegisterForm.get('password_confirmation'))" style="color: red;">
+        {{ 'register.passwordMismatchError' | translate }}
+      </div>
+      <input class="Inputs" type="file" accept="image/*" (change)="onFileSelected($event)" required>
+      
+      <button type="submit">{{ 'register.submitButton' | translate }}</button>
   </form>
 
-  <p>¿Ya tienes una cuenta?</p>
-  <a href="/login">Inicia sesión</a>
+  <p>{{ 'register.alreadyHaveAccount' | translate }}</p>
+  <a routerLink="/login">{{ 'register.loginLink' | translate }}</a>
 </div>

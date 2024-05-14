@@ -1,3 +1,5 @@
+
+
 <footer>
     <div class="div">
         <div class="left">
@@ -6,11 +8,16 @@
                 <a class="politica">Aviso Legal</a>
                 <a class="politica">Política de privacidad</a>
                 <a class="politica">Política de cookies</a>
+                <a class="politica"> <strong>Contacto</strong></a>
             </div>
         </div>
         <div class="right">
-            <a>
-                Idioma: Español (España)
+            <a (click)="cambiarIdioma('es')">
+                Idioma: Español 
+                <span class="arrow"></span>
+            </a>
+            <a (click)="cambiarIdioma('en')">
+                Idioma: English 
                 <span class="arrow"></span>
             </a>
         </div>
