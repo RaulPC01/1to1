@@ -60,14 +60,14 @@ export class MainCompradorComponent implements OnInit {
   nextPage(): void {
     if (this.currentPage < this.getTotalPages()) {
       this.currentPage++;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 450, behavior: 'smooth' });
     }
   }
 
   prevPage(): void {
     if (this.currentPage > 1) {
       this.currentPage--;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 450, behavior: 'smooth' });
     }
   }
 

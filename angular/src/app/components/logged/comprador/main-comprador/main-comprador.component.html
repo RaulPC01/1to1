@@ -29,7 +29,7 @@
 
 <!---------------------DIV SERVICIOS------------------>
 <div class="contenedorTarjetas">
-  <button id="a" class="botonPagina prev" (click)="prevPage()" [disabled]="currentPage === 1" *ngIf="getTotalPages() === 6"><span id="a" class="material-symbols-outlined">arrow_back_ios</span></button>
+  <button id="a" class="botonPagina prev" (click)="prevPage()" [disabled]="currentPage === 1"><span id="a" class="material-symbols-outlined">arrow_back_ios</span></button>
 
   <section class="tarjetas">
     <div class="card estilo-b" *ngFor="let service of topRatedServices.slice(getStartIndex(), getEndIndex())">
@@ -53,10 +53,10 @@
     </div> -->
   </section>
 
-  <button id="a" class="botonPagina next" (click)="nextPage()" [disabled]="currentPage === getTotalPages()" *ngIf="getTotalPages() === 6"><span id="a" class="material-symbols-outlined">arrow_forward_ios</span></button>
+  <button id="a" class="botonPagina next" (click)="nextPage()" [disabled]="currentPage === getTotalPages()" ><span id="a" class="material-symbols-outlined">arrow_forward_ios</span></button>
 </div>
-
-
+<br>
+<br>
 
 <!--------------------.DIV PUBLICITARIO----------------->
 <div class="contenedor" *ngIf="!loading">
@@ -75,7 +75,8 @@
   </div>
 </div>
 
-
+<br>
+<br>
 <!--------------------COMENTARIOS----------------->
 <div class="generalRecomendados">
   <div class="izquierda">
