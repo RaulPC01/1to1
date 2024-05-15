@@ -1,5 +1,3 @@
-
-
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
   <div class="flex">
       <a routerLink="/home-comprador" class="logo">
@@ -12,23 +10,18 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item" routerLinkActive="active">
-        <a routerLink="/home-comprador" class="link link-center">{{ 'header_logged.hire_services' | translate }}</a>
-      
+        <a class="nav-link" routerLink="home-comprador">Contratar Servicio</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a routerLink="/crear-servicio" class="link link-center">{{ 'header_logged.offer_services' | translate }}</a>
+          <a class="nav-link" routerLink="crear-servicio">Ofrecer Servicios</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a routerLink="/solicictudes" class="lisnk link-center">{{ 'header_logged.requests' | translate }}</a>
+          <a class="nav-link" routerLink="mis-servicios">Mis Servicios</a>
         </li>
       <li class="nav-item" routerLinkActive="active">
-        <a routerLink="/mis-servicios" class="link link-center">{{ 'header_logged.my_services' | translate }}</a>
+        <a class="nav-link" routerLink="solicictudes">Solicitudes</a>
       </li>
     </ul>
-
-    <form class="form-inline my-2 my-lg-0">
-      <input type="text" [(ngModel)]="buscarPalabra" placeholder="{{ 'home.search_placeholder' | translate }}" (keyup.enter)="searchServices()" class="buscar-input">
-    </form>
 
       <!--MENU DESPLEGABLE-->
       <button class="opciones" mat-button [matMenuTriggerFor]="menu">
@@ -37,7 +30,7 @@
 
       <mat-menu #menu="matMenu">
         <button mat-menu-item routerLink="/perfil">Ver Perfil</button>
-        <a routerLink="contacto" class="link link-right">{{ 'header_logged.contact' | translate }}</a>
+        <button mat-menu-item routerLink="contacto">Contacto</button>
         <button (click)="logout()" mat-menu-item>Cerrar Sesión</button>
       </mat-menu>
       </div>

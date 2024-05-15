@@ -196,26 +196,38 @@ a:hover {
   background-color: #b40301;
 }
 
-.pagination-container {
+.pagination-container{
+  top: 25%;
+  width: 99%;
+  left: 20px;
   display: flex;
-  justify-content: space-between; /* Espacio igual entre elementos */
-  width: 100%; /* Ocupa todo el ancho disponible */
-  margin-top: 20px; /* Espacio superior */
+  justify-content: space-between;
+  align-items: center;
 }
 
-.pagination-button {
-  background-color: #b40301;
-  color: #fff;
-  padding: 10px 20px;
+.botonPagina{
+  background: none;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.pagination-button:hover {
-  background-color: #b40301;
+.prev{
+  margin-left: 100px;
 }
+
+.next{
+  margin-right: 110px;
+}
+
+.contenedorTarjetas {
+  display: flex;
+  justify-content: center;
+}
+
+#a{
+  font-size: 40px;
+}
+
 
 /* Estilos para dispositivos móviles */
 @media screen and (max-width: 768px) {
@@ -325,60 +337,40 @@ a:hover {
 }
 
 
-
-
-.options-container {
-  position: relative; /* Añade posición relativa al contenedor */
-  max-width: 1500px;
-  margin: 0 auto;
-  padding: 10vh;
-  height: max-content;
-}
-
-.options-wrapper {
-  display: flex; /* Utiliza flexbox para alinear las tarjetas horizontalmente */
-  overflow-x: auto; /* Permite el desplazamiento horizontal */
-  gap: 20px; /* Espacio entre las tarjetas */
-}
-
-.option {
-  width: 400px; /* Ajusta el ancho según sea necesario */
-  height: auto; /* Cambia la altura a automático para que se ajuste al contenido */
-  padding: 20px;
-  text-align: center;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  overflow: hidden; /* Para asegurar que la imagen redonda no se desborde */
-}
-
-.option:hover {
-  transform: translateX(20px); /* Traslada la opción hacia la derecha al pasar el ratón */
-}
-
-.options-container {
+/*-----------------------------------COMENTARIOS--------------------------------------*/
+.generalRecomendados{
   display: flex;
+  flex-direction: row;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+.izquierda{
+  float: left;
+  width: 27%;
+  margin-left: 2%;
   justify-content: center;
-  
-  max-width: 1800px;
-  margin: 0 auto;
-  padding: 5vh;
+  text-align: center;
+  align-items: center;
+}
+
+.izquierda h1{
+  font-weight: 700;
+  margin-top: 130px;
 }
 
 .option {
-  width: 350px;
-  height:380px;
+  width: 300px;
+  height:290px;
   padding: 20px;
-  text-align: center;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   margin: 20px;
-  overflow: hidden; /* Para asegurar que la imagen redonda no se desborde */
 }
 
 .option:hover {
-  transform: translateX(-20px); /* Traslada la opción hacia la izquierda al pasar el ratón */
+  transform: translateX(-20px);
 }
 
 .option-content {
@@ -389,12 +381,12 @@ a:hover {
 .profile-pic {
   width: 80px;
   height: 80px;
-  border-radius: 50%; /* Hace la imagen redonda */
+  border-radius: 50%;
   margin-right: 20px;
 }
 
 .text-container {
-  text-align: left; /* Alinea el texto a la izquierda */
+  text-align: left; 
 }
 
 .text-container h3 {
@@ -405,4 +397,16 @@ a:hover {
 .text-container p {
   color: #666;
   margin: 0;
+  font-weight: 600;
+}
+
+.divUsuario{
+  margin-top: 13px;
+}
+
+ .infoUsuario {
+  color: #666;
+  margin: 0;
+  font-weight: 400;
+  text-align: left;
 }
