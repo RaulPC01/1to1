@@ -243,6 +243,7 @@ a:hover {
 .contenedorTarjetas {
   display: flex;
   justify-content: center;
+  margin-bottom: 2%;
 }
 
 #a{
@@ -310,8 +311,8 @@ a:hover {
 .generalRecomendados{
   display: flex;
   flex-direction: row;
-  padding-top: 3%;
-  padding-bottom: 3%;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
 
 .izquierda{

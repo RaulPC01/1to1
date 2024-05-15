@@ -97,3 +97,18 @@ button {
 .signup:hover {
     background: #e2e2e2;
 }
+
+
+@media only screen and (max-width: 768px) {
+    .links {
+      display: none; /* Ocultar los enlaces en pantallas pequeñas */
+    }
+  
+    .flex {
+      margin-left: auto; /* Mover los botones a la derecha */
+    }
+  
+    .logo {
+      margin-left: 0; /* Eliminar el margen izquierdo en pantallas pequeñas */
+    }
+  }
