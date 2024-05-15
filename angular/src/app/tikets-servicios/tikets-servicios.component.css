@@ -1,5 +1,6 @@
 .cuerpo{
   padding-top: 1px;
+  height: 20em;
 }
 
 /*------------------------------------SUBMNEU---------------------------------------------*/
@@ -45,7 +46,7 @@
 
 /*-------------------------------CONTENEDOR-----------------------------*/
 .container{
-  min-height: 30em;
+  min-height: 20em;
 }
 
 
@@ -78,18 +79,21 @@
 
 /*--------------------------------CONTINGUT DIV DRETA-----------------------------------------*/
 #derecha{
-  margin-top: 1%;
   text-align: center;
   right: -700px;
   flex-direction: column;
-  margin-top: 5px;
+  margin-top: 70px;
+}
+
+.divTitulo{
+  width: 500px;
 }
 
 .tituloDerecha{
   font-weight: 700;
   font-size: 35px;
   color: #b40301;
-  margin-top: 70px;
+  margin-top: 0px;
   position: fixed;
   right: 16%;
 }
@@ -100,7 +104,7 @@ h2{
 
 .infoSolicitud{
   max-width: 550px;
-  padding: 1.5em;
+  padding: 1em;
   background-color: rgb(251, 248, 248);
   border-radius: 20px;
 }
@@ -146,9 +150,9 @@ h2{
 }
 
 .contenido {
-  max-height: calc(100vh - 120px); /* Tamaño máximo del contenido, ajusta según necesites */
+  max-height: calc(75vh - 120px); /* Tamaño máximo del contenido, ajusta según necesites */
   overflow-y: auto; /* Agrega un scroll solo si es necesario */
-  margin-top: 120px;
+  margin-top: 50px;
 }
 
 /*--------------------------------LOADING-SPINNER-----------------------------------------*/
