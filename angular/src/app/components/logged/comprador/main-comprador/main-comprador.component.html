@@ -3,7 +3,7 @@
 </div>
 
 <div class="tituloHome" *ngIf="!loading">
-  <h1>Encuentra tu <span style="color: #b40301">Profesional</span></h1>
+  <h1>{{ 'landingPage.find_your' | translate }} <span style="color: #b40301">{{ 'landingPage.professional' | translate }}</span></h1>
 </div>
 
 <!---------------------DIV CATEGORIAS------------------>
@@ -11,7 +11,7 @@
   <div class="column" *ngFor="let column of columns">
     <a class="category" *ngFor="let category of getColumnCategories(column)"
       [class.selected]="selectedCategoryId === category.id" (click)="onSelectCategory(category.id)">
-      {{category.nombre_categoria | translate}}
+      {{ category.nombre_categoria | translate }}
     </a>
   </div>
 </div>
@@ -20,62 +20,31 @@
 <div class="contenedorTarjetas">
   <section class="tarjetas">
     <div class="card estilo-b" *ngFor="let service of topRatedServices.slice(getStartIndex(), getEndIndex())">
-
       <a id="aTarjeta" [routerLink]="['/servicios', service.id_servicios]">
         <div class="img-container">
-          <img [src]="service.user.image" alt="Foto de perfil">
-          <span class="price">{{service.tarifa}} €</span>
+          <img [src]="service.user.image" alt="{{ 'landingPage.profile_picture' | translate }}">
+          <span class="price">{{ service.tarifa }} €</span>
         </div>
         <div class="info">
-          <p class="titulo">{{service.tipo_servicio}}</p>
-          <button class="botonVer"> Ver más... </button>
+          <p class="titulo">{{ service.tipo_servicio }}</p>
+          <button class="botonVer">{{ 'landingPage.view_more' | translate }}</button>
         </div>
       </a>
     </div>
   </section>
 </div>
 
-
-<!--
-  <div class="contenedorTarjetas">
-  <section class="grid-container">
-    <div class="card estilo-b" *ngFor="let service of topRatedServices.slice(getStartIndex(), getEndIndex())">
-
-      <div class="wavy-background"></div>
-      <div class="img-container">
-        <img [src]="service.user.image" alt="Foto de perfil">
-        <span class="price">{{service.tarifa}} €</span>
-      </div>
-      <div class="info">
-        <p class="titulo">{{service.tipo_servicio}}</p>
-        <div class="rating">
-          <span class="material-symbols-outlined">
-            star <p>{{service.puntuacion_valoracion}}</p>
-          </span>
-          <span class="material-symbols-outlined">
-            where_to_vote <p class="lugar">{{service.poblacion.nombre_poblacion}}</p>
-          </span>
-        </div>
-      </div>
-      <a [routerLink]="['/servicios', service.id_servicios]">{{ 'home.view_more' | translate }}</a>
-    </div>
-  </section>
-</div>
--->
-
-
 <!--------------------.DIV PUBLICITARIO----------------->
 <div class="contenedor" *ngIf="!loading">
   <div class="grande">
     <img src="../../../assets/imatges/programador.jpg" alt="" class="imagen-fondo">
     <div class="texto">
-      <p style="font-weight: 800; font-size: 140%;">¡Únete ahora mismo a nuestra comunidad!</p>
+      <p style="font-weight: 800; font-size: 140%;">{{ 'landingPage.join_now' | translate }}</p>
       <br>
       <p style="font-weight: 500; margin-top: -20px; width: 100%; padding-inline: 25px;">
-        Comienza a crear tu propio servicio y explora un mundo lleno de oportunidades.
-        Desbloquea recursos exclusivos y conéctate con profesionales de todo el mundo.
-        ¡El futuro es tuyo para construirlo!</p>
-      <button class="boton" routerLink="/crear-servicio">{{ 'home.create_service_button' | translate }}</button>
+        {{ 'landingPage.start_creating' | translate }}
+      </p>
+      <button class="boton" routerLink="/crear-servicio">{{ 'landingPage.create_service_button' | translate }}</button>
     </div>
   </div>
 </div>

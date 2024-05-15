@@ -95,6 +95,66 @@
     "ejemplo": "E.g.: Deep cleaning of the computer and thermal paste replacement at home"
   },
 
+  "servicio": {
+    "profile_picture": "Profile picture",
+    "add_comment_button": "Add a Comment",
+    "write_comment_placeholder": "Write your comment here...",
+    "send_button": "Send",
+    "comments_title": "Comments",
+    "service_section": "Service Information",
+    "price_title": "Price",
+    "location_title": "Location",
+    "good_work": "Good Work",
+    "quality_attention": "Quality Attention",
+    "safe_reliable_service": "Safe and Reliable Service",
+    "hire_button": "Hire"
+  },
+
+  "profile": {
+    "profile_picture": "Profile picture",
+    "details_title": "Profile Details",
+    "edit_button": "Edit",
+    "full_name_label": "Full Name",
+    "email_label": "Email",
+    "contact_number_label": "Contact Number",
+    "verified": "Verified",
+    "change_profile_picture_label": "Change Profile Picture",
+    "save_changes_button": "Save Changes"
+  },
+
+  "crearServicio": {
+    "header_title": "You are about to create your own service!",
+    "header_description": "Please complete the following fields to create your service offer.",
+    "confirmation": "The service has been created successfully! Thank you very much for being part of our family. You can now see your service on our page.",
+    "to_know": "To Know",
+    "category_info": "You must choose a category. Select the category that best suits your service.",
+    "title_info": "Remember that the title is a fundamental aspect. It should be unique and clearly convey the service you want to offer. A well-chosen title will not only capture the attention of your potential customers but also provide them with an instant understanding of what you offer.",
+    "description_info": "Provide a detailed description of the service you want to offer. Feel free to share your unique work approach and experience in the field. The more information you provide, the easier it will be for your customers to understand the service you offer.",
+    "price_info": "Select the price that best suits the service we offer. If you need advice on the right rate, we are here to help! The price can vary depending on various factors, such as the complexity of the job, the time required, and the materials used.",
+    "location_info": "Select the location where you are willing to offer your service. By choosing the right location, we can ensure that we target the correct audience and provide an optimal service in your preferred area.",
+    "image_info": "Add your company logo or an image that represents your work.",
+    "choose_category": "Choose a Category",
+    "service_title": "Title of your Service",
+    "service_title_placeholder": "E.g.: Oil change",
+    "service_description": "About your Service",
+    "service_description_placeholder": "E.g.: Deep cleaning of the computer and changing thermal paste at home",
+    "price": "Price of your Service",
+    "choose_location": "Choose a Location",
+    "next_button": "Next",
+    "previous_button": "Previous",
+    "create_button": "Create"
+  },
+  
+
+  "landingPage": {
+    "find_your": "Find your",
+    "professional": "Professional",
+    "profile_picture": "Profile picture",
+    "view_more": "View more...",
+    "join_now": "Join our community now!",
+    "start_creating": "Start creating your own service and explore a world full of opportunities. Unlock exclusive resources and connect with professionals from all over the world. The future is yours to build!",
+    "create_service_button": "Create Service"
+  },
 
   "service_creation": {
     "date_prefix": "Date",
