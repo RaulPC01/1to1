@@ -9,18 +9,21 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+    // metodo para registrar un nuevo usuario
     public function register(Request $request)
     {
+        // validacion de los datos del request
         $request->validate([
             'dni' => 'required|string|unique:users',
             'name' => 'required|string',
-            'dateOfBirth' => 'required|date', // Cambiado a tipo de dato date
+            'dateOfBirth' => 'required|date', 
             'email' => 'required|email|unique:users',
             'phone' => 'required|string',
             'password' => 'required|string',
-            'image' => 'nullable|string', // La imagen ahora es opcional y se espera que sea una cadena Base64
+            'image' => 'nullable|string', 
         ]);
-    
+
+        // creacion de un nuevo usuario
         $user = new User();
         $user->dni = $request->dni;
         $user->name = $request->name;
@@ -28,27 +31,29 @@ class AuthController extends Controller
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->password = Hash::make($request->password);
-        $user->image = $request->image; // Almacenar la imagen codificada en Base64
+        $user->image = $request->image; // asignacion opcional de la imagen
         $user->save();
-    
-        return response()->json(['message' => 'Usuario registrado exitosamente'], 201);
+
+        // respuesta exitosa
+        return response()->json(['message' => 'usuario registrado exitosamente'], 201);
     }
+
+    // metodo para iniciar sesion
     public function login(Request $request)
     {
-        // Obtener los datos del formulario
+        // obtiene las credenciales del request
         $credentials = $request->only('dni', 'password');
-    
+
+        // verifica las credenciales
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
             $token = $user->createToken('authToken')->plainTextToken;
-    
-            // Si el inicio de sesión es exitoso, enviar el mensaje de éxito junto con el valor del campo "dni"
-            return response()->json(['message' => 'Inicio de sesión exitoso', 'authToken' => $token], 200);
+
+            // respuesta exitosa con el token de autenticacion
+            return response()->json(['message' => 'inicio de sesion exitoso', 'authToken' => $token], 200);
         }
-    
-        // Si las credenciales son incorrectas, devolver un error de inicio de sesión
-        return response()->json(['error' => 'Credenciales incorrectas'], 401);
+
+        // respuesta de error si las credenciales son incorrectas
+        return response()->json(['error' => 'credenciales incorrectas'], 401);
     }
-    
-    
 }

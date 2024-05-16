@@ -3,76 +3,98 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\categoriesController;
-use App\Http\Controllers\motiusController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\MotiusController;
 use App\Http\Controllers\PoblacionController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\solicitudesController;
-use PharIo\Manifest\AuthorElement;
+use App\Http\Controllers\SolicitudesController;
 
 /*
 |--------------------------------------------------------------------------
 | API Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
+| Aqui es donde puedes registrar rutas de la API para tu aplicacion. Estas
+| rutas se cargan por el RouteServiceProvider y todas estaran asignadas al
+| grupo de middleware "api". Haz algo grandioso!
 |
 */
 
+// devuelve el id del usuario autenticado
 Route::middleware('auth:sanctum')->get('/user-id', function (Request $request) {
     return $request->user()->id;
 });
 
-
+// rutas para registro y login
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
+// obtiene los servicios mejor valorados
 Route::post('/api/services/top-valorated', [ServiceController::class, 'getTopRated'])->name('topRated');
 
+// obtiene un servicio con sus relaciones por id
 Route::get('services/{id_servicios}', [ServiceController::class, 'getServiceWithRelations']);
 
-Route::middleware('auth:sanctum')->get('/perfil', [ProfileController::class, 'show'] ); //para ir a perfil
+// muestra el perfil del usuario autenticado
+Route::middleware('auth:sanctum')->get('/perfil', [ProfileController::class, 'show']);
 
-Route::get('/categories', [categoriesController::class, 'index']);
+// obtiene todas las categorias
+Route::get('/categories', [CategoriesController::class, 'index']);
 
+// obtiene todas las poblaciones
 Route::get('/poblaciones', [PoblacionController::class, 'index']);
 
+// crea un nuevo servicio
 Route::post('/crear-servicio', [ServiceController::class, 'createService']);
 
+// obtiene los datos del usuario autenticado
 Route::middleware('auth:api')->get('/user', [AuthController::class, 'dato']);
 
-Route::get('/motivos',[motiusController::class, 'index']);
+// obtiene todos los motivos
+Route::get('/motivos', [MotiusController::class, 'index']);
 
-Route::post('/create-tiket',[motiusController::class, 'createtiket']);
+// crea un nuevo ticket
+Route::post('/create-tiket', [MotiusController::class, 'createtiket']);
 
-Route::post('/crearSolicitud', [solicitudesController::class, 'create']);
+// crea una nueva solicitud
+Route::post('/crearSolicitud', [SolicitudesController::class, 'create']);
 
-Route::get('/services/{id_servicio}/user', [solicitudesController::class, 'getUserByServiceId']);
+// obtiene el usuario por id de servicio
+Route::get('/services/{id_servicio}/user', [SolicitudesController::class, 'getUserByServiceId']);
 
+// crea un nuevo comentario
 Route::post('/resena', [ServiceController::class, 'createComentarios']);
 
+// obtiene los comentarios de un servicio por id
 Route::get('servicios/{id_servicio}/comentarios', [ServiceController::class, 'comentariosDeServicio']);
 
-Route::get('/solicitudes/{id_user_proveedor}', [solicitudesController::class, 'getSolicitudesPorProveedor']);
+// obtiene las solicitudes por id del proveedor
+Route::get('/solicitudes/{id_user_proveedor}', [SolicitudesController::class, 'getSolicitudesPorProveedor']);
 
+// obtiene las solicitudes por aceptar por id del proveedor
+Route::get('/por-acceptar/{id_user_proveedor}', [SolicitudesController::class, 'solicitudesPorAcceptar']);
 
-Route::get('/por-acceptar/{id_user_proveedor}', [solicitudesController::class, 'solicitudesPorAcceptar']);
+// obtiene las solicitudes aceptadas por id del proveedor
+Route::get('/solicitudes-aceptadas/{id_user_proveedor}/', [SolicitudesController::class, 'solicitudesAcceptadas']);
 
-Route::get('/solicitudes-aceptadas/{id_user_proveedor}/',  [solicitudesController::class, 'solicitudesAcceptadas']);
+// acepta una solicitud por id
+Route::put('/solicitudes/{id}/aceptar', [SolicitudesController::class, 'aceptarSolicitud']);
 
-Route::put('/solicitudes/{id}/aceptar',  [solicitudesController::class, 'aceptarSolicitud']);
+// rechaza una solicitud por id
+Route::delete('/solicitudes/{id}/rechazar', [SolicitudesController::class, 'rechazarSolicitud']);
 
-Route::delete('/solicitudes/{id}/rechazar',  [solicitudesController::class, 'rechazarSolicitud']);
-
+// obtiene los servicios segun el usuario proveedor por id
 Route::get('/serviciosUser/{id_usuario_proveedor}', [ServiceController::class, 'serviciosSegunUsuario']);
 
+// selecciona servicios por categoria
 Route::get('/services/por-categroia/{category_id}', [ServiceController::class, 'selectServicesByCategory']);
 
+// elimina un servicio por id
 Route::delete('/servicios/{id}', [ServiceController::class, 'destroy']);
 
+// actualiza un servicio por id
 Route::put('/servicios/{id}', [ServiceController::class, 'update']);
 
+// busca servicios
 Route::get('/buscar-servicios', [ServiceController::class, 'buscarServicios']);
