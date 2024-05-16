@@ -55,6 +55,7 @@ footer {
 a {
     cursor: pointer;
     direction: none;
+    color: inherit;
 }
 
 a:hover {
