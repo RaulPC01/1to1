@@ -14,8 +14,9 @@ export class FooterComponent {
     this.translateService.setDefaultLang('es'); // Establece el idioma por defecto como español
   }
 
-
-  cambiarIdioma(idioma: string): void {
+  cambiarIdioma(event: Event): void {
+    const selectElement = event.target as HTMLSelectElement;
+    const idioma = selectElement.value;
     this.translateService.use(idioma); // Cambia el idioma utilizando el servicio de traducción
   }
 
