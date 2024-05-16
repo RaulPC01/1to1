@@ -54,6 +54,18 @@ class solicitudesController extends Controller
         return response()->json($solicitudes);
     }
 
+
+    public function getMisSolicitudes($userId)
+    {
+        // Buscar todas las solicitudes del proveedor por su ID
+        $solicitudes = solicitudes::where('id_user', $userId)->get();
+
+        // Retornar las solicitudes encontradas
+        return response()->json($solicitudes);
+    }
+
+
+
     public function solicitudesPorAcceptar ($id_user_proveedor)
 {
     // Buscar todas las solicitudes del proveedor por su ID
