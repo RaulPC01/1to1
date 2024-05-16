@@ -7,7 +7,7 @@
 </div>
 
 <!----------------------BUSCADOR----------------------->
-<div class="buscador-container">
+<div class="buscador-container" *ngIf="!loading">
     
     <div class="input-container">
       <input  class="form-control mr-sm-2 buscador-input"  type="text" [(ngModel)]="buscarPalabra" placeholder="{{ 'home.search_placeholder' | translate }}" (keyup.enter)="searchServices()" >
@@ -29,7 +29,7 @@
 
 
 <!---------------------DIV SERVICIOS------------------>
-<div class="contenedorTarjetas">
+<div class="contenedorTarjetas" *ngIf="!loading">
   <button id="a" class="botonPagina prev" (click)="prevPage()" [disabled]="currentPage === 1"><span id="a" class="material-symbols-outlined">arrow_back_ios</span></button>
 
   <section class="tarjetas">
