@@ -3,7 +3,7 @@
 <footer>
     <div class="div">
         <div class="left">
-            <div class="voteit">{{ 'footer.voteit' | translate }}</div>
+            <div class="voteit">© 2024 1to1</div>
             <div class="politicas">
                 <a class="politica" routerLink="">Aviso Legal</a>
                 <a class="politica" routerLink="politica-privacidad">Política de privacidad</a>
@@ -11,13 +11,14 @@
             </div>
         </div>
         <div class="right">
-            
-            <select id="language-select" (change)="cambiarIdioma($event)">
-                <option value="es">Español</option>
-                <option value="en">English</option>
-            </select>
+            <a (click)="cambiarIdioma('es')">
+                Idioma: Español 
+                <span class="arrow"></span>
+            </a>
+            <a (click)="cambiarIdioma('en')">
+                Idioma: English 
+                <span class="arrow"></span>
+            </a>
         </div>
-        
-        
     </div>
 </footer>
