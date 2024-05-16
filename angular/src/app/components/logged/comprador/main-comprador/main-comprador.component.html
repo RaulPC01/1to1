@@ -7,7 +7,7 @@
 </div>
 
 <!----------------------BUSCADOR----------------------->
-<div class="buscador-container">
+<div class="buscador-container" *ngIf="!loading">
     
     <div class="input-container">
       <input  class="form-control mr-sm-2 buscador-input"  type="text" [(ngModel)]="buscarPalabra" placeholder="{{ 'home.search_placeholder' | translate }}" (keyup.enter)="searchServices()" >
@@ -18,7 +18,7 @@
 
 
 <!-------------------DIV CATEGORIAS------------------>
-<div class="container">
+<div class="container" *ngIf="!loading">
   <div class="column" *ngFor="let column of columns">
     <a class="category" *ngFor="let category of getColumnCategories(column)"
       [class.selected]="selectedCategoryId === category.id" (click)="onSelectCategory(category.id)">
@@ -29,7 +29,7 @@
 
 
 <!---------------------DIV SERVICIOS------------------>
-<div class="contenedorTarjetas">
+<div class="contenedorTarjetas" *ngIf="!loading">
   <button id="a" class="botonPagina prev" (click)="prevPage()" [disabled]="currentPage === 1"><span id="a" class="material-symbols-outlined">arrow_back_ios</span></button>
 
   <section class="tarjetas">
@@ -53,9 +53,11 @@
 
   <button id="a" class="botonPagina next" (click)="nextPage()" [disabled]="currentPage === getTotalPages()" ><span id="a" class="material-symbols-outlined">arrow_forward_ios</span></button>
 </div>
-
+<br>
+<br>
+<br>
 <!--------------------.DIV PUBLICITARIO----------------->
-<div class="contenedor" style=" background-image: url('../../../assets/imatges/programador.jpg');">
+<div class="contenedor" style=" background-image: url('../../../assets/imatges/programador.jpg');" *ngIf="!loading">
   <div class="grande">
     
     <div class="texto">
@@ -70,7 +72,9 @@
     </div>
   </div>
 </div>
-
+<br>
+<br>
+<br>
 <!--------------------COMENTARIOS----------------->
 <div class="generalRecomendados" *ngIf="!loading">
   <div class="izquierda">
@@ -92,7 +96,7 @@
     </div>
   </div>
 
-  <div class="derecha">
+  <div class="derecha" *ngIf="!loading">
     <div class="option" style="background-color: rgba(181, 226, 237, 0.232);">
       <div class="option-content">
         <img src="../../../assets/imatges/prof1.jpeg" alt="Icon 1" class="profile-pic">
@@ -108,7 +112,7 @@
     </div>
   </div>
 
-  <div class="derecha">
+  <div class="derecha" *ngIf="!loading">
     <div class="option" style="background-color: rgba(237, 181, 181, 0.232);">
       <div class="option-content">
         <img src="../../../assets/imatges/prof1.jpeg" alt="Icon 1" class="profile-pic">
