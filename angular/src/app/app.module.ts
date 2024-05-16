@@ -32,6 +32,9 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { AvisoLegalComponent } from './aviso-legal/aviso-legal.component';
+import { PoliticaPrivacidadComponent } from './politica-privacidad/politica-privacidad.component';
+import { PoliticaCokkiesComponent } from './politica-cokkies/politica-cokkies.component';
 
 // Función para cargar archivos de traducción desde el servidor
 export function HttpLoaderFactory(http: HttpClient) {
@@ -57,6 +60,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     ContratarServicioComponent,
     TiketsServiciosComponent,
     MisServiviosComponent,
+    AvisoLegalComponent,
+    PoliticaPrivacidadComponent,
+    PoliticaCokkiesComponent,
   ],
   imports: [
     BrowserModule,

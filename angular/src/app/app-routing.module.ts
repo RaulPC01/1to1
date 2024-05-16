@@ -13,6 +13,9 @@ import { CrearservicoComponent } from './components/logged/proveedor/main-provee
 import { TiketsServiciosComponent } from './tikets-servicios/tikets-servicios.component';
 import { MisServiviosComponent } from './mis-servivios/mis-servivios.component';
 import { AuthGuard } from './guards/auth.guard'; // Importa el guardia AuthGuard
+import { AvisoLegalComponent } from './aviso-legal/aviso-legal.component';
+import { PoliticaPrivacidadComponent } from './politica-privacidad/politica-privacidad.component';
+import { PoliticaCokkiesComponent } from './politica-cokkies/politica-cokkies.component';
 
 
 const routes: Routes = [
@@ -36,6 +39,8 @@ const routes: Routes = [
   { path: 'solicitudes', component: TiketsServiciosComponent , canActivate: [AuthGuard] },
 
   { path: 'mis-servicios', component: MisServiviosComponent, canActivate: [AuthGuard]  },
+  { path: 'politica-privacidad', component: PoliticaPrivacidadComponent},
+  { path: 'politica-cookies', component: PoliticaCokkiesComponent},
 
 
   // =====================================================

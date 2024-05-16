@@ -14,11 +14,17 @@ export class HeaderLoggedComponent implements OnInit {
   isLoggedIn: boolean = false;
   usuarioActual: any;
   showToggleMenu: boolean = false;
+  loading: boolean = false;
+  buscarPalabra: string = '';
+  topRatedServices: any[] = [];
+  currentPage: number = 1;
+  pageSize: number = 10; // Número de servicios por página
 
   constructor(
     public TokenService: TokenService, 
     private router: Router,
-    private breakpointObserver: BreakpointObserver
+    private breakpointObserver: BreakpointObserver,
+    private ServicioService: UserService,
   ) { }
 
   ngOnInit(): void {
@@ -41,11 +47,11 @@ export class HeaderLoggedComponent implements OnInit {
     }
   }
 
-
   logout(): void {
     this.TokenService.cerrarSesion();
     this.router.navigate(['']);
   }
+
   toggleMobileMenu(): void {
     const mobileMenu = document.getElementById('mobileMenu');
     if (mobileMenu !== null) {
