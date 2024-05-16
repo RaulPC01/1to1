@@ -125,11 +125,12 @@
     border: 1px solid #dcdcdc;
     justify-content: center;
     color: black;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     width: 110px;
     padding: 15px 0px;
-    height: 60px;
+    height: 56px;
+    width: 190px;
 }
 
 .miniDiv hr{ background-color: #b40301; height: 2px;}
