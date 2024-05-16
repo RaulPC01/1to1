@@ -17,7 +17,7 @@
 
 
 <!-------------------DIV CATEGORIAS------------------>
-<div class="container" *ngIf="!loading">
+<div class="container">
   <div class="column" *ngFor="let column of columns">
     <a class="category" *ngFor="let category of getColumnCategories(column)"
       [class.selected]="selectedCategoryId === category.id" (click)="onSelectCategory(category.id)">
@@ -54,7 +54,7 @@
 </div>
 
 <!--------------------.DIV PUBLICITARIO----------------->
-<div class="contenedor" *ngIf="!loading" style=" background-image: url('../../../assets/imatges/programador.jpg');">
+<div class="contenedor" style=" background-image: url('../../../assets/imatges/programador.jpg');">
   <div class="grande">
     
     <div class="texto">
