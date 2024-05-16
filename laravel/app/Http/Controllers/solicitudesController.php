@@ -23,7 +23,7 @@ class solicitudesController extends Controller
             'descripcion' => 'required|string', // Cambiado a 'string' en lugar de 'text'
             'date_servicio' => 'required|date',
             'telefono_user' => 'required|string', // Cambiado a 'string' en lugar de 'integer'
-            'accepted' => '', // Cambiado a 'boolean' en lugar de 'accpeted'
+            'accepted' => 'boolean', // Cambiado a 'boolean' en lugar de 'accpeted'
         ]);
     
         // Crear el servicio con los datos validados

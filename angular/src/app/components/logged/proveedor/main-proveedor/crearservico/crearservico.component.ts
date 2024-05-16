@@ -55,7 +55,7 @@ export class CrearservicoComponent implements OnInit {
       categoria: ['', Validators.required],
       nombre: ['', Validators.required],
       descripcion: ['', Validators.required],
-      precio: ['', Validators.required],
+      precio: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
       poblacion: ['', Validators.required],
       
     });

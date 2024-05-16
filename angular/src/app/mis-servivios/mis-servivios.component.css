@@ -1,3 +1,35 @@
+.main {
+  display: flex;
+  padding: 30px;
+}
+
+.content-container {
+  display: flex;
+  width: 100%;
+}
+
+.left-content, .right-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.right-content {
+  max-height: calc(80vh - 120px);
+  overflow-y: auto;
+}
+
+.left-content {
+  border-right: none;
+  display: flex;
+  border-left: none;
+  align-items: center;
+  text-align: justify;
+  margin-top: 20px;
+  padding: 10px;
+  height: 100%;
+  right: 8%;
+}
+
 .loading-spinner {
   position: fixed;
   top: 50%;
@@ -11,7 +43,7 @@
 
 .spinner {
   border: 4px solid #f3f3f3;
-  border-top: 4px solid #dc2020;
+  border-top: 4px solid #3498db;
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -23,10 +55,13 @@
   100% { transform: rotate(360deg); }
 }
 
+.servicios-container {
+  margin-top: 20px;
+}
 
 .servicio-card {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  margin: 10px;
+  margin: 10px 0;
   padding: 20px;
   border-radius: 8px;
   background-color: #fff;
@@ -52,55 +87,139 @@
 }
 
 .view-button {
-  background-color: #007bff; /* blue */
+  background-color: #007bff;
   color: #fff;
 }
 
 .edit-button {
-  background-color: #ffc107; /* yellow */
+  background-color: #ffc107;
 }
 
 .delete-button {
-  background-color: #dc3545; /* red */
+  background-color: #dc3545;
   color: #fff;
 }
 
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
+.btn {
+  border-radius: 4px;
+  padding: 10px 15px;
 }
 
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  border-radius: 8px;
-  width: 80%;
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
 }
 
-.close-button {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+.btn-info {
+  background-color: #17a2b8;
+  color: #fff;
 }
 
-.close-button:hover,
-.close-button:focus {
-  color: black;
-  text-decoration: none;
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.tituloCrearServicio {
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.texto {
+  font-weight: 600;
+  color: rgb(78, 78, 78);
+  font-size: 18px;
+  width: 150%;
+}
+
+.btn.btn-primary {
+  padding: 10px 40px;
+  background-color: #b40301;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
   cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
 }
 
-.btn.btn-primary{
-  margin-right: 10px;
+.col-md-6 {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
+  margin-left: 41px;
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 15px;
+  }
+
+  .content-container {
+    flex-direction: column;
+  }
+
+  .left-content, .right-content {
+    padding: 10px;
+  }
+
+  .left-content {
+    border-right: none;
+    border-left: none;
+    margin-top: 10px;
+  }
+
+  .tituloCrearServicio {
+    font-size: 32px;
+  }
+
+  .texto {
+    font-size: 16px;
+    width: 100%;
+  }
+
+  .btn.btn-primary {
+    padding: 8px 30px;
+    font-size: 14px;
+  }
+
+  .col-md-6 {
+    margin-left: 0;
+  }
+
+  .right-content {
+    max-height: none;
+  }
+
+  .servicio-card {
+    padding: 15px;
+  }
+
+  .button {
+    padding: 8px 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .tituloCrearServicio {
+    font-size: 28px;
+  }
+
+  .texto {
+    font-size: 14px;
+  }
+
+  .btn.btn-primary {
+    padding: 6px 20px;
+    font-size: 12px;
+  }
+
+  .servicio-card {
+    padding: 10px;
+  }
+
+  .button {
+    padding: 6px 10px;
+  }
 }

@@ -8,6 +8,117 @@
       "no_account_message": "¿No tienes cuenta?",
       "register_link": "Regístrate"
     },
+
+    "header_logged": {
+      "contratar" : "Contratar",
+      "ofrecer" : "Ofrecer",
+      "misServicios" : "Mis Servicios",
+      "solicitudes" : "Solicitudes",
+      "buscar" : "Buscar",
+      "perfil" : "Perfil",
+    "contacto" : "Contacto",
+    "cerrarSesion" : "Cerrar Sesión"
+    },
+
+    "error": {
+      "error" : "Error",
+      "error_message" : "Ha ocurrido un error. Por favor, inténtalo de nuevo más tarde.",
+      "error_button" : "Volver"
+    },
+
+    "footer": {
+      "voteit" : "© 2024 1to1",
+      "avisoLegal" : "Aviso Legal",
+      "politicaPrivacidad" : "Política de Privacidad",
+      "politicaCookies" : "Política de Cookies",
+      "contacto" : "Contacto"
+    },
+
+    
+    "landingPage": {
+      "find_your": "Encuentra tu",
+      "professional": "Profesional",
+      "profile_picture": "Foto de perfil",
+      "view_more": "Ver más...",
+      "join_now": "¡Únete ahora mismo a nuestra comunidad!",
+      "start_creating": "Comienza a crear tu propio servicio y explora un mundo lleno de oportunidades. Desbloquea recursos exclusivos y conéctate con profesionales de todo el mundo. ¡El futuro es tuyo para construirlo!",
+      "create_service_button": "Crear Servicio"
+    },
+    
+    "servicio": {
+      "profile_picture": "Foto de perfil",
+      "add_comment_button": "Añadir Comentario",
+      "write_comment_placeholder": "Escribe tu comentario aquí...",
+      "send_button": "Enviar",
+      "comments_title": "Comentarios",
+      "service_section": "Información del Servicio",
+      "price_title": "Precio",
+      "location_title": "Ubicación",
+      "good_work": "Buen Trabajo",
+      "quality_attention": "Atención de Calidad",
+      "safe_reliable_service": "Servicio Seguro y Confiable",
+      "hire_button": "Contratar"
+    },
+
+    "contratar-servicio" : {
+      "aSaber" : "A Saber",
+      "titulo" : "¡Estás a punto de contratar un servicio!",
+      "descripcion2" : "Por favor, completa los siguientes campos para enviar tu solicitud de servicio.",
+      "confirmacion" : "¡Tu solicitud se ha enviado correctamente! En breves recibirás una respuesta del proveedor del servicio.",
+      "descripcion" : "Recurda explicar con todo detalle possobile el problema al que te enfrentas  para que el proveedor del servicio pueda entender claramente lo que estás experimentand, así serà màs fàcil para los dos.",
+      "fecha" : "Elige la fecha en la que te gustaría que se realizara el servicio. Esto solo será una referencia preliminar.",
+      "describe" : "Describe",
+      "tuProblema" : "tu Problema",
+      "anterior" : "Anterior",
+      "siguiente" : "Siguiente",
+      "fecha1": "Fecha",
+      "fecha2": "de realización del servicio",
+      "errorFecha": "La fecha debe estar entre hoy y un año a partir de hoy.",
+      "metodoPago": "Método de Pago",
+      "realizarPago": "Realizar Pago",
+      "introducirTarjeta": "Introduce el número de tarjeta",
+      "mesExpiracion": "Mes de Expiración",
+      "añoExpiracion": "Año de Expiración",
+      "nombreTarjeta": "Nombre de la Tarjeta",
+      "enviarSolicitud": "Enviar Solicitud",
+      "ejemplo": "Ej: Limpieza profunda del ordenador y cambio de pasta térmica a domicilio"
+    },
+
+    "crearServicio": {
+      "header_title": "¡Estás a punto de crear tu propio servicio!",
+      "header_description": "Por favor, completa los siguientes campos para crear tu oferta de servicio.",
+      "confirmation": "¡El servicio se ha creado correctamente! Muchas gracias por formar parte de nuestra familia. Ya puedes ver tu servicio en nuestra página.",
+      "to_know": "A Saber",
+      "category_info": "Debes elegir una categoría. Elige la categoría que más se adecúe a tu servicio.",
+      "title_info": "Recuerda que el título es un aspecto fundamental. Debe ser único y transmitir claramente el servicio que deseas ofrecer. Un título bien elegido no solo captará la atención de tus clientes potenciales, sino que también les proporcionará una comprensión instantánea de lo que ofreces.",
+      "description_info": "Proporciona una descripción detallada del servicio que deseas ofrecer. Además, siéntete libre de compartir tu enfoque de trabajo único y tu experiencia en el sector. Cuanta más información nos proporciones, más fácil entenderán tus clientes el servicio que ofreces.",
+      "price_info": "Selecciona el precio que mejor se ajuste al servicio que ofrecemos. Si necesitas asesoramiento sobre la tarifa adecuada, ¡estamos aquí para ayudarte! El precio puede variar dependiendo de diversos factores, como la complejidad del trabajo, el tiempo requerido y los materiales utilizados.",
+      "location_info": "Selecciona la población en la que estás dispuesto a ofrecer tu servicio. Al elegir la ubicación adecuada, podemos asegurarnos de dirigirnos a la audiencia correcta y brindar un servicio óptimo en tu área de preferencia.",
+      "image_info": "Añade el logo de tu empresa o una imagen que represente tu trabajo.",
+      "choose_category": "Elige una Categoría",
+      "service_title": "Título de tu Servicio",
+      "service_title_placeholder": "Ej.: Cambio de aceite",
+      "service_description": "Acerca de tu Servicio",
+      "service_description_placeholder": "Ej.: Limpieza profunda del ordenador y cambio de pasta térmica a domicilio",
+      "price": "Tarifa de tu Servicio",
+      "choose_location": "Elige una Población",
+      "next_button": "Siguiente",
+      "previous_button": "Anterior",
+      "create_button": "Crear"
+    },
+    
+    "profile": {
+      "profile_picture": "Foto de perfil",
+      "details_title": "Detalles de Perfil",
+      "edit_button": "Editar",
+      "full_name_label": "Nombre Completo",
+      "email_label": "E-mail",
+      "contact_number_label": "Número de Contacto",
+      "verified": "Verificado",
+      "change_profile_picture_label": "Cambiar Foto de Perfil",
+      "save_changes_button": "Guardar Cambios"
+    },
+
     "register": {
       "title": "Registrarse",
       "dni": "DNI",
@@ -45,15 +156,7 @@
         "login": "Iniciar sesión",
         "signup": "Regístrate"
     },
-    "header_logged": {
-        "hire_services": "Contratar Servicios",
-        "offer_services": "Ofrecer Servicios",
-        "requests": "Solicitudes",
-        "my_services": "Mis Servicios",
-        "contact": "Contacto",
-        "profile": "Perfil",
-        "logout": "Cerrar Sesión"
-    },
+   
     "service_creation": {
         "date_prefix" : "Fecha",
         "date_description" : "de realizacion del Servicio",

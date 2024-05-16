@@ -1,49 +1,48 @@
 <div class="fotoPerfil">
-    <img [src]="user.image" alt="foto de perfil">
+    <img [src]="user.image" alt="{{ 'profile.profile_picture' | translate }}">
 </div>
 
 <div class="profile-card">
     <header class="card-header">
-        <h2>Detalles de Perfil</h2>
-        <button class="edit-button" (click)="toggleEditForm()">Editar</button>
+        <h2>{{ 'profile.details_title' | translate }}</h2>
+        <button class="edit-button" (click)="toggleEditForm()">{{ 'profile.edit_button' | translate }}</button>
     </header>
     
     <div *ngIf="!showEditForm">
         <div class="card-content">
             <div class="field">
-                <label>Nombre Completo</label>
+                <label>{{ 'profile.full_name_label' | translate }}</label>
                 <div class="value">{{ user.name }}</div>
             </div>
             <div class="field">
-                <label>E-mail</label>
+                <label>{{ 'profile.email_label' | translate }}</label>
                 <div class="value">{{ user.email }}</div>
             </div>
             <div class="field">
-                <label>Numero de contacto</label>
-                <div class="value verified">{{ user.phone }} <span>Verified</span></div>
+                <label>{{ 'profile.contact_number_label' | translate }}</label>
+                <div class="value verified">{{ user.phone }} <span>{{ 'profile.verified' | translate }}</span></div>
             </div>
-           
         </div>
     </div>
     
     <form *ngIf="showEditForm" class="edit-form">
         <div class="form-group">
-            <label>Nombre Completo:</label>
+            <label>{{ 'profile.full_name_label' | translate }}</label>
             <input type="text" name="fullName" [(ngModel)]="user.name" required>
         </div>
         <div class="form-group">
-            <label>E-mail:</label>
+            <label>{{ 'profile.email_label' | translate }}</label>
             <input type="email" name="email" [(ngModel)]="user.email" required>
         </div>
         <div class="form-group">
-            <label>Número de Contacto:</label>
+            <label>{{ 'profile.contact_number_label' | translate }}</label>
             <input type="text" name="contactNumber" [(ngModel)]="user.telefono" required>
         </div>
         
         <div class="form-group">
-            <label>Cambiar Foto de Perfil:</label>
+            <label>{{ 'profile.change_profile_picture_label' | translate }}</label>
             <input type="file">
         </div>
-        <button type="submit" class="save-button">Guardar Cambios</button>
+        <button type="submit" class="save-button">{{ 'profile.save_changes_button' | translate }}</button>
     </form>
 </div>

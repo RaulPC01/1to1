@@ -22,6 +22,22 @@
     padding-top: 10px;
 }
 
+.error-message {
+    color: #D8000C; /* bright red */
+     /* light red */
+    
+    margin: 1px 0;
+    display: flex;
+    justify-content: center;
+    
+  }
+  
+  input.ng-invalid.ng-touched,
+  input.ng-invalid.ng-dirty {
+    border-color: #D8000C; /* highlight inputs with errors */
+  }
+  
+
 .Inputs{
     width: 300px;
     height: 35px;
