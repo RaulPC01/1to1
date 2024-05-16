@@ -21,9 +21,11 @@
     </div>
 
     <hr>
+    <h3>Descripcion del servicio</h3>
     <p class="descripcionServicio">{{ servicio.descripcion | translate }}</p>
     <hr>
-    <p class="descripcionUsu"></p>
+    <h3>Descripcion personal de {{servicio.user.name}}</h3>
+    <p class="descripcionUsu">{{servicio.user.profile.descripcion_personal}}</p>
 
     <div class="añadirComentario" *ngIf="!mostrarInputComentario">
       <button class="botonComentario" (click)="mostrarInputComentario = true">{{ 'servicio.add_comment_button' | translate }}</button>
