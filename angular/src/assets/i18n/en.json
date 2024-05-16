@@ -191,18 +191,6 @@
   "testimonial1_name": "Roger Orteu",
   "testimonial1_location": "Juneda",
   "testimonial1_text": "Roger is a great professional, he is a very attentive and an understanding person. He is a very hardworking professional and completes everything he promises in his service. He is a highly recommended specialist."
-},
-"ser": {
-  "add_comment_button": "Add comment",
-  "write_comment_placeholder": "Write your comment here",
-  "send_button": "Send",
-  "comments_title": "Comments",
-  "service_section": "Service",
-  "price_title": "Price",
-  "location_title": "Location",
-  "good_work": "Good work",
-  "quality_attention": "Quality attention",
-  "safe_reliable_service": "Safe and reliable service",
-  "hire_button": "HIRE"
 }
+
 }
