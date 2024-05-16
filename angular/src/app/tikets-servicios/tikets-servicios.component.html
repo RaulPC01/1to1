@@ -1,4 +1,9 @@
-<div class="cuerpo">
+<div class="loading-spinner" *ngIf="loading">
+  <!-- Implementa tu spinner aquí -->
+  <div class="spinner"></div>
+</div>
+
+<div class="cuerpo" *ngIf="!loading">
   <div class="submenu">
     <button [class.active]="activeTab === 'solicitudesPorAceptar'" (click)="changeTab('solicitudesPorAceptar')"> Solicitudes por aceptar </button>
     <button [class.active]="activeTab === 'solicitudesAceptadas'" (click)="changeTab('solicitudesAceptadas')"> Solicitudes Aceptadas </button>
