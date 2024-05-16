@@ -11,7 +11,6 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./header-logged.component.css']
 })
 export class HeaderLoggedComponent implements OnInit {
-  buscarPalabra: string = '';
   isLoggedIn: boolean = false;
   usuarioActual: any;
   showToggleMenu: boolean = false;

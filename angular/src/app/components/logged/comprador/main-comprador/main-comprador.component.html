@@ -3,48 +3,131 @@
 </div>
 
 <div class="tituloHome" *ngIf="!loading">
-  <h1>{{ 'landingPage.find_your' | translate }} <span style="color: #b40301">{{ 'landingPage.professional' | translate }}</span></h1>
+  <h1>Encuentra tu <span style="color: #b40301">Profesional</span></h1>
 </div>
 
-<!---------------------DIV CATEGORIAS------------------>
+<!----------------------BUSCADOR----------------------->
+<div class="buscador-container">
+  <form class="form-inline my-5 my-lg-0 buscador-form">
+    
+    <div class="input-container">
+      <input  class="form-control mr-sm-2 buscador-input"  type="text" [(ngModel)]="buscarPalabra" placeholder="{{ 'home.search_placeholder' | translate }}" (keyup.enter)="searchServices()" >
+      <button (click)="searchServices()" class="btn btn-primary buscador-btn" type="submit"><span class="material-symbols-outlined">search</span></button>  
+    </div>
+
+  </form>  
+</div>
+
+
+<!-------------------DIV CATEGORIAS------------------>
 <div class="container" *ngIf="!loading">
   <div class="column" *ngFor="let column of columns">
     <a class="category" *ngFor="let category of getColumnCategories(column)"
       [class.selected]="selectedCategoryId === category.id" (click)="onSelectCategory(category.id)">
-      {{ category.nombre_categoria | translate }}
+      {{category.nombre_categoria | translate}}
     </a>
   </div>
 </div>
 
+
 <!---------------------DIV SERVICIOS------------------>
 <div class="contenedorTarjetas">
+  <button id="a" class="botonPagina prev" (click)="prevPage()" [disabled]="currentPage === 1"><span id="a" class="material-symbols-outlined">arrow_back_ios</span></button>
+
   <section class="tarjetas">
     <div class="card estilo-b" *ngFor="let service of topRatedServices.slice(getStartIndex(), getEndIndex())">
+
       <a id="aTarjeta" [routerLink]="['/servicios', service.id_servicios]">
         <div class="img-container">
-          <img [src]="service.user.image" alt="{{ 'landingPage.profile_picture' | translate }}">
-          <span class="price">{{ service.tarifa }} €</span>
+          <img [src]="service.user.image" alt="Foto de perfil">
+          <span class="price">{{service.tarifa}} €</span>
+        </div>
+        <div class="nombre">
+          <h3>{{service.user.name}}</h3>
+          <p>{{service.poblacion.nombre_poblacion}}</p>
         </div>
         <div class="info">
-          <p class="titulo">{{ service.tipo_servicio }}</p>
-          <button class="botonVer">{{ 'landingPage.view_more' | translate }}</button>
+          <p class="titulo">{{service.tipo_servicio}}</p>
+          <button class="botonVer"> Ver más... </button>
         </div>
       </a>
     </div>
   </section>
+
+  <button id="a" class="botonPagina next" (click)="nextPage()" [disabled]="currentPage === getTotalPages()" ><span id="a" class="material-symbols-outlined">arrow_forward_ios</span></button>
 </div>
 
 <!--------------------.DIV PUBLICITARIO----------------->
-<div class="contenedor" *ngIf="!loading">
+<div class="contenedor" *ngIf="!loading" style=" background-image: url('../../../assets/imatges/programador.jpg');">
   <div class="grande">
-    <img src="../../../assets/imatges/programador.jpg" alt="" class="imagen-fondo">
+    
     <div class="texto">
-      <p style="font-weight: 800; font-size: 140%;">{{ 'landingPage.join_now' | translate }}</p>
+      <p style="font-weight: 800; font-size: 140%;">¡Crea tu propio servicio con <strong>1to1</strong>!</p>
       <br>
       <p style="font-weight: 500; margin-top: -20px; width: 100%; padding-inline: 25px;">
-        {{ 'landingPage.start_creating' | translate }}
+        ¡Haz realidad tus habilidades convirtiéndolas en un servicio! Tu conocimiento y destreza pueden marcar la diferencia en la vida de los demás. 
+        Con nuestra aplicación, conecta con aquellos que necesitan tus servicios y comienza a ganar dinero haciendo lo que amas. 
+        ¡Emprende hoy y crea un impacto positivo en tu comunidad!
       </p>
-      <button class="boton" routerLink="/crear-servicio">{{ 'landingPage.create_service_button' | translate }}</button>
+      <button class="boton" routerLink="/crear-servicio"><strong>Crea tu servicio</strong></button>
     </div>
   </div>
 </div>
+
+<!--------------------COMENTARIOS----------------->
+<div class="generalRecomendados" *ngIf="!loading">
+  <div class="izquierda">
+    <h1>Los Profesionales Más Destacados</h1>
+  </div>
+  <div class="derecha">
+    <div class="option" style="background-color: rgba(214, 181, 237, 0.232);">
+      <div class="option-content">
+        <img src="../../../assets/imatges/prof1.jpeg" alt="Icon 1" class="profile-pic">
+        <div class="text-container">
+          <h3>{{ 'home.testimonial1_name' | translate }}</h3>
+          <p>{{ 'home.testimonial1_location' | translate }}</p>
+        </div>
+      </div>
+    
+      <div class="divUsuario">
+        <p class="infoUsuario">{{ 'home.testimonial1_text' | translate }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="derecha">
+    <div class="option" style="background-color: rgba(181, 226, 237, 0.232);">
+      <div class="option-content">
+        <img src="../../../assets/imatges/prof1.jpeg" alt="Icon 1" class="profile-pic">
+        <div class="text-container">
+          <h3>{{ 'home.testimonial2_name' | translate }}</h3>
+          <p>{{ 'home.testimonial2_location' | translate }}</p>
+        </div>
+      </div>
+    
+      <div class="divUsuario">
+        <p class="infoUsuario">{{ 'home.testimonial2_text' | translate }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="derecha">
+    <div class="option" style="background-color: rgba(237, 181, 181, 0.232);">
+      <div class="option-content">
+        <img src="../../../assets/imatges/prof1.jpeg" alt="Icon 1" class="profile-pic">
+        <div class="text-container">
+          <h3>{{ 'home.testimonial3_name' | translate }}</h3>
+          <p>{{ 'home.testimonial3_location' | translate }}</p>
+        </div>
+      </div>
+    
+      <div class="divUsuario">
+        <p class="infoUsuario">{{ 'home.testimonial3_text' | translate }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

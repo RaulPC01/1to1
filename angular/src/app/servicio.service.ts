@@ -60,6 +60,8 @@ export class ServicioService {
     );
   }
 
+
+
   buscarServicios(terminoBusqueda: string): Observable<any[]> {
     let params = new HttpParams();
     if (terminoBusqueda) {
@@ -67,4 +69,5 @@ export class ServicioService {
     }
     return this.http.get<any[]>(`http://localhost:8000/api/buscar-servicios`, { params: params });
   }
+  
 }
