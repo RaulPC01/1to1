@@ -7,13 +7,14 @@
 </div>
 
 <!----------------------BUSCADOR----------------------->
-<div class="buscador-container" *ngIf="!loading">
+<div class="buscador-container">
     
     <div class="input-container">
       <input  class="form-control mr-sm-2 buscador-input"  type="text" [(ngModel)]="buscarPalabra" placeholder="{{ 'home.search_placeholder' | translate }}" (keyup.enter)="searchServices()" >
       <button (click)="searchServices()" class="btn btn-primary buscador-btn" type="submit"><span class="material-symbols-outlined">search</span></button>  
     </div>
 
+</div>
 
 
 <!-------------------DIV CATEGORIAS------------------>
@@ -28,7 +29,7 @@
 
 
 <!---------------------DIV SERVICIOS------------------>
-<div class="contenedorTarjetas" *ngIf="!loading">
+<div class="contenedorTarjetas">
   <button id="a" class="botonPagina prev" (click)="prevPage()" [disabled]="currentPage === 1"><span id="a" class="material-symbols-outlined">arrow_back_ios</span></button>
 
   <section class="tarjetas">

@@ -433,184 +433,303 @@ a:hover {
     justify-content: space-between;
     align-items: center;
   }
-  
-  .botonPagina {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 40px;
-  }
-  
-  .prev {
-    margin-left: 20px;
-  }
-  
-  .next {
-    margin-right: 20px;
-  }
-  
-  .contenedorTarjetas {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-  
-  @media (max-width: 768px) {
-    .contenedorTarjetas {
-      flex-direction: column;
-    }
-  
-    .prev,
-    .next {
-      font-size: 30px;
-      margin: 10px 0;
-    }
-  
-    .botonPagina {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-  
-    .prev {
-      left: -35px;
-    }
-  
-    .next {
-      right: -35px;
-    }
-  }
-  
-  /* Publicidad */
-  .contenedor {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 35em;
-    overflow: hidden;
-    margin-top: 1%;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-  }
-  
-  .grande {
-    width: 100%;
-    border-radius: 2px;
-    overflow: hidden;
-  }
-  
-  .texto {
-    padding: 1% 2%;
-    position: absolute;
-    height: fit-content;
-    width: 90%;
-    max-width: 500px;
-    top: 70%;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 10px;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #333;
-    text-align: center;
-  }
-  
-  .boton {
-    width: 100%;
-    max-width: 200px;
-    background-color: #b40301;
-    color: #fff;
-    border: none;
-    padding: 15px 15px;
-    margin-top: 15px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .boton:hover {
-    background-color: #e77674;
-  }
-  
-  /* Comentarios */
-  .generalRecomendados {
-    display: flex;
-    flex-direction: column;
-    padding: 5%;
-  }
-  
-  .izquierda {
-    width: 100%;
-    text-align: center;
-  }
-  
-  .izquierda h1 {
-    font-weight: 700;
-    margin-top: 30px;
-  }
-  
-  .option {
-    width: 100%;
-    max-width: 300px;
-    height: 290px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    margin: 20px auto;
-  }
-  
-  .option:hover {
-    transform: translateX(-10px);
-  }
-  
-  .option-content {
-    display: flex;
-    align-items: center;
-  }
-  
-  .profile-pic {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-right: 20px;
-  }
-  
-  .text-container {
-    text-align: left;
-  }
-  
-  .text-container h3 {
-    font-size: 1.5em;
-    margin-bottom: 5px;
-  }
-  
-  .text-container p {
-    color: #666;
-    margin: 0;
-    font-weight: 600;
-  }
-  
-  .divUsuario {
-    margin-top: 13px;
-  }
-  
-  .infoUsuario {
-    color: #666;
-    margin: 0;
-    font-weight: 400;
-    text-align: left;
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(300px, 1fr)); /* Columnas de 3 inicialmente */
+  gap: 20px;
+}
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  min-width:250px; /* Tamaño mínimo para las tarjetas */
+  z-index: 999; /* Asegúrate de que el z-index de las tarjetas sea inferior al del encabezado */
+}
+
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.img-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%; /* Establece un ancho fijo para el contenedor de la imagen */
+  height: 225px; /* Establece una altura fija para el contenedor de la imagen */
+}
+
+.img-container img {
+  width: 125%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+  height: auto; /* Permite que la altura se ajuste automáticamente para mantener la proporción */
+  display: block;
+  object-fit: cover; /* Mantiene la relación de aspecto y recorta la imagen según sea necesario para ajustarse al contenedor */
+}
+
+
+.price {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #b40301;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.info {
+  padding: 20px;
+}
+
+.titulo {
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.titulo1 {
+  font-size: 37px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.rating p,
+.lugar p {
+  margin: 0;
+  display: inline-flex;
+  align-items: center; /* Alinear símbolos y valores verticalmente */
+  font-size: 14px;
+  color: #666;
+}
+
+.material-symbols-outlined {
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+a {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #b40301;
+  padding: 10px 0;
+  border-radius: 0 0 12px 12px;
+  transition: background-color 0.3s ease;
+}
+
+a:hover {
+  background-color: #b40301;
+}
+
+.pagination-container{
+  top: 25%;
+  width: 99%;
+  left: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.botonPagina{
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.prev{
+  margin-left: 100px;
+}
+
+.next{
+  margin-right: 110px;
+}
+
+.contenedorTarjetas {
+  display: flex;
+  justify-content: center;
+}
+
+#a{
+  font-size: 40px;
+}
+
+
+/* Estilos para dispositivos móviles */
+@media screen and (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Cambiar tamaño mínimo de las tarjetas en dispositivos móviles */
   }
 }
 
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+/* Estilos de las columnas */
+.column {
+  width: calc(25% - 20px); /* Ajustar según el número de columnas */
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos de las categorías */
+.category {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 768px) {
+  .container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .column {
+      width: 100%;
+      margin-bottom: 20px;
+  }
+}
+.contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.grande {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s; /* Transición suave para el efecto de zoom */
+}
+
+.grande:hover {
+  transform: scale(1.05); /* Aplica un zoom del 10% al pasar el ratón sobre la imagen */
+}
+
+.imagen-fondo {
+  width: 100%;
+  height: auto;
+  border-radius: 40px;
+}
+
+.texto {
+  position: absolute;
+  text-align: justify;
+  height: fit-content;
+  width: 370px;
+  bottom: 30px;
+  right: 30px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 40px;
+  font-size: 20px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.boton {
+  width: 330px;
+  background-color: #b40301;
+  color: #fff;
+  border: none;
+  padding: 15px 15px;
+  margin-top: 10px;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.boton:hover {
+  background-color: #b40301;
+}
 
 
+/*-----------------------------------COMENTARIOS--------------------------------------*/
+.generalRecomendados{
+  display: flex;
+  flex-direction: row;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+.izquierda{
+  float: left;
+  width: 27%;
+  margin-left: 2%;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.izquierda h1{
+  font-weight: 700;
+  margin-top: 130px;
+}
+
+.option {
+  width: 300px;
+  height:290px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  margin: 20px;
+}
+
+.option:hover {
+  transform: translateX(-20px);
+}
 
 
+.profile-pic {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.text-container {
+  text-align: left; 
+}
 
 
+.text-container p {
+  color: #666;
+  margin: 0;
+  font-weight: 600;
+}
 
+.divUsuario{
+  margin-top: 13px;
+}
 
+ .infoUsuario {
+  color: #666;
+  margin: 0;
+  font-weight: 400;
+  text-align: left;
+}
+}
