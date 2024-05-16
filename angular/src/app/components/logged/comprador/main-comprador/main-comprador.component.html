@@ -8,14 +8,12 @@
 
 <!----------------------BUSCADOR----------------------->
 <div class="buscador-container">
-  <form class="form-inline my-5 my-lg-0 buscador-form">
     
     <div class="input-container">
       <input  class="form-control mr-sm-2 buscador-input"  type="text" [(ngModel)]="buscarPalabra" placeholder="{{ 'home.search_placeholder' | translate }}" (keyup.enter)="searchServices()" >
       <button (click)="searchServices()" class="btn btn-primary buscador-btn" type="submit"><span class="material-symbols-outlined">search</span></button>  
     </div>
 
-  </form>  
 </div>
 
 
