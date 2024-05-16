@@ -1,0 +1,19 @@
+<div *ngIf="loading; else content">
+    Cargando peticiones...
+  </div>
+  
+  <ng-template #content>
+    <div *ngIf="peticiones.length > 0; else noPeticiones">
+      <h2>Mis Peticiones:</h2>
+      <ul>
+        <li *ngFor="let peticion of peticiones">
+          <p>Nombre del Servicio: {{ peticion.nombre_Servicio }}</p>
+          <p>Descripción: {{ peticion.descripcion }}</p>
+          <!-- Agrega más detalles si es necesario -->
+        </li>
+      </ul>
+    </div>
+    <ng-template #noPeticiones>
+      <p>No tienes peticiones actualmente.</p>
+    </ng-template>
+  </ng-template>

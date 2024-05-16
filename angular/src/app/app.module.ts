@@ -35,6 +35,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AvisoLegalComponent } from './aviso-legal/aviso-legal.component';
 import { PoliticaPrivacidadComponent } from './politica-privacidad/politica-privacidad.component';
 import { PoliticaCokkiesComponent } from './politica-cokkies/politica-cokkies.component';
+import { MisPeticionesComponent } from './mis-peticiones/mis-peticiones.component';
 
 // Función para cargar archivos de traducción desde el servidor
 export function HttpLoaderFactory(http: HttpClient) {
@@ -63,6 +64,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AvisoLegalComponent,
     PoliticaPrivacidadComponent,
     PoliticaCokkiesComponent,
+    MisPeticionesComponent,
   ],
   imports: [
     BrowserModule,
