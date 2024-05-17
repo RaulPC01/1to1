@@ -199,23 +199,6 @@
         "testimonial2_name": "Raul Pereira",
         "testimonial2_location": "Andorra",
         "testimonial2_text": "Raul Pereira es un profesional excepcional, siempre atento y comprometido. Su dedicación y cumplimiento hacen que sea altamente recomendado en su servicio."
-      },
-
-     
-
-      "ser": {
-        "add_comment_button": "Añadir comentario",
-        "write_comment_placeholder": "Escribe tu comentario aquí",
-        "send_button": "Enviar",
-        "comments_title": "Comentarios",
-        "service_section": "Servicio",
-        "price_title": "Precio",
-        "location_title": "Ubicación",
-        "good_work": "Buen trabajo",
-        "quality_attention": "Atención de calidad",
-        "safe_reliable_service": "Servicio seguro y confiable",
-        "hire_button": "CONTRATAR"
       }
-    
   }
   
