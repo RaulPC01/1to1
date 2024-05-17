@@ -68,6 +68,7 @@
       "confirmacion" : "¡Tu solicitud se ha enviado correctamente! En breves recibirás una respuesta del proveedor del servicio.",
       "descripcion" : "Recurda explicar con todo detalle possobile el problema al que te enfrentas  para que el proveedor del servicio pueda entender claramente lo que estás experimentand, así serà màs fàcil para los dos.",
       "fecha" : "Elige la fecha en la que te gustaría que se realizara el servicio. Esto solo será una referencia preliminar.",
+      "pago" : "Esta es la página del método de pago donde podrás ingresar tus datos de forma segura y completar la transacción." ,
       "describe" : "Describe",
       "tuProblema" : "tu Problema",
       "anterior" : "Anterior",

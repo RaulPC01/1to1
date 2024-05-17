@@ -28,15 +28,15 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
-   /* Ajuste para bajar los paneles */
-  margin-bottom: 20px; /* Elimina el ajuste de margen inferior */
   overflow-y: hidden;
+  margin-bottom: 20px;
 
 }
 
 .encabezado {
   text-align: center;
-  margin-bottom: 20px; /* Ajuste de margen inferior */
+  margin-top: 90px;
+  margin-bottom: -20px;
 }
 
 .titulo {
@@ -192,6 +192,10 @@
   width: 40%;
 }
 
+#metodoPago{
+  margin-top: -100px;
+}
+
 .img-rounded{
   
   width: 70px;
@@ -223,26 +227,26 @@ input[type="text"] {
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 15px;
   box-sizing: border-box;
 }
 
 /* Botón para enviar el formulario */
 button[type="submit"] {
   width: 90%;
-  background-color: #af4c4c;
+  background-color: #29ad3a;
   color: white;
   padding: 14px 20px;
   margin: 0 auto;
   border: none;
-  border-radius: 4px;
+  border-radius: 15px;
   cursor: pointer;
   display: flex;
   justify-content: center;
 }
 
 button[type="submit"]:hover {
-  background-color: #c53030;
+  background-color: #56b262;
 }
 
 /* Estilo del botón para abrir el modal */
