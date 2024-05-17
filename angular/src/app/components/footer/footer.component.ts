@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core'; // Importa el servicio de traducción
+import { TranslateService } from '@ngx-translate/core'; 
 
 @Component({
   selector: 'app-footer',
@@ -9,13 +9,15 @@ import { TranslateService } from '@ngx-translate/core'; // Importa el servicio d
 export class FooterComponent {
 
   constructor(private translateService: TranslateService) {
-    this.translateService.setDefaultLang('es'); // Establece el idioma por defecto como español
+    // establece el idioma por defecto a español
+    this.translateService.setDefaultLang('es'); 
   }
 
   cambiarIdioma(event: Event): void {
+    // cambia el idioma basado en la seleccion del usuario
     const selectElement = event.target as HTMLSelectElement;
     const idioma = selectElement.value;
-    this.translateService.use(idioma); // Cambia el idioma utilizando el servicio de traducción
+    this.translateService.use(idioma); 
   }
 
 }

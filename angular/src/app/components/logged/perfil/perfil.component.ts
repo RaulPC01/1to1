@@ -20,7 +20,7 @@ export class PerfilComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // Inicializa el formulario FormGroup
+    // inicializa el formulario formgroup
     this.perfilForm = this.formBuilder.group({
       dni: ['', Validators.required],
       name: ['', Validators.required],
@@ -29,32 +29,33 @@ export class PerfilComponent implements OnInit {
       dateOfBirth: ['', Validators.required]
     });
 
-    // Llama a la función para obtener el perfil del usuario
+    // llama a la funcion para obtener el perfil del usuario
     const token = localStorage.getItem('Idtoken');
     if (token) {
       this.obtenerPerfilUsuario(token);
     } else {
-      console.error('El token no está definido en el almacenamiento local');
-      // Manejar el error, por ejemplo, redirigir al usuario a la página de inicio de sesión
+      console.error('el token no esta definido en el almacenamiento local');
+      // manejar el error, por ejemplo, redirigir al usuario a la pagina de inicio de sesion
     }
   }
 
-
+  // alterna la visibilidad del formulario de edicion
   toggleEditForm(): void {
     this.showEditForm = !this.showEditForm;
   }
 
+  // obtiene el perfil del usuario usando el token
   obtenerPerfilUsuario(token: string): void {
     this.userService.obtenerPerfilUsuario(token).subscribe(
       (data) => {
-        console.log('Datos del perfil:', data);
+        console.log('datos del perfil:', data);
         this.user = data;
         if (localStorage.getItem('Idtoken') === data.token) {
-          console.error('El token almacenado en el navegador coincide con el token devuelto por el backend');
+          console.error('el token almacenado en el navegador coincide con el token devuelto por el backend');
           this.tokenService.cerrarSesion();
         }
 
-        // Establece los valores del formulario
+        // establece los valores del formulario
         this.perfilForm.patchValue({
           dni: this.user.dni,
           name: this.user.name,
@@ -63,8 +64,8 @@ export class PerfilComponent implements OnInit {
           dateOfBirth: this.user.dateOfBirth
         });
       },
-      (error) => {  
-        console.error('Error al obtener el perfil del usuario:', error);
+      (error) => {
+        console.error('error al obtener el perfil del usuario:', error);
       }
     );
   }

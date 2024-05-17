@@ -6,7 +6,7 @@ import { Observable, BehaviorSubject, map } from 'rxjs';
   providedIn: 'root'
 })
 export class TokenService {
-  private apiUrl = 'http://localhost:8000/api'; // URL de tu API en Laravel
+  private apiUrl = 'http://localhost:8000/api'; // url de tu api en laravel
   private usuarioAutenticadoSubject = new BehaviorSubject<boolean>(false);
   usuarioAutenticado$ = this.usuarioAutenticadoSubject.asObservable();
 
@@ -17,6 +17,7 @@ export class TokenService {
     this.cargarUsuarioAutenticado();
   }
 
+  // carga el estado de autenticacion del usuario desde el almacenamiento local
   private cargarUsuarioAutenticado(): void {
     const idTokenAlmacenado = localStorage.getItem('Idtoken');
     if (idTokenAlmacenado) {
@@ -26,6 +27,7 @@ export class TokenService {
     }
   }
 
+  // inicia sesion y almacena el token
   iniciarSesion(token: string): void {
     this.usuarioAutenticado = true;
     this.Idtoken = token;
@@ -33,6 +35,7 @@ export class TokenService {
     this.usuarioAutenticadoSubject.next(true);
   }
 
+  // realiza la solicitud de login y almacena el token recibido
   login(dni: string, password: string): Observable<string> {
     return this.http.post<any>(`${this.apiUrl}/login`, { dni, password }).pipe(
       map(result => {
@@ -45,6 +48,7 @@ export class TokenService {
     );
   }
 
+  // cierra sesion y elimina el token
   cerrarSesion(): void {
     this.usuarioAutenticado = false;
     this.Idtoken = '';
@@ -52,10 +56,12 @@ export class TokenService {
     this.usuarioAutenticadoSubject.next(false);
   }
 
+  // verifica si el usuario esta autenticado
   estaAutenticado(): boolean {
     return this.usuarioAutenticado;
   }
 
+  // obtiene el token del usuario
   obtenerTokenUsuario(): string | null {
     return this.Idtoken;
   }

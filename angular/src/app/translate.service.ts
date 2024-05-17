@@ -11,6 +11,7 @@ export class TranslateService {
 
   constructor(private http: HttpClient) {}
 
+  // carga las traducciones desde un archivo json
   loadTranslations(lang: string): Observable<any> {
     return this.http.get<any>(`./assets/i18n/${lang}.json`)
       .pipe(
@@ -19,15 +20,16 @@ export class TranslateService {
           return translations;
         }),
         catchError(() => {
-          console.error(`Translation file for '${lang}' not found.`);
+          console.error(`archivo de traduccion para '${lang}' no encontrado.`);
           return of({});
         })
       );
   }
 
+  // traduce una clave especifica usando el lenguaje proporcionado
   translate(key: string, lang: string): string {
     if (!this.translations[lang]) {
-      console.error(`Translations not loaded for '${lang}'.`);
+      console.error(`traducciones no cargadas para '${lang}'.`);
       return key;
     }
     return this.translations[lang][key] || key;
