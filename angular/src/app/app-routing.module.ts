@@ -16,6 +16,7 @@ import { AuthGuard } from './guards/auth.guard'; // Importa el guardia AuthGuard
 import { AvisoLegalComponent } from './aviso-legal/aviso-legal.component';
 import { PoliticaPrivacidadComponent } from './politica-privacidad/politica-privacidad.component';
 import { PoliticaCokkiesComponent } from './politica-cokkies/politica-cokkies.component';
+import { MisPeticionesComponent } from './mis-peticiones/mis-peticiones.component';
 
 
 const routes: Routes = [
@@ -39,8 +40,12 @@ const routes: Routes = [
   { path: 'solicitudes', component: TiketsServiciosComponent , canActivate: [AuthGuard] },
 
   { path: 'mis-servicios', component: MisServiviosComponent, canActivate: [AuthGuard]  },
+
   { path: 'politica-privacidad', component: PoliticaPrivacidadComponent},
+
   { path: 'politica-cookies', component: PoliticaCokkiesComponent},
+
+  {path: 'mis-peticiones', component:MisPeticionesComponent},
 
 
   // =====================================================

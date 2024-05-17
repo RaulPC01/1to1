@@ -6,6 +6,14 @@
           </div>
       </a>
   </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+  <div class="flex">
+      <a routerLink="/home-comprador" class="logo">
+          <div class="img">
+              <img src="../../../assets/imatges/logo.png" height="50px">
+          </div>
+      </a>
+  </div>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -21,6 +29,9 @@
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="solicitudes">{{'header_logged.solicitudes' | translate}}</a>
       </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="mis-peticiones">{{'header_logged.peticiones' | translate}}</a>
+      </li>
     </ul>
 
 
@@ -33,6 +44,35 @@
         <button mat-menu-item routerLink="/perfil">{{'header_logged.perfil' | translate}}</button>
         <button mat-menu-item routerLink="contacto">{{'header_logged.contacto' | translate}}</button>
         <button (click)="logout()" mat-menu-item>{{'header_logged.cerrarSesion' | translate}}</button>
+      </mat-menu>
+      </div>
+</nav>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="home-comprador">Contratar Servicio</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="crear-servicio">Ofrecer Servicios</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="mis-servicios">Mis Servicios</a>
+        </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="solicictudes">Solicitudes</a>
+      </li>
+    </ul>
+
+      <!--MENU DESPLEGABLE-->
+      <button class="opciones" mat-button [matMenuTriggerFor]="menu">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/perfil">Ver Perfil</button>
+        <button mat-menu-item routerLink="contacto">Contacto</button>
+        <button (click)="logout()" mat-menu-item>Cerrar Sesión</button>
       </mat-menu>
       </div>
 </nav>
