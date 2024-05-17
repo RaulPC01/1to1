@@ -16,18 +16,25 @@
 .right-content {
   max-height: calc(80vh - 120px);
   overflow-y: auto;
+  justify-content: center;
+  margin-top: 68px;
+}
+
+.right-content h2{
+  position: absolute;
+  top: 9%;
+  right: 20%;
+  font-weight: 700;
 }
 
 .left-content {
-  border-right: none;
   display: flex;
-  border-left: none;
   align-items: center;
-  text-align: justify;
+  text-align: center;
+  justify-content: center;
   margin-top: 20px;
   padding: 10px;
   height: 100%;
-  right: 8%;
 }
 
 .loading-spinner {
@@ -129,7 +136,8 @@
   font-weight: 600;
   color: rgb(78, 78, 78);
   font-size: 18px;
-  width: 150%;
+  width: 200%;
+  margin-left: -150px;
 }
 
 .btn.btn-primary {

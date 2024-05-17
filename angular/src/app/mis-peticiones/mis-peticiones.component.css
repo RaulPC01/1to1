@@ -1,60 +1,157 @@
+/*-------------------------------RUEDA DE CARGA-----------------------------*/
+
 .loading-spinner {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 8px;
-    padding: 20px;
-  }
-  
-  .spinner {
-    border: 4px solid #f3f3f3;
-    border-top: 4px solid #b40301;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-
-  .peticiones-container {
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 5px;
-    margin-bottom: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  padding: 20px;
 }
 
-.peticiones-list {
-    list-style-type: none;
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #b40301;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/*-------------------------------CONTENEDOR-----------------------------*/
+.container{
+    min-height: 20em;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0;
     padding: 0;
-}
-
-.peticion-item {
-    border: 1px solid #eee;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-.peticion-details {
+  }
+  
+  
+  #izquierda, #derecha {
+    flex: 1 1 100%;
+    margin: 10px;
+  }
+  
+  /*--------------------------------CONTINGUT DIV ESQUERRA-----------------------------------------*/
+  #izquierda{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px 100px;
+    left: 20px;
+    top: 15em;
+    margin-left: -20px;
+  }
+  
+  .titulo{
+    font-weight: 700;
+    font-size: 40px;
+    color: #b40301;
+  }
+  
+  .texto{
+    font-weight: 600;
+    color: rgb(78, 78, 78);
     font-size: 16px;
-}
+  }
 
-.peticion-details p {
-    margin: 5px 0;
-}
 
-.peticion-details p strong {
-    font-weight: bold;
-}
+/*--------------------------------CONTINGUT DIV DRETA-----------------------------------------*/
+#derecha{
+    text-align: center;
+    right: -425px;
+    flex-direction: column;
+    margin-top: 70px;
+  }
+  
+  .divTitulo{
+    width: 500px;
+  }
+  
+  .tituloDerecha{
+    font-weight: 700;
+    font-size: 35px;
+    color: #b40301;
+    margin-top: 0px;
+    position: fixed;
+    right: 16%;
+  }
+  
+  h2{
+    font-weight: 700;
+  }
+  
+  .infoSolicitud{
+    max-width: 550px;
+    padding: 1em;
+    background-color: rgb(251, 248, 248);
+    border-radius: 20px;
+  }
+  
+  .solicitud-encabezado {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: rgb(76, 76, 76);
+  }
+  
+  .nombreServicio{
+    font-weight: 700;
+    font-size: 24px;
+    text-transform: uppercase;
+  }
+  
+  .botones{
+    margin-top: 15px;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .botones button{
+    padding: 8px 16px;
+      margin-right: 10px;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+  }
 
-#noPeticiones {
-    font-style: italic;
-    color: #888;
-}
+  .infoSolicitud p.descripcion {
+    margin-top: 20px;
+    max-width: 500px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .contenido {
+    max-height: calc(75vh - 120px);
+    overflow-y: auto;
+    margin-top: 50px;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+    
+  }
+  
