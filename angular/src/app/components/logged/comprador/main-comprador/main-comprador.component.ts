@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServicioService } from 'src/app/servicio.service';
-import { TranslateService } from '@ngx-translate/core'; // Importa el servicio de traducción
+import { TranslateService } from 'src/app/translate.service'; // Importa el servicio de traducción
 
 @Component({
   selector: 'app-main-comprador',
@@ -48,9 +48,14 @@ export class MainCompradorComponent implements OnInit {
   }
 
   getTranslatedCategory(category: any) {
-    
-    const lang = this.translateService.currentLang;
-    return lang === 'es' ?   category.nombre_categoria_es : category.nombre_categoria_en ;
+    let lang = '';
+    this.translateService.loadTranslations(this.translateService.currentLang).subscribe(() => {
+      lang = this.translateService.currentLang;
+      console.log('Idioma: ', lang);
+      // Ahora puedes usar lang sabiendo que se ha definido correctamente
+    });
+    //return lang === 'es' ?   category.nombre_categoria_es : category.nombre_categoria_en;
+    return category.nombre_categoria_es;
   }
 
   getStartIndex(): number {
