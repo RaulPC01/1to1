@@ -112,6 +112,7 @@
   }
 
   .infoSolicitud p.descripcion {
+    margin-top: 20px;
     max-width: 500px;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -124,5 +125,6 @@
     width: 100%;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 10px;
+    
   }
   
