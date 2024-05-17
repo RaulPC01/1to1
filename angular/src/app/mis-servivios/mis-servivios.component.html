@@ -6,7 +6,7 @@
 
   <div class="content-container" *ngIf="!loading">
     <div class="left-content">
-      <div class="col-md-6">
+      <div class="col-md-7">
         <h2 class="tituloCrearServicio">Crear Servicio</h2>
         <p class="texto">Crear tu propio servicio te brinda la oportunidad de destacar tus habilidades únicas y llegar a
           una audiencia específica, potenciando tu visibilidad y oportunidades de negocio en nuestra plataforma.</p>
@@ -17,8 +17,10 @@
       </div>
     </div>
 
-    <div class="right-content" *ngIf="!loading">
-      <h2>Mis Servicios</h2>
+    <div class="col-md-6" *ngIf="!loading">
+      <div class="tituloDerecha">
+        <h2>Mis Servicios</h2>
+      </div>
       <hr class="hr" />
       <div *ngIf="servicios.length > 0" class="servicios-container">
         <div *ngFor="let servicio of servicios" class="servicio-card">

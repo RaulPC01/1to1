@@ -136,8 +136,21 @@
   font-weight: 600;
   color: rgb(78, 78, 78);
   font-size: 18px;
-  width: 200%;
-  margin-left: -150px;
+  width: 175%;
+  text-align: center;
+  margin-left: -125px;
+}
+
+.tituloDerecha{
+  font-size: 35px;
+  color: #b40301;
+  margin-top: 0px;
+  position: fixed;
+  right: 17%;
+}
+
+.tituloDerecha h2{
+  font-weight: 700;
 }
 
 .btn.btn-primary {
