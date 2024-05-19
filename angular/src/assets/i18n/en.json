@@ -53,7 +53,8 @@
     "buscar" : "Search",
     "perfil" : "Profile",
     "contacto" : "Contact",
-    "cerrarSesion" : "Log Out"
+    "cerrarSesion" : "Log Out",
+    "peticiones" : "Petitions"
   },
 
   "error": {
@@ -96,7 +97,6 @@
   },
 
   "servicio": {
-    "profile_picture": "Profile picture",
     "add_comment_button": "Add a Comment",
     "write_comment_placeholder": "Write your comment here...",
     "send_button": "Send",
@@ -109,20 +109,7 @@
     "safe_reliable_service": "Safe and Reliable Service",
     "hire_button": "Hire"
   },
-  "mis-servicios": {
-    "titulo": "My Services",
-    "create": "Create Service",
-    "description": "Creating your own service provides you with the opportunity to showcase your unique skills and reach a specific audience, enhancing your visibility and business opportunities on our platform.",
-    "ver_mas": "See More",
-    "editar": "Edit",
-    "borrar": "Delete",
-    "editar_servicio": "Edit Service",
-    "tipo_servicio": "Service Type:",
-    "descripcion": "Description:",
-    "tarifa": "Rate (€):",
-    "actualizar_servicio": "Update Service",
-    "cancelar": "Cancel"
-  },
+
 
   "profile": {
     "profile_picture": "Profile picture",
@@ -192,28 +179,143 @@
         "submit": "Submit Request"
     }
 },
-"home":{
-  "view_more": "View More",
-  "search_placeholder": "Search services...",
-  "title1": "These are the highest-rated services by our community",
-  "prev_button": "Previous",
-  "next_button": "Next",
-  "categories_title": "Explore our Categories with the most services!",
-  "create_service_button": "Join now",
-  "create_service_description": "Be part of our community and start creating your own service!",
-  "evidence_title": "The evidence is more than clear!",
-  "testimonial1_name": "Roger Orteu",
-  "testimonial1_location": "Juneda",
-  "testimonial1_text": "Roger is a great professional, he is a very attentive and an understanding person. He is a very hardworking professional and completes everything he promises in his service. He is a highly recommended specialist."
-},
-"solicitudes": {
-  "por_aceptar": "Requests to Accept",
+
+
+
+
+  "aviso_legal": {
+    "title": "Legal Notice",
+    "welcome_message": "Welcome to 1to1. This legal notice governs the use of the 1to1 website and mobile application (hereinafter, \"the Platform\"). By accessing and using the Platform, you agree to comply with the terms and conditions set forth in this legal notice.",
+    "identificacion_titular": {
+      "title": "Identification of the Owner",
+      "owner": "Owner: 1to1 Services, S.L.",
+      "cif": "CIF: B12345678",
+      "address": "Address: C/ Avinguda de les Garrigues 34. 25001, Lleida, Spain.",
+      "email": "Email: 1to1@gmail.com",
+      "phone": "Phone: (+34) 655 645 535"
+    },
+    "condiciones_uso": {
+      "title": "Terms of Use",
+      "content": "Access and use of the Platform attributes the condition of user and implies full and unreserved acceptance of all the provisions included in this legal notice. If you do not agree with any of the conditions set forth herein, you should not use the Platform."
+    },
+    "responsabilidad_usuario": {
+      "title": "User Responsibility",
+      "content": "The user agrees to use the Platform in accordance with the law, morality, good customs, and public order. The user undertakes to refrain from using the Platform for unlawful purposes, contrary to the provisions of this legal notice, or in any way that may damage, disable, overload, or deteriorate the Platform or prevent its normal use."
+    },
+    "propiedad_intelectual": {
+      "title": "Intellectual Property",
+      "content": "All content on the Platform, including but not limited to, text, photographs, graphics, images, icons, technology, software, and other audiovisual or sound content, as well as its graphic design and source codes, are the intellectual property of 1to1 or third parties, without any of the exploitation rights over them being understood to be transferred to the user beyond what is strictly necessary for the correct use of the Platform."
+    },
+    "exclusion_garantias_responsabilidad": {
+      "title": "Exclusion of Warranties and Liability",
+      "content": "1to1 is not responsible, in any case, for damages of any nature that may be caused, including but not limited to: errors or omissions in the content, lack of availability of the Platform, or the transmission of viruses or malicious or harmful programs in the content, despite having taken all necessary technological measures to prevent it."
+    },
+    "modificaciones": {
+      "title": "Modifications",
+      "content": "1to1 reserves the right to make any modifications it deems appropriate to the Platform without prior notice, being able to change, delete, or add both the contents and services provided through it and the way in which they are presented or located on the Platform."
+    },
+    "enlaces": {
+      "title": "Links",
+      "content": "In the event that the Platform contains links or hyperlinks to other Internet sites, 1to1 does not exercise any control over such sites and content. In no case shall 1to1 assume any responsibility for the contents of any link belonging to an external website, nor guarantee the technical availability, quality, reliability, accuracy, comprehensiveness, truthfulness, validity, or constitutionality of any material or information contained in any of such hyperlinks or other Internet sites."
+    },
+    "derecho_exclusion": {
+      "title": "Right of Exclusion",
+      "content": "1to1 reserves the right to deny or withdraw access to the Platform and/or the services offered without prior notice, at its own request or that of a third party, to those users who fail to comply with this legal notice."
+    },
+    "generalidades": {
+      "title": "General Provisions",
+      "content": "1to1 will pursue the breach of this legal notice, as well as any improper use of the Platform, exercising all civil and criminal actions that may correspond by law."
+    },
+    "legislacion_aplicable_jurisdiccion": {
+      "title": "Applicable Law and Jurisdiction",
+      "content": "The relationship between 1to1 and the user shall be governed by current Spanish regulations and any dispute shall be submitted to the courts and tribunals of the city of Madrid."
+    }
+  },
+  "home": {
+    "find_your": "Find your",
+    "professional": "Professional",
+    "search_placeholder": "Search services...",
+    "view_more": "View More",
+    "create_service_intro": "Create your own service with 1to1!",
+    "create_service_description": "Make your skills a reality by turning them into a service! Your knowledge and expertise can make a difference in the lives of others. With our app, connect with those who need your services and start earning money doing what you love. Start today and create a positive impact in your community!",
+    "create_service_button": "Create Your Service",
+    "featured_professionals": "Top Professionals",
+    "testimonial1_name": "Roger Orteu",
+    "testimonial1_location": "Juneda",
+    "testimonial1_text": "Roger is a great professional, very attentive and understanding. He is very hardworking and fulfills everything he promises in his service. Highly recommended.",
+    "testimonial2_name": "Raul Pereira",
+    "testimonial2_location": "Andorra",
+    "testimonial2_text": "Raul Pereira is an exceptional professional, always attentive and committed. His dedication and compliance make him highly recommended.",
+    "testimonial3_name": "Arian Lanuza",
+    "testimonial3_location": "Solsona",
+    "testimonial3_text": "Arian Lanuza is an outstanding professional with exceptional attention and unparalleled dedication to his work. Highly recommended."
+  },
+
+  "solicitudes2": {
+    "mis_peticiones": "My Requests",
+    "descripcion": "offers you a comprehensive solution for monitoring your service requests. In this section, you can view all the requests you have made, allowing you to manage your requirements in an orderly and efficient manner. This tool helps you keep a detailed record of each request, ensuring smooth communication and better organization of your tasks. With <strong>1to1</strong>, you optimize your time and resources, improving your responsiveness and productivity.",
+    "peticiones": "Requests",
+    "estado": "Status",
+    "no_peticiones": "You currently have no requests."
+  },
+  "mis-servicios": {
+    "create": "Create Service",
+    "description": "Creating your own service provides you with the opportunity to showcase your unique skills and reach a specific audience, enhancing your visibility and business opportunities on our platform.",
+    "create_button": "Create",
+    "mis_servicios": "My Services",
+    "view_button": "View More",
+    "edit_button": "Edit",
+    "delete_button": "Delete",
+    "edit_form_title": "Edit Service",
+    "service_type": "Service Type:",
+    "description_label": "Description:",
+    "rate": "Rate (€):",
+    "update_button": "Update Service",
+    "cancel_button": "Cancel",
+    "no_services": "No services found."
+  },
+  "cookies_policy": {
+    "title": "Cookie Policy for 1to1 Company",
+    "introduction": "1. Introduction",
+    "introduction_text": "Welcome to the cookie policy of 1to1, a company dedicated to providing services for professionals who wish to generate additional income and offer their work services to others. This policy aims to inform our users about the use of cookies on our website to ensure a secure and transparent experience during their visit. Throughout this document, we will detail the use of technical, analytical, and advertising cookies, as well as methods to manage them.",
+    "purpose_title": "1.1. Purpose of the Policy",
+    "purpose_text": "Our commitment to transparency and data protection is reflected in the implementation of this policy, which describes in detail the types of cookies we use, their purpose, and how you can manage them. We are committed to respecting the privacy of our visitors and offering them the best possible experience on our online platform. Your trust is fundamental to us, and we are constantly working to improve our online privacy and security practices. Thank you for your trust in 1to1!",
+    "scope_title": "1.2. Scope of the Policy",
+    "scope_text": "This cookie policy applies exclusively to the 1to1 website and governs the use of cookies in this digital environment. All users who visit our platform will be subject to the provisions established in this document, which describes in detail the handling of technical, analytical, and advertising cookies on our website. It is important to note that this policy may be updated occasionally to reflect changes in our practices or applicable regulations.",
+    "cookies_used_title": "2. Cookies Used",
+    "technical_cookies_title": "2.1. Technical Cookies",
+    "technical_cookies_text": "The technical cookies used by 1to1 are necessary for the website to function optimally and to allow users to access the services offered. These cookies do not collect personal information and are essential to ensure the security and privacy of the data of the professionals who use the platform. Their use is protected by current legislation on data protection and online privacy.",
+    "analytics_cookies_title": "2.2. Analytical Cookies",
+    "analytics_cookies_text": "Analytical cookies are used by 1to1 to collect information about users' interaction with the website. This data is used to improve the quality of the services offered, personalize the user experience, and conduct statistical analyses of the platform's performance. The goal is to optimize the navigation of professionals and offer them relevant content to their work interests. Analytical cookies also allow us to detect and correct potential technical problems on the website.",
+    "advertising_cookies_title": "2.3. Advertising Cookies",
+    "advertising_cookies_text": "1to1 uses advertising cookies to display personalized ads to professionals who visit the website. These cookies allow for the delivery of commercial content tailored to users' preferences and improve the effectiveness of advertising campaigns. The information collected through these cookies is used ethically and respects users' privacy, in compliance with current data protection regulations. Additionally, we use third-party cookies to measure the effectiveness of our advertising campaigns and offer our users relevant ads on other websites.",
+    "cookies_management_title": "3. Cookie Management",
+    "acceptance_title": "3.1. Acceptance of Cookies",
+    "acceptance_text": "To accept cookies on the 1to1 platform, users simply need to click on the acceptance button that appears in the cookie notice when entering the website. By doing so, they will be consenting to the use of cookies as established in the company's cookie policy. Users can also accept the use of cookies through their browser settings.",
+    "browser_settings_title": "3.2. Browser Settings",
+    "browser_settings_text": "Configuring the browser to manage cookies on the 1to1 website is straightforward. Users can modify their cookie preferences in their browser by selecting which types of cookies they wish to allow, block, or delete. This option gives them personalized control over the privacy and security of their data. However, it is important to note that blocking certain cookies may negatively affect the functionality of the website and limit the user experience.",
+    "revocation_title": "3.3. Revocation of Consent",
+    "revocation_text": "If users wish to revoke their consent for the use of cookies on the 1to1 platform, they can do so by modifying the cookie settings in their browser or contacting the company's support team directly. This action allows them to effectively withdraw consent and protect their privacy. However, it is important to note that revoking consent may negatively affect the functionality of the website and limit the user experience.",
+    "changes_title": "4. Changes to the Policy",
+    "changes_text": "In the event of changes to the 1to1 cookie policy, users will be notified through a notice on the website. The changes will take effect once published, so users are encouraged to review the policy periodically to stay informed of any updates. Any modifications will be made in compliance with current regulations and to ensure transparency and the proper use of cookies on our site."
+  },
+
+  "solicitudes": {
+    "por_aceptar": "Requests to Accept",
     "aceptadas": "Accepted Requests",
     "todas": "All Requests",
-    "descripcion": "1to1 allows you to manage your service requests efficiently. Here, you can view all the requests from clients who are interested in what you offer, giving you the opportunity to organize and respond quickly and effectively. With this tool, you can keep clear track of your requests, facilitating communication and improving your productivity.",
     "titulo": "Requests",
     "aceptar": "Accept",
-    "rechazar": "Reject"
-}
+    "rechazar": "Reject",
+    "descripcion": "1to1 allows you to manage your service requests efficiently. Here, you can view all the requests from clients who are interested in what you offer, giving you the opportunity to organize and respond quickly and effectively. With this tool, you can keep clear track of your requests, facilitating communication and improving your productivity.",
+    "descripcion_aceptadas": "Here you will find a detailed list of all the requests that have been accepted. You will be able to see the status of each request and obtain relevant information for their follow-up. If your request has been approved, this is the place to check the details. Thank you for choosing us for your service needs.",
+    "descripcion_todas": "In this section, you will find the complete history of all requests made through our platform. You can see each request along with its current status, whether pending, in process, or completed. This page allows you to keep track of your requests and access detailed information about each one. Use this tool to stay up to date with your procedures and services."
+  }
+  
+  
+
+
+
+
 
 }

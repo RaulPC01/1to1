@@ -6,8 +6,8 @@
 <div class="cuerpo" *ngIf="!loading">
   <div class="submenu">
     <button [class.active]="activeTab === 'solicitudesPorAceptar'" (click)="changeTab('solicitudesPorAceptar')">{{ 'solicitudes.por_aceptar' | translate }}</button>
-    <button [class.active]="activeTab === 'solicitudesAceptadas'" (click)="changeTab('solicitudesAceptadas')"> {{ 'solicitudes.aceptadas' | translate }} </button>
-    <button [class.active]="activeTab === 'todaslasSolicitudes'" (click)="changeTab('todaslasSolicitudes')"> {{ 'solicitudes.todas' | translate }} </button>
+    <button [class.active]="activeTab === 'solicitudesAceptadas'" (click)="changeTab('solicitudesAceptadas')">{{ 'solicitudes.aceptadas' | translate }}</button>
+    <button [class.active]="activeTab === 'todaslasSolicitudes'" (click)="changeTab('todaslasSolicitudes')">{{ 'solicitudes.todas' | translate }}</button>
   </div>
   
   <div class="container"> 
@@ -15,7 +15,7 @@
     <div class="row" style="display: flex; align-items: center;" *ngIf="activeTab === 'solicitudesPorAceptar'">
       <div class="col-md-7" id="izquierda">
         <h2 class="titulo">{{ 'solicitudes.por_aceptar' | translate }}</h2>
-        <p class="texto"><strong>1to1</strong> te permite gestionar tus solicitudes de servicio de manera eficiente. Aquí, puedes visualizar todas las peticiones de clientes que están interesados en lo que ofreces, dándote la oportunidad de organizar y responder de forma rápida y eficaz. Con esta herramienta, podrás mantener un seguimiento claro de tus solicitudes, facilitando la comunicación y mejorando tu productividad.</p>
+        <p class="texto">{{ 'solicitudes.descripcion' | translate }}</p>
       </div>
   
       <div class="col-md-6" id="derecha">
@@ -32,25 +32,22 @@
               </div>
               <p class="nombreServicio">{{ solicitud.nombre_Servicio }}</p>
               <p class="descripcion">{{ solicitud.descripcion }}</p>
-              <div  class="botones">
+              <div class="botones">
                 <button class="botonAceptar" (click)="aceptarSolicitud(solicitud)">{{ 'solicitudes.aceptar' | translate }}</button>
                 <button class="botonRechazar" (click)="rechazarSolicitud(solicitud)">{{ 'solicitudes.rechazar' | translate }}</button>
               </div>
             </div>
           </div>
         </div>
-
-
       </div>
     </div>
 
-  
-  
+    <!--SOLICITUDES ACEPTADAS-->
     <div class="segundo" *ngIf="activeTab === 'solicitudesAceptadas'">
       <div class="row" style="display: flex; align-items: center;">
         <div class="col-md-7" id="izquierda">
           <h2 class="titulo">{{ 'solicitudes.aceptadas' | translate }}</h2>
-          <p class="texto">Aquí encontrarás un listado detallado de todas las solicitudes que han sido aceptadas. Podrás ver el estado de cada solicitud y obtener información relevante para su seguimiento. Si tu solicitud ha sido aprobada, este es el lugar para consultar los detalles. Gracias por elegirnos para tus necesidades de servicio.</p>
+          <p class="texto">{{ 'solicitudes.descripcion_aceptadas' | translate }}</p>
         </div>
     
         <div class="col-md-6" id="derecha">
@@ -59,11 +56,11 @@
             <div *ngFor="let solicitud of solicitudesAcceptadas">
               <div class="infoSolicitud">
                 <div class="solicitud-encabezado">
-                  <p> {{ solicitud.name_user_solicitud }}</p>
-                  <p class="fecha"> {{ solicitud.date_servicio }}</p>
+                  <p>{{ solicitud.name_user_solicitud }}</p>
+                  <p class="fecha">{{ solicitud.date_servicio }}</p>
                 </div>
                 <div class="solicitud-encabezado2">
-                  <p> {{ solicitud.telefono_user}}</p>
+                  <p>{{ solicitud.telefono_user }}</p>
                 </div>
                 <p class="nombreServicio">{{ solicitud.nombre_Servicio }}</p>
                 <p class="descripcion">{{ solicitud.descripcion }}</p>
@@ -74,12 +71,12 @@
       </div>
     </div>
   
-  
+    <!--TODAS LAS SOLICITUDES-->
     <div class="tercero" *ngIf="activeTab === 'todaslasSolicitudes'">
       <div class="row" style="display: flex; align-items: center;">
         <div class="col-md-7" id="izquierda">
           <h2 class="titulo">{{ 'solicitudes.todas' | translate }}</h2>
-          <p class="texto">En esta sección encontrarás el historial completo de todas las solicitudes realizadas a través de nuestra plataforma. Podrás ver cada solicitud junto con su estado actual, ya sea pendiente, en proceso o finalizada. Esta página te permite llevar un seguimiento de tus solicitudes y acceder a información detallada sobre cada una de ellas. Utiliza esta herramienta para mantenerte al día con tus trámites y servicios.</p>
+          <p class="texto">{{ 'solicitudes.descripcion_todas' | translate }}</p>
         </div>
     
         <div class="col-md-6" id="derecha">
@@ -88,11 +85,11 @@
             <div *ngFor="let solicitud of solicitudes">
               <div class="infoSolicitud">
                 <div class="solicitud-encabezado">
-                  <p> {{ solicitud.name_user_solicitud }}</p>
-                  <p class="fecha"> {{ solicitud.date_servicio }}</p>
+                  <p>{{ solicitud.name_user_solicitud }}</p>
+                  <p class="fecha">{{ solicitud.date_servicio }}</p>
                 </div>
                 <div class="solicitud-encabezado2">
-                  <p> {{ solicitud.telefono_user}}</p>
+                  <p>{{ solicitud.telefono_user }}</p>
                 </div>
                 <p class="nombreServicio">{{ solicitud.nombre_Servicio }}</p>
                 <p class="descripcion">{{ solicitud.descripcion }}</p>
