@@ -84,6 +84,8 @@ button {
   justify-content: center;
   align-items: center;
   padding: 4px;
+  background: none;
+  border: none;
 }
 
 .material-symbols-outlined {
