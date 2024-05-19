@@ -35,7 +35,6 @@ export class MisServiviosComponent implements OnInit {
     });
     this.http.get<any>('http://localhost:8000/api/perfil', { headers }).subscribe(
       (data) => {
-        console.log('Datos del perfil:', data);
         this.serviciosUsuario(data.dni);
       },
       (error) => {
@@ -47,7 +46,6 @@ export class MisServiviosComponent implements OnInit {
   serviciosUsuario(idUsuarioProveedor: string) {
     this.http.get<any[]>(`http://localhost:8000/api/serviciosUser/${idUsuarioProveedor}`).subscribe(
       (data) => {
-        console.log('Servicios del proveedor:', data);
         this.servicios = data;
         this.loading = false; // Establecer loading en false cuando se complete la carga
       },
@@ -63,7 +61,6 @@ export class MisServiviosComponent implements OnInit {
     });
     this.http.delete(`http://localhost:8000/api/servicios/${idServicio}`, { headers }).subscribe(
       () => {
-        console.log('Servicio eliminado correctamente');
         this.servicios = this.servicios.filter(servicio => servicio.id_servicios !== idServicio);
       },
       (error) => {
@@ -89,7 +86,6 @@ export class MisServiviosComponent implements OnInit {
     this.http.put(`http://localhost:8000/api/servicios/${this.servicioEditando.id_servicios}`, this.servicioEditando, { headers })
       .subscribe(
         (response) => {
-          console.log('Servicio actualizado:', response);
           this.editando = false;
           this.cargarServicios(); // Recargar la lista de servicios para mostrar los datos actualizados
         },

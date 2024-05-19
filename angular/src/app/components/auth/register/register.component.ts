@@ -114,7 +114,6 @@ export class RegisterComponent {
         .subscribe(
           (data) => {
             // Handle the successful backend response
-            console.log(data);
             this.Router.navigate(['/login']); // Navigate on success
           },
           (error: HttpErrorResponse) => {

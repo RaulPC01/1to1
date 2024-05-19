@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/user.service';
 import { TokenService } from 'src/app/token.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-perfil',
@@ -12,6 +13,8 @@ export class PerfilComponent implements OnInit {
   user: any;
   perfilForm!: FormGroup;
   showEditForm: boolean = false;
+  loading: boolean = false;
+  userId: string ='';
 
   constructor(
     private userService: UserService,
@@ -20,25 +23,26 @@ export class PerfilComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // Inicializa el formulario FormGroup
+    this.loading = true;
+
+    // Initialize FormGroup for user and profile data
     this.perfilForm = this.formBuilder.group({
-      dni: ['', Validators.required],
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required],
-      dateOfBirth: ['', Validators.required]
+      experiencia: ['', Validators.required],
+      habilidades: ['', Validators.required],
+      descripcion_personal: ['', Validators.required]
     });
 
-    // Llama a la función para obtener el perfil del usuario
+    // Fetch user and profile data
     const token = localStorage.getItem('Idtoken');
     if (token) {
       this.obtenerPerfilUsuario(token);
     } else {
-      console.error('El token no está definido en el almacenamiento local');
-      // Manejar el error, por ejemplo, redirigir al usuario a la página de inicio de sesión
+      console.error('Token not found in local storage');
     }
   }
-
 
   toggleEditForm(): void {
     this.showEditForm = !this.showEditForm;
@@ -47,24 +51,40 @@ export class PerfilComponent implements OnInit {
   obtenerPerfilUsuario(token: string): void {
     this.userService.obtenerPerfilUsuario(token).subscribe(
       (data) => {
-        console.log('Datos del perfil:', data);
         this.user = data;
+        this.userId = this.user.profile.dni;
+        this.loading = false;
+
         if (localStorage.getItem('Idtoken') === data.token) {
-          console.error('El token almacenado en el navegador coincide con el token devuelto por el backend');
+          console.error('Token mismatch between browser and backend');
           this.tokenService.cerrarSesion();
         }
 
-        // Establece los valores del formulario
+        // Set form values with user and profile data
         this.perfilForm.patchValue({
-          dni: this.user.dni,
-          name: this.user.name,
-          email: this.user.email,
-          phone: this.user.phone,
-          dateOfBirth: this.user.dateOfBirth
+          name: this.user.profile.name,
+          email: this.user.profile.email,
+          phone: this.user.profile.phone,
+          experiencia: this.user.profile.experiencia,
+          habilidades: this.user.profile.habilidades,
+          descripcion_personal: this.user.profile.descripcion_personal
         });
       },
-      (error) => {  
+      (error) => {
         console.error('Error al obtener el perfil del usuario:', error);
+      }
+    );
+  }
+
+  guardarPerfil(): void {
+    this.userService.updateUserProfile(this.userId, this.perfilForm.value).subscribe(
+      (response) => {
+        console.log('Perfil actualizado correctamente:', response);
+      },
+      (error) => {
+        console.error('Error al actualizar el perfil:', error);
+        console.log('Formulario:', this.perfilForm.value);
+
       }
     );
   }

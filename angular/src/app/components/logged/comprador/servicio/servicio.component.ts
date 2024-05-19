@@ -72,7 +72,7 @@ export class ServicioComponent implements OnInit {
   obtenerDetalleServicio(id_servicios: string): void {
     this.servicioService.obtenerDetalleServicio(id_servicios).subscribe(
       (data) => {   
-        console.log('JSON retornado por la API:', data);
+        
         this.servicio = data;
         if (this.servicio && this.servicio.id_servicios) {
           this.mensajeForm.patchValue({
@@ -98,7 +98,7 @@ export class ServicioComponent implements OnInit {
     this.servicioService.obtenerComentarios(id_servicios).subscribe(
       (data) => {   
         this.loading = false; 
-        console.log('Comentarios obtenidos:', data);
+       
         this.comentarios = data.comentarios;
       },
       (error) => {
@@ -114,10 +114,10 @@ export class ServicioComponent implements OnInit {
 
   enviarComentario() {
     if (this.mensajeForm.valid) {
-      console.log('Datos del comentario a enviar:', this.mensajeForm.value);
+      
       this.servicioService.enviarComentario(this.mensajeForm.value).subscribe(
         (response) => {
-          console.log('Comentario enviado correctamente:', response);
+          
           this.mensajeForm.reset();
           this.mostrarInputComentario = false;
           window.location.reload();
@@ -127,7 +127,7 @@ export class ServicioComponent implements OnInit {
         }
       );
     } else {
-      console.log(this.mensajeForm.value);
+      
     }
   }
 }
