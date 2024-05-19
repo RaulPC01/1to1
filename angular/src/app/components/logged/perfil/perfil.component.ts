@@ -52,6 +52,7 @@ export class PerfilComponent implements OnInit {
     this.userService.obtenerPerfilUsuario(token).subscribe(
       (data) => {
         this.user = data;
+        console.log(this.user);
         this.userId = this.user.profile.dni;
         this.loading = false;
 
