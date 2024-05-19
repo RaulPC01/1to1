@@ -44,6 +44,9 @@ const routes: Routes = [
   { path: 'politica-privacidad', component: PoliticaPrivacidadComponent},
 
   { path: 'politica-cookies', component: PoliticaCokkiesComponent},
+  { path: 'aviso-legal', component: AvisoLegalComponent},
+
+
 
   {path: 'mis-peticiones', component:MisPeticionesComponent},
 
