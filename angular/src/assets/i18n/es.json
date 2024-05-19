@@ -17,8 +17,9 @@
       "peticiones" : "Peticiones",
       "buscar" : "Buscar",
       "perfil" : "Perfil",
-    "contacto" : "Contacto",
-    "cerrarSesion" : "Cerrar Sesión"
+      "idioma" : "Idioma",
+      "contacto" : "Contacto",
+      "cerrarSesion" : "Cerrar Sesión"
     },
 
     "error": {

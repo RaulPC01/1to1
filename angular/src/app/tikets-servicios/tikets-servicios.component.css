@@ -142,7 +142,7 @@
   color: #b40301;
   margin-top: 0px;
   position: fixed;
-  right: 16%;
+  right: 18%;
 }
 
 h2{
@@ -152,7 +152,8 @@ h2{
 .infoSolicitud{
   max-width: 550px;
   padding: 1em;
-  background-color: rgb(251, 248, 248);
+  background-color: rgb(246, 246, 246);
+  border: 1px solid #c0c0c0;
   border-radius: 20px;
 }
 
@@ -164,10 +165,19 @@ h2{
   color: rgb(76, 76, 76);
 }
 
+.solicitud-encabezado2 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -20px;
+  font-weight: 700;
+  color: rgb(76, 76, 76);
+}
+
 .nombreServicio{
   font-weight: 700;
   font-size: 24px;
   text-transform: uppercase;
+  margin-top: -30px;
 }
 
 .botones{
