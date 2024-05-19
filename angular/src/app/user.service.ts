@@ -30,8 +30,5 @@ export class UserService {
     return this.http.get<any>(`http://localhost:8000/api/mis-peticiones/${userId}`);
   }
 
-  updateUserProfile(userId: string, formData: any): Observable<any> {
-    const url = `http://localhost:8000/api/users/${userId}`;
-    return this.http.put<any>(url, formData.value); // Use formData.value instead of formData
-  }
+
 }

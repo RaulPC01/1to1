@@ -35,6 +35,7 @@ export class MisPeticionesComponent implements OnInit {
     });
     this.http.get<any>('http://localhost:8000/api/perfil', { headers }).subscribe(
       (data) => {
+        console.log('Datos del perfil:', data);
         // Llamada a la función obtenerSolicitudesProveedor con el ID del usuario proveedor
         this.obtenerMisPeticiones(data.dni);
         
@@ -49,6 +50,7 @@ export class MisPeticionesComponent implements OnInit {
   obtenerMisPeticiones(userId: string): void {
     this.userService.getMisPeticiones(userId).subscribe(
       (data) => {
+        console.log('Mis peticiones:', data);
         this.peticiones = data; 
         this.loading = false; 
       },

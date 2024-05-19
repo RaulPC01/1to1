@@ -76,6 +76,7 @@ export class CrearservicoComponent implements OnInit {
   obtenerCategorias(): void {
     this.servicioService.obtenerCategorias().subscribe(
       (categorias) => {
+        console.log('Categorías:', categorias);
         this.categorias = categorias;
       },
       (error) => {
@@ -88,6 +89,7 @@ export class CrearservicoComponent implements OnInit {
   obtenerPoblaciones(): void {
     this.servicioService.obtenerPoblaciones().subscribe(
       (poblaciones) => {
+        console.log('Poblaciones:', poblaciones);
         this.poblaciones = poblaciones;
       },
       (error) => {
@@ -99,10 +101,12 @@ export class CrearservicoComponent implements OnInit {
   obtenerPerfilUsuario(token: string): void {
     this.UserService.obtenerPerfilUsuario(token).subscribe(
       (data) => {
+        console.log('Datos del perfil:', data);
         this.user = data;
   
         // Convertir el dni a un entero y establecerlo en el formulario
         const userId = this.user.dni;
+        console.log('Valor de userId:', userId); // Verificar el valor de userId
         this.servicioForm.patchValue({
           idUser: userId
         });
@@ -127,6 +131,7 @@ export class CrearservicoComponent implements OnInit {
       this.servicioService.crearServicio(this.servicioForm.value).subscribe(
         (data) => {
           // Manejar la respuesta del backend si es necesario
+          console.log('Respuesta del servidor:', data);
           this.showConfirmation = true; // Mostrar el mensaje de confirmación
           setTimeout(() => {
             this.showConfirmation = false; // Ocultar el mensaje de confirmación después de 4 segundos

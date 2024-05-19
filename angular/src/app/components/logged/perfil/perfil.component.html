@@ -1,63 +1,70 @@
+<<<<<<< HEAD
 
   <div class="user-profile-wrapper">
     <div class="user-profile-container" *ngIf="!showEditForm">
       <div class="profile-left">
         <div class="profile-picture-wrapper">
           <img [src]="user.profile.image" alt="Profile Picture" class="profile-picture">
+=======
+<div class="fotoPerfil">
+    <img [src]="user.image" alt="{{ 'profile.profile_picture' | translate }}">
+</div>
+
+<div class="profile-card">
+    <header class="card-header">
+        <h2>{{ 'profile.details_title' | translate }}</h2>
+        <button class="edit-button" (click)="toggleEditForm()">{{ 'profile.edit_button' | translate }}</button>
+    </header>
+    
+    <div *ngIf="!showEditForm">
+        <div class="card-content">
+            <div class="field">
+                <label>{{ 'profile.full_name_label' | translate }}</label>
+                <div class="value">{{ user.name }}</div>
+            </div>
+            <div class="field">
+                <label>{{ 'profile.email_label' | translate }}</label>
+                <div class="value">{{ user.email }}</div>
+            </div>
+            <div class="field">
+                <label>{{ 'profile.contact_number_label' | translate }}</label>
+                <div class="value verified">{{ user.phone }} <span>{{ 'profile.verified' | translate }}</span></div>
+            </div>
+>>>>>>> parent of 2a280163 (gg)
         </div>
-        <h2>{{ user.profile.name }}</h2>
-        <p><strong>Email:</strong> {{ user.profile.email }}</p>
-        <p><strong>Phone:</strong> {{ user.profile.phone }}</p>
-        <button class="edit-profile-btn" (click)="toggleEditForm()">Edit Profile</button>
-      </div>
-      <div class="profile-right">
-        <div class="profile-section">
-          <h3>Skills</h3>
-          <ul>
-            <li *ngFor="let skill of user.profile.habilidades.split('\r\n')">{{ skill }}</li>
-          </ul>
-        </div>
-        <div class="profile-section">
-          <h3>Personal Experience</h3>
-          <p>{{ user.profile.experiencia }}</p>
-        </div>
-        <div class="profile-section">
-          <h3>Personal Description</h3>
-          <p>{{ user.profile.descripcion_personal }}</p>
-        </div>
-      </div>
     </div>
-  
-    <div *ngIf="showEditForm" class="edit-profile-form">
-      <h2>Edit Profile</h2>
-      <form [formGroup]="perfilForm" (ngSubmit)="guardarPerfil()">
+    
+    <form *ngIf="showEditForm" class="edit-form">
         <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" formControlName="name" id="name" class="form-control">
+            <label>{{ 'profile.full_name_label' | translate }}</label>
+            <input type="text" name="fullName" [(ngModel)]="user.name" required>
         </div>
         <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" formControlName="email" id="email" class="form-control">
+            <label>{{ 'profile.email_label' | translate }}</label>
+            <input type="email" name="email" [(ngModel)]="user.email" required>
         </div>
         <div class="form-group">
-          <label for="phone">Phone</label>
-          <input type="text" formControlName="phone" id="phone" class="form-control">
+            <label>{{ 'profile.contact_number_label' | translate }}</label>
+            <input type="text" name="contactNumber" [(ngModel)]="user.telefono" required>
         </div>
+        
         <div class="form-group">
-          <label for="experiencia">Experience</label>
-          <textarea formControlName="experiencia" id="experiencia" class="form-control"></textarea>
+            <label>{{ 'profile.change_profile_picture_label' | translate }}</label>
+            <input type="file">
         </div>
-        <div class="form-group">
-          <label for="habilidades">Skills (Separate by newlines)</label>
-          <textarea formControlName="habilidades" id="habilidades" class="form-control"></textarea>
-        </div>
-        <div class="form-group">
-          <label for="descripcion_personal">Personal Description</label>
-          <textarea formControlName="descripcion_personal" id="descripcion_personal" class="form-control"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Save</button>
-        <button type="button" class="btn btn-secondary" (click)="toggleEditForm()">Cancel</button>
-      </form>
+        <button type="submit" class="save-button">{{ 'profile.save_changes_button' | translate }}</button>
+    </form>
+</div>
+
+
+<div>
+    <div class="miExperienca">
+       <label for=""></label>
     </div>
+<<<<<<< HEAD
   </div>
   
+=======
+
+</div>
+>>>>>>> parent of 2a280163 (gg)

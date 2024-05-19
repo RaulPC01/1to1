@@ -17,7 +17,7 @@ return new class extends Migration
            $table->foreign('id_usuario_proveedor')->references('dni')->on('users')->onDelete('cascade');
            $table->unsignedBigInteger('id_categoria'); 
            $table->foreign('id_categoria')->references('id')->on('categories')->onDelete('cascade');
-           $table->unsignedBigInteger('nombre_poblacion');
+           $table->unsignedBigInteger('nombre_poblacion'); // Cambiado a unsignedBigInteger
            $table->foreign('nombre_poblacion')->references('id_poblacion')->on('poblacion')->onDelete('cascade');
            $table->integer('tarifa');
            $table->text('descripcion');

@@ -1,8 +1,4 @@
 <div class="loading-spinner" *ngIf="loading">
-  <div class="spinner"></div>
-</div>
-
-<div class="loading-spinner" *ngIf="loading">
   <!-- Implementa tu spinner aquí -->
   <div class="spinner"></div>
 </div>
@@ -19,7 +15,7 @@
     <div class="row" style="display: flex; align-items: center;" *ngIf="activeTab === 'solicitudesPorAceptar'">
       <div class="col-md-7" id="izquierda">
         <h2 class="titulo">{{ 'solicitudes.por_aceptar' | translate }}</h2>
-        <p class="texto"><strong>1to1</strong> {{ 'solicitudes.descripcion' | translate }} </p>
+        <p class="texto"><strong>1to1</strong> te permite gestionar tus solicitudes de servicio de manera eficiente. Aquí, puedes visualizar todas las peticiones de clientes que están interesados en lo que ofreces, dándote la oportunidad de organizar y responder de forma rápida y eficaz. Con esta herramienta, podrás mantener un seguimiento claro de tus solicitudes, facilitando la comunicación y mejorando tu productividad.</p>
       </div>
   
       <div class="col-md-6" id="derecha">

@@ -9,9 +9,7 @@ use App\Http\Controllers\PoblacionController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\solicitudesController;
-use App\Models\profile;
 use PharIo\Manifest\AuthorElement;
-use Symfony\Component\HttpKernel\Profiler\ProfilerStorageInterface;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +34,7 @@ Route::post('/api/services/top-valorated', [ServiceController::class, 'getTopRat
 
 Route::get('services/{id_servicios}', [ServiceController::class, 'getServiceWithRelations']);
 
-Route::middleware('auth:sanctum')->get('/perfil', [ProfileController::class, 'show'] );
+Route::middleware('auth:sanctum')->get('/perfil', [ProfileController::class, 'show'] ); //para ir a perfil
 
 Route::get('/categories', [categoriesController::class, 'index']);
 
@@ -80,5 +78,3 @@ Route::put('/servicios/{id}', [ServiceController::class, 'update']);
 Route::get('/buscar-servicios', [ServiceController::class, 'buscarServicios']);
 
 Route::get ('/mis-peticiones/{userId}' , [solicitudesController::class, 'getMisSolicitudes']);
-
-Route::put('/users/{id}', [ProfileController::class, 'update']);

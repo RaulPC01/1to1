@@ -104,10 +104,10 @@ export class MainCompradorComponent implements OnInit {
       (data: any[]) => {
         this.topRatedServices = data;
         this.loading = false;
-        
+        console.log(this.topRatedServices);
       },
       (error) => {
-       
+        console.log('Error al obtener los servicios mejor valorados: ', error);
         this.loading = false;
       }
     );
@@ -126,7 +126,7 @@ export class MainCompradorComponent implements OnInit {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       },
       (error) => {
-        
+        console.log('Error al obtener los servicios por categoría: ', error);
         this.loading = false;
       }
     );
@@ -141,7 +141,7 @@ export class MainCompradorComponent implements OnInit {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       },
       (error) => {
-        
+        console.log('Error al buscar servicios: ', error);
         this.loading = false;
       }
     );
