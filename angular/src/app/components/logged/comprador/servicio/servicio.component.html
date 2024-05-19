@@ -21,17 +21,9 @@
     </div>
 
     <hr> 
-    <h4>Descripción del servicio</h4>
     <p class="descripcionServicio">{{ servicio.descripcion }}</p>
     <hr>  
-    <h4>Descripción personal</h4>
-    <p class="descripcionUsu">{{ servicio.user.profile.descripcion_personal}}</p>
-    <hr>  
-    <h4>Habilidades personales</h4>
-    <p class="descripcionUsu">{{ servicio.user.profile.habilidades}}</p>
-    <hr>  
-    <h4>Experiencia de {{ servicio.user.name }}</h4>
-    <p class="descripcionUsu">{{ servicio.user.profile.experiencia}}</p>
+    <p class="descripcionUsu"></p>
 
     <div class="añadirComentario" *ngIf="!mostrarInputComentario">
       <button class="botonComentario" (click)="mostrarInputComentario = true">{{ 'servicio.add_comment_button' | translate }}</button>
@@ -57,7 +49,7 @@
 
   <div class="panelDerecha">
     <div class="miniDiv">
-      <p>{{ 'servicio.service_section' | translate }}</p>
+      <p>{{ 'ser.service_section' | translate }}</p>
       <hr>
     </div>
     <hr>
