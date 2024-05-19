@@ -7,9 +7,8 @@
   <div class="content-container" *ngIf="!loading">
     <div class="left-content">
       <div class="col-md-7">
-        <h2 class="tituloCrearServicio">Crear Servicio</h2>
-        <p class="texto">Crear tu propio servicio te brinda la oportunidad de destacar tus habilidades únicas y llegar a
-          una audiencia específica, potenciando tu visibilidad y oportunidades de negocio en nuestra plataforma.</p>
+        <h2 class="tituloCrearServicio">{{ 'mis-servicios.create' | translate }}</h2>
+        <p class="texto">{{ 'mis-servicios.description' | translate }}</p>
 
 
         <a routerLink="/crear-servicio" class="btn btn-primary">Crear</a>

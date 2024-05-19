@@ -43,7 +43,10 @@
       <mat-menu #menu="matMenu">
         <button mat-menu-item routerLink="/perfil">{{'header_logged.perfil' | translate}}</button>
         <button mat-menu-item routerLink="contacto">{{'header_logged.contacto' | translate}}</button>
-        <button (click)="logout()" mat-menu-item>{{'header_logged.cerrarSesion' | translate}}</button>
+        <button mat-menu-item (click)="cambiarIdioma('es')"> Español </button>
+        <button mat-menu-item (click)="cambiarIdioma('en')"> English </button>
+        <button mat-menu-item (click)="logout()" mat-menu-item>{{'header_logged.cerrarSesion' | translate}}</button>
+
       </mat-menu>
       </div>
 </nav>

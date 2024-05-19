@@ -1,11 +1,13 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Profile;
 
 class AuthController extends Controller
 {
@@ -14,11 +16,11 @@ class AuthController extends Controller
         $request->validate([
             'dni' => 'required|string|unique:users',
             'name' => 'required|string',
-            'dateOfBirth' => 'required|date', // Cambiado a tipo de dato date
+            'dateOfBirth' => 'required|date',
             'email' => 'required|email|unique:users',
             'phone' => 'required|string',
             'password' => 'required|string',
-            'image' => 'nullable|string', // La imagen ahora es opcional y se espera que sea una cadena Base64
+            'image' => 'nullable|string',
         ]);
     
         $user = new User();
@@ -28,11 +30,17 @@ class AuthController extends Controller
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->password = Hash::make($request->password);
-        $user->image = $request->image; // Almacenar la imagen codificada en Base64
+        $user->image = $request->image;
         $user->save();
-    
+
+        // Create a profile record for the new user
+        $profile = new Profile();
+        $profile->dni = $user->dni;
+        $profile->save();
+
         return response()->json(['message' => 'Usuario registrado exitosamente'], 201);
     }
+
     public function login(Request $request)
     {
         // Obtener los datos del formulario
