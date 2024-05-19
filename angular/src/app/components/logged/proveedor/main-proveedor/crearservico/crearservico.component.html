@@ -91,12 +91,8 @@
             <div [ngClass]="{ 'hidden': !mostrarTarifa }" class="mb-4">
                 <div class="mb-3">
                     <h3 class="tituloDescripcion">{{ 'crearServicio.price' | translate }}</h3>
-                    <div style="position: relative;">
-                        <span style="position: absolute; left: 5px; top: 50%; transform: translateY(-50%); pointer-events: none;">€</span>
-                        <input type="number" formControlName="precio" required style="padding-left: 20px;">
-                    </div>
+                    <input type="number" formControlName="precio" required>
                 </div>
-                
 
                 <div class="contenedor-botones">
                     <button type="button" (click)="volverDescripcion()">{{ 'crearServicio.previous_button' | translate }}</button>

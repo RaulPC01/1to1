@@ -53,8 +53,7 @@
     "buscar" : "Search",
     "perfil" : "Profile",
     "contacto" : "Contact",
-    "cerrarSesion" : "Log Out",
-    "peticion" : "Petitions"
+    "cerrarSesion" : "Log Out"
   },
 
   "error": {
@@ -169,9 +168,6 @@
     "join_now": "Join our community now!",
     "start_creating": "Start creating your own service and explore a world full of opportunities. Unlock exclusive resources and connect with professionals from all over the world. The future is yours to build!",
     "create_service_button": "Create Service"
-   
-  
-   
   },
 
   "service_creation": {
@@ -205,23 +201,10 @@
   "categories_title": "Explore our Categories with the most services!",
   "create_service_button": "Join now",
   "create_service_description": "Be part of our community and start creating your own service!",
-  "losMas": "¡The Most Outstanding Professionals!",
-
+  "evidence_title": "The evidence is more than clear!",
   "testimonial1_name": "Roger Orteu",
   "testimonial1_location": "Juneda",
-  "testimonial1_text": "Roger is a great professional, he is a very attentive and an understanding person. He is a very hardworking professional and completes everything he promises in his service. He is a highly recommended specialist.",
-  "Nombre2": "Raul Pereira",
-  "Ubicacio2": "Andorra",
-  "Descripcion2": "Raul Pereira is an exceptional professional, always attentive and committed. His dedication and reliability make him highly recommended in his service.",
-  "Nombre3": "Arian Lanuza",
-  "Ubicacio3": "Solsona",
-  "Descripcion3": "Arian Lanuza is an outstanding professional with exceptional attention and unparalleled dedication to his work. Without a doubt, I would highly recommend him.",
-    "Mensaje": "Create your own service with",
-    "1to1": " 1to1!",
-    "textL": "Turn your skills into a service! Your knowledge and expertise can make a difference in the lives of others. With our app, connect with those who need your services and start earning money doing what you love. Start today and make a positive impact in your community!",
-    "Acción": "Create your service"
-  
-  
+  "testimonial1_text": "Roger is a great professional, he is a very attentive and an understanding person. He is a very hardworking professional and completes everything he promises in his service. He is a highly recommended specialist."
 },
 "solicitudes": {
   "por_aceptar": "Requests to Accept",
@@ -231,16 +214,6 @@
     "titulo": "Requests",
     "aceptar": "Accept",
     "rechazar": "Reject"
-},  
-"mis-peticiones": {
-  "titulo": "My Requests:",
-  "descripcion": "offers you a comprehensive solution for monitoring your service requests. In this section, you can view all the requests you have made, allowing you to manage your requirements in an organized and efficient manner. This tool helps you maintain a detailed record of each request, ensuring smooth communication and better organization of your tasks. With  ",
-  "descripcion2": "you optimize your time and resources, improving your responsiveness and productivity.",
-  "titulo_derecha": "Requests",
-  "estado": "Status",
-  "aceptado": "Accepted",
-  "no_aceptado": "Not Yet Accepted",
-  "no_peticiones": "You have no requests currently."
 }
 
 }

@@ -9,13 +9,16 @@
       <div class="col-md-7">
         <h2 class="tituloCrearServicio">{{ 'mis-servicios.create' | translate }}</h2>
         <p class="texto">{{ 'mis-servicios.description' | translate }}</p>
-        <a routerLink="/crear-servicio" class="btn btn-primary">{{ 'mis-servicios.create' | translate }}</a>
+
+
+        <a routerLink="/crear-servicio" class="btn btn-primary">Crear</a>
+
       </div>
     </div>
 
     <div class="col-md-6" *ngIf="!loading">
       <div class="tituloDerecha">
-        <h2>{{ 'mis-servicios.titulo' | translate }}</h2>
+        <h2>Mis Servicios</h2>
       </div>
 
       <div class="contenido">
@@ -27,44 +30,41 @@
             <p>{{ servicio.tarifa }}€</p>
             <div class="buttons">
               <a [routerLink]="['/servicios', servicio.id_servicios]" class="button view-button"><i
-                  class="fas fa-info-circle"></i> {{ 'mis-servicios.ver_mas' | translate }}</a>
+                  class="fas fa-info-circle"></i> Ver más</a>
               <button (click)="toggleEditForm(servicio)" class="button edit-button"><i class="fas fa-edit"></i>
-                {{ 'mis-servicios.editar' | translate }}</button>
+                Editar</button>
               <button (click)="eliminarServicio(servicio.id_servicios)" class="button delete-button"><i
-                  class="fas fa-trash-alt"></i> {{ 'mis-servicios.borrar' | translate }}</button>
+                  class="fas fa-trash-alt"></i> Eliminar</button>
             </div>
             <!-- Formulario de edición del servicio actual -->
             <div *ngIf="servicioEditando && servicioEditando.id_servicios === servicio.id_servicios" class="edit-form">
               <form (ngSubmit)="actualizarServicio()" class="edit-form-inner">
-                <h4>{{ 'mis-servicios.editar_servicio' | translate }}</h4>
+                <h4>Editar Servicio</h4>
                 <div class="form-group">
-                  <label for="tipo">{{ 'mis-servicios.tipo_servicio' | translate }}</label>
+                  <label for="tipo">Tipo de servicio:</label>
                   <input type="text" [(ngModel)]="servicioEditando.tipo_servicio" id="tipo" name="tipo"
                     class="form-control">
                 </div>
                 <div class="form-group">
-                  <label for="descripcion">{{ 'mis-servicios.descripcion' | translate }}</label>
+                  <label for="descripcion">Descripción:</label>
                   <textarea [(ngModel)]="servicioEditando.descripcion" id="descripcion" name="descripcion"
                     class="form-control"></textarea>
                 </div>
                 <div class="form-group">
-                  <label for="tarifa">{{ 'mis-servicios.tarifa' | translate }}</label>
-                  <div style="position: relative;">
-                    <input type="number" [(ngModel)]="servicioEditando.tarifa" id="tarifa" name="tarifa"
-                      class="form-control" style="padding-left: 20px;">
-                    <span style="position: absolute; left: 5px; top: 50%; transform: translateY(-50%); pointer-events: none;">€</span>
-                  </div>
+                  <label for="tarifa">Tarifa (€):</label>
+                  <input type="number" [(ngModel)]="servicioEditando.tarifa" id="tarifa" name="tarifa"
+                    class="form-control">
                 </div>
-                <button type="submit" class="btn btn-primary">{{ 'mis-servicios.actualizar_servicio' | translate }}</button>
-                <button type="button" class="btn btn-secondary" (click)="toggleEditForm(servicio)">{{ 'mis-servicios.cancelar' | translate }}</button>
+                <button type="submit" class="btn btn-primary">Actualizar Servicio</button>
+                <button type="button" class="btn btn-secondary" (click)="toggleEditForm(servicio)">Cancelar</button>
               </form>
             </div>
           </div>
         </div>
-        <ng-template #noServicios>
-          <p>{{ 'mis-servicios.no_servicios' | translate }}</p>
-        </ng-template>
       </div>
+      <ng-template #noServicios>
+        <p>No se encontraron servicios.</p>
+      </ng-template>
     </div>
   </div>
 </div>
