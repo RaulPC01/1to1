@@ -49,13 +49,9 @@ export class PerfilComponent implements OnInit {
       (data) => {
         console.log('Datos del perfil:', data);
         this.user = data;
-<<<<<<< HEAD
         console.log(this.user);
-        this.userId = this.user.profile.dni;
-        this.loading = false;
+       
 
-=======
->>>>>>> parent of 2a280163 (gg)
         if (localStorage.getItem('Idtoken') === data.token) {
           console.error('El token almacenado en el navegador coincide con el token devuelto por el backend');
           this.tokenService.cerrarSesion();
