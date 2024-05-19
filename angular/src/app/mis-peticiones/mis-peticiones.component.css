@@ -66,20 +66,20 @@
     color: #b40301;
     margin-top: 0px;
     position: fixed;
-    right: 16%;
+    right: 19%;
   }
   
   h2{
     font-weight: 700;
   }
   
-  .infoSolicitud{
-    max-width: 550px;
-    padding: 1em;
-    background-color: rgb(251, 248, 248);
-    border-radius: 20px;
-    margin: 20px 0px;
-  }
+.infoSolicitud{
+  max-width: 550px;
+  padding: 1em;
+  background-color: rgb(235, 235, 235);
+  border-radius: 20px;
+  border: 1px solid #a5a5a5;
+}
   
   .solicitud-encabezado {
     display: flex;
