@@ -49,9 +49,6 @@ export class PerfilComponent implements OnInit {
       (data) => {
         console.log('Datos del perfil:', data);
         this.user = data;
-        console.log(this.user);
-       
-
         if (localStorage.getItem('Idtoken') === data.token) {
           console.error('El token almacenado en el navegador coincide con el token devuelto por el backend');
           this.tokenService.cerrarSesion();

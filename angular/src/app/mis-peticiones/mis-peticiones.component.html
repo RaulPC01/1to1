@@ -1,5 +1,5 @@
-<div *ngIf="loading; else content" class="loading-spinner">
-  <div class="spinner"></div>
+<div *ngIf="loading; else content">
+    Cargando peticiones...
   </div>
   
   <ng-template #content>
@@ -24,7 +24,6 @@
                 </div>
                 <p class="nombreServicio">{{ peticion.nombre_Servicio }}</p>
                 <p class="descripcion">{{ peticion.descripcion }}</p>
-                <p><strong>Estado:</strong> {{ peticion.accepted ? 'Aceptado' : 'Aún no aceptado' }}</p>
                 
               </div>
             </div>
@@ -34,6 +33,6 @@
     </div>
 
     <ng-template #noPeticiones>
-        <p>No tienes peticiones actualmente.</p>
+      <p>No tienes peticiones actualmente.</p>
     </ng-template>
-</ng-template>
+  </ng-template>

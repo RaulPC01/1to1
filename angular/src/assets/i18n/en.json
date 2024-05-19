@@ -101,27 +101,13 @@
     "write_comment_placeholder": "Write your comment here...",
     "send_button": "Send",
     "comments_title": "Comments",
-    "service_section": "Information",
+    "service_section": "Service Information",
     "price_title": "Price",
     "location_title": "Location",
     "good_work": "Good Work",
     "quality_attention": "Quality Attention",
     "safe_reliable_service": "Safe and Reliable Service",
     "hire_button": "Hire"
-  },
-  "mis-servicios": {
-    "titulo": "My Services",
-    "create": "Create Service",
-    "description": "Creating your own service provides you with the opportunity to showcase your unique skills and reach a specific audience, enhancing your visibility and business opportunities on our platform.",
-    "ver_mas": "See More",
-    "editar": "Edit",
-    "borrar": "Delete",
-    "editar_servicio": "Edit Service",
-    "tipo_servicio": "Service Type:",
-    "descripcion": "Description:",
-    "tarifa": "Rate (€):",
-    "actualizar_servicio": "Update Service",
-    "cancelar": "Cancel"
   },
 
   "profile": {
@@ -205,15 +191,6 @@
   "testimonial1_name": "Roger Orteu",
   "testimonial1_location": "Juneda",
   "testimonial1_text": "Roger is a great professional, he is a very attentive and an understanding person. He is a very hardworking professional and completes everything he promises in his service. He is a highly recommended specialist."
-},
-"solicitudes": {
-  "por_aceptar": "Requests to Accept",
-    "aceptadas": "Accepted Requests",
-    "todas": "All Requests",
-    "descripcion": "1to1 allows you to manage your service requests efficiently. Here, you can view all the requests from clients who are interested in what you offer, giving you the opportunity to organize and respond quickly and effectively. With this tool, you can keep clear track of your requests, facilitating communication and improving your productivity.",
-    "titulo": "Requests",
-    "aceptar": "Accept",
-    "rechazar": "Reject"
 }
 
 }

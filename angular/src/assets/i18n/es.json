@@ -52,28 +52,13 @@
       "write_comment_placeholder": "Escribe tu comentario aquí...",
       "send_button": "Enviar",
       "comments_title": "Comentarios",
-      "service_section": "Información",
+      "service_section": "Información del Servicio",
       "price_title": "Precio",
       "location_title": "Ubicación",
       "good_work": "Buen Trabajo",
       "quality_attention": "Atención de Calidad",
       "safe_reliable_service": "Servicio Seguro y Confiable",
       "hire_button": "Contratar"
-    },
-    "mis-servicios": {
-      "titulo": "Mis Servicios",
-      "create": "Crear Servicio",
-      "description": "Crear tu propio servicio te brinda la oportunidad de destacar tus habilidades únicas y llegar a una audiencia específica, potenciando tu visibilidad y oportunidades de negocio en nuestra plataforma.",
-      "ver_mas": "Ver Más",
-      "editar": "Editar",
-      "borraR": "Eliminar",
-      "editar_servicio": "Editar Servicio",
-    "tipo_servicio": "Tipo de servicio:",
-    "descripcion": "Descripción:",
-    "tarifa": "Tarifa (€):",
-    "actualizar_servicio": "Actualizar servicio",
-    "cancelar": "Cancelar"
-     
     },
 
     "contratar-servicio" : {
@@ -215,16 +200,6 @@
         "testimonial2_name": "Raul Pereira",
         "testimonial2_location": "Andorra",
         "testimonial2_text": "Raul Pereira es un profesional excepcional, siempre atento y comprometido. Su dedicación y cumplimiento hacen que sea altamente recomendado en su servicio."
-      },
-      
-        "solicitudes": {
-          "por_aceptar": "Solicitudes por aceptar",
-          "aceptadas": "Solicitudes Aceptadas",
-          "todas": "Todas las Solicitudes",
-          "descripcion": "1to1 te permite gestionar tus solicitudes de servicio de manera eficiente. Aquí, puedes visualizar todas las peticiones de clientes que están interesados en lo que ofreces, dándote la oportunidad de organizar y responder de forma rápida y eficaz. Con esta herramienta, podrás mantener un seguimiento claro de tus solicitudes, facilitando la comunicación y mejorando tu productividad.",
-          "titulo": "Solicitudes",
-          "aceptar": "Aceptar",
-          "rechazar": "Rechazar"
-        }
+      }
   }
   

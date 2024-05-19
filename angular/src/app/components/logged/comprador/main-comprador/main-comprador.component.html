@@ -22,7 +22,7 @@
   <div class="column" *ngFor="let column of columns">
     <a class="category" *ngFor="let category of getColumnCategories(column)"
       [class.selected]="selectedCategoryId === category.id" (click)="onSelectCategory(category.id)">
-      {{ getTranslatedCategory(category) }}
+      {{ category.nombre_categoria | translate }}
     </a>
   </div>
 </div>

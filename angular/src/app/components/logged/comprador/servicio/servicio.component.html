@@ -26,18 +26,18 @@
     <p class="descripcionUsu"></p>
 
     <div class="añadirComentario" *ngIf="!mostrarInputComentario">
-      <button class="botonComentario" (click)="mostrarInputComentario = true">{{ 'servicio.add_comment_button' | translate }}</button>
+      <button class="botonComentario" (click)="mostrarInputComentario = true">{{ 'ser.add_comment_button' | translate }}</button>
     </div>
 
     <div *ngIf="mostrarInputComentario" class="inputComentario">
       <form [formGroup]="mensajeForm" (ngSubmit)="enviarComentario()">
-        <textarea formControlName="mensage" placeholder="{{ 'servicio.write_comment_placeholder' | translate }}" class="comentarioInput"></textarea>
-        <button type="submit"  class="enviarBoton">{{ 'servicio.send_button' | translate }}</button>
+        <textarea formControlName="mensage" placeholder="{{ 'ser.write_comment_placeholder' | translate }}" class="comentarioInput"></textarea>
+        <button type="submit"  class="enviarBoton">{{ 'ser.send_button' | translate }}</button>
       </form>
     </div>
 
     <div class="comentarios">
-      <h2>{{ 'servicio.comments_title' | translate }}</h2>
+      <h2>{{ 'ser.comments_title' | translate }}</h2>
       <div *ngFor="let comentario of comentarios" class="comentario">
         <div class="usuario">
           <p>{{ comentario.Nombre_user }}</p>
@@ -54,21 +54,21 @@
     </div>
     <hr>
     <div class="targetaServicio">
-      <span class="tituloServicio">{{ 'servicio.price_title' | translate }}</span>
+      <span class="tituloServicio">{{ 'ser.price_title' | translate }}</span>
       <span class="precioValor">{{ servicio.tarifa }} €</span>
     </div>
     <br>
     <div class="targetaServicio">
-      <span class="tituloServicio">{{ 'servicio.location_title' | translate }}</span>
+      <span class="tituloServicio">{{ 'ser.location_title' | translate }}</span>
       <span class="Valor">{{ servicio.poblacion.nombre_poblacion | uppercase }}</span>
     </div>
   
     <div class="extra">
-      <p><span class="material-symbols-outlined">check_small</span>{{ 'servicio.good_work' | translate }}</p>
-      <p><span class="material-symbols-outlined">check_small</span>{{ 'servicio.quality_attention' | translate }}</p>
-      <p><span class="material-symbols-outlined">check_small</span>{{ 'servicio.safe_reliable_service' | translate }}</p>
+      <p><span class="material-symbols-outlined">check_small</span>{{ 'ser.good_work' | translate }}</p>
+      <p><span class="material-symbols-outlined">check_small</span>{{ 'ser.quality_attention' | translate }}</p>
+      <p><span class="material-symbols-outlined">check_small</span>{{ 'ser.safe_reliable_service' | translate }}</p>
     </div>
 
-    <button class="contratar" [routerLink]="['/contratar', servicio.id_servicios]">{{ 'servicio.hire_button' | translate }}</button>
+    <button class="contratar" [routerLink]="['/contratar', servicio.id_servicios]">{{ 'ser.hire_button' | translate }}</button>
   </div>
 </div>

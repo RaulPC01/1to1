@@ -4,7 +4,6 @@ import { TokenService } from 'src/app/token.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
 import { UserService } from 'src/app/user.service';
-import { TranslateService } from '@ngx-translate/core'; // Importa el servicio de traducción
 
 @Component({
   selector: 'app-header-logged',
@@ -26,7 +25,7 @@ export class HeaderLoggedComponent implements OnInit {
     private router: Router,
     private breakpointObserver: BreakpointObserver,
     private ServicioService: UserService,
-    private translateService: TranslateService,) {  }
+  ) { }
 
   ngOnInit(): void {
     this.usuarioActual = localStorage.getItem('Idtoken');
@@ -37,12 +36,6 @@ export class HeaderLoggedComponent implements OnInit {
       .subscribe(matches => {
         this.showToggleMenu = !matches;
       });
-  }
-
-
-
-  cambiarIdioma(idioma: string): void {
-    this.translateService.use(idioma); // Cambia el idioma utilizando el servicio de traducción
   }
 
   redireccionarAlPerfil(): void {

@@ -1,19 +1,17 @@
 <footer>
     <div class="div">
-      <div class="left">
-        <div class="voteit">© 2024 1to1</div>
-        <div class="politicas">
-          <a class="politica" (click)="navigateTo('')">{{'footer.avisoLegal' | translate }}</a>
-          <a class="politica" (click)="navigateTo('politica-privacidad')">{{'footer.politicaPrivacidad' | translate }}</a>
-          <a class="politica" (click)="navigateTo('politica-cookies')">{{'footer.politicaCookies' | translate }}</a>
-          <a class="politica" (click)="navigateTo('contacto')">{{'footer.contacto' | translate }}</a>
+        <div class="left">
+            <div class="voteit">© 2024 1to1</div>
+            <div class="politicas">
+                <a class="politica" routerLink="">Aviso Legal</a>
+                <a class="politica" routerLink="politica-privacidad">Política de privacidad</a>
+                <a class="politica" routerLink="politica-cookies">Política de cookies</a>
+            </div>
         </div>
-      </div>
-      <div class="right">
-        <a (click)="cambiarIdioma('es')"> Español </a>
-        <span class="separator"> | </span>
-        <a (click)="cambiarIdioma('en')"> English </a>
-      </div>
+        <div class="right">
+            <a (click)="cambiarIdioma('es')"> Español </a>
+            <span class="separator"> | </span>
+            <a (click)="cambiarIdioma('en')"> English </a>
+        </div>
     </div>
-  </footer>
-  
+</footer>

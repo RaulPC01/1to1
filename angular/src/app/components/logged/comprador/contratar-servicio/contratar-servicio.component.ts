@@ -82,7 +82,7 @@ export class ContratarServicioComponent implements OnInit {
   obtenerDetalleServicio(id_servicios: string): void {
     this.servicioService.obtenerDetalleServicio(id_servicios).subscribe(
       (data) => {
-        
+        console.log('JSON retornado por la API:', data);
         this.servicio = data;
         if (this.servicio && this.servicio.id_servicios) {
           this.servicioForm.patchValue({
@@ -102,7 +102,7 @@ export class ContratarServicioComponent implements OnInit {
   obtenerPerfilUsuario(token: string, servicioId: string): void {
     this.userService.obtenerPerfilUsuario(token).subscribe(
       (data) => {
-        
+        console.log('Datos del usuario loggeado:', data);
         this.user = data;
         const userId = this.user.dni;
         const telefono = this.user.phone;
@@ -124,7 +124,7 @@ export class ContratarServicioComponent implements OnInit {
   getUserByServiceId(servicioId: string): void {
     this.userService.getUserByServiceId(servicioId).subscribe(
       (data) => {
-        
+        console.log('Datos del usuario del servicio:', data);
         this.userProv = data;
         this.servicioForm.patchValue({
           id_user_proveedor: this.userProv.dni.toString()
@@ -138,11 +138,11 @@ export class ContratarServicioComponent implements OnInit {
 
   // Función para enviar el formulario y procesar la solicitud del servicio.
   submitForm() {
-    
+    console.log('Datos del formulario:', this.servicioForm.value);
     if (this.servicioForm.valid) {
       this.servicioService.enviarSolicitud(this.servicioForm.value).subscribe(
         data => {
-          
+          console.log('Respuesta del servidor:', data);
           this.showConfirmation = true;
           setTimeout(() => {
             this.showConfirmation = false;

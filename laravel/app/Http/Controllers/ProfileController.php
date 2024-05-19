@@ -31,9 +31,4 @@ class ProfileController extends Controller
     }
 
     
-<<<<<<< HEAD
-
-    
-=======
->>>>>>> parent of 2a280163 (gg)
 }

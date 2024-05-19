@@ -8,11 +8,8 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class TranslateService {
   private translations: any = {};
-  public currentLang: string = 'es'; // Idioma predeterminado
 
-  constructor(private http: HttpClient) {
-    this.loadTranslations(this.currentLang).subscribe();
-  }
+  constructor(private http: HttpClient) {}
 
   loadTranslations(lang: string): Observable<any> {
     return this.http.get<any>(`./assets/i18n/${lang}.json`)
@@ -22,7 +19,7 @@ export class TranslateService {
           return translations;
         }),
         catchError(() => {
-          console.error(`No se encontró el archivo para '${lang}'.`);
+          console.error(`Translation file for '${lang}' not found.`);
           return of({});
         })
       );
@@ -30,7 +27,7 @@ export class TranslateService {
 
   translate(key: string, lang: string): string {
     if (!this.translations[lang]) {
-      console.error(`Traducciones no cargadas en el lenguaje: '${lang}'.`);
+      console.error(`Translations not loaded for '${lang}'.`);
       return key;
     }
     return this.translations[lang][key] || key;
