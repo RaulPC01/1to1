@@ -59,14 +59,13 @@
   <div class="grande">
     
     <div class="texto">
-      <p style="font-weight: 800; font-size: 140%;">¡Crea tu propio servicio con <strong>1to1</strong>!</p>
+      <p style="font-weight: 800; font-size: 140%;">{{ 'home.Mensaje' | translate }}<strong>{{ 'home.1to1' | translate }}</strong>!</p>
       <br>
       <p style="font-weight: 500; margin-top: -20px; width: 100%; padding-inline: 25px;">
-        ¡Haz realidad tus habilidades convirtiéndolas en un servicio! Tu conocimiento y destreza pueden marcar la diferencia en la vida de los demás. 
-        Con nuestra aplicación, conecta con aquellos que necesitan tus servicios y comienza a ganar dinero haciendo lo que amas. 
-        ¡Emprende hoy y crea un impacto positivo en tu comunidad!
+        {{ 'home.textL' | translate }}
+       
       </p>
-      <button class="boton" routerLink="/crear-servicio"><strong>Crea tu servicio</strong></button>
+      <button class="boton" routerLink="/crear-servicio"><strong>{{ 'home.Acción' | translate }}</strong></button>
     </div>
   </div>
 </div>
@@ -74,7 +73,7 @@
 <!--------------------COMENTARIOS----------------->
 <div class="generalRecomendados" *ngIf="!loading">
   <div class="izquierda">
-    <h1>Los Profesionales Más Destacados</h1>
+    <h1>{{ 'home.losMas' | translate }}</h1>
   </div>
   <div class="derecha">
     <div class="option" style="background-color: rgba(214, 181, 237, 0.232);">
@@ -97,13 +96,13 @@
       <div class="option-content">
         <img src="../../../assets/imatges/prof1.jpeg" alt="Icon 1" class="profile-pic">
         <div class="text-container">
-          <h3>{{ 'home.testimonial2_name' | translate }}</h3>
-          <p>{{ 'home.testimonial2_location' | translate }}</p>
+          <h3>{{ 'home.Nombre2' | translate }}</h3>
+          <p>{{ 'home.Ubicacio2' | translate }}</p>
         </div>
       </div>
     
       <div class="divUsuario">
-        <p class="infoUsuario">{{ 'home.testimonial2_text' | translate }}</p>
+        <p class="infoUsuario">{{ 'home.Descripcion2' | translate }}</p>
       </div>
     </div>
   </div>
@@ -113,13 +112,13 @@
       <div class="option-content">
         <img src="../../../assets/imatges/prof1.jpeg" alt="Icon 1" class="profile-pic">
         <div class="text-container">
-          <h3>{{ 'home.testimonial3_name' | translate }}</h3>
-          <p>{{ 'home.testimonial3_location' | translate }}</p>
+          <h3>{{ 'home.Nombre3' | translate }}</h3>
+          <p>{{ 'home.Ubicacion3' | translate }}</p>
         </div>
       </div>
     
       <div class="divUsuario">
-        <p class="infoUsuario">{{ 'home.testimonial3_text' | translate }}</p>
+        <p class="infoUsuario">{{ 'home.Descripcion3' | translate }}</p>
       </div>
     </div>
   </div>

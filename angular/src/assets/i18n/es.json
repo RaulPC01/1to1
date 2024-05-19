@@ -14,11 +14,11 @@
       "ofrecer" : "Ofrecer",
       "misServicios" : "Mis Servicios",
       "solicitudes" : "Solicitudes",
-      "peticiones" : "Peticiones",
       "buscar" : "Buscar",
       "perfil" : "Perfil",
-    "contacto" : "Contacto",
-    "cerrarSesion" : "Cerrar Sesión"
+      "contacto" : "Contacto",
+      "cerrarSesion" : "Cerrar Sesión",
+      "peticion" : "Peticiones"
     },
 
     "error": {
@@ -205,26 +205,41 @@
         "categories_title": "¡Explora nuestras Categorías con mas servicios!",
         "create_service_button": "Únete ahora mismo",
         "create_service_description": "¡Forma parte de nuestra comunidad y empieza a crear tu propio servicio!",
-        "evidence_title": "¡La pruebas son más que evidentes!",
+        "losMas": "¡Los profesionales más destacados!",
         "testimonial1_name": "Roger Orteu",
         "testimonial1_location": "Juneda",
         "testimonial1_text": "Roger es un gran profesional, es una persona muy atenta y comprensiva. Es muy trabajador y cumple en su totalidad lo que promete en su servicio. Un profesional muy recomendado.",
-        "testimonial3_name": "Arian Lanuza",
-        "testimonial3_location": "Solsona",
-        "testimonial3_text": "Arián Lanuza es un profesional sobresaliente, con una atención excepcional y una dedicación insuperable en su trabajo. Sin duda, lo recomendaría sin reservas.",
-        "testimonial2_name": "Raul Pereira",
-        "testimonial2_location": "Andorra",
-        "testimonial2_text": "Raul Pereira es un profesional excepcional, siempre atento y comprometido. Su dedicación y cumplimiento hacen que sea altamente recomendado en su servicio."
+        "Nombre2": "Raul Pereira",
+        "Ubicacio2": "Andorra",
+        "Descripcion2": "Raul Pereira es un profesional excepcional, siempre atento y comprometido. Su dedicación y cumplimiento hacen que sea altamente recomendado en su servicio.",
+        "Nombre3": "Arian Lanuza",
+        "Ubicacion3": "Solsona",
+        "Descripcion3": "Arián Lanuza es un profesional sobresaliente, con una atención excepcional y una dedicación insuperable en su trabajo. Sin duda, lo recomendaría sin reservas.",
+        "Mensaje": "¡Crea tu propio servicio con" ,
+        "1to1": " 1to1!",
+        "textL" :"¡Haz realidad tus habilidades convirtiéndolas en un servicio! Tu conocimiento y destreza pueden marcar la diferencia en la vida de los demás. Con nuestra aplicación, conecta con aquellos que necesitan tus servicios y comienza a ganar dinero haciendo lo que amas. ¡Emprende hoy y crea un impacto positivo en tu comunidad!",
+        "Acción": "Crea tu servicio"
       },
       
         "solicitudes": {
           "por_aceptar": "Solicitudes por aceptar",
           "aceptadas": "Solicitudes Aceptadas",
           "todas": "Todas las Solicitudes",
-          "descripcion": "1to1 te permite gestionar tus solicitudes de servicio de manera eficiente. Aquí, puedes visualizar todas las peticiones de clientes que están interesados en lo que ofreces, dándote la oportunidad de organizar y responder de forma rápida y eficaz. Con esta herramienta, podrás mantener un seguimiento claro de tus solicitudes, facilitando la comunicación y mejorando tu productividad.",
+          "descripcion": "te permite gestionar tus solicitudes de servicio de manera eficiente. Aquí, puedes visualizar todas las peticiones de clientes que están interesados en lo que ofreces, dándote la oportunidad de organizar y responder de forma rápida y eficaz. Con esta herramienta, podrás mantener un seguimiento claro de tus solicitudes, facilitando la comunicación y mejorando tu productividad.",
           "titulo": "Solicitudes",
           "aceptar": "Aceptar",
           "rechazar": "Rechazar"
-        }
+        },
+        
+          "mis-peticiones": {
+            "titulo": "Mis Peticiones:",
+            "descripcion": "te ofrece una solución integral para monitorear tus solicitudes de servicio. En esta sección, podrás ver todas las peticiones que has realizado, permitiéndote gestionar tus requerimientos de manera ordenada y eficiente. Esta herramienta te ayuda a mantener un registro detallado de cada solicitud, asegurando una comunicación fluida y una mejor organización de tus tareas. Con ",
+            "descripcion2": "optimizas tu tiempo y recursos, mejorando tu capacidad de respuesta y productividad.",
+            "titulo_derecha": "Peticiones",
+            "estado": "Estado",
+            "aceptado": "Aceptado",
+            "no_aceptado": "Aún no aceptado",
+            "no_peticiones": "No tienes peticiones actualmente."
+          }
   }
   
