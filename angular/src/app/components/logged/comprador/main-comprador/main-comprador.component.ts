@@ -37,8 +37,8 @@ export class MainCompradorComponent implements OnInit {
   ];
 
   selectedCategoryId: number | undefined;
-  currentPage: number = 1; // Página actual
-  pageSize: number = 6;    // Tamaño de la página (número de filas)
+  currentPage: number = 1; // pagina actual
+  pageSize: number = 6;    // tamano de la pagina (numero de filas)
 
   constructor(private servicioService: ServicioService, private router: Router, private translateService: TranslateService) { }
 
@@ -58,10 +58,12 @@ export class MainCompradorComponent implements OnInit {
     return (this.currentPage - 1) * this.pageSize;
   }
 
+  // obtiene el indice final para la paginacion
   getEndIndex(): number {
     return Math.min(this.getStartIndex() + this.pageSize, this.topRatedServices.length);
   }
 
+  // avanza a la siguiente pagina de resultados
   nextPage(): void {
     if (this.currentPage < this.getTotalPages()) {
       this.currentPage++;
@@ -69,6 +71,7 @@ export class MainCompradorComponent implements OnInit {
     }
   }
 
+  // retrocede a la pagina anterior de resultados
   prevPage(): void {
     if (this.currentPage > 1) {
       this.currentPage--;
@@ -76,10 +79,12 @@ export class MainCompradorComponent implements OnInit {
     }
   }
 
+  // obtiene el numero total de paginas
   getTotalPages(): number {
     return Math.ceil(this.topRatedServices.length / this.pageSize);
   }
 
+  // obtiene el numero de columnas a mostrar
   get columns() {
     const columns = [];
     for (let i = 0; i < this.numberOfColumns; i++) {
@@ -88,6 +93,7 @@ export class MainCompradorComponent implements OnInit {
     return columns;
   }
 
+  // obtiene las categorias a mostrar en una columna especifica
   getColumnCategories(column: number) {
     const categoriesPerColumn = Math.ceil(this.categories.length / this.numberOfColumns);
     const startIndex = column * categoriesPerColumn;
@@ -95,10 +101,12 @@ export class MainCompradorComponent implements OnInit {
     return this.categories.slice(startIndex, endIndex);
   }
 
+  // genera un array para representar las estrellas en la calificacion
   nEstrellas(score: number): any[] {
     return Array(score).fill(0);
   }
 
+  // obtiene los servicios mejor valorados
   getTopRatedServices(): void {
     this.servicioService.obtenerTopServiciosValorados().subscribe(
       (data: any[]) => {
@@ -107,16 +115,18 @@ export class MainCompradorComponent implements OnInit {
         console.log(this.topRatedServices);
       },
       (error) => {
-        console.log('Error al obtener los servicios mejor valorados: ', error);
+        console.log('error al obtener los servicios mejor valorados: ', error);
         this.loading = false;
       }
     );
   }
 
+  // navega a la pagina de detalles de un servicio especifico
   navegarDetalleServicio(servicioId: number) {
     this.router.navigate(['/servicios', servicioId]);
   }
 
+  // maneja la seleccion de una categoria
   onSelectCategory(categoryId: number): void {
     this.loading = true;
     this.servicioService.obtenerServiciosPorCategoria(categoryId).subscribe(
@@ -126,12 +136,13 @@ export class MainCompradorComponent implements OnInit {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       },
       (error) => {
-        console.log('Error al obtener los servicios por categoría: ', error);
+        console.log('error al obtener los servicios por categoria: ', error);
         this.loading = false;
       }
     );
   }
 
+  // busca servicios basados en una palabra clave
   searchServices(): void {
     this.loading = true;
     this.servicioService.buscarServicios(this.buscarPalabra).subscribe(
@@ -141,7 +152,7 @@ export class MainCompradorComponent implements OnInit {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       },
       (error) => {
-        console.log('Error al buscar servicios: ', error);
+        console.log('error al buscar servicios: ', error);
         this.loading = false;
       }
     );

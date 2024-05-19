@@ -14,6 +14,7 @@ export class TranslateService {
     this.loadTranslations(this.currentLang).subscribe();
   }
 
+  // carga las traducciones desde un archivo json
   loadTranslations(lang: string): Observable<any> {
     return this.http.get<any>(`./assets/i18n/${lang}.json`)
       .pipe(
@@ -28,6 +29,7 @@ export class TranslateService {
       );
   }
 
+  // traduce una clave especifica usando el lenguaje proporcionado
   translate(key: string, lang: string): string {
     if (!this.translations[lang]) {
       console.error(`Traducciones no cargadas en el lenguaje: '${lang}'.`);
