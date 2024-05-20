@@ -31,7 +31,7 @@
               <button (click)="toggleEditForm(servicio)" class="button edit-button"><i class="fas fa-edit"></i>
                 {{ 'mis-servicios.editar' | translate }}</button>
               <button (click)="eliminarServicio(servicio.id_servicios)" class="button delete-button"><i
-                  class="fas fa-trash-alt"></i> {{ 'mis-servicios.borrar' | translate }}</button>
+                  class="fas fa-trash-alt"></i> {{ 'mis-servicios.borraR' | translate }}</button>
             </div>
             <!-- Formulario de edición del servicio actual -->
             <div *ngIf="servicioEditando && servicioEditando.id_servicios === servicio.id_servicios" class="edit-form">
