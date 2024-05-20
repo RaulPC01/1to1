@@ -3,7 +3,7 @@
 <div class="tarjetaLogin">
     <h1 class="titulo">{{ 'login.title' | translate }}</h1>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <input class="Inputs" type="string" placeholder="{{ 'login.placeholder_dni' | translate }}" formControlName="dni" required>
+        <input class="Inputs" type="text" placeholder="{{ 'login.placeholder_dni' | translate }}" formControlName="dni" required>
         <input class="Inputs" type="password" placeholder="{{ 'login.placeholder_password' | translate }}" formControlName="password" required>
         <button type="submit">{{ 'login.login_button' | translate }}</button>
     </form>

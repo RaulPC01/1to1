@@ -48,7 +48,6 @@
     },
     
     "servicio": {
-      "profile_picture": "Foto de perfil",
       "add_comment_button": "Añadir Comentario",
       "write_comment_placeholder": "Escribe tu comentario aquí...",
       "send_button": "Enviar",
@@ -60,21 +59,6 @@
       "quality_attention": "Atención de Calidad",
       "safe_reliable_service": "Servicio Seguro y Confiable",
       "hire_button": "Contratar"
-    },
-    "mis-servicios": {
-      "titulo": "Mis Servicios",
-      "create": "Crear Servicio",
-      "description": "Crear tu propio servicio te brinda la oportunidad de destacar tus habilidades únicas y llegar a una audiencia específica, potenciando tu visibilidad y oportunidades de negocio en nuestra plataforma.",
-      "ver_mas": "Ver Más",
-      "editar": "Editar",
-      "borraR": "Eliminar",
-      "editar_servicio": "Editar Servicio",
-    "tipo_servicio": "Tipo de servicio:",
-    "descripcion": "Descripción:",
-    "tarifa": "Tarifa (€):",
-    "actualizar_servicio": "Actualizar servicio",
-    "cancelar": "Cancelar"
-     
     },
 
     "contratar-servicio" : {
@@ -197,35 +181,135 @@
             "submit": "Enviar Solicitud"
         }
     },
-    "home":{
-        "view_more": "Ver Más",
-        "search_placeholder": "Buscar servicios...",
-        "title1": "Estos son los servicios con más puntuaciones valorados por nuestra comunidad",
-        "prev_button": "Anterior",
-        "next_button": "Siguiente",
-        "categories_title": "¡Explora nuestras Categorías con mas servicios!",
-        "create_service_button": "Únete ahora mismo",
-        "create_service_description": "¡Forma parte de nuestra comunidad y empieza a crear tu propio servicio!",
-        "evidence_title": "¡La pruebas son más que evidentes!",
-        "testimonial1_name": "Roger Orteu",
-        "testimonial1_location": "Juneda",
-        "testimonial1_text": "Roger es un gran profesional, es una persona muy atenta y comprensiva. Es muy trabajador y cumple en su totalidad lo que promete en su servicio. Un profesional muy recomendado.",
-        "testimonial3_name": "Arian Lanuza",
-        "testimonial3_location": "Solsona",
-        "testimonial3_text": "Arián Lanuza es un profesional sobresaliente, con una atención excepcional y una dedicación insuperable en su trabajo. Sin duda, lo recomendaría sin reservas.",
-        "testimonial2_name": "Raul Pereira",
-        "testimonial2_location": "Andorra",
-        "testimonial2_text": "Raul Pereira es un profesional excepcional, siempre atento y comprometido. Su dedicación y cumplimiento hacen que sea altamente recomendado en su servicio."
-      },
+    "home": {
+      "find_your": "Encuentra tu",
+      "professional": "Profesional",
+      "search_placeholder": "Buscar servicios...",
+      "view_more": "Ver más...",
+      "create_service_intro": "¡Crea tu propio servicio con 1to1!",
+      "create_service_description": "¡Haz realidad tus habilidades convirtiéndolas en un servicio! Tu conocimiento y destreza pueden marcar la diferencia en la vida de los demás. Con nuestra aplicación, conecta con aquellos que necesitan tus servicios y comienza a ganar dinero haciendo lo que amas. ¡Emprende hoy y crea un impacto positivo en tu comunidad!",
+      "create_service_button": "Crea tu servicio",
+      "featured_professionals": "Los Profesionales Más Destacados",
+      "testimonial1_name": "Roger Orteu",
+      "testimonial1_location": "Juneda",
+      "testimonial1_text": "Roger es un gran profesional, muy atento y comprensivo. Es muy trabajador y cumple todo lo que promete en su servicio. Muy recomendado.",
+      "testimonial2_name": "Raul Pereira",
+      "testimonial2_location": "Andorra",
+      "testimonial2_text": "Raul Pereira es un profesional excepcional, siempre atento y comprometido. Su dedicación y cumplimiento lo hacen muy recomendable.",
+      "testimonial3_name": "Arian Lanuza",
+      "testimonial3_location": "Solsona",
+      "testimonial3_text": "Arian Lanuza es un profesional sobresaliente con una atención excepcional y una dedicación incomparable en su trabajo. Muy recomendado."
+    },
       
+       
+        "aviso_legal": {
+          "title": "Aviso Legal",
+          "welcome_message": "Bienvenido a 1to1. Este aviso legal regula el uso del sitio web y la aplicación móvil de 1to1 (en adelante, \"la Plataforma\"). Al acceder y utilizar la Plataforma, usted acepta cumplir con los términos y condiciones establecidos en este aviso legal.",
+          "identificacion_titular": {
+            "title": "Identificación del Titular",
+            "owner": "Titular: 1to1 Services, S.L.",
+            "cif": "CIF: B12345678",
+            "address": "C/ Avinguda de les Garrigues 34. 25001, Lleida, España.",
+            "email": "Email: 1to1@gmail.com",
+            "phone": "Teléfono: (+34) 655 645 535"
+          },
+          "condiciones_uso": {
+            "title": "Condiciones de Uso",
+            "content": "El acceso y uso de la Plataforma atribuye la condición de usuario e implica la aceptación plena y sin reservas de todas las disposiciones incluidas en este aviso legal. Si no está de acuerdo con alguna de las condiciones aquí establecidas, no deberá usar la Plataforma."
+          },
+          "responsabilidad_usuario": {
+            "title": "Responsabilidad del Usuario",
+            "content": "El usuario se compromete a utilizar la Plataforma de conformidad con la ley, la moral, las buenas costumbres y el orden público. El usuario se obliga a abstenerse de utilizar la Plataforma con fines ilícitos, contrarios a lo establecido en este aviso legal, o de cualquier forma que pueda dañar, inutilizar, sobrecargar o deteriorar la Plataforma o impedir su normal utilización."
+          },
+          "propiedad_intelectual": {
+            "title": "Propiedad Intelectual",
+            "content": "Todos los contenidos de la Plataforma, entendiendo por estos a título enunciativo, los textos, fotografías, gráficos, imágenes, iconos, tecnología, software, y demás contenidos audiovisuales o sonoros, así como su diseño gráfico y códigos fuente, son propiedad intelectual de 1to1 o de terceros, sin que puedan entenderse cedidos al usuario ninguno de los derechos de explotación sobre los mismos más allá de lo estrictamente necesario para el correcto uso de la Plataforma."
+          },
+          "exclusion_garantias_responsabilidad": {
+            "title": "Exclusión de Garantías y Responsabilidad",
+            "content": "1to1 no se responsabiliza, en ningún caso, de los daños y perjuicios de cualquier naturaleza que pudieran ocasionar, a título enunciativo: errores u omisiones en los contenidos, falta de disponibilidad de la Plataforma, o la transmisión de virus o programas maliciosos o lesivos en los contenidos, a pesar de haber adoptado todas las medidas tecnológicas necesarias para evitarlo."
+          },
+          "modificaciones": {
+            "title": "Modificaciones",
+            "content": "1to1 se reserva el derecho de efectuar sin previo aviso las modificaciones que considere oportunas en la Plataforma, pudiendo cambiar, suprimir o añadir tanto los contenidos y servicios que se presten a través de la misma como la forma en la que éstos aparezcan presentados o localizados en la Plataforma."
+          },
+          "enlaces": {
+            "title": "Enlaces",
+            "content": "En el caso de que en la Plataforma se dispusiesen enlaces o hipervínculos hacia otros sitios de Internet, 1to1 no ejercerá ningún tipo de control sobre dichos sitios y contenidos. En ningún caso 1to1 asumirá responsabilidad alguna por los contenidos de algún enlace perteneciente a un sitio web ajeno, ni garantizará la disponibilidad técnica, calidad, fiabilidad, exactitud, amplitud, veracidad, validez y constitucionalidad de cualquier material o información contenida en ninguno de dichos hipervínculos u otros sitios de Internet."
+          },
+          "derecho_exclusion": {
+            "title": "Derecho de Exclusión",
+            "content": "1to1 se reserva el derecho a denegar o retirar el acceso a la Plataforma y/o los servicios ofrecidos sin necesidad de preaviso, a instancia propia o de un tercero, a aquellos usuarios que incumplan el presente aviso legal."
+          },
+          "generalidades": {
+            "title": "Generalidades",
+            "content": "1to1 perseguirá el incumplimiento del presente aviso legal, así como cualquier utilización indebida de la Plataforma ejerciendo todas las acciones civiles y penales que le puedan corresponder en derecho."
+          },
+          "legislacion_aplicable_jurisdiccion": {
+            "title": "Legislación Aplicable y Jurisdicción",
+            "content": "La relación entre 1to1 y el usuario se regirá por la normativa española vigente y cualquier controversia se someterá a los juzgados y tribunales de la ciudad de Madrid."
+          }
+        },
+
+        "solicitudes2": {
+          "mis_peticiones": "Mis Peticiones",
+          "descripcion": "te ofrece una solución integral para monitorear tus solicitudes de servicio. En esta sección, podrás ver todas las peticiones que has realizado, permitiéndote gestionar tus requerimientos de manera ordenada y eficiente. Esta herramienta te ayuda a mantener un registro detallado de cada solicitud, asegurando una comunicación fluida y una mejor organización de tus tareas. Con <strong>1to1</strong>, optimizas tu tiempo y recursos, mejorando tu capacidad de respuesta y productividad.",
+          "peticiones": "Peticiones",
+          "estado": "Estado",
+          "no_peticiones": "No tienes peticiones actualmente."
+        },
+        "mis-servicios": {
+          "create": "Crear Servicio",
+          "description": "Crear tu propio servicio te brinda la oportunidad de destacar tus habilidades únicas y llegar a una audiencia específica, potenciando tu visibilidad y oportunidades de negocio en nuestra plataforma.",
+          "create_button": "Crear",
+          "mis_servicios": "Mis Servicios",
+          "view_button": "Ver más",
+          "edit_button": "Editar",
+          "delete_button": "Eliminar",
+          "edit_form_title": "Editar Servicio",
+          "service_type": "Tipo de servicio:",
+          "description_label": "Descripción:",
+          "rate": "Tarifa (€):",
+          "update_button": "Actualizar Servicio",
+          "cancel_button": "Cancelar",
+          "no_services": "No se encontraron servicios."
+        },
+
+        "cookies_policy": {
+          "title": "Política de cookies para la empresa 1to1",
+          "introduction": "1. Introducción",
+          "introduction_text": "Bienvenidos a la política de cookies de la empresa 1to1, dedicada a ofrecer servicios para profesionales que desean generar ingresos adicionales y ofrecer sus servicios laborales a otros. Esta política tiene como objetivo informar a nuestros usuarios sobre el uso de cookies en nuestra página web para garantizar una experiencia segura y transparente durante su visita. A lo largo de este documento, detallaremos el uso de cookies técnicas, de análisis y de publicidad, así como los métodos para gestionarlas.",
+          "purpose_title": "1.1. Propósito de la política",
+          "purpose_text": "Nuestro compromiso con la transparencia y protección de datos se refleja en la implementación de esta política, la cual describe detalladamente los tipos de cookies que utilizamos, su finalidad y cómo puede gestionarlas. Nos comprometemos a respetar la privacidad de nuestros visitantes y a ofrecerles la mejor experiencia posible en nuestra plataforma en línea. Su confianza es fundamental para nosotros y estamos constantemente trabajando para mejorar nuestras prácticas de privacidad y seguridad en línea. ¡Gracias por su confianza en 1to1!",
+          "scope_title": "1.2. Alcance de la política",
+          "scope_text": "Esta política de cookies se aplica exclusivamente a la página web de la empresa 1to1 y regula el uso de cookies en este entorno digital. Todos los usuarios que visiten nuestra plataforma estarán sujetos a las disposiciones establecidas en este documento, el cual describe de manera detallada el manejo de cookies técnicas, de análisis y de publicidad en nuestra web. Es importante destacar que esta política puede actualizarse ocasionalmente para reflejar cambios en nuestras prácticas o en la normativa aplicable.",
+          "cookies_used_title": "2. Cookies utilizadas",
+          "technical_cookies_title": "2.1. Cookies técnicas",
+          "technical_cookies_text": "Las cookies técnicas empleadas por la empresa 1to1 son necesarias para que el sitio web funcione de manera óptima y para permitir a los usuarios acceder a los servicios ofrecidos. Estas cookies no recopilan información personal y son esenciales para garantizar la seguridad y privacidad de los datos de los profesionales que utilizan la plataforma. Su uso está amparado por la legislación vigente en cuanto a protección de datos y privacidad en línea.",
+          "analytics_cookies_title": "2.2. Cookies de análisis",
+          "analytics_cookies_text": "Las cookies de análisis son utilizadas por la empresa 1to1 para recopilar información sobre la interacción de los usuarios con el sitio web. Estos datos son empleados para mejorar la calidad de los servicios ofrecidos, personalizar la experiencia del usuario y realizar análisis estadísticos sobre el rendimiento de la plataforma. El objetivo es optimizar la navegación de los profesionales y ofrecerles contenido relevante a sus intereses laborales. Las cookies de análisis también nos permiten detectar y corregir posibles problemas técnicos en el sitio web.",
+          "advertising_cookies_title": "2.3. Cookies de publicidad",
+          "advertising_cookies_text": "La empresa 1to1 utiliza cookies de publicidad para mostrar anuncios personalizados a los profesionales que visitan el sitio web. Estas cookies permiten ofrecer contenido comercial adaptado a las preferencias de los usuarios y mejorar la efectividad de las campañas publicitarias. La información recopilada a través de estas cookies se utiliza de forma ética y respetando la privacidad de los usuarios, en cumplimiento con la normativa de protección de datos vigente. Además, utilizamos cookies de terceros para medir la efectividad de nuestras campañas publicitarias y para ofrecer a nuestros usuarios anuncios relevantes en otros sitios web.",
+          "cookies_management_title": "3. Gestión de cookies",
+          "acceptance_title": "3.1. Aceptación de cookies",
+          "acceptance_text": "Para aceptar las cookies en la plataforma de 1to1, los usuarios simplemente deberán hacer clic en el botón de aceptación que aparece en el aviso de cookies al ingresar al sitio web. Al hacerlo, estarán dando su consentimiento para que se utilicen las cookies según lo establecido en la política de cookies de la empresa. Los usuarios también pueden aceptar el uso de cookies mediante la configuración de su navegador.",
+          "browser_settings_title": "3.2. Configuración del navegador",
+          "browser_settings_text": "La configuración del navegador para gestionar las cookies en la web de 1to1 es sencilla. Los usuarios pueden modificar las preferencias de cookies en su navegador seleccionando qué tipo de cookies desean permitir, bloquear o eliminar. Esta opción les otorga un control personalizado sobre la privacidad y seguridad de sus datos. Sin embargo, es importante tener en cuenta que el bloqueo de ciertas cookies puede afectar negativamente la funcionalidad del sitio web y limitar la experiencia del usuario.",
+          "revocation_title": "3.3. Revocación del consentimiento",
+          "revocation_text": "En caso de que los usuarios deseen revocar su consentimiento para el uso de cookies en la plataforma de 1to1, pueden hacerlo modificando la configuración de cookies en su navegador o contactando directamente con el equipo de soporte de la empresa. Esta acción les permite retirar el consentimiento de forma efectiva y proteger su privacidad. Sin embargo, es importante tener en cuenta que la revocación del consentimiento puede afectar negativamente la funcionalidad del sitio web y limitar la experiencia del usuario.",
+          "changes_title": "4. Cambios en la política",
+          "changes_text": "En caso de realizar cambios en la política de cookies de la empresa 1to1, se notificará a los usuarios a través de un aviso en la página web. Los cambios entrarán en vigencia una vez publicados, por lo que se recomienda a los usuarios revisar periódicamente la política para estar al tanto de cualquier actualización. Cualquier modificación se realizará en cumplimiento de la normativa vigente y en aras de garantizar la transparencia y el correcto uso de las cookies en nuestro sitio."
+        },
         "solicitudes": {
           "por_aceptar": "Solicitudes por aceptar",
           "aceptadas": "Solicitudes Aceptadas",
           "todas": "Todas las Solicitudes",
-          "descripcion": "1to1 te permite gestionar tus solicitudes de servicio de manera eficiente. Aquí, puedes visualizar todas las peticiones de clientes que están interesados en lo que ofreces, dándote la oportunidad de organizar y responder de forma rápida y eficaz. Con esta herramienta, podrás mantener un seguimiento claro de tus solicitudes, facilitando la comunicación y mejorando tu productividad.",
           "titulo": "Solicitudes",
           "aceptar": "Aceptar",
-          "rechazar": "Rechazar"
+          "rechazar": "Rechazar",
+          "descripcion": "1to1 te permite gestionar tus solicitudes de servicio de manera eficiente. Aquí, puedes visualizar todas las peticiones de clientes que están interesados en lo que ofreces, dándote la oportunidad de organizar y responder de forma rápida y eficaz. Con esta herramienta, podrás mantener un seguimiento claro de tus solicitudes, facilitando la comunicación y mejorando tu productividad.",
+          "descripcion_aceptadas": "Aquí encontrarás un listado detallado de todas las solicitudes que han sido aceptadas. Podrás ver el estado de cada solicitud y obtener información relevante para su seguimiento. Si tu solicitud ha sido aprobada, este es el lugar para consultar los detalles. Gracias por elegirnos para tus necesidades de servicio.",
+          "descripcion_todas": "En esta sección encontrarás el historial completo de todas las solicitudes realizadas a través de nuestra plataforma. Podrás ver cada solicitud junto con su estado actual, ya sea pendiente, en proceso o finalizada. Esta página te permite llevar un seguimiento de tus solicitudes y acceder a información detallada sobre cada una de ellas. Utiliza esta herramienta para mantenerte al día con tus trámites y servicios."
         }
   }
   

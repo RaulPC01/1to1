@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ServicioService } from 'src/app/servicio.service';
 import { UserService } from 'src/app/user.service';
+
 @Component({
   selector: 'app-servicio',
   templateUrl: './servicio.component.html',
@@ -24,7 +25,7 @@ export class ServicioComponent implements OnInit {
     private servicioService: ServicioService,
     private router: Router,
     private route: ActivatedRoute,
-    private UserService : UserService,
+    private userService: UserService,
   ) {}
 
   ngOnInit(): void {
@@ -36,6 +37,7 @@ export class ServicioComponent implements OnInit {
       id_Servicio: ['', Validators.required],
     });
 
+    // obtiene los parametros de la ruta
     this.route.paramMap.subscribe(params => {
       const servicioId = params.get('id_servicios');
       if (servicioId) {
@@ -44,42 +46,45 @@ export class ServicioComponent implements OnInit {
       }
     });
 
+    // obtiene el token del almacenamiento local
     const token = localStorage.getItem('Idtoken');
     if (token) {
       this.obtenerPerfilUsuario(token);
     } else {
-      console.error('El token no está definido en el almacenamiento local');
-      // Manejar el error adecuadamente, por ejemplo, redirigir al usuario a la página de inicio de sesión
+      console.error('el token no esta definido en el almacenamiento local');
+      // manejar el error adecuadamente, por ejemplo, redirigir al usuario a la pagina de inicio de sesion
     }
   }
 
+  // obtiene el perfil del usuario actualmente logueado
   obtenerPerfilUsuario(token: string): void {
-    this.UserService.obtenerPerfilUsuario(token).subscribe(
+    this.userService.obtenerPerfilUsuario(token).subscribe(
       (data) => {
         this.user = data;
         this.mensajeForm.patchValue({
           IdUsuarioComentario: this.user.dni,
           Nombre_user: this.user.name
         });
-        console.log('Datos del usuario obtenidos:', this.user);
+        console.log('datos del usuario obtenidos:', this.user);
       },
       (error) => {
-        console.error('Error al obtener el perfil del usuario:', error);
+        console.error('error al obtener el perfil del usuario:', error);
       }
     );
   }
 
+  // obtiene los detalles del servicio mediante su id
   obtenerDetalleServicio(id_servicios: string): void {
     this.servicioService.obtenerDetalleServicio(id_servicios).subscribe(
       (data) => {   
-        console.log('JSON retornado por la API:', data);
+        console.log('json retornado por la api:', data);
         this.servicio = data;
         if (this.servicio && this.servicio.id_servicios) {
           this.mensajeForm.patchValue({
             id_Servicio: this.servicio.id_servicios.toString(),
           });
         } else {
-          console.error('No se pudo obtener el id del servicio correctamente');
+          console.error('no se pudo obtener el id del servicio correctamente');
         }
         if (this.servicio && this.servicio.user && this.servicio.user.dateOfBirth) {
           const fechaNacimiento = new Date(this.servicio.user.dateOfBirth);
@@ -89,41 +94,44 @@ export class ServicioComponent implements OnInit {
         }
       },
       (error) => {
-        console.error('Error al obtener los detalles del servicio: ', error);
+        console.error('error al obtener los detalles del servicio: ', error);
       }
     );
   }
 
+  // obtiene los comentarios del servicio
   obtenerComentarios(id_servicios: string): void {
     this.servicioService.obtenerComentarios(id_servicios).subscribe(
       (data) => {   
         this.loading = false; 
-        console.log('Comentarios obtenidos:', data);
+        console.log('comentarios obtenidos:', data);
         this.comentarios = data.comentarios;
       },
       (error) => {
-        console.error('Error al obtener los comentarios: ', error);
+        console.error('error al obtener los comentarios: ', error);
         this.loading = false; 
       }
     );
   }
 
+  // alterna la visibilidad de la imagen completa
   toggleImagenCompleta() {
     this.mostrarCompleta = !this.mostrarCompleta;
   }
 
+  // envia el comentario
   enviarComentario() {
     if (this.mensajeForm.valid) {
-      console.log('Datos del comentario a enviar:', this.mensajeForm.value);
+      console.log('datos del comentario a enviar:', this.mensajeForm.value);
       this.servicioService.enviarComentario(this.mensajeForm.value).subscribe(
         (response) => {
-          console.log('Comentario enviado correctamente:', response);
+          console.log('comentario enviado correctamente:', response);
           this.mensajeForm.reset();
           this.mostrarInputComentario = false;
           window.location.reload();
         },
         (error) => {
-          console.error('Error al enviar el comentario:', error);
+          console.error('error al enviar el comentario:', error);
         }
       );
     } else {

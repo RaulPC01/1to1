@@ -2,45 +2,47 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\motius;
-use App\Models\motius_noms;
+use App\Models\Motius; // importacion del modelo motius
+use App\Models\MotiusNoms; // importacion del modelo motius_noms
 use Illuminate\Http\Request;
 
-class motiusController extends Controller
+class MotiusController extends Controller
 {
+    // metodo para obtener todos los motivos
     public function index()
     {
-        $motius = motius_noms::all();
+        // obtiene todos los motivos de la base de datos
+        $motius = MotiusNoms::all();
+
+        // retorna los motivos en formato JSON
         return response()->json($motius);
     }
 
+    // metodo para crear un nuevo ticket
     public function createtiket(Request $request)
     {
-        // Validar los datos del formulario
+        // validar los datos del formulario
         $validatedData = $request->validate([
             'idUser' => 'required|string',
             'nombre' => 'required|string',
             'apellidos' => 'required|string',
             'motius' => 'required|string',
             'descripcion' => 'required|string',
-          
         ]);
 
-        // Obtener el ID del usuario del formulario
+        // obtener el ID del usuario del formulario
         $idUsuarioProveedor = $validatedData['idUser'];
 
-        // Crear el servicio con los datos validados
-        $motius = motius::create([
+        // crear el motivo con los datos validados
+        $motius = Motius::create([
             'user_id' => $idUsuarioProveedor,
             'Nom' => $validatedData['nombre'],
             'Cognom' => $validatedData['apellidos'],
             'Motiu' => $validatedData['motius'],
             'descripcio_motiu' => $validatedData['descripcion'],
-           
-          
         ]);
 
-        // Retornar la respuesta JSON con el servicio creado y el código de estado 201 (Created)
+        // retornar la respuesta JSON con el motivo creado y el codigo de estado 201 (Created)
         return response()->json($motius, 201);
     }
 }

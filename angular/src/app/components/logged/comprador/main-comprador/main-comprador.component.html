@@ -3,30 +3,25 @@
 </div>
 
 <div class="tituloHome" *ngIf="!loading">
-  <h1>{{ 'landingPage.find_your' | translate }} <span style="color: #b40301">{{ 'landingPage.professional' | translate }}</span></h1>
+  <h1>{{ 'home.find_your' | translate }} <span style="color: #b40301">{{ 'home.professional' | translate }}</span></h1>
 </div>
 
 <!----------------------BUSCADOR----------------------->
 <div class="buscador-container" *ngIf="!loading">
-    
-    <div class="input-container">
-      <input  class="form-control mr-sm-2 buscador-input"  type="text" [(ngModel)]="buscarPalabra" placeholder="{{ 'home.search_placeholder' | translate }}" (keyup.enter)="searchServices()" >
-      <button (click)="searchServices()" class="btn btn-primary buscador-btn" type="submit"><span class="material-symbols-outlined">search</span></button>  
-    </div>
-
+  <div class="input-container">
+    <input class="form-control mr-sm-2 buscador-input" type="text" [(ngModel)]="buscarPalabra" placeholder="{{ 'home.search_placeholder' | translate }}" (keyup.enter)="searchServices()">
+    <button (click)="searchServices()" class="btn btn-primary buscador-btn" type="submit"><span class="material-symbols-outlined">search</span></button>
+  </div>
 </div>
-
 
 <!-------------------DIV CATEGORIAS------------------>
 <div class="container" *ngIf="!loading">
   <div class="column" *ngFor="let column of columns">
-    <a class="category" *ngFor="let category of getColumnCategories(column)"
-      [class.selected]="selectedCategoryId === category.id" (click)="onSelectCategory(category.id)">
+    <a class="category" *ngFor="let category of getColumnCategories(column)" [class.selected]="selectedCategoryId === category.id" (click)="onSelectCategory(category.id)">
       {{ getTranslatedCategory(category) }}
     </a>
   </div>
 </div>
-
 
 <!---------------------DIV SERVICIOS------------------>
 <div class="contenedorTarjetas" *ngIf="!loading">
@@ -36,37 +31,34 @@
     <div class="card estilo-b" *ngFor="let service of topRatedServices.slice(getStartIndex(), getEndIndex())">
       <a id="aTarjeta" [routerLink]="['/servicios', service.id_servicios]">
         <div class="img-container">
-          <img [src]="service.user.image" alt="{{ 'landingPage.profile_picture' | translate }}">
-          <span class="price">{{ service.tarifa }} €</span>
+          <img [src]="service.user.image" alt="Foto de perfil">
+          <span class="price">{{service.tarifa}} €</span>
         </div>
         <div class="nombre">
           <h3>{{service.user.name}}</h3>
           <p>{{service.poblacion.nombre_poblacion}}</p>
         </div>
         <div class="info">
-          <p class="titulo">{{ service.tipo_servicio }}</p>
-          <button class="botonVer">{{ 'landingPage.view_more' | translate }}</button>
+          <p class="titulo">{{service.tipo_servicio}}</p>
+          <button class="botonVer">{{ 'home.view_more' | translate }}</button>
         </div>
       </a>
     </div>
   </section>
 
-  <button id="a" class="botonPagina next" (click)="nextPage()" [disabled]="currentPage === getTotalPages()" ><span id="a" class="material-symbols-outlined">arrow_forward_ios</span></button>
+  <button id="a" class="botonPagina next" (click)="nextPage()" [disabled]="currentPage === getTotalPages()"><span id="a" class="material-symbols-outlined">arrow_forward_ios</span></button>
 </div>
 
 <!--------------------.DIV PUBLICITARIO----------------->
 <div class="contenedor" style=" background-image: url('../../../assets/imatges/programador.jpg');" *ngIf="!loading">
   <div class="grande">
-    
     <div class="texto">
-      <p style="font-weight: 800; font-size: 140%;">¡Crea tu propio servicio con <strong>1to1</strong>!</p>
+      <p style="font-weight: 800; font-size: 140%;">{{ 'home.create_service_intro' | translate }}</p>
       <br>
       <p style="font-weight: 500; margin-top: -20px; width: 100%; padding-inline: 25px;">
-        ¡Haz realidad tus habilidades convirtiéndolas en un servicio! Tu conocimiento y destreza pueden marcar la diferencia en la vida de los demás. 
-        Con nuestra aplicación, conecta con aquellos que necesitan tus servicios y comienza a ganar dinero haciendo lo que amas. 
-        ¡Emprende hoy y crea un impacto positivo en tu comunidad!
+        {{ 'home.create_service_description' | translate }}
       </p>
-      <button class="boton" routerLink="/crear-servicio"><strong>Crea tu servicio</strong></button>
+      <button class="boton" routerLink="/crear-servicio"><strong>{{ 'home.create_service_button' | translate }}</strong></button>
     </div>
   </div>
 </div>
@@ -74,7 +66,7 @@
 <!--------------------COMENTARIOS----------------->
 <div class="generalRecomendados" *ngIf="!loading">
   <div class="izquierda">
-    <h1>Los Profesionales Más Destacados</h1>
+    <h1>{{ 'home.featured_professionals' | translate }}</h1>
   </div>
   <div class="derecha">
     <div class="option" style="background-color: rgba(214, 181, 237, 0.232);">
@@ -85,7 +77,6 @@
           <p>{{ 'home.testimonial1_location' | translate }}</p>
         </div>
       </div>
-    
       <div class="divUsuario">
         <p class="infoUsuario">{{ 'home.testimonial1_text' | translate }}</p>
       </div>
@@ -101,7 +92,6 @@
           <p>{{ 'home.testimonial2_location' | translate }}</p>
         </div>
       </div>
-    
       <div class="divUsuario">
         <p class="infoUsuario">{{ 'home.testimonial2_text' | translate }}</p>
       </div>
@@ -117,14 +107,9 @@
           <p>{{ 'home.testimonial3_location' | translate }}</p>
         </div>
       </div>
-    
       <div class="divUsuario">
         <p class="infoUsuario">{{ 'home.testimonial3_text' | translate }}</p>
       </div>
     </div>
   </div>
 </div>
-
-
-
-

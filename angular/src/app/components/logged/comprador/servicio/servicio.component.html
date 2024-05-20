@@ -32,7 +32,7 @@
     <div *ngIf="mostrarInputComentario" class="inputComentario">
       <form [formGroup]="mensajeForm" (ngSubmit)="enviarComentario()">
         <textarea formControlName="mensage" placeholder="{{ 'servicio.write_comment_placeholder' | translate }}" class="comentarioInput"></textarea>
-        <button type="submit"  class="enviarBoton">{{ 'servicio.send_button' | translate }}</button>
+        <button type="submit" class="enviarBoton">{{ 'servicio.send_button' | translate }}</button>
       </form>
     </div>
 
@@ -49,7 +49,7 @@
 
   <div class="panelDerecha">
     <div class="miniDiv">
-      <p>{{ 'ser.service_section' | translate }}</p>
+      <p>{{ 'servicio.service_section' | translate }}</p>
       <hr>
     </div>
     <hr>

@@ -1,39 +1,39 @@
 <div *ngIf="loading; else content" class="loading-spinner">
   <div class="spinner"></div>
-  </div>
-  
-  <ng-template #content>
-    <div class="container" *ngIf="peticiones.length > 0; else noPeticiones">
-      <div class="row" style="display: flex; align-items: center;">
-        <div class="col-md-7" id="izquierda">
-          <h2 class="titulo">Mis Peticiones:</h2>
-          <p class="texto">
-            <p class="texto"><strong>1to1</strong> te ofrece una solución integral para monitorear tus solicitudes de servicio. En esta sección, podrás ver todas las peticiones que has realizado, permitiéndote gestionar tus requerimientos de manera ordenada y eficiente. Esta herramienta te ayuda a mantener un registro detallado de cada solicitud, asegurando una comunicación fluida y una mejor organización de tus tareas. Con <strong>1to1</strong>, optimizas tu tiempo y recursos, mejorando tu capacidad de respuesta y productividad.</p>
-        </div>
-  
-        <div class="col-md-6" id="derecha">
-          <div class="divTitulo">
-            <h2 class="tituloDerecha">Peticiones</h2>
-          </div>
+</div>
 
-          <div class="contenido">
-            <div *ngFor="let peticion of peticiones">
-              <div class="infoSolicitud">
-                <div class="solicitud-encabezado">
-                  <p class="fecha"> {{ peticion.date_servicio }}</p>
-                </div>
-                <p class="nombreServicio">{{ peticion.nombre_Servicio }}</p>
-                <p class="descripcion">{{ peticion.descripcion }}</p>
-                <p><strong>Estado:</strong> {{ peticion.accepted ? 'Aceptado' : 'Aún no aceptado' }}</p>
-                
+<ng-template #content>
+  <div class="container" *ngIf="peticiones.length > 0; else noPeticiones">
+    <div class="row" style="display: flex; align-items: center;">
+      <div class="col-md-7" id="izquierda">
+        <h2 class="titulo">{{ 'solicitudes2.mis_peticiones' | translate }}</h2>
+        <p class="texto">
+          <strong>1to1</strong> {{ 'solicitudes2.descripcion' | translate }}
+        </p>
+      </div>
+
+      <div class="col-md-6" id="derecha">
+        <div class="divTitulo">
+          <h2 class="tituloDerecha">{{ 'solicitudes2.peticiones' | translate }}</h2>
+        </div>
+
+        <div class="contenido">
+          <div *ngFor="let peticion of peticiones">
+            <div class="infoSolicitud">
+              <div class="solicitud-encabezado">
+                <p class="fecha">{{ peticion.date_servicio }}</p>
               </div>
+              <p class="nombreServicio">{{ peticion.nombre_Servicio }}</p>
+              <p class="descripcion">{{ peticion.descripcion }}</p>
+              <p><strong>{{ 'solicitudes2.estado' | translate }}:</strong> {{ peticion.accepted ? 'Aceptado' : 'Aún no aceptado' }}</p>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <ng-template #noPeticiones>
-        <p>No tienes peticiones actualmente.</p>
-    </ng-template>
+  <ng-template #noPeticiones>
+    <p>{{ 'solicitudes2.no_peticiones' | translate }}</p>
+  </ng-template>
 </ng-template>
