@@ -100,3 +100,5 @@ Route::put('/servicios/{id}', [ServiceController::class, 'update']);
 Route::get('/buscar-servicios', [ServiceController::class, 'buscarServicios']);
 
 Route::get ('/mis-peticiones/{userId}' , [solicitudesController::class, 'getMisSolicitudes']);
+
+Route::put('/users/{id}/update', [ProfileController::class, 'update']);

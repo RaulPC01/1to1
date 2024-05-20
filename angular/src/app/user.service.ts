@@ -9,6 +9,9 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
+  private apiUrl = 'http://localhost:8000/api';
+
+
   // registra un nuevo usuario
   registerUser(formData: FormData): Observable<any> {
     return this.http.post<any>('http://localhost:8000/api/register', formData);
@@ -29,6 +32,10 @@ export class UserService {
   getMisPeticiones(userId: string): Observable<any> {
     
     return this.http.get<any>(`http://localhost:8000/api/mis-peticiones/${userId}`);
+  }
+
+  actualizarPerfilUsuario(dni: string, userData: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/users/${dni}/update`, userData);
   }
 
 
