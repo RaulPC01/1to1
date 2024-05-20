@@ -18,6 +18,8 @@
       "buscar" : "Buscar",
       "perfil" : "Perfil",
       "idioma" : "Idioma",
+      "español" : "Español",
+      "ingles" : "Ingles",
       "contacto" : "Contacto",
       "cerrarSesion" : "Cerrar Sesión"
     },
@@ -33,7 +35,9 @@
       "avisoLegal" : "Aviso Legal",
       "politicaPrivacidad" : "Política de Privacidad",
       "politicaCookies" : "Política de Cookies",
-      "contacto" : "Contacto"
+      "contacto" : "Contacto",
+      "español" : "Español",
+      "ingles" : "Ingles"
     },
 
     
