@@ -3,30 +3,42 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\str;
 use App\Models\User;
 
 class UsersSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
     public function run()
     {
-        DB::table('users')->insert([
-            'dni' => '12345678X',
-            'name' => 'John Doe',
-            'dateOfBirth' => '1990-01-01',
-            'email' => 'johndoe@example.com',
-            'phone' => '123456789',
-            'password' => Hash::make('password'),
-            'valoracion' => null,
-            'image' => null,
-            'remember_token' => Str::random(10),
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
+        $dni = ['78103040P', '90807060R'];
+        $nombres = ['Arian Lanuza, Rodriguez', 'Raul Pereira Acosta'];
+        $dateOfBirth = ['2002-11-03', '2001-03-23'];
+        $email = ['arianlaro@gmail.com', 'raul@gmail.com'];
+        $phone = ['655645535', '376687743'];
+        $password = ['Arian2002', 'Raul2001' ];
+        $valoracion = ['5', '5'];
+        $image = ['../assets/imatges/ArianLanuza.jpg', '../assets/imatges/Raul.jpeg'];
+
+
+        for ($i=0; $i < 2; $i++) { 
+            DB::table('users')->insert([
+                'dni' => $dni[$i],
+                'name' => $nombres[$i],
+                'dateOfBirth' => $dateOfBirth[$i],
+                'email' => $email[$i],
+                'phone' => $phone[$i],
+                'password' => Hash::make($password[$i]),
+                'valoracion' => $valoracion[$i],
+                'image' => $image[$i],
+                'remember_token' => Str::random(10),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);    
+        }
+        
     }
 
     private function generateUniqueDNI()

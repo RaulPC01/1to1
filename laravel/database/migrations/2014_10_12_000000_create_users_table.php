@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 use App\Models\profile;
 use App\Models\services;
 
+
 return new class extends Migration
 {
     /**

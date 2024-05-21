@@ -38,6 +38,7 @@ export class PerfilComponent implements OnInit {
       name: ['', Validators.required],
       email: ['', Validators.required],
       number: ['', Validators.required], // Adjusted validation
+      profilePicture: ['']
     });
 
     const token = localStorage.getItem('Idtoken');
@@ -100,5 +101,26 @@ export class PerfilComponent implements OnInit {
     } else {
       console.error('El formulario no es válido');
     }
+  }
+
+  onFileSelected(event: any): void {
+    const file: File = event.target.files[0];
+    if (file) {
+      this.getBase64(file).then((base64: string) => {
+        this.editForm.patchValue({
+          image: base64 // Almacena la imagen codificada en Base64 en el formulario
+        });
+      });
+    }
+  }
+
+  // Convierte un archivo a Base64
+  getBase64(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = error => reject(error);
+    });
   }
 }

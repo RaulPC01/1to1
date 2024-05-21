@@ -1,4 +1,4 @@
-<div class="fotoPerfil">
+<div *ngIf="user" class="fotoPerfil">
     <img [src]="user.image" alt="{{ 'profile.profile_picture' | translate }}">
 </div>
 
@@ -28,7 +28,7 @@
     <form *ngIf="showEditForm" class="edit-form" [formGroup]="editForm">
         <div class="form-group">
             <label>{{ 'profile.full_name_label' | translate }}</label>
-            <input type="text" name="fullName" formControlName="name" required>
+            <input type="text" value="user.name" name="fullName" formControlName="name" required>
         </div>
         <div class="form-group">
             <label>{{ 'profile.email_label' | translate }}</label>
@@ -37,6 +37,10 @@
         <div class="form-group">
             <label>{{ 'profile.contact_number_label' | translate }}</label>
             <input type="text" name="contactNumber" formControlName="number" required>
+        </div>
+        <div class="form-group">
+            <label>{{ 'profile.change_profile_picture_label' | translate }}</label>
+            <input type="file">
         </div>
         
         
