@@ -1,12 +1,11 @@
 
-<div  class="cuerpo">
-   
+<div class="cuerpo">
     <div *ngIf="showConfirmation" class="popup">
         {{ 'contact.confirmation_message' | translate }}
     </div>
 
     <div id="BIzquierda">
-        <h1 >{{ 'contact.title' | translate }}</h1>
+        <h1 style="color: white;">{{ 'contact.title' | translate }}</h1>
         <hr id="Linea" size="2">
         <br>
 
@@ -31,7 +30,7 @@
                 <div class="col-md-11">
                     <label for="asunto">{{ 'contact.subject_label' | translate }}</label>
                     <select id="motius" formControlName="motius" required class="form-control">
-                        <option value=null ></option>
+                        <option value=null></option>
                         <option *ngFor="let motius of motivos" [value]="motius.id">{{ motius.Nom_Motiu }}</option>
                     </select>
                 </div>
