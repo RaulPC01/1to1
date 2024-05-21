@@ -15,7 +15,7 @@ export class ContactoComponent implements OnInit {
   tiketform!: FormGroup;
   motivos: any[] = [];
   user: any; 
-  showConfirmation: boolean = false; 
+  showConfirmation: boolean = false; // Variable para mostrar el mensaje de confirmación
 
   constructor(
     private formBuilder: FormBuilder,
@@ -44,7 +44,6 @@ export class ContactoComponent implements OnInit {
   }
 
   obtenerMotivos(): void {
-    // obtiene los motivos desde el servicio de tickets
     this.ticketsService.getMotivos().subscribe(
       (motivos) => {
         console.log('motivos:', motivos);
@@ -57,7 +56,6 @@ export class ContactoComponent implements OnInit {
   }
 
   obtenerPerfilUsuario(token: string): void {
-      // obtiene el perfil del usuario desde el servicio de usuario
     this.userService.obtenerPerfilUsuario(token).subscribe(
       (data) => {
         console.log('Datos del perfil:', data);
@@ -77,15 +75,15 @@ export class ContactoComponent implements OnInit {
   }
 
   submitForm() {
-    // envia el formulario al servicio de tickets
+    
       this.ticketsService.crearTicket(this.tiketform.value)
         .subscribe(
           (data) => {
             console.log('Respuesta del servidor:', data);
-            this.showConfirmation = true; 
+            this.showConfirmation = true; // Mostrar el mensaje de confirmación
             setTimeout(() => {
-              this.showConfirmation = false; 
-            }, 4000); 
+              this.showConfirmation = false; // Ocultar el mensaje de confirmación después de 4 segundos
+            }, 4000); // Tiempo en milisegundos (en este caso, 4 segundos)
             
             window.location.reload();
           },
