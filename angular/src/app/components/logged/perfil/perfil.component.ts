@@ -15,6 +15,9 @@ export class PerfilComponent implements OnInit {
   showEditForm: boolean = false;
   userId: string = '';
   editForm!: FormGroup;
+  loading: boolean = false;
+
+
 
   constructor(
     private userService: UserService,
@@ -25,6 +28,7 @@ export class PerfilComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.loading = true; 
     this.perfilForm = this.formBuilder.group({
       dni: ['', Validators.required],
       name: ['', Validators.required],
@@ -61,6 +65,8 @@ export class PerfilComponent implements OnInit {
         this.user = data;
         this.userId = data.dni;
         console.log(this.userId);
+        this.loading = false; 
+
 
         if (localStorage.getItem('Idtoken') === data.token) {
           console.error('El token almacenado en el navegador coincide con el token devuelto por el backend');
@@ -91,7 +97,8 @@ export class PerfilComponent implements OnInit {
           (response) => {
             console.log('Perfil actualizado con éxito:', response);
             
-            this.router.navigate(['/perfil']);
+            this.showEditForm = false;
+
 
           },
           (error) => {
