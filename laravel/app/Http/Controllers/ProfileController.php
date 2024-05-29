@@ -30,4 +30,16 @@ class ProfileController extends Controller
         }
     }
 
+    public function update(Request $request, $dni)
+    {
+        // buscar el usuario por DNI
+        $user = User::where('dni', $dni)->first();
+        if (!$user) {
+            return response()->json(['message' => 'Usuario no encontrado'], 404);
+        }
+    
+        // actualizar el usuario con los datos del request
+        $user->update($request->all());
+        return response()->json(['message' => 'Usuario actualizado con éxito', 'usuario' => $user], 200);
+    }
 }

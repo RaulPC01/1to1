@@ -39,8 +39,8 @@
     </mat-menu>
 
     <mat-menu #languageMenu="matMenu">
-      <button mat-menu-item (click)="cambiarIdioma('es')">Español</button>
-      <button mat-menu-item (click)="cambiarIdioma('en')">English</button>
+      <button mat-menu-item (click)="cambiarIdioma('es')">{{ 'header_logged.español' | translate }}</button>
+      <button mat-menu-item (click)="cambiarIdioma('en')">{{ 'header_logged.ingles' | translate }}</button>
     </mat-menu>
   </div>
 </nav>

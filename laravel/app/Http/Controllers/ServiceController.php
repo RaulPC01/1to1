@@ -134,23 +134,28 @@ class ServiceController extends Controller
         return response()->json(['error' => 'Servicio no encontrado'], 404);
     }
 
-    // metodo para buscar servicios
+    
+    //METODO PARA EL BUSCADOR, FILTRO POR SERVICIO
     public function buscarServicios(Request $request)
     {
         $terminoBusqueda = $request->input('terminoBusqueda');
-
-        // buscar servicios que coincidan con el termino de busqueda
-        $servicios = Services::with('user', 'poblacion', 'categories')
+    
+        // Buscar servicios que coincidan con el término de búsqueda
+        $servicios = services::with('user', 'poblacion', 'categories')
                             ->where('tipo_servicio', 'like', '%' . $terminoBusqueda . '%')
                             ->orWhere('descripcion', 'like', '%' . $terminoBusqueda . '%')
+                            ->orWhere('tarifa', 'like', '%' . $terminoBusqueda . '%')
                             ->orWhereHas('user', function ($query) use ($terminoBusqueda) {
                                 $query->where('name', 'like', '%' . $terminoBusqueda . '%');
                             })
                             ->orWhereHas('poblacion', function ($query) use ($terminoBusqueda) {
                                 $query->where('nombre_poblacion', 'like', '%' . $terminoBusqueda . '%');
+                            }) 
+                            ->orWhereHas('categories', function ($query) use ($terminoBusqueda) {
+                                $query->where('nombre_cateogira', 'like', '%' . $terminoBusqueda . '%');
                             })
                             ->get();
-
+    
         return response()->json($servicios);
     }
 

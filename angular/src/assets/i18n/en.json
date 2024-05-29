@@ -52,6 +52,9 @@
     "solicitudes" : "Requests",
     "buscar" : "Search",
     "perfil" : "Profile",
+    "idioma" : "Language",
+    "español" : "Spanish",
+    "ingles" : "English",
     "contacto" : "Contact",
     "cerrarSesion" : "Log Out",
     "peticiones" : "Petitions"
@@ -68,7 +71,9 @@
     "avisoLegal" : "Legal Notice",
     "politicaPrivacidad" : "Privacy Policy",
     "politicaCookies" : "Cookies Policy",
-    "contacto" : "Contact"
+    "contacto" : "Contact",
+    "español" : "Spanish",
+    "ingles" : "English"
   },
 
 

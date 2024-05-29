@@ -94,7 +94,7 @@
     color: #b40301;
     margin-top: 0px;
     position: fixed;
-    right: 19%;
+    right: 16%;
   }
   
   h2{
@@ -107,6 +107,7 @@
     background-color: rgb(246, 246, 246);
     border: 1px solid #c0c0c0;
     border-radius: 20px;
+    margin-bottom: 15px;
   }
   
   .solicitud-encabezado {

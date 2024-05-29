@@ -3,59 +3,44 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\str;
 use App\Models\User;
 
 class UsersSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
     public function run()
     {
-        $names = ['Juan', 'Pedro', 'María', 'Luis', 'Ana', 'Sofía', 'Carlos', 'Laura', 'Pablo', 'Elena'];
-        $lastNames = ['González', 'Fernández', 'López', 'Martínez', 'García', 'Sánchez', 'Pérez', 'Gómez', 'Díaz', 'Muñoz'];
-        $domains = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'example.com'];
+        $dni = ['78103040P', '90807060R'];
+        $nombres = ['Arian Lanuza, Rodriguez', 'Raul Pereira Acosta'];
+        $dateOfBirth = ['2002-11-03', '2001-03-23'];
+        $email = ['arianlaro@gmail.com', 'raul@gmail.com'];
+        $phone = ['655645535', '376687743'];
+        $password = ['Arian2002', 'Raul2001' ];
+        $valoracion = ['5', '5'];
+        $image = ['../assets/imatges/ArianLanuza.jpg', '../assets/imatges/Raul.jpeg'];
 
-        $usedEmails = [];
-        $usedNames = [];
 
-        $userCount = 0;
-
-        while ($userCount < 15) { // Crear 15 usuarios
-            $firstName = $names[array_rand($names)];
-            $lastName = $lastNames[array_rand($lastNames)];
-            $email = strtolower($firstName . '.' . $lastName . '@' . $domains[array_rand($domains)]);
-            $fullName = $firstName . ' ' . $lastName;
-
-            // Verificar si el correo electrónico o el nombre ya existen
-            if (!in_array($email, $usedEmails) && !in_array($fullName, $usedNames)) {
-                User::create([
-                    'dni' => $this->generateUniqueDNI(),
-                    'name' => $fullName,
-                    'dateOfBirth' => $this->generateRandomDateOfBirth(),
-                    'email' => $email,
-                    'phone' => $this->generateRandomPhone(),
-                    'password' => bcrypt('password'),
-                    'valoracion' => rand(1, 5),
-                    'image' => null,
-                ]);
-
-                // Agregar el correo electrónico y el nombre a las listas de utilizados
-                $usedEmails[] = $email;
-                $usedNames[] = $fullName;
-
-                $userCount++;
-            }
+        for ($i=0; $i < 2; $i++) { 
+            DB::table('users')->insert([
+                'dni' => $dni[$i],
+                'name' => $nombres[$i],
+                'dateOfBirth' => $dateOfBirth[$i],
+                'email' => $email[$i],
+                'phone' => $phone[$i],
+                'password' => Hash::make($password[$i]),
+                'valoracion' => $valoracion[$i],
+                'image' => $image[$i],
+                'remember_token' => Str::random(10),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);    
         }
+        
     }
 
-    /**
-     * Generate a unique DNI.
-     *
-     * @return string
-     */
     private function generateUniqueDNI()
     {
         $dni = mt_rand(10000000, 99999999);

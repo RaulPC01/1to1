@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Motius; // importacion del modelo motius
+use App\Models\motius_noms;
 use App\Models\MotiusNoms; // importacion del modelo motius_noms
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class MotiusController extends Controller
     public function index()
     {
         // obtiene todos los motivos de la base de datos
-        $motius = MotiusNoms::all();
+        $motius = motius_noms::all();
 
         // retorna los motivos en formato JSON
         return response()->json($motius);
