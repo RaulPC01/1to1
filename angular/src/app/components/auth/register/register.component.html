@@ -23,6 +23,9 @@
     
     <input class="Inputs" type="date" placeholder="{{ 'register.dateOfBirth' | translate }}" formControlName="dateOfBirth" required>
     <input class="Inputs" type="email" placeholder="{{ 'register.email' | translate }}" formControlName="email" required>
+    <div *ngIf="submitted && RegisterForm.get('email')?.errors" class="error-message">
+      {{ getErrorMessage('email') }}
+    </div>
     <input class="Inputs" type="tel" placeholder="{{ 'register.phone' | translate }}" formControlName="phone" required>
     <div *ngIf="submitted && RegisterForm.get('phone')?.errors" class="error-message">
       {{ getErrorMessage('phone') }}

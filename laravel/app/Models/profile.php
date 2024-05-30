@@ -5,18 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class profile extends Model
+class Profile extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-
-        'DNI',
+        'user_id',
         'link_paypal',
         'experiencia',
         'habilidades',
         'descripcion_personal',
-        'foto_ferfil',
-             
+        'foto_perfil'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

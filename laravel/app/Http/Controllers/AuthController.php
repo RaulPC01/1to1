@@ -14,7 +14,6 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         try {
-            // Validación de los datos del request
             $request->validate([
                 'documentType' => 'required|string|in:DNI,NIE,passport',
                 'dni' => [
@@ -41,8 +40,7 @@ class AuthController extends Controller
                 'password' => 'required|string|min:8',
                 'image' => 'nullable|string',
             ]);
-
-            // Creación de un nuevo usuario
+    
             $user = new User();
             $user->documentType = $request->documentType;
             $user->dni = $request->dni;
@@ -53,20 +51,21 @@ class AuthController extends Controller
             $user->password = Hash::make($request->password);
             $user->image = $request->image;
             $user->save();
-
-            // Creación de un perfil para el nuevo usuario
+    
+            Log::info('Usuario creado: ' . $user->id);
+    
             $profile = new Profile();
             $profile->user_id = $user->id;
             $profile->save();
-
+    
             return response()->json(['message' => 'Usuario registrado exitosamente'], 201);
-
+    
         } catch (\Exception $e) {
             Log::error('Error al registrar el usuario: ' . $e->getMessage());
             return response()->json(['error' => 'Error interno del servidor'], 500);
         }
     }
-
+    
     public function login(Request $request)
     {
         // Obtiene las credenciales del request

@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->string('dni')->unique(); // Cambiado a unique
-            $table->foreign('dni')->references('dni')->on('users')->onDelete('cascade');
-            $table->string('link_paypal')->nullable(); // Añadido nullable
-            $table->text('experiencia')->nullable(); // Añadido nullable
-            $table->text('habilidades')->nullable(); // Añadido nullable
-            $table->text('descripcion_personal')->nullable(); // Añadido nullable
-            $table->string('foto_perfil')->nullable(); // Cambiado a nullable y corregido el nombre
+            $table->unsignedBigInteger('user_id')->unique();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('link_paypal')->nullable();
+            $table->text('experiencia')->nullable();
+            $table->text('habilidades')->nullable();
+            $table->text('descripcion_personal')->nullable();
+            $table->string('foto_perfil')->nullable();
             $table->timestamps();
         });
     }
