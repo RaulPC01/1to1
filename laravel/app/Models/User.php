@@ -17,6 +17,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'documentType', // Añadir documentType aquí
         'dni',
         'name',
         'dateOfBirth',
@@ -51,7 +52,4 @@ class User extends Authenticatable
     {
         return $this->hasOne(Profile::class, 'dni', 'dni');
     }
-    
-
-
 }

@@ -1,37 +1,49 @@
-
 <div class="tarjetaRegistro">
   <h1 class="titulo">{{ 'register.title' | translate }}</h1>
   <form [formGroup]="RegisterForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+    <select class="Inputs" formControlName="documentType" required>
+      <option value="" disabled selected>{{ 'register.selectDocumentType' | translate }}</option>
+      <option value="DNI">{{ 'register.dni' | translate }}</option>
+      <option value="NIE">{{ 'register.nie' | translate }}</option>
+      <option value="passport">{{ 'register.passport' | translate }}</option>
+    </select>
+    <div *ngIf="submitted && RegisterForm.get('documentType')?.errors" class="error-message">
+      {{ getErrorMessage('documentType') }}
+    </div>
+    
     <input class="Inputs" type="text" placeholder="{{ 'register.dni' | translate }}" formControlName="dni" required>
     <div *ngIf="submitted && RegisterForm.get('dni')?.errors" class="error-message">
       {{ getErrorMessage('dni') }}
     </div>
+    
     <input class="Inputs" type="text" placeholder="{{ 'register.fullName' | translate }}" formControlName="name" required>
     <div *ngIf="submitted && RegisterForm.get('name')?.errors" class="error-message">
       {{ getErrorMessage('name') }}
     </div>
+    
     <input class="Inputs" type="date" placeholder="{{ 'register.dateOfBirth' | translate }}" formControlName="dateOfBirth" required>
     <input class="Inputs" type="email" placeholder="{{ 'register.email' | translate }}" formControlName="email" required>
     <input class="Inputs" type="tel" placeholder="{{ 'register.phone' | translate }}" formControlName="phone" required>
     <div *ngIf="submitted && RegisterForm.get('phone')?.errors" class="error-message">
       {{ getErrorMessage('phone') }}
     </div>
+    
     <input class="Inputs" type="password" placeholder="{{ 'register.password' | translate }}" formControlName="password" required>
     <div *ngIf="submitted && RegisterForm.get('password')?.errors" class="error-message">
       {{ getErrorMessage('password') }}
     </div>
-    <input class="Inputs" type="password" placeholder="{{ 'register.confirmPassword' | translate }}" formControlName="password_confirmation"
-      required>
-    <div
-      *ngIf="RegisterForm.hasError('passwordMismatch') && (RegisterForm.get('password') || RegisterForm.get('password_confirmation'))"
-      style="color: red;">
-      {{ 'register.passwordMismatchError' | translate }}
+    
+    <input class="Inputs" type="password" placeholder="{{ 'register.confirmPassword' | translate }}" formControlName="password_confirmation" required>
+    <div *ngIf="submitted && RegisterForm.get('password_confirmation')?.errors" class="error-message">
+      {{ getErrorMessage('password_confirmation') }}
     </div>
-    <input class="Inputs" type="file" accept="image/*" (change)="onFileSelected($event)" required>
-
-    <button type="submit">{{ 'register.submitButton' | translate }}</button>
+    
+    <input class="Inputs" type="file" (change)="onFileSelected($event)">
+    
+    <button type="submit" class="btn btn-primary">{{ 'register.register' | translate }}</button>
   </form>
-
-  <p>{{ 'register.alreadyHaveAccount' | translate }}</p>
-  <a href="/login">{{ 'register.loginLink' | translate }}</a>
+  
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
 </div>

@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/user.service';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -12,7 +13,7 @@ export class RegisterComponent {
   RegisterForm: FormGroup;
   errorMessage: string = '';
   submitted = false;
- 
+
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
@@ -20,7 +21,8 @@ export class RegisterComponent {
     private Router: Router
   ) {
     this.RegisterForm = this.formBuilder.group({
-      dni: ['', Validators.required],
+      documentType: ['', Validators.required],
+      dni: ['', [Validators.required, this.documentValidator.bind(this)]],
       name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]*$/)]],  // Validates no numbers
       dateOfBirth: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -31,7 +33,6 @@ export class RegisterComponent {
     }, {
       validators: this.passwordMatchValidator
     });
-    
   }
 
   // Función para validar que las contraseñas coincidan
@@ -47,13 +48,35 @@ export class RegisterComponent {
       return null;
     }
   }
+
+  // Validación personalizada para el tipo de documento
+  documentValidator(control: any) {
+    const documentType = this.RegisterForm?.get('documentType')?.value;
+    const value = control.value;
+
+    if (documentType === 'DNI') {
+      if (!/^[0-9]{8}[A-Z]$/.test(value)) {
+        return { invalidDNI: true };
+      }
+    } else if (documentType === 'NIE') {
+      if (!/^[XYZ][0-9]{7}[A-Z]$/.test(value)) {
+        return { invalidNIE: true };
+      }
+    } else if (documentType === 'passport') {
+      if (!/^[A-Z0-9]{5,9}$/.test(value)) {
+        return { invalidPassport: true };
+      }
+    }
+    return null;
+  }
+
   getErrorMessage(controlName: string): string {
     const control = this.RegisterForm.get(controlName);
-  
+
     if (!control) {
       return 'Control is not found'; // Handling if control itself is null
     }
-  
+
     if (control.hasError('required')) {
       return 'Este campo es obligatorio.';
     } else if (control.hasError('pattern')) {
@@ -68,16 +91,21 @@ export class RegisterComponent {
       return 'Por favor ingresa un correo electrónico válido.';
     } else if (control.hasError('passwordMismatch')) {
       return 'Las contraseñas no coinciden.';
+    } else if (control.hasError('invalidDNI')) {
+      return 'El DNI no es válido.';
+    } else if (control.hasError('invalidNIE')) {
+      return 'El NIE no es válido.';
+    } else if (control.hasError('invalidPassport')) {
+      return 'El pasaporte no es válido.';
     }
     return '';
   }
-  
-  
+
   // Método para mostrar mensajes de error
   showError(controlName: string, errorName: string) {
     return this.RegisterForm.controls[controlName].hasError(errorName);
   }
-  
+
   // Maneja la selección de archivos
   onFileSelected(event: any): void {
     const file: File = event.target.files[0];
@@ -103,13 +131,13 @@ export class RegisterComponent {
   // Envía el formulario al backend
   onSubmit(): void {
     this.submitted = true; // Set the flag to true regardless of form validity
-  
+
     if (this.RegisterForm.valid) {
       const formData = new FormData();
       Object.keys(this.RegisterForm.value).forEach(key => {
         formData.append(key, this.RegisterForm.value[key]);
       });
-  
+
       this.userService.registerUser(formData)
         .subscribe(
           (data) => {
@@ -125,7 +153,7 @@ export class RegisterComponent {
               this.errorMessage = error.error?.message || 'El correo electrónico, el DNI o el número de teléfono ya están en uso.';
             } else {
               // Other types of errors
-              this.errorMessage = 'Hubo un problema al procesar la solicitud. Por favor, inténtalo de nuevo más tarde.';
+              this.Router.navigate(['/login']);
             }
           }
         );
@@ -133,12 +161,11 @@ export class RegisterComponent {
       this.scrollToFirstInvalidControl(); // Optional: Scroll to the first invalid control
     }
   }
-  
+
   private scrollToFirstInvalidControl(): void {
     const firstInvalidControl: HTMLElement | null = document.querySelector('form .ng-invalid');
     if (firstInvalidControl) {
       firstInvalidControl.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   }
-  
 }
