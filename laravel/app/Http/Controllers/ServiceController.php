@@ -59,6 +59,8 @@ class ServiceController extends Controller
         return response()->json($services);
     }
 
+    
+
     // metodo para obtener un servicio con sus relaciones por ID
     public function getServiceWithRelations($serviceId)
     {
@@ -160,6 +162,8 @@ class ServiceController extends Controller
     }
 
     // metodo para actualizar un servicio por ID
+
+    
     public function update(Request $request, $id)
     {
         // buscar el servicio por ID
