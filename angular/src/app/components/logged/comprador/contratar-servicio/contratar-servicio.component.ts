@@ -66,6 +66,11 @@ export class ContratarServicioComponent implements OnInit {
         date_servicio: ['', [Validators.required, dateRangeValidator(today, nextYear)]],
         telefono_user: ['', Validators.required],
         accepted: [this.acceptado],
+        numero_tarjeta: ['', Validators.required],
+  mes_caducidad: ['', Validators.required],
+  anyo_caducidad: ['', Validators.required],
+  CVV: ['', Validators.required],
+  nombre_tarjeta: ['', Validators.required],
       });
 
       const token = localStorage.getItem('Idtoken');
@@ -140,6 +145,7 @@ export class ContratarServicioComponent implements OnInit {
   submitForm() {
     console.log('datos del formulario:', this.servicioForm.value);
     if (this.servicioForm.valid) {
+      // Enviar el formulario con todos los campos, incluidos los de método de pago
       this.servicioService.enviarSolicitud(this.servicioForm.value).subscribe(
         data => {
           console.log('respuesta del servidor:', data);

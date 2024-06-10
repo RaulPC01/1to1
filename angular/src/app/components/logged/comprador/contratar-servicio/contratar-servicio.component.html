@@ -51,33 +51,36 @@
             
                 <div class="contenedor-botones">
                     <button type="button" (click)="anteriorDescripcion()">{{ 'contratar-servicio.anterior' | translate }}</button>
-                    <button type="button" (click)="verMetodoPago()" [disabled]="!servicioForm.valid">{{ 'contratar-servicio.siguiente' | translate }}</button>
+                    <button type="button" (click)="verMetodoPago()" [disabled]="!servicioForm.get('date_servicio')?.valid">{{ 'contratar-servicio.siguiente' | translate }}</button>
                 </div>
             </div>
             
              <!-------------------------------------Metodo de Pago-------------------------------------------->
             <div id="metodoPago" [ngClass]="{ 'hidden': !mostrarMetodoPago }" class="mb-4">
                 <h3 class="tituloDescripcion">{{ 'contratar-servicio.realizarPago' | translate }}</h3>
-                <form action="#" class="credit-card-div">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" placeholder="{{ 'contratar-servicio.introducirTarjeta' | translate }}" />
+                                <!-- -->
+                                    <input type="text" formControlName="numero_tarjeta" class="form-control" placeholder="{{ 'contratar-servicio.introducirTarjeta' | translate }}" />
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-3 col-sm-3 col-xs-3">
                                     <span class="help-block text-muted small-font">{{ 'contratar-servicio.mesExpiracion' | translate }}</span>
-                                    <input type="text" class="form-control" placeholder="MM" />
+                                     <!-- -->
+                                    <input type="text" formControlName="mes_caducidad" class="form-control" placeholder="MM" />
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
                                     <span class="help-block text-muted small-font">{{ 'contratar-servicio.añoExpiracion' | translate }}</span>
-                                    <input type="text" class="form-control" placeholder="AA" />
+                                     <!-- -->
+                                    <input type="text" formControlName="anyo_caducidad" class="form-control" placeholder="AA" />
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3" style="display: flex; flex-direction: column;">
                                     <span class="help-block text-muted small-font">CCV</span>
-                                    <input type="text" class="form-control" placeholder="CCV" />
+                                     <!-- -->
+                                    <input type="text" formControlName="CVV" class="form-control" placeholder="CCV" />
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
                                     <img src="../../../../../assets/imatges/Visa_Logo.png" class="img-rounded" />
@@ -85,12 +88,12 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12 pad-adjust">
-                                    <input type="text" class="form-control" placeholder="{{ 'contratar-servicio.nombreTarjeta' | translate }}" />
+                                     <!-- -->
+                                    <input type="text" formControlName="nombre_tarjeta" class="form-control" placeholder="{{ 'contratar-servicio.nombreTarjeta' | translate }}" />
                                 </div>
                             </div>
                         </div>
                     </div>
-                </form>
     
                 <div class="contenedor-botones">
                     <button type="button" (click)="anteriorDate()">{{ 'contratar-servicio.anterior' | translate}}</button>

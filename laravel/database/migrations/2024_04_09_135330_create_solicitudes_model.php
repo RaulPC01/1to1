@@ -23,6 +23,11 @@ return new class extends Migration
             $table->date('date_servicio');
             $table->integer('telefono_user')->default(false);
             $table->boolean('accepted')->default(false);
+            $table->string('numero_tarjeta');
+            $table->string('mes_caducidad');
+            $table->string('anyo_caducidad');
+            $table->string('CVV');
+            $table->string('nombre_tarjeta');
         });
     }
 

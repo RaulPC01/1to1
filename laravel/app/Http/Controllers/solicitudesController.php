@@ -24,7 +24,14 @@ class SolicitudesController extends Controller
             'date_servicio' => 'required|date',
             'telefono_user' => 'required|string',
             'accepted' => 'boolean',
+            'numero_tarjeta' => 'required|string',
+            'mes_caducidad' => 'required|string',
+            'anyo_caducidad' => 'required|string',
+            'CVV' => 'required|string',
+            'nombre_tarjeta' => 'required|string',
         ]);
+
+        
 
         // crear la solicitud con los datos validados
         $solicitud = Solicitudes::create($validatedData);
