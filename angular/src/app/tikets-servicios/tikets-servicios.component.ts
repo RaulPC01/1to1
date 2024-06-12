@@ -86,6 +86,7 @@ export class TiketsServiciosComponent implements OnInit {
   }
 
   obtenerSolicitudesTrue(id_user_proveedor: string): void {
+    console.log("sssssssssssssssssssssssssss: " + id_user_proveedor)
     this.http.get<any[]>('http://localhost:8000/api/solicitudes-aceptadas/' + id_user_proveedor).subscribe(
       (data) => {
         console.log('id User Proveedor:',id_user_proveedor);
@@ -168,7 +169,7 @@ export class TiketsServiciosComponent implements OnInit {
 
   
   //FUNCIÓN PARA REALIZAR UNA SOLICITUD
-  RealizarSolicitud(solicitud: any): void {
+  RealizarServicio(solicitud: any): void {
     // Verificar si la solicitud ya está realizado
     if (solicitud.realizado) {
       console.log('La solicitud ya ha sido realizada anteriormente.');
