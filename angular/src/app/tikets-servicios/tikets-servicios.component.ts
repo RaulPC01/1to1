@@ -12,6 +12,8 @@ export class TiketsServiciosComponent implements OnInit {
   solicitudes: any[] = [];
   solicitudesAcceptadas: any[] = [];
   solicitudesPorAcceptar: any[] = [];
+  solicitudesRealizadas: any[] = [];
+  solicitudesPorRealizar: any[] = [];
   loading: boolean = false;
 
   activeTab: string = 'solicitudesPorAceptar';
@@ -124,6 +126,8 @@ export class TiketsServiciosComponent implements OnInit {
       }
     );
   }
+
+
   rechazarSolicitud(solicitud: any): void {
     // Realizar la solicitud DELETE para rechazar la solicitud
     const url = `http://localhost:8000/api/solicitudes/${solicitud.id}/rechazar`;
@@ -142,5 +146,50 @@ export class TiketsServiciosComponent implements OnInit {
       }
     );
   }
+
+
+
+  SolicitudesRealizadas(id_user_proveedor: string): void {
+    this.http.get<any[]>('http://localhost:8000/api//solicitudes-realizadas/' + id_user_proveedor).subscribe(
+      (data) => {
+        console.log('id User Proveedor:',id_user_proveedor);
+
+        console.log('Solicitudes del proveedor True:', data);
+        this.solicitudesRealizadas = data; // Asignar las solicitudes devueltas a la variable local
+        this.loading = false; 
+
+      },
+      (error) => {
+        console.error('Error al obtener las solicitudes del proveedor:', error);
+        // Manejar el error adecuadamente, por ejemplo, mostrar un mensaje al usuario
+      }
+    );
+  }
+
   
+  //FUNCIÓN PARA REALIZAR UNA SOLICITUD
+  RealizarSolicitud(solicitud: any): void {
+    // Verificar si la solicitud ya está realizado
+    if (solicitud.realizado) {
+      console.log('La solicitud ya ha sido realizada anteriormente.');
+      return;
+    }
+  
+    // Realizar la solicitud PUT para realizar la solicitud
+    const url = `http://localhost:8000/api/solicitudes/${solicitud.id}/realizar`;
+    this.http.put(url, {}).subscribe(
+      (response) => {
+        console.log('La solicitud ha sido realizada exitosamente:', response);
+
+        this.solicitudesPorRealizar = this.solicitudesPorRealizar.filter(s => s.id !== solicitud.id);
+
+        window.location.reload();
+
+      },
+      (error) => {
+        console.error('Error al aceptar la solicitud:', error);
+        // Manejar el error adecuadamente, por ejemplo, mostrar un mensaje al usuario
+      }
+    );
+  }
 }

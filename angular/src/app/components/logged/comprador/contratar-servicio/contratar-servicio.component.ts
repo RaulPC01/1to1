@@ -65,12 +65,12 @@ export class ContratarServicioComponent implements OnInit {
         descripcion: ['', Validators.required],
         date_servicio: ['', [Validators.required, dateRangeValidator(today, nextYear)]],
         telefono_user: ['', Validators.required],
-        accepted: [this.acceptado],
         numero_tarjeta: ['', Validators.required],
-  mes_caducidad: ['', Validators.required],
-  anyo_caducidad: ['', Validators.required],
-  CVV: ['', Validators.required],
-  nombre_tarjeta: ['', Validators.required],
+        mes_caducidad: ['', Validators.required],
+        anyo_caducidad: ['', Validators.required],
+        CVV: ['', Validators.required],
+        nombre_tarjeta: ['', Validators.required],
+        accepted: [this.acceptado],
       });
 
       const token = localStorage.getItem('Idtoken');
@@ -81,6 +81,30 @@ export class ContratarServicioComponent implements OnInit {
         console.error('el token o el id del servicio no esta disponible.');
       }
     });
+  }
+
+  // funcion para enviar el formulario y procesar la solicitud del servicio
+  submitForm() {
+    console.log('datos del formulario:', this.servicioForm.value);
+    if (this.servicioForm.valid) {
+      // Enviar el formulario con todos los campos, incluidos los de método de pago
+      this.servicioService.enviarSolicitud(this.servicioForm.value).subscribe(
+        data => {
+          console.log('respuesta del servidor:', data);
+          this.showConfirmation = true;
+          setTimeout(() => {
+            this.showConfirmation = false;
+            this.router.navigate(['/home-comprador']);
+          }, 4000);
+          this.servicioForm.reset();
+        },
+        (error: HttpErrorResponse) => {
+          console.error('error al enviar el formulario:', error);
+        }
+      );
+    } else {
+      console.error('el formulario no es valido');
+    }
   }
 
   // funcion para obtener detalles de un servicio especifico mediante su id
@@ -141,29 +165,6 @@ export class ContratarServicioComponent implements OnInit {
     );
   }
 
-  // funcion para enviar el formulario y procesar la solicitud del servicio
-  submitForm() {
-    console.log('datos del formulario:', this.servicioForm.value);
-    if (this.servicioForm.valid) {
-      // Enviar el formulario con todos los campos, incluidos los de método de pago
-      this.servicioService.enviarSolicitud(this.servicioForm.value).subscribe(
-        data => {
-          console.log('respuesta del servidor:', data);
-          this.showConfirmation = true;
-          setTimeout(() => {
-            this.showConfirmation = false;
-            this.router.navigate(['/home-comprador']);
-          }, 4000);
-          this.servicioForm.reset();
-        },
-        (error: HttpErrorResponse) => {
-          console.error('error al enviar el formulario:', error);
-        }
-      );
-    } else {
-      console.error('el formulario no es valido');
-    }
-  }
 
   // metodos para gestionar la visualizacion de diferentes secciones del formulario
   verDescripcion() {

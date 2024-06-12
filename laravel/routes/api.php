@@ -69,6 +69,10 @@ Route::post('/resena', [ServiceController::class, 'createComentarios']);
 // obtiene los comentarios de un servicio por id
 Route::get('servicios/{id_servicio}/comentarios', [ServiceController::class, 'comentariosDeServicio']);
 
+
+
+
+//-----------------------------------SOLICITUDES-----------------------------//
 // obtiene las solicitudes por id del proveedor
 Route::get('/solicitudes/{id_user_proveedor}', [SolicitudesController::class, 'getSolicitudesPorProveedor']);
 
@@ -83,6 +87,18 @@ Route::put('/solicitudes/{id}/aceptar', [SolicitudesController::class, 'aceptarS
 
 // rechaza una solicitud por id
 Route::delete('/solicitudes/{id}/rechazar', [SolicitudesController::class, 'rechazarSolicitud']);
+
+//Se obtiene las solicitudes por aceptar por id del proveedor
+Route::get('/por-realizar/{id_user_proveedor}', [SolicitudesController::class, 'solicitudesPorRealizar']);
+
+//Se obtiene las solicitudes realizadas por id del proveedor
+Route::get('/solicitudes-realizadas/{id_user_proveedor}/', [SolicitudesController::class, 'solicitudesRealizadas']);
+
+// Realiza una servicio con el id de la solicitud
+Route::put('/solicitudes/{id}/realizar', [SolicitudesController::class, 'RealizarSolicitud']);
+
+
+
 
 // obtiene los servicios segun el usuario proveedor por id
 Route::get('/serviciosUser/{id_usuario_proveedor}', [ServiceController::class, 'serviciosSegunUsuario']);

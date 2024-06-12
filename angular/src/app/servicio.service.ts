@@ -52,7 +52,7 @@ export class ServicioService {
   }
 
   // envia una solicitud de servicio
-  enviarSolicitud(solicitudData: any): Observable<any> {
+  enviarSolicitud(solicitudData: any[]): Observable<any> {
     return this.http.post<any>('http://localhost:8000/api/crearSolicitud', solicitudData);
   }
 

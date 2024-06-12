@@ -7,6 +7,7 @@
   <div class="submenu">
     <button [class.active]="activeTab === 'solicitudesPorAceptar'" (click)="changeTab('solicitudesPorAceptar')">{{ 'solicitudes.por_aceptar' | translate }}</button>
     <button [class.active]="activeTab === 'solicitudesAceptadas'" (click)="changeTab('solicitudesAceptadas')">{{ 'solicitudes.aceptadas' | translate }}</button>
+    <button [class.active]="activeTab === 'solicitudesRealizadas'" (click)="changeTab('solicitudesRealizadas')">Solicitudes Realizadas</button>    
     <button [class.active]="activeTab === 'todaslasSolicitudes'" (click)="changeTab('todaslasSolicitudes')">{{ 'solicitudes.todas' | translate }}</button>
   </div>
   
@@ -64,6 +65,39 @@
                 </div>
                 <p class="nombreServicio">{{ solicitud.nombre_Servicio }}</p>
                 <p class="descripcion">{{ solicitud.descripcion }}</p>
+                <div class="botones">
+                  <button class="botonRealizar" (click)="RealizarSolicitud(solicitud)">Realizar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--SOLICITUDES REALIZDAS-->
+    <div class="segundo" *ngIf="activeTab === 'solicitudesRealizadas'">
+      <div class="row" style="display: flex; align-items: center;">
+        <div class="col-md-7" id="izquierda">
+          <h2 class="titulo">Solicitudes Realizadas</h2>
+          <p class="texto">{{ 'solicitudes.descripcion_aceptadas' | translate }}</p>
+        </div>
+    
+        <div class="col-md-6" id="derecha">
+          <h2 class="tituloDerecha">{{ 'solicitudes.titulo' | translate }}</h2>
+          <div class="contenido">
+            <div *ngFor="let solicitud of solicitudesRealizadas">
+              <div class="infoSolicitud">
+                <div class="solicitud-encabezado">
+                  <p>{{ solicitud.name_user_solicitud }}</p>
+                  <p class="fecha">{{ solicitud.date_servicio }}</p>
+                </div>
+                <div class="solicitud-encabezado2">
+                  <p>{{ solicitud.telefono_user }}</p>
+                </div>
+                <p class="nombreServicio">{{ solicitud.nombre_Servicio }}</p>
+                <p class="descripcion">{{ solicitud.descripcion }}</p>
               </div>
             </div>
           </div>
@@ -71,6 +105,8 @@
       </div>
     </div>
   
+
+
     <!--TODAS LAS SOLICITUDES-->
     <div class="tercero" *ngIf="activeTab === 'todaslasSolicitudes'">
       <div class="row" style="display: flex; align-items: center;">
@@ -99,5 +135,7 @@
         </div>
       </div>
     </div>
+
+
   </div>
 </div>

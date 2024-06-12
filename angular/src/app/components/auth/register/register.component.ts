@@ -47,6 +47,7 @@ export class RegisterComponent {
       return null;
     }
   }
+  
   getErrorMessage(controlName: string): string {
     const control = this.RegisterForm.get(controlName);
   

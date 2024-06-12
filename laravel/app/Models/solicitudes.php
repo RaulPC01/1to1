@@ -20,10 +20,17 @@ class solicitudes extends Model
         'descripcion',
         'date_servicio',
         'telefono_user',
+        'numero_tarjeta',
+        'mes_caducidad',
+        'anyo_caducidad',
+        'CVV',
+        'nombre_tarjeta',
         'accepted', // Corregido el nombre del campo
+        'realizado',
     ];
 
     protected $casts = [
         'accepted' => 'boolean', // Corregido el nombre del campo
+        'realizado' => 'boolean',
     ];
 }
