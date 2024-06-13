@@ -8,7 +8,7 @@
       <div class="col-md-7" id="izquierda">
         <h2 class="titulo">{{ 'solicitudes2.mis_peticiones' | translate }}</h2>
         <p class="texto">
-          <strong>1to1</strong> {{ 'solicitudes2.descripcion' | translate }}
+          <strong>1to1</strong> 1to1 te ofrece una solución integral para monitorear tus solicitudes de servicio. En esta sección, podrás ver todas las peticiones que has realizado, permitiéndote gestionar tus requerimientos de manera ordenada y eficiente. Esta herramienta te ayuda a mantener un registro detallado de cada solicitud, asegurando una comunicación fluida y una mejor organización de tus tareas. Con <strong>1to1</strong>, optimizas tu tiempo y recursos, mejorando tu capacidad de respuesta y productividad.
         </p>
       </div>
 
@@ -25,7 +25,7 @@
               </div>
               <p class="nombreServicio">{{ peticion.nombre_Servicio }}</p>
               <p class="descripcion">{{ peticion.descripcion }}</p>
-              <p><strong>{{ 'solicitudes2.estado' | translate }}:</strong> {{ peticion.accepted ? 'Aceptado' : 'Aún no aceptado' }}</p>
+              <p><strong>{{ 'solicitudes2.estado' | translate }}:</strong> {{ peticion.accepted ? 'Aceptado' : 'Aún no aceptado' }} {{' | '}}  {{ peticion.realizado ? 'Realizado' : 'Aún se ha realizado' }}</p>
             </div>
           </div>
         </div>

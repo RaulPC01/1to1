@@ -58,12 +58,16 @@
              <!-------------------------------------Metodo de Pago-------------------------------------------->
             <div id="metodoPago" [ngClass]="{ 'hidden': !mostrarMetodoPago }" class="mb-4">
                 <h3 class="tituloDescripcion">{{ 'contratar-servicio.realizarPago' | translate }}</h3>
+                <div class="credit-card-div">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-md-12">
                                 <!-- -->
                                     <input type="password" formControlName="numero_tarjeta" class="form-control" placeholder="{{ 'contratar-servicio.introducirTarjeta' | translate }}" />
+                                    <div *ngIf="servicioForm.controls['numero_tarjeta'].invalid && (servicioForm.controls['numero_tarjeta'].dirty || servicioForm.controls['numero_tarjeta'].touched)" class="alert alert-danger">
+                                        Este campo no puede estar vacio.
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
@@ -71,16 +75,25 @@
                                     <span class="help-block text-muted small-font">{{ 'contratar-servicio.mesExpiracion' | translate }}</span>
                                      <!-- -->
                                     <input type="text" formControlName="mes_caducidad" class="form-control" placeholder="MM" />
+                                    <div *ngIf="servicioForm.controls['mes_caducidad'].invalid && (servicioForm.controls['mes_caducidad'].dirty || servicioForm.controls['mes_caducidad'].touched)" class="alert alert-danger">
+                                        Este campo no puede estar vacio.
+                                    </div>
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
                                     <span class="help-block text-muted small-font">{{ 'contratar-servicio.añoExpiracion' | translate }}</span>
                                      <!-- -->
                                     <input type="text" formControlName="anyo_caducidad" class="form-control" placeholder="AA" />
+                                    <div *ngIf="servicioForm.controls['anyo_caducidad'].invalid && (servicioForm.controls['anyo_caducidad'].dirty || servicioForm.controls['anyo_caducidad'].touched)" class="alert alert-danger">
+                                        Este campo no puede estar vacio.
+                                    </div>
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3" style="display: flex; flex-direction: column;">
                                     <span class="help-block text-muted small-font">CCV</span>
                                      <!-- -->
                                     <input type="password" formControlName="CVV" class="form-control" placeholder="CCV" />
+                                    <div *ngIf="servicioForm.controls['CVV'].invalid && (servicioForm.controls['CVV'].dirty || servicioForm.controls['CVV'].touched)" class="alert alert-danger">
+                                        Este campo no puede estar vacio.
+                                    </div>
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
                                     <img src="../../../../../assets/imatges/Visa_Logo.png" class="img-rounded" />
@@ -90,10 +103,15 @@
                                 <div class="col-md-12 pad-adjust">
                                      <!-- -->
                                     <input type="text" formControlName="nombre_tarjeta" class="form-control" placeholder="{{ 'contratar-servicio.nombreTarjeta' | translate }}" />
+                                    <div *ngIf="servicioForm.controls['nombre_tarjeta'].invalid && (servicioForm.controls['nombre_tarjeta'].dirty || servicioForm.controls['nombre_tarjeta'].touched)" class="alert alert-danger">
+                                        Este campo no puede estar vacio.
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+                    
     
                 <div class="contenedor-botones">
                     <button type="button" (click)="anteriorDate()">{{ 'contratar-servicio.anterior' | translate}}</button>

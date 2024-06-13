@@ -47,6 +47,7 @@ export class TiketsServiciosComponent implements OnInit {
         this.obtenerSolicitudesProveedor(data.dni);
         this.obtenerSolicitudesFalse(data.dni);
         this.obtenerSolicitudesTrue(data.dni);
+        this.SolicitudesRealizadas(data.dni);
       },
       (error) => {
         console.error('Error al obtener el perfil del usuario:', error);
@@ -85,6 +86,8 @@ export class TiketsServiciosComponent implements OnInit {
     );
   }
 
+
+
   obtenerSolicitudesTrue(id_user_proveedor: string): void {
     console.log("sssssssssssssssssssssssssss: " + id_user_proveedor)
     this.http.get<any[]>('http://localhost:8000/api/solicitudes-aceptadas/' + id_user_proveedor).subscribe(
@@ -92,7 +95,8 @@ export class TiketsServiciosComponent implements OnInit {
         console.log('id User Proveedor:',id_user_proveedor);
 
         console.log('Solicitudes del proveedor True:', data);
-        this.solicitudesAcceptadas = data; // Asignar las solicitudes devueltas a la variable local
+        //Filtro de solicitudes aceptadas pero no realizadas
+        this.solicitudesAcceptadas = data.filter(solicitud => !solicitud.realizado);
         this.loading = false; 
 
       },
@@ -128,7 +132,6 @@ export class TiketsServiciosComponent implements OnInit {
     );
   }
 
-
   rechazarSolicitud(solicitud: any): void {
     // Realizar la solicitud DELETE para rechazar la solicitud
     const url = `http://localhost:8000/api/solicitudes/${solicitud.id}/rechazar`;
@@ -149,9 +152,9 @@ export class TiketsServiciosComponent implements OnInit {
   }
 
 
-
+  //FUNCIÓN PARA VER LAS SOLICITUDES REALIZADAS
   SolicitudesRealizadas(id_user_proveedor: string): void {
-    this.http.get<any[]>('http://localhost:8000/api//solicitudes-realizadas/' + id_user_proveedor).subscribe(
+    this.http.get<any[]>('http://localhost:8000/api/solicitudes-realizadas/' + id_user_proveedor).subscribe(
       (data) => {
         console.log('id User Proveedor:',id_user_proveedor);
 
